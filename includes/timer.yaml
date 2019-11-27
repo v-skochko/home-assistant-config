@@ -1,0 +1,5 @@
+  airing:
+    duration: '01:00:00'
+
+  led:
+    duration: '00:30:00'

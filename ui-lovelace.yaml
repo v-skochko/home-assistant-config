@@ -1,0 +1,146 @@
+title: Mothership
+# Include external resources
+resources:
+  - url: /local/my-custom-card.js
+    type: js
+  - url: /local/light-entity-card.js?track=true 
+    type: js
+  - url: /local/style.css
+    type: css
+  - url: https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/weather-card/weather-card.min.js
+    type: module
+  - url: /local/radio-selector.js
+    type: module
+  - url: /community_plugin/button-entity-row/button-entity-row.js
+    type: module
+# Exclude entities from "Unused entities" view
+excluded_entities:
+views:
+### головний екран  ############  
+  - title: Головне
+    path: home
+    cards:
+      - type: entity-button
+        name: Turn Off Lights
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.swich_pc_state
+        entity: script.swich_pc_state      
+      - type: entities
+        title: Вмикачі
+        icon: mdi:home-assistant       
+        entities:
+          - entity: switch.wol
+            name: Комп (розбудити через мережу)        
+          - entity: switch.wall_switch_right_158d0001f4852b 
+            name: Коридор - Споти
+            icon: mdi:spotlight-beam                                 
+          - entity: switch.wall_switch_right_158d0001dc2c2e 
+            name: Кімната - Спот
+            icon: mdi:spotlight-beam  
+          - entity: switch.wall_switch_left_158d0001dc2c2e  
+            name: Кімната - Місяць
+            icon: mdi:brightness-1    
+          - entity: switch.wall_switch_right_158d00016c31cf 
+            name: Душова - Світло
+            icon: mdi:lightbulb-on 
+          - entity: switch.wall_switch_left_158d00016c31cf 
+            name: Душова - Вентиляція
+            icon: mdi:fan   
+          - entity: switch.wall_switch_left_158d00019f6738 
+            name: Кухня - Споти
+            icon: mdi:spotlight-beam    
+          - entity: switch.wall_switch_right_158d00019f6738 
+            name: Кухня - Бра
+            icon: mdi:ceiling-light    
+          - entity: switch.broadlink_kitchen_ambilight
+            name: Кухня - Підсвітка 
+            icon: mdi:led-on               
+          - entity: switch.broadlink_kitchen_fan
+            name: Кухня - Вентиляція
+            icon: mdi:fan  
+          - entity: switch.broadlink_pc
+            name: Комп
+            icon: mdi:fan              
+          - entity: switch.broadlink_christmass_tree
+            name: Ялинка
+            icon: mdi:pine-tree  
+
+      - type: picture-glance
+        entities: []
+        title: Вхідні двері
+        camera_image:  camera.generic_camera
+      - type: sensor
+        entity: sensor.temperature_158d0002437932
+        name: Температура в кімнаті
+      - type: custom:light-entity-card
+        entity: light.yeelight_color2_7c49eb1583d9
+        header: Лампа Віки
+      - type: custom:light-entity-card
+        entity: light.yeelight_color2_7c49eb1586cb
+        header: Лампа Васі    
+  - icon: mdi:play-circle
+    title: Second view
+    cards:
+      - type: "custom:jukebox-card"
+        links:
+          - url: http://94.23.252.14:8067/stream
+            name: Nature Sounds 🌎
+          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
+            name: Jazz Radio Blues   
+          - url: http://212.26.146.50:8000/sraka.mp3
+            name: Радіо Срака 😆
+          - url: http://94.23.40.70:8010/
+            name: Metal Radio 👿
+          - url: http://stream.radioskovoroda.com:8060/skovoroda_music
+            name: Радіо Сковорода    
+          - url: http://listen.shoutcast.com/Classic-RockFlorida
+            name: Classic-Rock Florida         
+          - url: http://streams.greenhost.nl:8080/jazz
+            name: Concertzender Jazz
+          - url: http://fs-insidejazz.fast-serv.com:8282/;stream.nsv
+            name: Inside Jazz
+          - url: http://stream.srg-ssr.ch/m/rsj/mp3_128
+            name: Radio Swiss Jazz
+          - url: http://stream.beachlatinoradio.com:8030/;?d=
+            name: Beach Latino Radio
+          - url: http://streams.calmradio.com/api/43/128/stream/;?d=
+            name: Calm Radio
+          - url: http://swr-swr1-bw.cast.addradio.de/swr/swr1/bw/mp3/128/stream.mp3
+            name: SWR 1
+                                   
+        entities:
+          - media_player.kitchen
+      - type: media-control
+        entity: media_player.kitchen               
+### Погода  ############         
+  - title: Погода
+    path: weather
+    id: weather
+    icon: mdi:weather-sunny
+    cards:
+      - type: sensor
+        entity: sensor.temperature_158d0002437932
+        name: Температура в квартирі    
+      - type: custom:weather-card
+        entity: weather.dark_sky
+        name: Львів    
+      - type: history-graph
+        title: 'Історія'
+        entities:
+          - entity: sensor.temperature_158d0002437932
+            name: Температура - Коридор
+          - entity: sensor.humidity_158d0002437932
+            name: Вологість - Коридор        
+          - entity: sensor.pressure_158d0002437932
+            name: Тиск - Коридор 
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Фаза Сонця
+            show_header_toggle: false
+            entities:
+              - sensor.nextsunset
+              - sensor.nextsunrise
