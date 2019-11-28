@@ -3,7 +3,7 @@ title: Mothership
 resources:
   - url: /local/my-custom-card.js
     type: js
-  - url: /local/light-entity-card.js?track=true
+  - url: /local/light-entity-card.js?track=true 
     type: js
   - url: /local/style.css
     type: css
@@ -16,7 +16,7 @@ resources:
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
-  ### головний екран  ############
+### головний екран  ############  
   - title: Головне
     path: home
     cards:
@@ -27,46 +27,46 @@ views:
           service: script.turn_on
           service_data:
             entity_id: script.swich_pc_state
-        entity: script.swich_pc_state
+        entity: script.swich_pc_state      
       - type: entities
         title: Вмикачі
-        icon: mdi:home-assistant
+        icon: mdi:home-assistant       
         entities:
           - entity: switch.wol
-            name: Комп (розбудити через мережу)
-          - entity: switch.wall_switch_right_158d0001f4852b
+            name: Комп (розбудити через мережу)        
+          - entity: switch.wall_switch_right_158d0001f4852b 
             name: Коридор - Споти
-            icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_right_158d0001dc2c2e
+            icon: mdi:spotlight-beam                                 
+          - entity: switch.wall_switch_right_158d0001dc2c2e 
             name: Кімната - Спот
-            icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_left_158d0001dc2c2e
+            icon: mdi:spotlight-beam  
+          - entity: switch.wall_switch_left_158d0001dc2c2e  
             name: Кімната - Місяць
-            icon: mdi:brightness-1
-          - entity: switch.wall_switch_right_158d00016c31cf
+            icon: mdi:brightness-1    
+          - entity: switch.wall_switch_right_158d00016c31cf 
             name: Душова - Світло
-            icon: mdi:lightbulb-on
-          - entity: switch.wall_switch_left_158d00016c31cf
+            icon: mdi:lightbulb-on 
+          - entity: switch.wall_switch_left_158d00016c31cf 
             name: Душова - Вентиляція
-            icon: mdi:fan
-          - entity: switch.wall_switch_left_158d00019f6738
+            icon: mdi:fan   
+          - entity: switch.wall_switch_left_158d00019f6738 
             name: Кухня - Споти
-            icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_right_158d00019f6738
+            icon: mdi:spotlight-beam    
+          - entity: switch.wall_switch_right_158d00019f6738 
             name: Кухня - Бра
-            icon: mdi:ceiling-light
+            icon: mdi:ceiling-light    
           - entity: switch.broadlink_kitchen_ambilight
-            name: Кухня - Підсвітка
-            icon: mdi:led-on
+            name: Кухня - Підсвітка 
+            icon: mdi:led-on               
           - entity: switch.broadlink_kitchen_fan
             name: Кухня - Вентиляція
-            icon: mdi:fan
+            icon: mdi:fan  
           - entity: switch.broadlink_pc
             name: Комп
-            icon: mdi:fan
+            icon: mdi:fan              
           - entity: switch.broadlink_christmass_tree
             name: Ялинка
-            icon: mdi:pine-tree
+            icon: mdi:pine-tree  
 
       - type: picture-glance
         entities: []
@@ -80,7 +80,7 @@ views:
         header: Лампа Віки
       - type: custom:light-entity-card
         entity: light.yeelight_color2_7c49eb1586cb
-        header: Лампа Васі
+        header: Лампа Васі    
   - icon: mdi:play-circle
     title: Second view
     cards:
@@ -89,15 +89,15 @@ views:
           - url: http://94.23.252.14:8067/stream
             name: Nature Sounds 🌎
           - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
-            name: Jazz Radio Blues
+            name: Jazz Radio Blues   
           - url: http://212.26.146.50:8000/sraka.mp3
             name: Радіо Срака 😆
           - url: http://94.23.40.70:8010/
             name: Metal Radio 👿
           - url: http://stream.radioskovoroda.com:8060/skovoroda_music
-            name: Радіо Сковорода
+            name: Радіо Сковорода    
           - url: http://listen.shoutcast.com/Classic-RockFlorida
-            name: Classic-Rock Florida
+            name: Classic-Rock Florida         
           - url: http://streams.greenhost.nl:8080/jazz
             name: Concertzender Jazz
           - url: http://fs-insidejazz.fast-serv.com:8282/;stream.nsv
@@ -110,12 +110,12 @@ views:
             name: Calm Radio
           - url: http://swr-swr1-bw.cast.addradio.de/swr/swr1/bw/mp3/128/stream.mp3
             name: SWR 1
-
+                                   
         entities:
           - media_player.kitchen
       - type: media-control
-        entity: media_player.kitchen
-  ### Погода  ############
+        entity: media_player.kitchen               
+### Погода  ############         
   - title: Погода
     path: weather
     id: weather
@@ -123,19 +123,19 @@ views:
     cards:
       - type: sensor
         entity: sensor.temperature_158d0002437932
-        name: Температура в квартирі
+        name: Температура в квартирі    
       - type: custom:weather-card
         entity: weather.dark_sky
-        name: Львів
+        name: Львів    
       - type: history-graph
         title: 'Історія'
         entities:
           - entity: sensor.temperature_158d0002437932
             name: Температура - Коридор
           - entity: sensor.humidity_158d0002437932
-            name: Вологість - Коридор
+            name: Вологість - Коридор        
           - entity: sensor.pressure_158d0002437932
-            name: Тиск - Коридор
+            name: Тиск - Коридор 
       - type: vertical-stack
         cards:
           - type: entities

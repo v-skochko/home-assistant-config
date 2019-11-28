@@ -2,7 +2,7 @@
 #  aqara_group:
 #    name: All aqara switches
 #    entities:
-#      - switch.wall_switch_right_158d0001f4852b
+#      - switch.wall_switch_right_158d0001f4852b 
 #      - switch.wall_switch_right_158d0001dc2c2e
 #      - switch.wall_switch_left_158d0001dc2c2e
 #      - switch.wall_switch_right_158d00016c31cf
@@ -17,9 +17,9 @@
 #      - switch.broadlink_kitchen_fan
 #      - switch.broadlink_pc
 #      - switch.broadlink_christmass_tree
-Residence Radio:
+ Residence Radio:
   name: Residentie Radio
   entities:
-    - input_select.radio_station
-    - input_select.chromecast_radio
-    - script.radio538
+  - input_select.radio_station
+  - input_select.chromecast_radio
+  - script.radio538
