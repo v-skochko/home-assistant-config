@@ -33,9 +33,9 @@ yeelight:
     192.168.1.63:
       name: viktoriia-lamp
     192.168.1.16:
-      name: master-lamp    
+      name: master-lamp
     192.168.1.10:
-      name: master-lamp          
+      name: master-lamp
 googlehome:
   devices:
     - host:  192.168.1.5
@@ -54,7 +54,7 @@ camera:
   - platform: generic
     still_image_url: !secret camera_still_image_url
     stream_source: !secret camera_stream_source
-    
+
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
@@ -74,11 +74,7 @@ script: !include_dir_merge_named includes/scripts
 
 group: !include groups.yaml
 
-# Discover some devices automatically
-discovery:
 
-
-      
 # Text to speech
 tts:
   - platform: google_translate
@@ -96,7 +92,7 @@ weather:
   - platform: darksky
     api_key: !secret darksky_token
     mode: daily
-    
+
 lovelace:
   mode: yaml
 
@@ -126,12 +122,12 @@ switch:
     mac: '34ea34bd5fc2'
     type:  sp2
     timeout: 10
-    friendly_name: 'broadlink_PC'    
+    friendly_name: 'broadlink_PC'
   - platform: broadlink
     host: 192.168.1.24
     mac: '34ea34852721'
     type:  mp1
-    friendly_name: 'broadlink_root_socket' 
+    friendly_name: 'broadlink_root_socket'
     slots:
       slot_1: 'one_plus3t'
       slot_2: 'google_home'
@@ -144,4 +140,4 @@ switch:
 #    interval_seconds: 3
 #    url: http://192.168.1.1/ # web interface url (don't forget about `/` in the end)
 #    username: !secret padavan_tracker_user # Web interface user name
-#    password: !secret padavan_tracker_password # Web interface user pass    
+#    password: !secret padavan_tracker_password # Web interface user pass
