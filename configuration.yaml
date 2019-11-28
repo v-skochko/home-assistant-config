@@ -52,8 +52,8 @@ stream:
 
 camera:
   - platform: generic
-    still_image_url: !secret camera_stream_source
-    stream_source: !secret camera_still_image_url
+    still_image_url: !secret camera_still_image_url
+    stream_source: !secret camera_stream_source
     
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:

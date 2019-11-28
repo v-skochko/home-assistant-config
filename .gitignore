@@ -1,3 +1,7 @@
+# Example .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
+*
+
 
 # Ignore folders.
 .storage
