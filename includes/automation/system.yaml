@@ -166,9 +166,9 @@
     platform: sun
     event: sunset
   action:
-   - service: light.turn_on
-     data:
-       entity_id: light.window
+    - service: light.turn_on
+      data:
+        entity_id: light.window
 
 #Вимкнути led підсвітку опівночі
 - alias: led_off_on_midnight
@@ -269,7 +269,7 @@
     to: 'on'
     from: 'off'
   action:
-#    - service: script.swich_pc_state
+    #    - service: script.swich_pc_state
     - service: script.play_radio
 
 
@@ -294,17 +294,17 @@
     platform: state
     entity_id: binary_sensor.motion_sensor_158d0002b4745b
     to: 'on'
-# condition:
-#   condition: state
-#   entity_id: sun.sun
-#   state: 'below_horizon'
+  # condition:
+  #   condition: state
+  #   entity_id: sun.sun
+  #   state: 'below_horizon'
   action:
-   - service: light.turn_on
-     data:
-       entity_id: light.gateway_light_7811dcfaf643
-       transition: 5
-       rgb_color: 71,162,255
-       brightness: 89
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcfaf643
+        transition: 5
+        rgb_color: 71,162,255
+        brightness: 89
 
 
 #- alias: Motion Sensor Lights Off
@@ -360,26 +360,13 @@
 - alias: off_alls_witches
   trigger:
     - platform: time
-      at: '19:10:00'
+      at: '20:00:00'
   action:
     - service: switch.turn_off
-      data:
-        entity_id: switch.wall_switch_right_158d0001f4852b
-        entity_id: switch.wall_switch_right_158d0001dc2c2e
-        entity_id: switch.wall_switch_left_158d0001dc2c2e
-        entity_id: switch.wall_switch_right_158d00016c31cf
-        entity_id: switch.wall_switch_left_158d00019f6738
-        entity_id: switch.wall_switch_right_158d00019f6738
-        entity_id: switch.broadlink_kitchen_ambilight
-        entity_id: switch.broadlink_kitchen_fan
-        entity_id: switch.broadlink_pc
-        entity_id: switch.broadlink_christmass_tree
-        entity_id: switch.wall_switch_left_158d00016c31cf
+      entity_id: group.all_switches
     - service: light.turn_off
       data:
-        entity_id: light.yeelight_strip2_04cf8c76bd6e
-        entity_id: light.yeelight_color2_7c49eb1586cb
-        entity_id: light.yeelight_color2_7c49eb1583d9
+
 
 #############
 #############

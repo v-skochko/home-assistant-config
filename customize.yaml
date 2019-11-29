@@ -2,6 +2,8 @@
     friendly_name: Start Playing
     icon: mdi:play
    ## Switches
+   switch.wall_switch_left_158d0001f4852b:
+    friendly_name: сorridor_left
    switch.wall_switch_right_158d0001f4852b:
     friendly_name: сorridor_light
    switch.wall_switch_right_158d0001dc2c2e:
