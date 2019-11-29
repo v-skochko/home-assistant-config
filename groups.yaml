@@ -14,8 +14,8 @@ group:
       - switch.kitchen_spot
       - switch.kitchen_bra
   Residence Radio:
-   name: Residentie Radio
-   entities:
-   - input_select.radio_station
-   - input_select.chromecast_radio
-   - script.radio538
+    name: Residentie Radio
+    entities:
+      - input_select.radio_station
+      - input_select.chromecast_radio
+      - script.radio538
