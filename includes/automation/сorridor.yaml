@@ -1,0 +1,52 @@
+#Прихід додому - увімкнути музику
+- alias: left_key
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+    #    - service: script.swich_pc_state
+    - service: script.play_radio
+
+#Вимкнути ліву клавішу одразу після вмикання
+- alias: left_key_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001f4852b
+
+- alias: Motion Sensor Lights On
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b4745b
+    to: 'on'
+  # condition:
+  #   condition: state
+  #   entity_id: sun.sun
+  #   state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcfaf643
+        transition: 5
+        rgb_color: 71,162,255
+        brightness: 89
+
+#- alias: Motion Sensor Lights Off
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.motion_sensor_158d0002b4745b
+#      to: 'off'
+#      for:
+#        minutes: 1
+#  action:
+#    - service: light.turn_off
+#      entity_id: light.gateway_light_7811dcfaf643
+#      data:
+#        transition: 10
