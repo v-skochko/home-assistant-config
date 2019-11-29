@@ -1,10 +1,9 @@
    script.radio538:
     friendly_name: Start Playing
     icon: mdi:play
-    
+   ## Switches
    switch.wall_switch_left_158d00016c31cf:
     friendly_name: kitchen_right
-
    switch.wall_switch_right_158d0001f4852b:
     friendly_name: сorridor_light
    switch.wall_switch_right_158d0001dc2c2e:
@@ -12,8 +11,8 @@
    switch.wall_switch_left_158d0001dc2c2e:
     friendly_name: room_moon_switch
    switch.wall_switch_right_158d00016c31cf:
-    friendly_name: shower_ventilation   
-    icon: mdi:lightbulb-on    
+    friendly_name: shower_ventilation
+    icon: mdi:lightbulb-on
    switch.wall_switch_left_158d00016c31cf:
-    friendly_name: shower_light    
-    icon: mdi:fan   
+    friendly_name: shower_light
+    icon: mdi:fan

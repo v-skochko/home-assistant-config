@@ -21,7 +21,7 @@
     - service: light.toggle
       data:
         entity_id: light.master_lamp
-#Безпровідна Права - один клік        
+#Безпровідна Права - один клік
 - alias: binary_single_right_click
   trigger:
     platform: event
@@ -74,9 +74,9 @@
         entity_id: group.all_lights
     - service: media_player.media_stop
       data:
-        entity_id: media_player.speaker 
+        entity_id: media_player.speaker
 
-#Безпровідна Ліва - Подвійний клік (Увімкнути комп'ютер)       
+#Безпровідна Ліва - Подвійний клік (Увімкнути комп'ютер)
 - alias: binary_double_left_click
   trigger:
     platform: event
@@ -87,11 +87,11 @@
   action:
     - service: script.swich_pc_state
 
-         
+
 
 ####### 2 - Кухня
-############################################################################### 
-#                 
+###############################################################################
+#
 #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
 - alias: wall_switch_and_led_on
   trigger:
@@ -127,7 +127,7 @@
     - delay: '01:02:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan 
+        entity_id: switch.broadlink_kitchen_fan
 #Вечірнє провітрювання
 - alias: kitchen_night_airing
   trigger:
@@ -140,7 +140,7 @@
     - delay: '04:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan 
+        entity_id: switch.broadlink_kitchen_fan
 
 #Увімкнути провітрення на годину якщо є рух
 - alias: kitchen_motion_airing
@@ -159,7 +159,7 @@
     - delay: '01:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan 
+        entity_id: switch.broadlink_kitchen_fan
 #Увімкнутии led підсвітку після заходу сонця
 - alias: led_on_when_sunset
   trigger:
@@ -191,11 +191,11 @@
 #    entity_id: binary_sensor.motion_sensor_158d0002b4745b
 #    to: 'on'
 #  condition:
-#    condition: and  
+#    condition: and
 #    conditions:
 #      - condition: sun
 #        after: sunset
-#        after_offset: '-01:00:00'        
+#        after_offset: '-01:00:00'
 #      - condition: sun
 #        before: sunrise
 #        before_offset: '01:00:00'
@@ -216,9 +216,9 @@
 #        entity_id: light.yeelight_strip2_04cf8c76bd6e
 
 
-       
+
 ####### 3 - Душова
-###############################################################################  
+###############################################################################
 #
 #Ранкове провітрювання
 - alias: shower_morning_airing
@@ -232,7 +232,7 @@
     - delay: '00:20:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.wall_switch_left_158d00016c31cf 
+        entity_id: switch.wall_switch_left_158d00016c31cf
 #Вечірнє провітрювання
 - alias: shower_night_airing
   trigger:
@@ -245,7 +245,7 @@
     - delay: '00:15:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.wall_switch_left_158d00016c31cf 
+        entity_id: switch.wall_switch_left_158d00016c31cf
 #Автоматично вимкнути провітрювання
 - alias: left_key_fix
   trigger:
@@ -256,12 +256,12 @@
   action:
     - delay: '00:40:00'
     - service: switch.turn_off
-      entity_id: switch.wall_switch_left_158d00016c31cf 
+      entity_id: switch.wall_switch_left_158d00016c31cf
 
 ####### 4 - Коридор
-############################################################################### 
+###############################################################################
 #
-#Прихід додому - увімкнути музику    
+#Прихід додому - увімкнути музику
 - alias: left_key
   trigger:
     platform: state
@@ -269,8 +269,8 @@
     to: 'on'
     from: 'off'
   action:
-#    - service: script.swich_pc_state  
-    - service: script.play_radio  
+#    - service: script.swich_pc_state
+    - service: script.play_radio
 
 
 #Вимкнути ліву клавішу одразу після вмикання
@@ -283,7 +283,7 @@
   action:
     - delay: 1
     - service: switch.turn_off
-      entity_id: switch.wall_switch_left_158d0001f4852b 
+      entity_id: switch.wall_switch_left_158d0001f4852b
 
 
 
@@ -327,9 +327,9 @@
 
 
 ####### 5 - Системні сценарії
-###############################################################################  
+###############################################################################
 #
-#Вимкнути broadlink_PC одразу після вмикання
+#Вимкнути broadlink_pc одразу після вмикання
 - alias: broadlink_PC_off_fix
   trigger:
     platform: state
@@ -367,28 +367,28 @@
         entity_id: switch.wall_switch_right_158d0001f4852b
         entity_id: switch.wall_switch_right_158d0001dc2c2e
         entity_id: switch.wall_switch_left_158d0001dc2c2e
-        entity_id: switch.wall_switch_right_158d00016c31cf 
+        entity_id: switch.wall_switch_right_158d00016c31cf
         entity_id: switch.wall_switch_left_158d00019f6738
         entity_id: switch.wall_switch_right_158d00019f6738
         entity_id: switch.broadlink_kitchen_ambilight
         entity_id: switch.broadlink_kitchen_fan
         entity_id: switch.broadlink_pc
-        entity_id: switch.broadlink_christmass_tree 
+        entity_id: switch.broadlink_christmass_tree
         entity_id: switch.wall_switch_left_158d00016c31cf
     - service: light.turn_off
       data:
         entity_id: light.yeelight_strip2_04cf8c76bd6e
         entity_id: light.yeelight_color2_7c49eb1586cb
         entity_id: light.yeelight_color2_7c49eb1583d9
-                       
+
 #############
 #############
 #############
 #############
 ####### ТЕСТИ
-###############################################################################  
+###############################################################################
 #
-#hub ringtone   
+#hub ringtone
 #{
 #  "gw_mac": "7811DCFAF643",
 #  "ringtone_id": 29,
@@ -406,7 +406,7 @@
 #      data:
 #        gw_mac: 7811DCFAF643
 #        ringtone_id: 1001
-#        ringtone_vol: 8      
+#        ringtone_vol: 8
 #----Тести--#
 #- alias: sunset
 #  trigger:

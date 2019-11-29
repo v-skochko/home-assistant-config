@@ -3,16 +3,16 @@
     sequence:
      - service: switch.turn_on
        data:
-         entity_id: switch.broadlink_PC 
+         entity_id: switch.broadlink_pc
      - delay: 1
      - service: switch.turn_on
        data:
-         entity_id: switch.broadlink_PC         
+         entity_id: switch.broadlink_pc
      - service: xiaomi_aqara.play_ringtone
        data:
          gw_mac: 7811DCFAF643
          ringtone_id: 10003
-         ringtone_vol: 20   
+         ringtone_vol: 20
 
 
 #Увімкнути радіо
@@ -20,18 +20,18 @@
     sequence:
     - service: media_player.media_stop
       data:
-        entity_id: media_player.kitchen     
+        entity_id: media_player.kitchen
     - service: media_player.volume_set
       data:
         entity_id: media_player.kitchen
-        volume_level: '0.5'    
+        volume_level: '0.5'
 
     - service: tts.google_translate_say
       entity_id: media_player.kitchen
       data:
         message: 'Searching nice music for you'
-    
-     
+
+
     - service: media_player.play_media
       data:
         entity_id: media_player.kitchen
