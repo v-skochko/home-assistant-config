@@ -1,21 +1,25 @@
-group:
-  light:
-    name: Light
-    entities:
-      - switch.kitchen_pin_3
-  all_switches:
-    name: Вмикачі
-    entities:
-      - switch.сorridor_left
-      - switch.сorridor_light
-      - switch.room_spot
-      - switch.shower_light
-      - switch.shower_ventilation
-      - switch.kitchen_spot
-      - switch.kitchen_bra
-  Residence Radio:
-    name: Residentie Radio
-    entities:
-      - input_select.radio_station
-      - input_select.chromecast_radio
-      - script.radio538
+#group:
+#  aqara_group:
+#    name: All aqara switches
+#    entities:
+#      - switch.wall_switch_right_158d0001f4852b 
+#      - switch.wall_switch_right_158d0001dc2c2e
+#      - switch.wall_switch_left_158d0001dc2c2e
+#      - switch.wall_switch_right_158d00016c31cf
+#      - switch.wall_switch_left_158d00016c31cf
+#      - switch.wall_switch_left_158d00019f6738
+#      - switch.wall_switch_right_158d00019f6738
+#
+#  broadlink_group:
+#    name: Broadlink switches
+#    entities:
+#      - switch.broadlink_kitchen_ambilight
+#      - switch.broadlink_kitchen_fan
+#      - switch.broadlink_pc
+#      - switch.broadlink_christmass_tree
+ Residence Radio:
+  name: Residentie Radio
+  entities:
+  - input_select.radio_station
+  - input_select.chromecast_radio
+  - script.radio538

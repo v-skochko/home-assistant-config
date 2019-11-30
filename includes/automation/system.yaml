@@ -1,4 +1,335 @@
-#Вимкнути broadlink_pc одразу після вмикання
+#1 - Кімната
+#2 - Кухня
+#3 - Душова
+#4 - Коридор
+#5 - Системні сценарії
+#6 - Аварійні сценарії
+####### 1 - Кімната
+###############################################################################
+#
+### Безпровідна
+###############
+#Безпровідна Ліва - один клік
+- alias: binary_single_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d00027c0ef6
+      click_type: single
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.master_lamp
+#Безпровідна Права - один клік        
+- alias: binary_single_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d00027c0ef6
+      click_type: single
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.viktoriia_lamp
+#Безпровідна Ліва - довгий клік
+- alias: binary_long_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d00027c0ef6
+      click_type: long
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_right_158d0001dc2c2e
+#Безпровідна Права - довгий клік
+- alias: binary_long_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d00027c0ef6
+      click_type: long
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_left_158d0001dc2c2e
+#Безпровідна Обидві - клік (Вимкнути все в квартирі)
+- alias: binary_long_both_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_both_158d00027c0ef6
+      click_type: long_both
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.all_switches
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.speaker 
+
+#Безпровідна Ліва - Подвійний клік (Увімкнути комп'ютер)       
+- alias: binary_double_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d00027c0ef6
+      click_type: double
+  action:
+    - service: script.swich_pc_state
+
+         
+
+####### 2 - Кухня
+############################################################################### 
+#                 
+#Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
+- alias: wall_switch_and_led_on
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d00019f6738
+    to: 'on'
+    from: 'off'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_kitchen_ambilight
+- alias: wall_switch_and_led_off
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d00019f6738
+    to: 'off'
+    from: 'on'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.broadlink_kitchen_ambilight
+
+
+#Ранкове провітрювання
+- alias: kitchen_morning_airing
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_kitchen_fan
+    - delay: '01:02:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.broadlink_kitchen_fan 
+#Вечірнє провітрювання
+- alias: kitchen_night_airing
+  trigger:
+    - platform: time
+      at: '18:00:00'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_kitchen_fan
+    - delay: '04:00:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.broadlink_kitchen_fan 
+
+#Увімкнути провітрення на годину якщо є рух
+- alias: kitchen_motion_airing
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b4745b
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: switch.broadlink_kitchen_fan
+      state: 'off'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_kitchen_fan
+    - delay: '01:00:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.broadlink_kitchen_fan 
+#Увімкнутии led підсвітку після заходу сонця
+- alias: led_on_when_sunset
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+   - service: light.turn_on
+     data:
+       entity_id: light.window
+
+#Вимкнути led підсвітку опівночі
+- alias: led_off_on_midnight
+  trigger:
+    - platform: time
+      at: '23:30:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.window
+
+
+
+
+
+####################
+#- alias: Motion Sensor Lights On
+#  trigger:
+#    platform: state
+#    entity_id: binary_sensor.motion_sensor_158d0002b4745b
+#    to: 'on'
+#  condition:
+#    condition: and  
+#    conditions:
+#      - condition: sun
+#        after: sunset
+#        after_offset: '-01:00:00'        
+#      - condition: sun
+#        before: sunrise
+#        before_offset: '01:00:00'
+#  action:
+#    - service: light.turn_on
+#     entity_id: light.yeelight_strip2_04cf8c76bd6e
+#
+#- alias: Motion Sensor Lights Off
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
+#      to: 'off'
+#      for:
+#        minutes: 15
+#  action:
+#    - service: light.turn_off
+#      data:
+#        entity_id: light.yeelight_strip2_04cf8c76bd6e
+
+
+       
+####### 3 - Душова
+###############################################################################  
+#
+#Ранкове провітрювання
+- alias: shower_morning_airing
+  trigger:
+    - platform: time
+      at: '09:40:00'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wall_switch_left_158d00016c31cf
+    - delay: '00:20:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wall_switch_left_158d00016c31cf 
+#Вечірнє провітрювання
+- alias: shower_night_airing
+  trigger:
+    - platform: time
+      at: '23:45:00'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wall_switch_left_158d00016c31cf
+    - delay: '00:15:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wall_switch_left_158d00016c31cf 
+#Автоматично вимкнути провітрювання
+- alias: left_key_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d00016c31cf
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: '00:40:00'
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d00016c31cf 
+
+####### 4 - Коридор
+############################################################################### 
+#
+#Прихід додому - увімкнути музику    
+- alias: left_key
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+#    - service: script.swich_pc_state  
+    - service: script.play_radio  
+
+
+#Вимкнути ліву клавішу одразу після вмикання
+- alias: left_key_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001f4852b 
+
+
+
+
+
+- alias: Motion Sensor Lights On
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b4745b
+    to: 'on'
+# condition:
+#   condition: state
+#   entity_id: sun.sun
+#   state: 'below_horizon'
+  action:
+   - service: light.turn_on
+     data:
+       entity_id: light.gateway_light_7811dcfaf643
+       transition: 5
+       rgb_color: 71,162,255
+       brightness: 89
+
+
+#- alias: Motion Sensor Lights Off
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.motion_sensor_158d0002b4745b
+#      to: 'off'
+#      for:
+#        minutes: 1
+#  action:
+#    - service: light.turn_off
+#      entity_id: light.gateway_light_7811dcfaf643
+#      data:
+#        transition: 10
+
+
+
+
+
+
+
+####### 5 - Системні сценарії
+###############################################################################  
+#
+#Вимкнути broadlink_PC одразу після вмикання
 - alias: broadlink_PC_off_fix
   trigger:
     platform: state
@@ -23,23 +354,41 @@
       entity_id: switch.wol
 
 
+
+
 #Автоматичне вимкнення світла і вмикачів вночі
 - alias: off_alls_witches
   trigger:
     - platform: time
-      at: '20:00:00'
+      at: '19:10:00'
   action:
     - service: switch.turn_off
-      entity_id: group.all_switches
-
+      data:
+        entity_id: switch.wall_switch_right_158d0001f4852b
+        entity_id: switch.wall_switch_right_158d0001dc2c2e
+        entity_id: switch.wall_switch_left_158d0001dc2c2e
+        entity_id: switch.wall_switch_right_158d00016c31cf 
+        entity_id: switch.wall_switch_left_158d00019f6738
+        entity_id: switch.wall_switch_right_158d00019f6738
+        entity_id: switch.broadlink_kitchen_ambilight
+        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_pc
+        entity_id: switch.broadlink_christmass_tree 
+        entity_id: switch.wall_switch_left_158d00016c31cf
+    - service: light.turn_off
+      data:
+        entity_id: light.yeelight_strip2_04cf8c76bd6e
+        entity_id: light.yeelight_color2_7c49eb1586cb
+        entity_id: light.yeelight_color2_7c49eb1583d9
+                       
 #############
 #############
 #############
 #############
 ####### ТЕСТИ
-###############################################################################
+###############################################################################  
 #
-#hub ringtone
+#hub ringtone   
 #{
 #  "gw_mac": "7811DCFAF643",
 #  "ringtone_id": 29,
@@ -57,7 +406,7 @@
 #      data:
 #        gw_mac: 7811DCFAF643
 #        ringtone_id: 1001
-#        ringtone_vol: 8
+#        ringtone_vol: 8      
 #----Тести--#
 #- alias: sunset
 #  trigger:

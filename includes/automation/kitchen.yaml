@@ -1,6 +1,6 @@
 ####### 2 - Кухня
-###############################################################################
-
+############################################################################### 
+#                 
 #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
 - alias: wall_switch_and_led_on
   trigger:
@@ -34,7 +34,7 @@
     - delay: '01:02:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan 
 #Вечірнє провітрювання
 - alias: kitchen_night_airing
   trigger:
@@ -47,7 +47,7 @@
     - delay: '04:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan 
 
 #Увімкнути провітрення на годину якщо є рух
 - alias: kitchen_motion_airing
@@ -66,7 +66,7 @@
     - delay: '01:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan 
 #Увімкнутии led підсвітку після заходу сонця
 - alias: led_on_when_sunset
   trigger:
