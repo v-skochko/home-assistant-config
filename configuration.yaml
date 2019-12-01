@@ -13,7 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-#test git pull plugin
+#test git pull plugin 2
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
