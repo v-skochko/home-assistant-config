@@ -13,55 +13,6 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-#test git pull plugin
-# Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
-
-media_player:
-  # Use the Python ADB implementation without authentication
-  - platform: androidtv
-    name: Android TV
-    host: 192.168.1.185
-
-discovery:
-  ignore:
-    - yeelight
-yeelight:
-  devices:
-    192.168.1.108:
-      name: window
-    192.168.1.63:
-      name: viktoriia-lamp
-    192.168.1.16:
-      name: master-lamp
-    192.168.1.10:
-      name: master-lamp
-#googlehome:
-#  devices:
-#    - host:  192.168.1.5
-#    - host:  192.168.1.179
-
-cast:
-  media_player:
-    - host: 192.168.1.6
-    - host: 192.168.1.5
-plex:
-  token: !secret plex_token
-
-stream:
-
-camera:
-  - platform: generic
-    still_image_url: !secret camera_still_image_url
-    stream_source: !secret camera_stream_source
-
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
-# Example configuration.yaml entry
-sun:
-
 frontend: !include frontend.yaml
 
 counter: !include includes/counter.yaml
@@ -72,8 +23,50 @@ sensor: !include_dir_merge_list includes/sensors
 
 script: !include_dir_merge_named includes/scripts
 
-group: !include_dir_merge_named groups/
+group: !include_dir_merge_named groups
 
+lovelace:
+  mode: yaml
+
+plex:
+  token: !secret plex_token
+media_player:
+  # Use the Python ADB implementation without authentication
+  - platform: androidtv
+    host: 192.168.1.186
+    name: android-tv
+    adb_server_ip: 127.0.0.1
+    adb_server_port: 5037
+
+
+
+discovery:
+  ignore:
+    - yeelight
+yeelight:
+  devices:
+    192.168.1.63:
+      name: viktoriia-lamp
+    192.168.1.16:
+      name: master-lamp
+    192.168.1.10:
+      name: room-moon
+    192.168.1.108:
+      name: window
+#googlehome:
+#  devices:
+#    - host:  192.168.1.5
+#    - host:  192.168.1.179
+
+cast:
+  media_player:
+    - host: 192.168.1.6
+    - host: 192.168.1.5
+
+camera:
+  - platform: generic
+    still_image_url: !secret camera_still_image_url
+    stream_source: !secret camera_stream_source
 
 # Text to speech
 tts:
@@ -92,9 +85,6 @@ weather:
   - platform: darksky
     api_key: !secret darksky_token
     mode: daily
-
-lovelace:
-  mode: yaml
 
 # Example configuration.yaml entry
 switch:
