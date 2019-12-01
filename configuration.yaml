@@ -13,7 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-
+#test git pull plugin
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -140,4 +140,8 @@ switch:
 #    interval_seconds: 3
 #    url: http://192.168.1.1/ # web interface url (don't forget about `/` in the end)
 #    username: !secret padavan_tracker_user # Web interface user name
+<<<<<<< HEAD
 #    password: !secret padavan_tracker_password # Web interface user pass
+=======
+#    password: !secret padavan_tracker_password # Web interface user pass    
+>>>>>>> 5f1674d245cd7188bcf8d8c5dfd4351532a8242f
