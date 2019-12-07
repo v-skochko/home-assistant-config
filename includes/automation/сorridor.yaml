@@ -6,7 +6,6 @@
     to: 'on'
     from: 'off'
   action:
-    #    - service: script.swich_pc_state
     - service: script.play_radio
 
 #Вимкнути ліву клавішу одразу після вмикання

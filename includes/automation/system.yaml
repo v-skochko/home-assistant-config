@@ -13,18 +13,6 @@
     - service: switch.turn_off
       entity_id: switch.broadlink_pc
 
-#Вимкнути Wake on Lan одразу після вмикання
-- alias: wake_on_lan_fix
-  trigger:
-    platform: state
-    entity_id: switch.wol
-    to: 'on'
-    from: 'off'
-  action:
-    - delay: 1
-    - service: switch.turn_off
-      entity_id: switch.wol
-
 #Фікс для світла в кімнаті
 - alias: room_light_fix
   trigger:
@@ -41,11 +29,48 @@
 - alias: off_alls_witches
   trigger:
     - platform: time
-      at: '03:00:00'
+      at: '02:00:00'
   action:
     - service: switch.turn_off
       entity_id: group.group_switches
 
+
+#Вимкнути комп'ютер вночі, якщо він ще працює
+- alias: Вимкнути Комп
+  trigger:
+    - platform: time
+      at: '02:00:00'
+  action:
+    - service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: nergal
+
+
+
+- alias: iftt
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+
+- id: this_is_the_automation_id
+  alias: The optional automation alias
+  trigger:
+    - event_data:
+        action: call_service
+      event_type: ifttt_webhook_received
+      platform: event
+  condition: []
+  action:
+    - data_template:
+        entity_id: '{{ trigger.event.data.entity_id }}'
+      service_template: '{{ trigger.event.data.service }}'
 
 #############
 #############

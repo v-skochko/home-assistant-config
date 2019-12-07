@@ -2,12 +2,12 @@
 - alias: shower_morning_airing
   trigger:
     - platform: time
-      at: '09:40:00'
+      at: '10:00:00'
   action:
     - service: switch.turn_on
       data:
         entity_id: switch.wall_switch_left_158d00016c31cf
-    - delay: '00:20:00'
+    - delay: '01:00:00'
     - service: switch.turn_off
       data:
         entity_id: switch.wall_switch_left_158d00016c31cf
@@ -16,12 +16,12 @@
 - alias: shower_night_airing
   trigger:
     - platform: time
-      at: '23:45:00'
+      at: '23:00:00'
   action:
     - service: switch.turn_on
       data:
         entity_id: switch.wall_switch_left_158d00016c31cf
-    - delay: '00:15:00'
+    - delay: '00:30:00'
     - service: switch.turn_off
       data:
         entity_id: switch.wall_switch_left_158d00016c31cf

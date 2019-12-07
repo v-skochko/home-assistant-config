@@ -1,35 +1,29 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Mothership
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude
   longitude: !secret longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 302
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Kiev
-  # Customization file
   customize: !include customize.yaml
+
+default_config:
 
 frontend: !include frontend.yaml
 themes: !include_dir_merge_named themes
 counter: !include includes/counter.yaml
-
 automation: !include_dir_merge_list includes/automation
-
 sensor: !include_dir_merge_list includes/sensors
-
 script: !include_dir_merge_named includes/scripts
-
 group: !include_dir_merge_named groups
-
+switch: !include switch.yaml
+yeelight: !include yeelight.yaml
 lovelace:
   mode: yaml
 
 plex:
   token: !secret plex_token
+
 media_player:
   # Use the Python ADB implementation without authentication
   - platform: androidtv
@@ -38,25 +32,9 @@ media_player:
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
 
-
-
 discovery:
   ignore:
     - yeelight
-yeelight:
-  devices:
-    192.168.1.63:
-      name: viktoriia-lamp
-    192.168.1.16:
-      name: master-lamp
-    192.168.1.10:
-      name: room-moon
-    192.168.1.108:
-      name: window
-#googlehome:
-#  devices:
-#    - host:  192.168.1.5
-#    - host:  192.168.1.179
 
 cast:
   media_player:
@@ -86,13 +64,17 @@ weather:
     api_key: !secret darksky_token
     mode: daily
 
-switch:  !include switch.yaml
+#googlehome:
+#  devices:
+#    - host:  192.168.1.5
+#    - host:  192.168.1.179
+device_tracker:
+  - platform: padavan_tracker
+    consider_home: 10
+    interval_seconds: 3
+    url: http://192.168.1.1/
+    username: !secret padavan_tracker_user
+    password: !secret padavan_tracker_password
 
-#device_tracker:
-#  - platform: padavan_tracker
-#    consider_home: 10
-#    interval_seconds: 3
-#    url: http://192.168.1.1/ # web interface url (don't forget about `/` in the end)
-#    username: !secret padavan_tracker_user # Web interface user name
-#    password: !secret padavan_tracker_password # Web interface user pass
-
+http:
+  base_url: !secret base_url
