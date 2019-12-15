@@ -21,13 +21,13 @@ views:
     path: home
     cards:
       - type: entity-button
-        name: Turn Off Lights
+        name: Виключити комп'ютер
         tap_action:
           action: call-service
           service: script.turn_on
-          icon: mdi:spotlight-beam
+          icon: mdi:windows
           service_data:
-            entity_id: script.swich_pc_state
+            entity_id: script.turn_off_pc
         entity: script.swich_pc_state
       - type: entities
         title: Вмикачі
@@ -86,7 +86,7 @@ views:
       - type: custom:light-entity-card
         entity: light.moon
         header: Місяць
-  - icon: mdi:play-circle
+  - icon: mdi:speaker-multiple
     title: Second view
     cards:
       - type: "custom:jukebox-card"
@@ -125,6 +125,34 @@ views:
     path: weather
     id: weather
     icon: mdi:weather-sunny
+    cards:
+      - type: sensor
+        entity: sensor.temperature_158d0002437932
+        name: Температура в квартирі
+      - type: custom:weather-card
+        entity: weather.dark_sky
+        name: Львів
+      - type: history-graph
+        title: 'Історія'
+        entities:
+          - entity: sensor.temperature_158d0002437932
+            name: Температура - Коридор
+          - entity: sensor.humidity_158d0002437932
+            name: Вологість - Коридор
+          - entity: sensor.pressure_158d0002437932
+            name: Тиск - Коридор
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Фаза Сонця
+            show_header_toggle: false
+            entities:
+              - sensor.nextsunset
+              - sensor.nextsunrise
+  - title: Система
+    path: system
+    id: system
+    icon: mdi:harddisk
     cards:
       - type: sensor
         entity: sensor.temperature_158d0002437932
