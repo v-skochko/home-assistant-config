@@ -78,3 +78,7 @@ device_tracker:
 
 http:
   base_url: !secret base_url
+
+binary_sensor:
+  - platform: ping
+    host: 192.168.1.7

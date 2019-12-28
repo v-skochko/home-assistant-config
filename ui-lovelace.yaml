@@ -39,9 +39,9 @@ views:
           - entity: switch.wall_switch_right_158d0001dc2c2e
             name: Кімната - Спот
             icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_left_158d0001dc2c2e
-            name: Кімната - Місяць
-            icon: mdi:brightness-1
+#          - entity: switch.wall_switch_left_158d0001dc2c2e
+#            name: Кімната - Місяць
+#            icon: mdi:brightness-1
           - entity: switch.wall_switch_right_158d00016c31cf
             name: Душова - Світло
             icon: mdi:lightbulb-on
@@ -62,7 +62,7 @@ views:
             icon: mdi:fan
           - entity: switch.broadlink_pc
             name: Комп
-            icon: mdi:desktop-windows
+            icon: mdi:monitor
           - entity: switch.broadlink_christmass_tree
             name: Ялинка
             icon: mdi:pine-tree
@@ -84,21 +84,21 @@ views:
         entity: light.window
         header: Вікно
       - type: custom:light-entity-card
-        entity: light.moon
+        entity: light.room_moon
         header: Місяць
   - icon: mdi:speaker-multiple
     title: Second view
     cards:
       - type: "custom:jukebox-card"
         links:
-          - url: http://94.23.252.14:8067/stream
-            name: Nature Sounds 🌎
-          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
-            name: Jazz Radio Blues
           - url: http://212.26.146.50:8000/sraka.mp3
             name: Радіо Срака 😆
+          - url: http://ua.uar.net:8000/vgolos
+            name: Вголос 🙀
           - url: http://94.23.40.70:8010/
             name: Metal Radio 👿
+          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
+            name: Jazz Radio Blues
           - url: http://stream.radioskovoroda.com:8060/skovoroda_music
             name: Радіо Сковорода
           - url: http://listen.shoutcast.com/Classic-RockFlorida

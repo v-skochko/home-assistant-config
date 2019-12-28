@@ -42,5 +42,5 @@
         media_content_type: audio/mp3
       data_template:
           media_content_id: >
-           {{ ["http://icepe5.infomaniak.ch/jazzblues-high.mp3",  "http://212.26.146.50:8000/sraka.mp3", "http://94.23.40.70:8010/;", "http://stream.radioskovoroda.com:8060/skovoroda_music", "http://listen.shoutcast.com/Classic-RockFlorida"] | random}}
+           {{ ["http://icepe5.infomaniak.ch/jazzblues-high.mp3", "http://ua.uar.net:8000/vgolos", "http://212.26.146.50:8000/sraka.mp3", "http://94.23.40.70:8010/;", "http://stream.radioskovoroda.com:8060/skovoroda_music", "http://listen.shoutcast.com/Classic-RockFlorida"] | random}}
 
