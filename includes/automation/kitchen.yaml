@@ -26,7 +26,7 @@
 - alias: kitchen_morning_airing
   trigger:
     - platform: time
-      at: '09:00:00'
+      at: '10:30:00'
   action:
     - service: switch.turn_on
       data:
@@ -67,17 +67,37 @@
     - service: switch.turn_off
       data:
         entity_id: switch.broadlink_kitchen_fan
-#Увімкнутии led підсвітку після заходу сонця
-- alias: led_on_when_sunset
-  trigger:
-    platform: sun
-    event: sunset
-  action:
-   - service: light.turn_on
-     data:
-       entity_id: light.window
 
-#Вимкнути led підсвітку опівночі
+#Увімкнути led підсвітку та ялинку після заходу сонця якщо є рух
+- alias: motion_led_and_christmas_tree
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b4745b
+    to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+    - condition: time
+      before: '00:00:00'
+    - condition: state
+      entity_id: switch.broadlink_christmas_tree
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.window
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_christmas_tree
+    - delay: '40:00:00'
+    - service: light.turn_off
+      data:
+        entity_id: light.window
+    - service: switch.turn_off
+      data:
+        entity_id: switch.broadlink_christmas_tree
+
+#Вимкнути led підсвітку та ялинку опівночі
 - alias: led_off_on_midnight
   trigger:
     - platform: time
@@ -86,3 +106,6 @@
     - service: light.turn_off
       data:
         entity_id: light.window
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_christmas_tree

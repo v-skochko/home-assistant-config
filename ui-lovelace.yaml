@@ -16,7 +16,7 @@ resources:
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
-### головний екран  ############
+  ### головний екран  ############
   - title: Головне
     path: home
     cards:
@@ -39,9 +39,9 @@ views:
           - entity: switch.wall_switch_right_158d0001dc2c2e
             name: Кімната - Спот
             icon: mdi:spotlight-beam
-#          - entity: switch.wall_switch_left_158d0001dc2c2e
-#            name: Кімната - Місяць
-#            icon: mdi:brightness-1
+          #          - entity: switch.wall_switch_left_158d0001dc2c2e
+          #            name: Кімната - Місяць
+          #            icon: mdi:brightness-1
           - entity: switch.wall_switch_right_158d00016c31cf
             name: Душова - Світло
             icon: mdi:lightbulb-on
@@ -63,7 +63,7 @@ views:
           - entity: switch.broadlink_pc
             name: Комп
             icon: mdi:monitor
-          - entity: switch.broadlink_christmass_tree
+          - entity: switch.broadlink_christmas_tree
             name: Ялинка
             icon: mdi:pine-tree
 
@@ -120,7 +120,7 @@ views:
           - media_player.kitchen
       - type: media-control
         entity: media_player.kitchen
-### Погода  ############
+  ### Погода  ############
   - title: Погода
     path: weather
     id: weather
@@ -154,26 +154,4 @@ views:
     id: system
     icon: mdi:harddisk
     cards:
-      - type: sensor
-        entity: sensor.temperature_158d0002437932
-        name: Температура в квартирі
-      - type: custom:weather-card
-        entity: weather.dark_sky
-        name: Львів
-      - type: history-graph
-        title: 'Історія'
-        entities:
-          - entity: sensor.temperature_158d0002437932
-            name: Температура - Коридор
-          - entity: sensor.humidity_158d0002437932
-            name: Вологість - Коридор
-          - entity: sensor.pressure_158d0002437932
-            name: Тиск - Коридор
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Фаза Сонця
-            show_header_toggle: false
-            entities:
-              - sensor.nextsunset
-              - sensor.nextsunrise
+

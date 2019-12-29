@@ -1,0 +1,4 @@
+  hass_restart:
+    alias: Restart Home Assistant
+    sequence:
+      - service: hassio.host_reboot

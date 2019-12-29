@@ -48,19 +48,8 @@
 
 
 
-- alias: iftt
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: call_service
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-
-- id: this_is_the_automation_id
-  alias: The optional automation alias
+- id: iftt_income
+  alias: Income IFTT action
   trigger:
     - event_data:
         action: call_service
