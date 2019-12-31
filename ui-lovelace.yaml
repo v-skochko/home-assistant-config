@@ -1,4 +1,5 @@
 title: Mothership
+
 # Include external resources
 resources:
   - url: /local/my-custom-card.js
@@ -154,4 +155,12 @@ views:
     id: system
     icon: mdi:harddisk
     cards:
+      - type: entity-button
+        name: Перезавантажити
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.hass_restart
+        entity: script.hass_restart
 

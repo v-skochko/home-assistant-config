@@ -1,6 +1,3 @@
-####### 2 - Кухня
-###############################################################################
-#
 #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
 - alias: wall_switch_and_led_on
   trigger:
@@ -22,6 +19,7 @@
     - service: switch.turn_off
       data:
         entity_id: switch.broadlink_kitchen_ambilight
+
 #Ранкове провітрювання
 - alias: kitchen_morning_airing
   trigger:

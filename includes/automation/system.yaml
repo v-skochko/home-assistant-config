@@ -46,8 +46,6 @@
         addon: core_rpc_shutdown
         input: nergal
 
-
-
 - id: iftt_income
   alias: Income IFTT action
   trigger:
@@ -60,6 +58,9 @@
     - data_template:
         entity_id: '{{ trigger.event.data.entity_id }}'
       service_template: '{{ trigger.event.data.service }}'
+
+
+
 
 #############
 #############

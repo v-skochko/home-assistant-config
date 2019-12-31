@@ -17,6 +17,7 @@ sensor: !include_dir_merge_list includes/sensors
 script: !include_dir_merge_named includes/scripts
 group: !include_dir_merge_named groups
 switch: !include switch.yaml
+zone: !include zones.yaml
 yeelight: !include yeelight.yaml
 lovelace:
   mode: yaml
@@ -82,3 +83,17 @@ http:
 binary_sensor:
   - platform: ping
     host: 192.168.1.7
+
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+notify:
+  - name: telegram_notifer
+    platform: telegram
+    chat_id: !secret telegram_chat_id
+
+mobile_app:

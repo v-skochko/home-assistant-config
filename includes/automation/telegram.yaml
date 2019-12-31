@@ -1,0 +1,33 @@
+- id: startup_notification
+  alias: startup_notification
+  trigger:
+    - platform: event
+      event_type: homeassistant_start
+  action:
+    - delay: 60
+    - service: notify.telegram_notifer
+      data:
+        title: "⚡⚡ Увага! "
+        message: "Завантажився Raspberry pi, напевно зникало світло"
+
+- id: leave_work
+  alias: Вася прийшов на роботу!
+  trigger:
+    - platform: state
+      entity_id: device_tracker.skochko_oneplus3t
+      from: zone.work
+  action:
+    service: notify.telegram_notifer
+    data:
+      title: "Вася прийшов на роботу!"
+
+- id: arrive_to_work
+  alias: Вася вийшов з роботи!
+  trigger:
+    - platform: state
+      entity_id: device_tracker.skochko_oneplus3t
+      to: zone.work
+  action:
+    service: notify.telegram_notifer
+    data:
+      title: "Вася вийшов з роботи!"

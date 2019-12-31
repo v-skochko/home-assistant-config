@@ -1,0 +1,5 @@
+  - name: work
+    latitude: !secret latitude_work
+    longitude: !secret longitude_work
+    radius: 250
+    icon: mdi:work
