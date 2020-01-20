@@ -1,10 +1,10 @@
 - id: startup_notification
   alias: startup_notification
   trigger:
-    - platform: event
-      event_type: homeassistant_start
+    - platform: homeassistant
+      event: start
   action:
-    - delay: 60
+    - delay: 120
     - service: notify.telegram_notifer
       data:
         title: "⚡⚡ Увага! "

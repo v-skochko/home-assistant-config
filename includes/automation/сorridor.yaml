@@ -20,25 +20,9 @@
     - service: switch.turn_off
       entity_id: switch.wall_switch_left_158d0001f4852b
 
-- alias: Motion Sensor Lights On
-  trigger:
-    platform: state
-    entity_id: binary_sensor.motion_sensor_158d0002b4745b
-    to: 'on'
-  # condition:
-  #   condition: state
-  #   entity_id: sun.sun
-  #   state: 'below_horizon'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.gateway_light_7811dcfaf643
-        transition: 5
-        rgb_color: 71,162,255
-        brightness: 89
 
 #Увімкнути led підсвітку та ялинку після заходу сонця якщо є рух
-- alias: motion_led_and_christmas_tree
+- alias: corridor_night_light
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d0002b4745b
@@ -46,6 +30,8 @@
   condition:
     - condition: sun
       after: sunset
+    - condition: sun
+      before: sunrise
     - condition: time
       after: '22:00:00'
     - condition: state
@@ -55,8 +41,18 @@
     - service: light.turn_on
       data:
         entity_id: light.gateway_light_7811dcfaf643
-    - delay: '00:30:00'
+        brightness: 0
+        transition: 3
+    - delay: '00:00:03'
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcfaf643
+        transition: 10
+        brightness: 200
+    - delay: '00:00:10'
     - service: light.turn_off
       data:
         entity_id: light.gateway_light_7811dcfaf643
+        brightness: 0
+        transition: 10
 

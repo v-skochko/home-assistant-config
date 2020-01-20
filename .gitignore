@@ -9,6 +9,7 @@
 /tasks
 /custom_components
 
+
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
@@ -48,3 +49,4 @@ Thumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+home-assistant_v2.db-wal

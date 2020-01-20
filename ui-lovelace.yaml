@@ -163,4 +163,3 @@ views:
           service_data:
             entity_id: script.hass_restart
         entity: script.hass_restart
-
