@@ -1,0 +1,12 @@
+# Перезавантажити HASSIO
+  hass_restart:
+    sequence:
+      - service: hassio.host_reboot
+# Оновити автоматизиції
+  automation_reload:
+    sequence:
+      - service: automation.reload
+# Oновити Core config
+  reload_core_config:
+    sequence:
+      - service: homeassistant.reload_core_config

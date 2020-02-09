@@ -1,0 +1,20 @@
+  # Weather prediction
+  - platform: darksky
+    api_key: 0b24fca6800d7d7d63eb9d0ae2151daa
+    monitored_conditions:
+      - summary
+
+  - platform: template
+    sensors:
+      nextsunrise:
+        entity_id: sun.sun
+        friendly_name: 'Наступний схід Сонця'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %T') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-up
+      nextsunset:
+        entity_id: sun.sun
+        friendly_name: 'Наступний захід Сонця'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %T') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-down

@@ -1,0 +1,31 @@
+  - platform: broadlink
+    host: 192.168.1.20
+    mac: '780F7761D452'
+    type:  sp2
+    friendly_name: 'broadlink_kitchen_fan'
+  - platform: broadlink
+    host: 192.168.1.21
+    mac: '780F7717520D'
+    type:  sp2
+    friendly_name: 'broadlink_kitchen_ambilight'
+  - platform: broadlink
+    host: 192.168.1.22
+    mac: '780F7717655A'
+    type:  sp2
+    friendly_name: 'broadlink_christmas_tree'
+  - platform: broadlink
+    host: 192.168.1.23
+    mac: '34ea34bd5fc2'
+    type:  sp2
+    timeout: 10
+    friendly_name: 'broadlink_pc'
+  - platform: broadlink
+    host: 192.168.1.24
+    mac: '34ea34852721'
+    type:  mp1
+    friendly_name: 'broadlink_root_socket'
+    slots:
+      slot_1: 'one_plus3t'
+      slot_2: 'google_home'
+      slot_3: 'Led'
+      slot_4: 'one_plus6'
