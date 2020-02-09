@@ -1,9 +1,6 @@
 title: Mothership
-
 # Include external resources
 resources:
-  - url: /local/my-custom-card.js
-    type: js
   - url: /community_plugin/light-entity-card/light-entity-card.js
     type: js
   - url: /local/style.css
@@ -12,8 +9,7 @@ resources:
     type: module
   - url: /local/radio-selector.js
     type: module
-  - url: /community_plugin/button-entity-row/button-entity-row.js
-    type: module
+background: var(--background-image)
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
@@ -163,3 +159,19 @@ views:
           service_data:
             entity_id: script.hass_restart
         entity: script.hass_restart
+      - type: entity-button
+        name: Oновити Core config
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.reload_core_config
+        entity: script.reload_core_config
+      - type: entity-button
+        name: Оновити автоматизиції
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.automation_reload
+        entity: script.automation_reload
