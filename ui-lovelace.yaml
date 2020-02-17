@@ -14,7 +14,8 @@ background: var(--background-image)
 excluded_entities:
 views:
   ### головний екран  ############
-  - title: Головне
+  - title:
+    icon: mdi:home-account
     path: home
     cards:
       - type: entity-button
@@ -71,18 +72,7 @@ views:
       - type: sensor
         entity: sensor.temperature_158d0002437932
         name: Температура в кімнаті
-      - type: custom:light-entity-card
-        entity: light.viktoriia_lamp
-        header: Лампа Віки
-      - type: custom:light-entity-card
-        entity: light.master_lamp
-        header: Лампа Васі
-      - type: custom:light-entity-card
-        entity: light.window
-        header: Вікно
-      - type: custom:light-entity-card
-        entity: light.room_moon
-        header: Місяць
+  ### Media  ############
   - icon: mdi:speaker-multiple
     title: Second view
     cards:
@@ -117,6 +107,24 @@ views:
           - media_player.kitchen
       - type: media-control
         entity: media_player.kitchen
+  ### Кольори  ############
+  - title: Кольори
+    path: colors
+    id: colors
+    icon: mdi:palette
+    cards:
+      - type: custom:light-entity-card
+        entity: light.viktoriia_lamp
+        header: Лампа Віки
+      - type: custom:light-entity-card
+        entity: light.master_lamp
+        header: Лампа Васі
+      - type: custom:light-entity-card
+        entity: light.window
+        header: Вікно
+      - type: custom:light-entity-card
+        entity: light.room_moon
+        header: Місяць
   ### Погода  ############
   - title: Погода
     path: weather
@@ -175,3 +183,4 @@ views:
           service_data:
             entity_id: script.automation_reload
         entity: script.automation_reload
+

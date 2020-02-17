@@ -1,9 +1,4 @@
-
-####### 1 - Кімната
-###############################################################################
-#
-### Безпровідна
-###############
+### Безпровідна Віки
 #Безпровідна Ліва - один клік
 - alias: binary_single_left_click
   trigger:
@@ -81,3 +76,16 @@
       click_type: double
   action:
     - service: script.swich_pc_state
+
+
+#Фікс для світла в кімнаті
+- alias: room_light_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001dc2c2e
+    to: 'off'
+    from: 'on'
+  action:
+    - delay: 1
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d0001dc2c2e

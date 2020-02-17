@@ -13,19 +13,7 @@
     - service: switch.turn_off
       entity_id: switch.broadlink_pc
 
-#Фікс для світла в кімнаті
-- alias: room_light_fix
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_left_158d0001dc2c2e
-    to: 'off'
-    from: 'on'
-  action:
-    - delay: 1
-    - service: switch.turn_on
-      entity_id: switch.wall_switch_left_158d0001dc2c2e
-
-#Автоматичне вимкнення світла вночі
+#Автоматичне вимкнення всього світла вночі
 - alias: off_alls_witches
   trigger:
     - platform: time
@@ -33,7 +21,6 @@
   action:
     - service: switch.turn_off
       entity_id: group.group_switches
-
 
 #Вимкнути комп'ютер вночі, якщо він ще працює
 - alias: Вимкнути Комп
@@ -46,6 +33,7 @@
         addon: core_rpc_shutdown
         input: nergal
 
+#iftt_income action listener
 - id: iftt_income
   alias: Income IFTT action
   trigger:

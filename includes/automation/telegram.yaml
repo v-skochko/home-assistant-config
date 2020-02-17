@@ -8,7 +8,7 @@
     - service: notify.telegram_notifer
       data:
         title: "⚡⚡ Увага! "
-        message: "Завантажився Raspberry pi, напевно зникало світло"
+        message: "Завантажився Raspberry Pi"
 
 - id: leave_work
   alias: Вася прийшов на роботу!

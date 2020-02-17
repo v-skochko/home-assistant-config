@@ -24,7 +24,7 @@
 - alias: kitchen_morning_airing
   trigger:
     - platform: time
-      at: '10:30:00'
+      at: '12:00:00'
   action:
     - service: switch.turn_on
       data:
@@ -70,7 +70,7 @@
       data:
         entity_id: switch.broadlink_kitchen_fan
 
-#Увімкнути led підсвітку та ялинку після заходу сонця якщо є рух
+#Увімкнути led підсвітку та герлянду після заходу сонця якщо є рух
 - alias: motion_led_and_christmas_tree
   trigger:
     platform: state
@@ -103,7 +103,7 @@
 - alias: led_off_on_midnight
   trigger:
     - platform: time
-      at: '00:02:00'
+      at: '00:00:00'
   action:
     - service: light.turn_off
       data:
