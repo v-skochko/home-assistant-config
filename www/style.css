@@ -1,3 +1,13 @@
-[data-panel="map"]{
-	display:none !important;
+::-webkit-scrollbar{
+	width:13px;
+}
+::-webkit-scrollbar-track{
+	border-left:1px solid #ccc;
+	background-color:#eaeaea;
+}
+::-webkit-scrollbar-thumb{
+	background:#000;
+}
+::-webkit-scrollbar-thumb:hover{
+	background:#000;
 }

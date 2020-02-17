@@ -26,7 +26,7 @@ lovelace:
 plex:
   token: !secret plex_token
 
-#media_player:
+  #media_player:
   # Use the Python ADB implementation without authentication
 #  - platform: androidtv
 #    host: 192.168.1.186
@@ -98,3 +98,13 @@ notify:
     chat_id: !secret telegram_chat_id
 
 mobile_app:
+
+person:
+  - name: Вася
+    id: skochko
+    device_trackers:
+      - device_tracker.oneplus_a3010
+  - name: Віка
+    id: skochko_viktoriia
+    device_trackers:
+      - device_tracker.oneplus_a6000
