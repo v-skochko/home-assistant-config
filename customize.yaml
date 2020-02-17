@@ -23,5 +23,5 @@ switch.wall_switch_left_158d00019f6738:
 switch.wall_switch_right_158d00019f6738:
     friendly_name: Світло на кухні
     icon: mdi:spotlight-beam
-person.skochko:
+person.Vasyl:
     entity_picture: "/photos/skochko.jpg"

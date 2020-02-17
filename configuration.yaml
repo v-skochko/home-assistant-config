@@ -10,8 +10,6 @@ homeassistant:
 default_config:
 frontend:
   themes: !include_dir_merge_named themes
-#frontend: !include frontend.yaml
-#themes: !include_dir_merge_named themes
 counter: !include includes/counter.yaml
 automation: !include_dir_merge_list includes/automation
 sensor: !include_dir_merge_list includes/sensors
@@ -70,13 +68,13 @@ weather:
 #  devices:
 #    - host:  192.168.1.5
 #    - host:  192.168.1.179
-device_tracker:
-  - platform: padavan_tracker
-    consider_home: 10
-    interval_seconds: 3
-    url: http://192.168.1.1/
-    username: !secret padavan_tracker_user
-    password: !secret padavan_tracker_password
+#device_tracker:
+#  - platform: padavan_tracker
+#    consider_home: 10
+#    interval_seconds: 3
+#    url: http://192.168.1.1/
+#    username: !secret padavan_tracker_user
+#    password: !secret padavan_tracker_password
 
 http:
   base_url: !secret base_url
@@ -100,11 +98,11 @@ notify:
 mobile_app:
 
 person:
-  - name: Вася
+  - name: Vasyl
     id: skochko
     device_trackers:
       - device_tracker.oneplus_a3010
-  - name: Віка
+  - name: Viktoriia
     id: skochko_viktoriia
     device_trackers:
       - device_tracker.oneplus_a6000
