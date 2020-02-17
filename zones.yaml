@@ -1,5 +1,5 @@
-  - name: work
+  - name: Work
     latitude: !secret latitude_work
     longitude: !secret longitude_work
-    radius: 250
-    icon: mdi:work
+    radius: 200
+    icon: mdi:map-marker

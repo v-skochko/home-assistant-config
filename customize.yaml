@@ -23,5 +23,9 @@ switch.wall_switch_left_158d00019f6738:
 switch.wall_switch_right_158d00019f6738:
     friendly_name: Світло на кухні
     icon: mdi:spotlight-beam
-person.Vasyl:
+## Sensors
+binary_sensor.motion_sensor_158d0002b4745b:
+    friendly_name: Датчик руху
+## Persons
+person.vasyl_skochko:
     entity_picture: "/photos/skochko.jpg"

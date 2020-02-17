@@ -99,10 +99,11 @@ mobile_app:
 
 person:
   - name: Vasyl
-    id: skochko
+    id: vasyl_skochko
+    user_id: 5a5730a0131749a1b1b92c150c8fc5b3
     device_trackers:
       - device_tracker.oneplus_a3010
   - name: Viktoriia
-    id: skochko_viktoriia
+    id: viktoriia_skochko
     device_trackers:
       - device_tracker.oneplus_a6000
