@@ -123,6 +123,9 @@ views:
         entity: light.window
         header: Вікно
       - type: custom:light-entity-card
+        entity: light.kitchen-light
+        header: Кухня
+      - type: custom:light-entity-card
         entity: light.room_moon
         header: Місяць
   ### Погода  ############
