@@ -20,22 +20,19 @@
     - service: switch.turn_off
       entity_id: switch.wall_switch_left_158d0001f4852b
 
-#Увімкнути led підсвітку та ялинку після заходу сонця якщо є рух
+#corridor_night_light
 - alias: corridor_night_light
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d0002b4745b
     to: 'on'
-#  condition:
-#    - condition: sun
-#      after: sunset
-#    - condition: sun
-#      before: sunrise
-#    - condition: time
-#      after: '22:00:00'
-#    - condition: state
-#      entity_id: switch.wall_switch_right_158d00019f6738
-#      state: 'off'
+  condition:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
+    - condition: time
+      after: '22:00:00'
   action:
     - service: light.turn_on
       data:

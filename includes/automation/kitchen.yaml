@@ -81,23 +81,20 @@
       after: sunset
     - condition: time
       before: '23:59:00'
-    - condition: state
-      entity_id: light.window
-      state: 'off'
   action:
     - service: light.turn_on
       data:
         entity_id: light.window
-    - service: switch.turn_on
+    - service: light.turn_on
       data:
-        entity_id: switch.broadlink_christmas_tree
-    - delay: '40:00:00'
+        entity_id: light.kitchen_light
+    - delay: '20:00:00'
     - service: light.turn_off
       data:
         entity_id: light.window
-    - service: switch.turn_off
+    - service: light.turn_off
       data:
-        entity_id: switch.broadlink_christmas_tree
+        entity_id: light.kitchen_light
 
 #Вимкнути led підсвітку та ялинку опівночі
 - alias: led_off_on_midnight
@@ -108,6 +105,9 @@
     - service: light.turn_off
       data:
         entity_id: light.window
-    - service: switch.turn_off
+    - service: light.turn_off
       data:
-        entity_id: switch.broadlink_christmas_tree
+        entity_id: light.kitchen_light
+    - service: light.turn_off
+      data:
+        entity_id: light.window

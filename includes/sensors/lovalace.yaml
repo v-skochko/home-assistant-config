@@ -1,0 +1,65 @@
+  # Weather prediction
+  - platform: darksky
+    api_key: 0b24fca6800d7d7d63eb9d0ae2151daa
+    monitored_conditions:
+      - summary
+
+
+  ## Create Sensor for Display in UI
+  - platform: template
+    sensors:
+      nextsunrise:
+        entity_id: sun.sun
+        friendly_name: 'Наступний схід Сонця'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %T') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-up
+      nextsunset:
+        entity_id: sun.sun
+        friendly_name: 'Наступний захід Сонця'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %T') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-down
+
+      battery_skochko:
+        friendly_name: "Телефон"
+        value_template: "{{ states.device_tracker.oneplus_a3010.attributes.battery_level|int }}"
+        unit_of_measurement: "%"
+        device_class: battery
+      skochko:
+        friendly_name: "Вася"
+        value_template: >-
+          {% if is_state('device_tracker.oneplus_a3010', 'home') %}
+            Вдома
+          {% elif is_state('device_tracker.device_tracker.oneplus_a3010', 'work') %}
+           На роботі
+          {% else %}
+            Невідомо
+          {% endif %}
+        entity_picture_template: >-
+          {% if is_state('device_tracker.oneplus_a3010', 'work') %}
+            /local/photos/skochko_at_work.jpg
+          {% else %}
+            /local/photos/skochko.jpg
+          {% endif %}
+
+
+      battery_viktoriia:
+        friendly_name: "Телефон"
+        value_template: "{{ states.device_tracker.oneplus_a6000.attributes.battery_level|int }}"
+        unit_of_measurement: "%"
+        device_class: battery
+      viktoriia:
+        friendly_name: "Віка"
+        value_template: >-
+          {% if is_state('device_tracker.oneplus_a6000', 'home') %}
+            Вдома
+          {% else %}
+            Невідомо
+          {% endif %}
+        entity_picture_template: >-
+          {% if is_state('device_tracker.oneplus_a3010', 'work') %}
+            /local/photos/viktoriia.jpg
+          {% else %}
+            /local/photos/viktoriia.jpg
+          {% endif %}

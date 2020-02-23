@@ -9,6 +9,8 @@ resources:
     type: module
   - url: /local/radio-selector.js
     type: module
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    type: module
 background: var(--background-image)
 # Exclude entities from "Unused entities" view
 excluded_entities:
@@ -18,6 +20,59 @@ views:
     icon: mdi:home-account
     path: home
     cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - sensor.skochko
+                  - type: divider
+                  - sensor.battery_skochko
+
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - sensor.viktoriia
+                  - type: divider
+                  - sensor.battery_viktoriia
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Вологість
+            entities:
+              - sensor.humidity_158d0002437932
+            line_color: '#1976d2'
+            line_width: 4
+            font_size: 40
+            show:
+              labels: true
+          - type: custom:mini-graph-card
+            name: Освітлення
+            entities:
+              - sensor.illumination_158d0002b4745b
+            line_color: '#ffb300'
+            line_width: 4
+            font_size: 40
+            show:
+              labels: true
+      - type: custom:mini-graph-card
+        name: Температура в кімнаті
+        entities:
+          - sensor.temperature_158d0002437932
+        line_color: var(--accent-color)
+        line_width: 4
+        font_size: 40
+        show:
+          labels: true
+        color_thresholds:
+          - value: 22
+            color: "#f39c12"
+          - value: 22.5
+            color: "#d35400"
+          - value: 23
+            color: "#c0392b"
       - type: entity-button
         name: Виключити комп'ютер
         tap_action:
@@ -64,14 +119,13 @@ views:
           - entity: switch.broadlink_christmas_tree
             name: Ялинка
             icon: mdi:pine-tree
-
+          - entity: switch.wake_on_lan
+            name: wake_on_lan
       - type: picture-glance
         entities: []
         title: Вхідні двері
         camera_image:  camera.generic_camera
-      - type: sensor
-        entity: sensor.temperature_158d0002437932
-        name: Температура в кімнаті
+
   ### Media  ############
   - icon: mdi:speaker-multiple
     title: Second view
@@ -122,6 +176,9 @@ views:
       - type: custom:light-entity-card
         entity: light.window
         header: Вікно
+      - type: custom:light-entity-card
+        entity: light.kitchen_light
+        header: Кухня
       - type: custom:light-entity-card
         entity: light.room_moon
         header: Місяць

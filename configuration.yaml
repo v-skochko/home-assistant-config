@@ -8,6 +8,8 @@ homeassistant:
   customize: !include customize.yaml
 
 default_config:
+mobile_app:
+wake_on_lan:
 frontend:
   themes: !include_dir_merge_named themes
 counter: !include includes/counter.yaml
@@ -79,10 +81,6 @@ weather:
 http:
   base_url: !secret base_url
 
-binary_sensor:
-  - platform: ping
-    host: 192.168.1.7
-
 
 telegram_bot:
   - platform: polling
@@ -95,15 +93,23 @@ notify:
     platform: telegram
     chat_id: !secret telegram_chat_id
 
-mobile_app:
 
 person:
-  - name: Vasyl
-    id: vasyl_skochko
-    user_id: 5a5730a0131749a1b1b92c150c8fc5b3
+  - name: skochko
+    id: skochko
+    user_id: 39e226ea234f46949a0813d96245ee92
     device_trackers:
       - device_tracker.oneplus_a3010
   - name: Viktoriia
     id: viktoriia_skochko
     device_trackers:
       - device_tracker.oneplus_a6000
+
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload

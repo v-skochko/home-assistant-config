@@ -1,5 +1,40 @@
-  - name: Work
+  - name: home
+    latitude: !secret latitude
+    longitude: !secret longitude
+    radius: 300
+    icon: mdi:home-outline
+  - name: work
     latitude: !secret latitude_work
     longitude: !secret longitude_work
-    radius: 200
+    radius: 400
+    icon: mdi:briefcase
+  - name: lviv_center
+    latitude: 49.841377
+    longitude: 24.031108
+    radius: 1100
+    icon: mdi:home-modern
+  - name: lviv
+    latitude: 49.841377
+    longitude: 24.031108
+    radius: 12000
+    icon: mdi:home-modern
+  - name: rivne
+    latitude: 50.618757
+    longitude: 26.250241
+    radius: 5000
+    icon: mdi:map-marker
+  - name: chernivci
+    latitude: 48.292469
+    longitude: 25.935309
+    radius: 5000
+    icon: mdi:map-marker
+  - name: selo
+    latitude: 48.562833
+    longitude: 27.294693
+    radius: 8000
+    icon: mdi:map-marker
+  - name: sytne
+    latitude: 50.186065
+    longitude: 25.405245
+    radius: 5000
     icon: mdi:map-marker

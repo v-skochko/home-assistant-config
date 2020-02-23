@@ -1,3 +1,7 @@
+sun.sun:
+    friendly_name: Сонечко
+sensor.time:
+    friendly_name: Час
 script.radio538:
     friendly_name: Start Playing
     icon: mdi:play
@@ -26,6 +30,17 @@ switch.wall_switch_right_158d00019f6738:
 ## Sensors
 binary_sensor.motion_sensor_158d0002b4745b:
     friendly_name: Датчик руху
+binary_sensor.temperature_158d0002437932:
+    friendly_name: Температура в кімнаті
+binary_sensor.dark_sky_temperature_1h:
+    friendly_name: Температура надворі
 ## Persons
-person.vasyl_skochko:
-    entity_picture: "/photos/skochko.jpg"
+person.skochko:
+    entity_picture: "local/photos/skochko.jpg"
+person.Viktoriia:
+    entity_picture: "local/photos/viktoriia.jpg"
+#device_tracker
+device_tracker.oneplus_a3010:
+    friendly_name: OnePlus 3T
+device_tracker.oneplus_a6000:
+    friendly_name: OnePlus 6

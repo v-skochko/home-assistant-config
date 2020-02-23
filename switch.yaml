@@ -29,3 +29,5 @@
       slot_2: 'google_home'
       slot_3: 'Led'
       slot_4: 'one_plus6'
+  - platform: wake_on_lan
+    mac: 'B4-2E-99-36-1B-B8'
