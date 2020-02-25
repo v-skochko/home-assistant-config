@@ -1,24 +1,24 @@
 #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
-- alias: wall_switch_and_led_on
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_right_158d00019f6738
-    to: 'on'
-    from: 'off'
-  action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.broadlink_kitchen_ambilight
-- alias: wall_switch_and_led_off
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_right_158d00019f6738
-    to: 'off'
-    from: 'on'
-  action:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.broadlink_kitchen_ambilight
+#- alias: wall_switch_and_led_on
+#  trigger:
+#    platform: state
+#    entity_id: switch.wall_switch_right_158d00019f6738
+#    to: 'on'
+#    from: 'off'
+#  action:
+#    - service: switch.turn_on
+#      data:
+#        entity_id: switch.broadlink_kitchen_ambilight
+#- alias: wall_switch_and_led_off
+#  trigger:
+#    platform: state
+#    entity_id: switch.wall_switch_right_158d00019f6738
+#    to: 'off'
+#    from: 'on'
+#  action:
+#    - service: switch.turn_off
+#      data:
+#        entity_id: switch.broadlink_kitchen_ambilight
 
 #Ранкове провітрювання
 - alias: kitchen_morning_airing
@@ -71,7 +71,7 @@
         entity_id: switch.broadlink_kitchen_fan
 
 #Увімкнути led підсвітку та герлянду після заходу сонця якщо є рух
-- alias: motion_led_and_christmas_tree
+- alias: motion_led
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d0002b4745b
@@ -80,22 +80,19 @@
     - condition: sun
       after: sunset
     - condition: time
-      before: '23:59:00'
+      before: '00:00:10'
+    - condition: state
+      entity_id: light.window
+      state: 'off'
   action:
     - service: light.turn_on
       data:
-        entity_id: light.window
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_light
-
-    - delay: '20:00:00'
+        entity_id: light.group_kitchen_yeelight
+        brightness: 100
+    - delay: '00:20:00'
     - service: light.turn_off
       data:
-        entity_id: light.window
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_light
+        entity_id: light.group_kitchen_yeelight
 
 #Вимкнути led підсвітку та ялинку опівночі
 - alias: led_off_on_midnight
@@ -105,10 +102,4 @@
   action:
     - service: light.turn_off
       data:
-        entity_id: light.window
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_light
-    - service: light.turn_off
-      data:
-        entity_id: light.window
+        entity_id: light.group_kitchen_yeelight

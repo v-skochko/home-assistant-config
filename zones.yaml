@@ -1,7 +1,7 @@
   - name: home
     latitude: !secret latitude
     longitude: !secret longitude
-    radius: 300
+    radius: 200
     icon: mdi:home-outline
   - name: work
     latitude: !secret latitude_work

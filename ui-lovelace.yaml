@@ -11,6 +11,10 @@ resources:
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
+  - url: /local/gui-sandbox.js
+    type: module
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
+    type: module
 background: var(--background-image)
 # Exclude entities from "Unused entities" view
 excluded_entities:
@@ -179,6 +183,9 @@ views:
       - type: custom:light-entity-card
         entity: light.kitchen_light
         header: Кухня
+      - type: custom:light-entity-card
+        entity: light.group_kitchen_yeelight
+        header: Вся кухня
       - type: custom:light-entity-card
         entity: light.room_moon
         header: Місяць

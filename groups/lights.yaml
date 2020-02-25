@@ -1,0 +1,5 @@
+  - platform: group
+    name: group_kitchen_yeelight
+    entities:
+      - light.window
+      - light.kitchen_light
