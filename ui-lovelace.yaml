@@ -41,6 +41,9 @@ views:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
+     
+     
+     
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
@@ -77,6 +80,16 @@ views:
             color: "#d35400"
           - value: 23
             color: "#c0392b"
+      - type: custom:mini-graph-card
+        name: Померли від Коронавірусу
+        entities:
+          - sensor.worldwide_coronavirus_deaths
+        line_color: var(--accent-color)
+        line_width: 4
+        font_size: 40
+        show:
+          labels: true
+
       - type: entity-button
         name: Виключити комп'ютер
         tap_action:
@@ -86,6 +99,25 @@ views:
           service_data:
             entity_id: script.turn_off_pc
         entity: script.swich_pc_state
+      - type: glance
+        show_icon: true
+        show_name: true
+        show_state: true
+        title: Коронавірус
+        entities:
+          - entity: sensor.worldwide_coronavirus_confirmed
+            icon: 'mdi:emoticon-neutral-outline'
+            name: Підтверджено
+          - entity: sensor.worldwide_coronavirus_current
+            icon: 'mdi:emoticon-frown-outline'
+            name: Всього
+          - entity: sensor.worldwide_coronavirus_recovered
+            icon: 'mdi:emoticon-happy-outline'
+            name: Вилікувалися
+          - entity: sensor.worldwide_coronavirus_deaths
+            icon: 'mdi:emoticon-dead-outline'
+            name: Померло
+  
       - type: entities
         title: Вмикачі
         icon: mdi:home-assistant
@@ -96,9 +128,9 @@ views:
           - entity: switch.wall_switch_right_158d0001dc2c2e
             name: Кімната - Спот
             icon: mdi:spotlight-beam
-          #          - entity: switch.wall_switch_left_158d0001dc2c2e
-          #            name: Кімната - Місяць
-          #            icon: mdi:brightness-1
+          - entity: switch.wall_switch_left_158d0001dc2c2e
+            name: Кімната - Місяць
+            icon: mdi:brightness-1
           - entity: switch.wall_switch_right_158d00016c31cf
             name: Душова - Світло
             icon: mdi:lightbulb-on

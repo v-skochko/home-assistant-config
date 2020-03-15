@@ -6,7 +6,7 @@
   - name: work
     latitude: !secret latitude_work
     longitude: !secret longitude_work
-    radius: 400
+    radius: 200
     icon: mdi:briefcase
   - name: lviv_center
     latitude: 49.841377

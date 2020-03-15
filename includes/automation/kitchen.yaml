@@ -1,24 +1,3 @@
-#Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
-#- alias: wall_switch_and_led_on
-#  trigger:
-#    platform: state
-#    entity_id: switch.wall_switch_right_158d00019f6738
-#    to: 'on'
-#    from: 'off'
-#  action:
-#    - service: switch.turn_on
-#      data:
-#        entity_id: switch.broadlink_kitchen_ambilight
-#- alias: wall_switch_and_led_off
-#  trigger:
-#    platform: state
-#    entity_id: switch.wall_switch_right_158d00019f6738
-#    to: 'off'
-#    from: 'on'
-#  action:
-#    - service: switch.turn_off
-#      data:
-#        entity_id: switch.broadlink_kitchen_ambilight
 
 #Ранкове провітрювання
 - alias: kitchen_morning_airing
@@ -80,25 +59,67 @@
     - condition: sun
       after: sunset
     - condition: time
-      before: '00:00:10'
+      before: '23:59:00'
     - condition: state
-      entity_id: light.window
+      entity_id: light.group_kitchen_yeelight
       state: 'off'
   action:
     - service: light.turn_on
       data:
         entity_id: light.group_kitchen_yeelight
-        brightness: 100
-    - delay: '00:20:00'
+        transition: 5
+
+- alias: Motion Sensor Lights Off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d0002b4745b
+      to: 'off'
+      for:
+        minutes: 15
+  action:
     - service: light.turn_off
       data:
         entity_id: light.group_kitchen_yeelight
+        transition: 20
 
 #Вимкнути led підсвітку та ялинку опівночі
 - alias: led_off_on_midnight
   trigger:
     - platform: time
-      at: '00:00:00'
+      at: '00:10:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.group_kitchen_yeelight
+
+
+
+#Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
+- alias: wall_switch_and_led_on
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d00019f6738
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: light.group_kitchen_yeelight
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.group_kitchen_yeelight
+
+- alias: wall_switch_and_led_off
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d00019f6738
+    to: 'off'
+    from: 'on'
+  condition:
+    - condition: state
+      entity_id: light.group_kitchen_yeelight
+      state: 'on'
   action:
     - service: light.turn_off
       data:

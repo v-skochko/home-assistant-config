@@ -108,10 +108,10 @@ person:
       - device_tracker.oneplus_a6000
 
 
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+#speedtestdotnet:
+#  scan_interval:
+#    minutes: 300
+#  monitored_conditions:
+#    - ping
+#    - download
+#    - upload
