@@ -1,33 +1,34 @@
-- id: startup_notification
-  alias: startup_notification
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - delay: 120
-    - service: notify.telegram_notifer
+  - id: startup_notification
+    alias: startup_notification
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - delay: 120
+      - service: notify.telegram_notifer
+        data:
+          title: "⚡⚡ Увага! "
+          message: "Завантажився Raspberry Pi"
+
+  - id: leave_work
+    alias: Вася прийшов на роботу!
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skochko_oneplus3t
+        from: zone.work
+    action:
+      service: notify.telegram_notifer
       data:
-        title: "⚡⚡ Увага! "
-        message: "Завантажився Raspberry Pi"
+        title: "Вася прийшов на роботу!"
 
-- id: leave_work
-  alias: Вася прийшов на роботу!
-  trigger:
-    - platform: state
-      entity_id: device_tracker.skochko_oneplus3t
-      from: zone.work
-  action:
-    service: notify.telegram_notifer
-    data:
-      title: "Вася прийшов на роботу!"
+  - id: arrive_to_work
+    alias: Вася вийшов з роботи!
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skochko_oneplus3t
+        to: zone.work
+    action:
+      service: notify.telegram_notifer
+      data:
+        title: "Вася вийшов з роботи!"
 
-- id: arrive_to_work
-  alias: Вася вийшов з роботи!
-  trigger:
-    - platform: state
-      entity_id: device_tracker.skochko_oneplus3t
-      to: zone.work
-  action:
-    service: notify.telegram_notifer
-    data:
-      title: "Вася вийшов з роботи!"

@@ -3,19 +3,12 @@ title: Mothership
 resources:
   - url: /community_plugin/light-entity-card/light-entity-card.js
     type: js
-  - url: /local/style.css
-    type: css
-  - url: /community_plugin/weather-card/weather-card.js
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
   - url: /local/radio-selector.js
     type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+  - url: /community_plugin/weather-card/weather-card.js
     type: module
-  - url: /local/gui-sandbox.js
-    type: module
-  - url: /community_plugin/lovelace-card-mod/card-mod.js
-    type: module
-background: var(--background-image)
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
@@ -24,6 +17,8 @@ views:
     icon: mdi:home-account
     path: home
     cards:
+
+
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -41,29 +36,9 @@ views:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
-     
-     
-     
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Вологість
-            entities:
-              - sensor.humidity_158d0002437932
-            line_color: '#1976d2'
-            line_width: 4
-            font_size: 40
-            show:
-              labels: true
-          - type: custom:mini-graph-card
-            name: Освітлення
-            entities:
-              - sensor.illumination_158d0002b4745b
-            line_color: '#ffb300'
-            line_width: 4
-            font_size: 40
-            show:
-              labels: true
+
+
+
       - type: custom:mini-graph-card
         name: Температура в кімнаті
         entities:
@@ -81,12 +56,13 @@ views:
           - value: 23
             color: "#c0392b"
       - type: custom:mini-graph-card
-        name: Померли від Коронавірусу
+        name: Коронавірус в Україні
         entities:
-          - sensor.worldwide_coronavirus_deaths
+          - sensor.ukraine_coronavirus_confirmed
+          - sensor.ukraine_coronavirus_deaths
         line_color: var(--accent-color)
         line_width: 4
-        font_size: 40
+        font_size: 60
         show:
           labels: true
 
@@ -99,25 +75,8 @@ views:
           service_data:
             entity_id: script.turn_off_pc
         entity: script.swich_pc_state
-      - type: glance
-        show_icon: true
-        show_name: true
-        show_state: true
-        title: Коронавірус
-        entities:
-          - entity: sensor.worldwide_coronavirus_confirmed
-            icon: 'mdi:emoticon-neutral-outline'
-            name: Підтверджено
-          - entity: sensor.worldwide_coronavirus_current
-            icon: 'mdi:emoticon-frown-outline'
-            name: Всього
-          - entity: sensor.worldwide_coronavirus_recovered
-            icon: 'mdi:emoticon-happy-outline'
-            name: Вилікувалися
-          - entity: sensor.worldwide_coronavirus_deaths
-            icon: 'mdi:emoticon-dead-outline'
-            name: Померло
-  
+
+
       - type: entities
         title: Вмикачі
         icon: mdi:home-assistant
@@ -192,11 +151,13 @@ views:
             name: Calm Radio
           - url: http://swr-swr1-bw.cast.addradio.de/swr/swr1/bw/mp3/128/stream.mp3
             name: SWR 1
-
         entities:
           - media_player.kitchen
+          - media_player.tv
       - type: media-control
         entity: media_player.kitchen
+      - type: media-control
+        entity: media_player.tv
   ### Кольори  ############
   - title: Кольори
     path: colors
@@ -227,9 +188,26 @@ views:
     id: weather
     icon: mdi:weather-sunny
     cards:
-      - type: sensor
-        entity: sensor.temperature_158d0002437932
-        name: Температура в квартирі
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Вологість
+            entities:
+              - sensor.humidity_158d0002437932
+            line_color: '#1976d2'
+            line_width: 4
+            font_size: 40
+            show:
+              labels: true
+          - type: custom:mini-graph-card
+            name: Освітлення
+            entities:
+              - sensor.illumination_158d0002b4745b
+            line_color: '#ffb300'
+            line_width: 4
+            font_size: 40
+            show:
+              labels: true
       - type: custom:weather-card
         entity: weather.dark_sky
         name: Львів

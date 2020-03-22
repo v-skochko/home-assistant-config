@@ -7,52 +7,27 @@ homeassistant:
   time_zone: Europe/Kiev
   customize: !include customize.yaml
 
+
 default_config:
-mobile_app:
-wake_on_lan:
-frontend:
-  themes: !include_dir_merge_named themes
-counter: !include includes/counter.yaml
-automation: !include_dir_merge_list includes/automation
-sensor: !include_dir_merge_list includes/sensors
-script: !include_dir_merge_named includes/scripts
-group: !include groups/all-groups.yaml
-light: !include groups/lights.yaml
-switch: !include switch.yaml
-zone: !include zones.yaml
-yeelight: !include yeelight.yaml
 
 lovelace:
   mode: yaml
 
-plex:
-  token: !secret plex_token
-
-  #media_player:
-  # Use the Python ADB implementation without authentication
-#  - platform: androidtv
-#    host: 192.168.1.186
-#    name: android-tv
-#    adb_server_ip: 127.0.0.1
-#    adb_server_port: 5037
-
-discovery:
-  ignore:
-    - yeelight
-
-cast:
-  media_player:
-    - host: 192.168.1.6
-    - host: 192.168.1.5
-
-camera:
-  - platform: generic
-    still_image_url: !secret camera_still_image_url
-    stream_source: !secret camera_stream_source
-
-# Text to speech
+#wake_on_lan:
 tts:
   - platform: google_translate
+
+script: !include scripts.yaml
+group: !include groups/all-groups.yaml
+light: !include groups/lights.yaml
+automation: !include_dir_merge_list includes/automation
+
+scene: !include scenes.yaml
+switch: !include switch.yaml
+sensor: !include_dir_merge_list includes/sensors
+
+zone: !include zones.yaml
+yeelight: !include yeelight.yaml
 
 xiaomi_aqara:
   discovery_retry: 5
@@ -63,22 +38,6 @@ duckdns:
   domain: !secret duckdns_url
   access_token: !secret duckdns_token
 
-weather:
-  - platform: darksky
-    api_key: !secret darksky_token
-    mode: daily
-
-#googlehome:
-#  devices:
-#    - host:  192.168.1.5
-#    - host:  192.168.1.179
-#device_tracker:
-#  - platform: padavan_tracker
-#    consider_home: 10
-#    interval_seconds: 3
-#    url: http://192.168.1.1/
-#    username: !secret padavan_tracker_user
-#    password: !secret padavan_tracker_password
 
 http:
   base_url: !secret base_url
@@ -99,15 +58,23 @@ notify:
 person:
   - name: skochko
     id: skochko
-    user_id: 39e226ea234f46949a0813d96245ee92
     device_trackers:
-      - device_tracker.oneplus_a3010
+      - device_tracker.phone_skochko
   - name: Viktoriia
     id: viktoriia_skochko
     device_trackers:
-      - device_tracker.oneplus_a6000
+      - device_tracker.phone_viktoriia
 
 
+camera:
+  - platform: generic
+    still_image_url: !secret camera_still_image_url
+    stream_source: !secret camera_stream_source
+
+#weather:
+#  - platform: darksky
+#    api_key: !secret darksky_token
+#    mode: daily
 #speedtestdotnet:
 #  scan_interval:
 #    minutes: 300

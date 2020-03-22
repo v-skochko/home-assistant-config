@@ -1,87 +1,87 @@
-####### 5 - Системні сценарії
-###############################################################################
-#
-#Вимкнути broadlink_PC одразу після вмикання
-- alias: broadlink_PC_off_fix
-  trigger:
-    platform: state
-    entity_id: switch.broadlink_pc
-    to: 'on'
-    from: 'off'
-  action:
-    - delay: 1
-    - service: switch.turn_off
+  ####### 5 - Системні сценарії
+  ###############################################################################
+  #
+  #Вимкнути broadlink_PC одразу після вмикання
+  - alias: broadlink_PC_off_fix
+    trigger:
+      platform: state
       entity_id: switch.broadlink_pc
+      to: 'on'
+      from: 'off'
+    action:
+      - delay: 1
+      - service: switch.turn_off
+        entity_id: switch.broadlink_pc
 
-#Автоматичне вимкнення всього світла вночі
-- alias: off_alls_witches
-  trigger:
-    - platform: time
-      at: '02:00:00'
-  action:
-    - service: switch.turn_off
-      entity_id: group.group_switches
+  #Автоматичне вимкнення всього світла вночі
+  - alias: off_alls_witches
+    trigger:
+      - platform: time
+        at: '02:00:00'
+    action:
+      - service: switch.turn_off
+        entity_id: group.group_switches
 
-#Вимкнути комп'ютер вночі, якщо він ще працює
-- alias: Вимкнути Комп
-  trigger:
-    - platform: time
-      at: '02:00:00'
-  action:
-    - service: hassio.addon_stdin
-      data:
-        addon: core_rpc_shutdown
-        input: nergal
+  #Вимкнути комп'ютер вночі, якщо він ще працює
+  - alias: Вимкнути Комп
+    trigger:
+      - platform: time
+        at: '02:00:00'
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: core_rpc_shutdown
+          input: nergal
 
-#iftt_income action listener
-- id: iftt_income
-  alias: Income IFTT action
-  trigger:
-    - event_data:
-        action: call_service
-      event_type: ifttt_webhook_received
-      platform: event
-  condition: []
-  action:
-    - data_template:
-        entity_id: '{{ trigger.event.data.entity_id }}'
-      service_template: '{{ trigger.event.data.service }}'
-
-
+  #iftt_income action listener
+  - id: iftt_income
+    alias: Income IFTT action
+    trigger:
+      - event_data:
+          action: call_service
+        event_type: ifttt_webhook_received
+        platform: event
+    condition: []
+    action:
+      - data_template:
+          entity_id: '{{ trigger.event.data.entity_id }}'
+        service_template: '{{ trigger.event.data.service }}'
 
 
-#############
-#############
-#############
-#############
-####### ТЕСТИ
-###############################################################################
-#
-#hub ringtone
-#{
-#  "gw_mac": "7811DCFAF643",
-#  "ringtone_id": 29,
-#  "ringtone_vol": 8
-#}
-#- alias: "Night Light Routine"
-#  trigger:
-#    platform: state
-#    entity_id: switch.wall_switch_right_158d0001dc2c2e
-#    to: 'on'
-#    from: 'off'
-#
-#  action:
-#    - service: xiaomi_aqara.play_ringtone
-#      data:
-#        gw_mac: 7811DCFAF643
-#        ringtone_id: 1001
-#        ringtone_vol: 8
-#----Тести--#
-#- alias: sunset
-#  trigger:
-#    platform: sun
-#    event: sunset
-#  action:
-#    - service: switch.turn_on
-#      data:
-#        entity_id: switch.wall_switch_left_158d0001dc2c2e
+
+
+  #############
+  #############
+  #############
+  #############
+  ####### ТЕСТИ
+  ###############################################################################
+  #
+  #hub ringtone
+  #{
+  #  "gw_mac": "7811DCFAF643",
+  #  "ringtone_id": 29,
+  #  "ringtone_vol": 8
+  #}
+  #- alias: "Night Light Routine"
+  #  trigger:
+  #    platform: state
+  #    entity_id: switch.wall_switch_right_158d0001dc2c2e
+  #    to: 'on'
+  #    from: 'off'
+  #
+  #  action:
+  #    - service: xiaomi_aqara.play_ringtone
+  #      data:
+  #        gw_mac: 7811DCFAF643
+  #        ringtone_id: 1001
+  #        ringtone_vol: 8
+  #----Тести--#
+  #- alias: sunset
+  #  trigger:
+  #    platform: sun
+  #    event: sunset
+  #  action:
+  #    - service: switch.turn_on
+  #      data:
+  #        entity_id: switch.wall_switch_left_158d0001dc2c2e
