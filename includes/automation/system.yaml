@@ -9,12 +9,12 @@
       to: 'on'
       from: 'off'
     action:
-      - delay: 1
+      - delay: 2
       - service: switch.turn_off
         entity_id: switch.broadlink_pc
 
   #Автоматичне вимкнення всього світла вночі
-  - alias: off_alls_witches
+  - alias: turn_off_all_switches
     trigger:
       - platform: time
         at: '02:00:00'

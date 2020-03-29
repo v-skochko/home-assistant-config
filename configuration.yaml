@@ -1,3 +1,8 @@
+#################################################################
+#                                                               #
+#           Home Assistant Main Configuration File              #
+#                                                               #
+#################################################################
 homeassistant:
   name: Mothership
   latitude: !secret latitude
@@ -6,28 +11,33 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Kiev
   customize: !include customize.yaml
-
-
 default_config:
 
-lovelace:
-  mode: yaml
-
-#wake_on_lan:
-tts:
-  - platform: google_translate
-
+####################################################
+#                                                  #
+#                    Includes                      #
+#                                                  #
+####################################################
 script: !include scripts.yaml
 group: !include groups/all-groups.yaml
 light: !include groups/lights.yaml
 automation: !include_dir_merge_list includes/automation
-
 scene: !include scenes.yaml
 switch: !include switch.yaml
 sensor: !include_dir_merge_list includes/sensors
-
 zone: !include zones.yaml
 yeelight: !include yeelight.yaml
+
+#################################################################
+#                                                               #
+#                        Customizations                         #
+#                                                               #
+#################################################################
+lovelace:
+  mode: yaml
+
+tts:
+  - platform: google_translate
 
 xiaomi_aqara:
   discovery_retry: 5
@@ -38,10 +48,8 @@ duckdns:
   domain: !secret duckdns_url
   access_token: !secret duckdns_token
 
-
 http:
   base_url: !secret base_url
-
 
 telegram_bot:
   - platform: polling
@@ -54,6 +62,23 @@ notify:
     platform: telegram
     chat_id: !secret telegram_chat_id
 
+camera:
+  - platform: generic
+    still_image_url: !secret camera_still_image_url
+    stream_source: !secret camera_stream_source
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_token
+    mode: daily
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 300
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 person:
   - name: skochko
@@ -65,20 +90,8 @@ person:
     device_trackers:
       - device_tracker.phone_viktoriia
 
-
-camera:
-  - platform: generic
-    still_image_url: !secret camera_still_image_url
-    stream_source: !secret camera_stream_source
-
-#weather:
-#  - platform: darksky
-#    api_key: !secret darksky_token
-#    mode: daily
-#speedtestdotnet:
-#  scan_interval:
-#    minutes: 300
-#  monitored_conditions:
-#    - ping
-#    - download
-#    - upload
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun]

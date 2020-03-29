@@ -17,8 +17,6 @@ views:
     icon: mdi:home-account
     path: home
     cards:
-
-
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -36,8 +34,6 @@ views:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
-
-
 
       - type: custom:mini-graph-card
         name: Температура в кімнаті
@@ -76,7 +72,6 @@ views:
             entity_id: script.turn_off_pc
         entity: script.swich_pc_state
 
-
       - type: entities
         title: Вмикачі
         icon: mdi:home-assistant
@@ -102,18 +97,18 @@ views:
           - entity: switch.wall_switch_right_158d00019f6738
             name: Кухня - Бра
             icon: mdi:ceiling-light
-          - entity: switch.broadlink_kitchen_ambilight
-            name: Кухня - Підсвітка
-            icon: mdi:led-on
+#          - entity: switch.broadlink_kitchen_ambilight
+#            name: Кухня - Підсвітка
+#            icon: mdi:led-on
           - entity: switch.broadlink_kitchen_fan
             name: Кухня - Вентиляція
             icon: mdi:fan
           - entity: switch.broadlink_pc
             name: Комп
             icon: mdi:monitor
-          - entity: switch.broadlink_christmas_tree
-            name: Ялинка
-            icon: mdi:pine-tree
+#          - entity: switch.broadlink_christmas_tree
+#            name: Ялинка
+#            icon: mdi:pine-tree
           - entity: switch.wake_on_lan
             name: wake_on_lan
       - type: picture-glance

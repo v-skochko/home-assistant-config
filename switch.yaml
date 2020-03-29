@@ -8,11 +8,11 @@
 #    mac: '780F7717520D'
 #    type:  sp2
 #    friendly_name: 'broadlink_kitchen_ambilight'
-  - platform: broadlink
-    host: 192.168.1.22
-    mac: '780F7717655A'
-    type:  sp2
-    friendly_name: 'broadlink_christmas_tree'
+#  - platform: broadlink
+#    host: 192.168.1.22
+#    mac: '780F7717655A'
+#    type:  sp2
+#    friendly_name: 'broadlink_christmas_tree'
   - platform: broadlink
     host: 192.168.1.23
     mac: '34ea34bd5fc2'

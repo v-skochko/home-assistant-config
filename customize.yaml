@@ -37,7 +37,7 @@ binary_sensor.dark_sky_temperature_1h:
 ## Persons
 person.skochko:
     entity_picture: "local/photos/skochko.jpg"
-person.Viktoriia:
+person.viktoriia:
     entity_picture: "local/photos/viktoriia.jpg"
 #device_tracker
 device_tracker.phone_skochko:
