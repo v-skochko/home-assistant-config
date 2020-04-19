@@ -41,6 +41,7 @@ views:
           - sensor.temperature_158d0002437932
         line_color: var(--accent-color)
         line_width: 4
+        hours_to_show: 72
         font_size: 40
         show:
           labels: true
@@ -58,6 +59,7 @@ views:
           - sensor.ukraine_coronavirus_deaths
         line_color: var(--accent-color)
         line_width: 4
+        hours_to_show: 144
         font_size: 60
         show:
           labels: true
@@ -126,6 +128,8 @@ views:
             name: Радіо Срака 😆
           - url: http://ua.uar.net:8000/vgolos
             name: Вголос 🙀
+          - url: http://live-aacplus-64.kexp.org/kexp64.aac
+            name: KEXP
           - url: http://94.23.40.70:8010/
             name: Metal Radio 👿
           - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
