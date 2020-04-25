@@ -34,7 +34,7 @@
           {% elif is_state('device_tracker.phone_skochko', 'work') %}
            На роботі
           {% elif is_state('device_tracker.phone_skochko', 'lviv_center') %}
-           у центрі
+           У центрі
           {% elif is_state('device_tracker.phone_skochko', 'lviv') %}
            Львів
           {% else %}
