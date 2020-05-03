@@ -31,8 +31,7 @@ views:
                 entities:
                   - sensor.skochko
                   - type: divider
-                  - type: divider
-                  - sensor.location_skochko
+                  - sensor.battery_skochko
               - type: entities
                 show_header_toggle: false
                 entities:

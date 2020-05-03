@@ -1,0 +1,78 @@
+### Безпровідна Віки
+#Безпровідна Ліва - один клік
+- alias: binary_single_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d00027c0ef6
+      click_type: single
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.master_lamp
+#Безпровідна Права - один клік
+- alias: binary_single_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d00027c0ef6
+      click_type: single
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.viktoriia_lamp
+#Безпровідна Ліва - довгий клік
+- alias: binary_long_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d00027c0ef6
+      click_type: long
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_right_158d0001dc2c2e
+#Безпровідна Права - довгий клік
+- alias: binary_long_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d00027c0ef6
+      click_type: long
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_left_158d0001dc2c2e
+#Безпровідна Обидві - клік (Вимкнути все в квартирі)
+- alias: binary_long_both_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_both_158d00027c0ef6
+      click_type: long_both
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.all_switches
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.speaker
+
+#Безпровідна Ліва - Подвійний клік (Увімкнути комп'ютер)
+- alias: binary_double_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d00027c0ef6
+      click_type: double
+  action:
+    - service: script.swich_pc_state

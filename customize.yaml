@@ -1,5 +1,3 @@
-sun.sun:
-    friendly_name: Сонечко
 sensor.time:
     friendly_name: Час
 script.radio538:
