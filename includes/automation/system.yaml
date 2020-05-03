@@ -9,7 +9,7 @@
       to: 'on'
       from: 'off'
     action:
-      - delay: 2
+      - delay: 1
       - service: switch.turn_off
         entity_id: switch.broadlink_pc
 

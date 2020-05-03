@@ -13,20 +13,16 @@ reload_core_config:
 
 
 ### Увімкнути/вимкнути комп'ютер
-swich_pc_state:
+turn_on_pc:
   sequence:
     - service: switch.turn_on
       data:
         entity_id: switch.broadlink_PC
-    - delay: 1
-    - service: switch.turn_on
-      data:
-        entity_id: switch.broadlink_PC
-    - service: xiaomi_aqara.play_ringtone
-      data:
-        gw_mac: 7811DCFAF643
-        ringtone_id: 10003
-        ringtone_vol: 20
+#    - service: xiaomi_aqara.play_ringtone
+#      data:
+#        gw_mac: 7811DCFAF643
+#        ringtone_id: 10003
+#        ringtone_vol: 20
 
 # Вимкнути комп'ютер
 turn_off_pc:

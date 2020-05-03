@@ -1,45 +1,28 @@
-
-
-
-
-  #Безпровідна Моя Ліва - один клік
-  - alias: binary_single_left_click
-    trigger:
-      platform: event
-      event_type: xiaomi_aqara.click
-      event_data:
-        entity_id: binary_sensor.wall_switch_left_158d0004650116
-        click_type: single
-    action:
-      - service: light.toggle
-        data:
-          entity_id: light.master_lamp
-
-  #Фікс для світла в кімнаті
-  - alias: room_light_fix
-    trigger:
-      platform: state
+#Фікс для світла в кімнаті
+- alias: room_light_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001dc2c2e
+    to: 'off'
+    from: 'on'
+  action:
+    - delay: 1
+    - service: switch.turn_on
       entity_id: switch.wall_switch_left_158d0001dc2c2e
-      to: 'off'
-      from: 'on'
-    action:
-      - delay: 1
-      - service: switch.turn_on
-        entity_id: switch.wall_switch_left_158d0001dc2c2e
 
-  # Перезавантаження світильника якщо він завис
-  - alias: room_moon_reboot
-    initial_state: true
-    trigger:
-      - platform: state
-        entity_id: light.room_moon
-        to: 'unavailable'
-        for:
-          minutes: 5
-    action:
-      - service: switch.turn_on
-        entity_id: switch.wall_switch_left_158d0001dc2c2e
-      - delay: 1
-      - service: switch.turn_off
-        entity_id: switch.wall_switch_left_158d0001dc2c2e
+# Перезавантаження світильника якщо він завис
+- alias: room_moon_reboot
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: light.room_moon
+      to: 'unavailable'
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
 

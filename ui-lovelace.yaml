@@ -130,7 +130,7 @@ views:
                   icon: mdi:windows
                   service_data:
                     entity_id: script.turn_off_pc
-                entity: script.swich_pc_state
+                entity: script.turn_on_pc
 
               - type: entities
                 show_header_toggle: false
@@ -176,7 +176,7 @@ views:
           icon: mdi:windows
           service_data:
             entity_id: script.turn_off_pc
-        entity: script.swich_pc_state
+        entity: script.turn_on_pc
 
       - type: entities
         title: Вмикачі
