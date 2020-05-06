@@ -1,14 +1,15 @@
 title: Mothership
 # Include external resources
 resources:
-  - url: /community_plugin/light-entity-card/light-entity-card.js
+  - url: /hacsfiles/light-entity-card/light-entity-card.js
     type: js
-  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
   - url: /local/radio-selector.js
     type: module
-  - url: /community_plugin/weather-card/weather-card.js
+  - url: /hacsfiles/weather-card/weather-card.js
     type: module
+
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
