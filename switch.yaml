@@ -3,11 +3,11 @@
     mac: '780F7761D452'
     type:  sp2
     friendly_name: 'broadlink_kitchen_fan'
-#  - platform: broadlink
-#    host: 192.168.1.21
-#    mac: '780F7717520D'
-#    type:  sp2
-#    friendly_name: 'broadlink_kitchen_ambilight'
+  - platform: broadlink
+    host: 192.168.1.21
+    mac: '780F7717520D'
+    type:  sp2
+    friendly_name: 'broadlink_room_ambilight'
 #  - platform: broadlink
 #    host: 192.168.1.22
 #    mac: '780F7717655A'

@@ -20,12 +20,17 @@
         value_template: >
           {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %T') | replace(" 0", "") }}
         icon_template: mdi:weather-sunset-down
-
+   # discharging
       battery_skochko:
-        friendly_name: "Телефон"
-        value_template: "{{ states.device_tracker.phone_skochko.attributes.battery_level|int }}"
+        friendly_name: Телефон
+        value_template: "{{ states('sensor.phone_skochko_battery_level')}}"
         unit_of_measurement: "%"
         device_class: battery
+
+      battery_status_skochko:
+        friendly_name: Статус
+        value_template: "{{ states('sensor.phone_skochko_battery_state')}}"
+
       skochko:
         friendly_name: "Вася"
         value_template: >-
@@ -50,7 +55,7 @@
 
       battery_viktoriia:
         friendly_name: "Телефон"
-        value_template: "{{ states.device_tracker.phone_viktoriia.attributes.battery_level|int }}"
+        value_template: "{{ states('sensor.phone_viktoriia_battery_level')}}"
         unit_of_measurement: "%"
         device_class: battery
       viktoriia:
