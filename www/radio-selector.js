@@ -211,7 +211,7 @@ class JukeboxCard extends HTMLElement {
         const entity = hass.states[entityId];
 
         const btn = document.createElement('paper-tab');
-        btn.entityId = entityId;        
+        btn.entityId = entityId;
         btn.innerText = hass.states[entityId].attributes.friendly_name;
         return btn;
     }
@@ -272,6 +272,11 @@ function getStyle() {
     
     mwc-button.juke-toggle {
         --mdc-theme-primary: var(--primary-text-color);
+        display: block!important;
+    }    
+    mwc-button.juke-toggle .mdc-button {
+        --mdc-theme-primary: var(--primary-text-color);
+       width: 100%;
     }
     
     mwc-button.juke-toggle[raised] {

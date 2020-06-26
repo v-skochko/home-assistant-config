@@ -119,4 +119,7 @@ recorder:
     entities:
       - sensor.date
       - sensor.time
+      - sensor.date_time
+      - sensor.nextsunrise
+      - sensor.nextsunset
       - weather.mothership

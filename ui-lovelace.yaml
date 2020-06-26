@@ -43,7 +43,6 @@ views:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
-      ### 2 колонка
       - type: entity-button
         name: Виключити комп'ютер
         tap_action:
@@ -52,13 +51,13 @@ views:
           icon: mdi:windows
           service_data:
             entity_id: script.turn_off_pc
+
+      ### 2 колонка
+
       - type: entities
         title: Вмикачі
         icon: mdi:home-assistant
         entities:
-          - entity: switch.wall_switch_right_158d0001f4852b
-            name: Коридор - Споти
-            icon: mdi:spotlight-beam
           - entity: switch.wall_switch_right_158d0001dc2c2e
             name: Кімната - Спот
             icon: mdi:spotlight-beam
@@ -68,12 +67,8 @@ views:
           - entity: switch.wall_switch_left_158d0001dc2c2e
             name: Кімната - Місяць
             icon: mdi:brightness-1
-          - entity: switch.wall_switch_right_158d00016c31cf
-            name: Душова - Світло
-            icon: mdi:lightbulb-on
-          - entity: switch.wall_switch_left_158d00016c31cf
-            name: Душова - Вентиляція
-            icon: mdi:fan
+          - type: divider
+
           - entity: switch.wall_switch_left_158d00019f6738
             name: Кухня - Споти
             icon: mdi:spotlight-beam
@@ -86,6 +81,17 @@ views:
           - entity: switch.broadlink_pc
             name: Комп
             icon: mdi:monitor
+          - entity: switch.wall_switch_right_158d0001f4852b
+            name: Коридор - Споти
+            icon: mdi:spotlight-beam
+          - type: divider
+          - entity: switch.wall_switch_right_158d00016c31cf
+            name: Душова - Світло
+            icon: mdi:lightbulb-on
+          - entity: switch.wall_switch_left_158d00016c31cf
+            name: Душова - Вентиляція
+            icon: mdi:fan
+#          - type: divider
       #          - entity: switch.broadlink_christmas_tree
       #            name: Ялинка
       #            icon: mdi:pine-tree
@@ -95,7 +101,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            name: Температура в кімнаті
+            name: Температура в коридорі
             entities:
               - sensor.temperature_158d0002437932
             line_color: var(--accent-color)
@@ -114,17 +120,6 @@ views:
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
-          - type: custom:mini-graph-card
-            name: Коронавірус в Україні
-            entities:
-              - sensor.ukraine_coronavirus_confirmed
-              - sensor.ukraine_coronavirus_deaths
-            line_color: var(--accent-color)
-            line_width: 4
-            hours_to_show: 144
-            font_size: 60
-            show:
-              labels: true
   ### Media  ############
   - icon: mdi:speaker-multiple
     title: Second view
@@ -133,6 +128,8 @@ views:
         links:
           - url: http://212.26.146.50:8000/sraka.mp3
             name: Радіо Срака 😆
+          - url:
+            name: -------------------
           - url: http://ua.uar.net:8000/vgolos
             name: Вголос 🙀
           - url: http://live-aacplus-64.kexp.org/kexp64.aac
@@ -145,18 +142,22 @@ views:
             name: Радіо Сковорода
           - url: http://listen.shoutcast.com/Classic-RockFlorida
             name: Classic-Rock Florida
-          - url: http://streams.greenhost.nl:8080/jazz
-            name: Concertzender Jazz
-          - url: http://fs-insidejazz.fast-serv.com:8282/;stream.nsv
-            name: Inside Jazz
-          - url: http://stream.srg-ssr.ch/m/rsj/mp3_128
-            name: Radio Swiss Jazz
-          - url: http://stream.beachlatinoradio.com:8030/;?d=
-            name: Beach Latino Radio
-          - url: http://streams.calmradio.com/api/43/128/stream/;?d=
-            name: Calm Radio
-          - url: http://swr-swr1-bw.cast.addradio.de/swr/swr1/bw/mp3/128/stream.mp3
-            name: SWR 1
+          - url: http://stream-uk1.radioparadise.com/aac-320
+            name: Paradise
+          - url: http://musicbird.leanstream.co/JCB077-MP3
+            name: Edogawa City
+          - url: http://0n-rock.radionetz.de/0n-rock.mp3
+            name: ON Rock
+          - url: http://bigrradio.cdnstream1.com/5186_128
+            name: 80s Metal FM
+          - url: http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow
+            name: eskaGO.pl - Kraków
+          - url: http://stream.laut.fm/nordiclights
+            name: Nordic Lights
+          - url: http://radio.ukr.radio:8000/ur1-lv-mp3-m
+            name: LV
+          - url: http://stream.mjoy.ua:8000/rzk-aac
+            name: Mjoy
         entities:
           - media_player.kitchen
           - media_player.tv

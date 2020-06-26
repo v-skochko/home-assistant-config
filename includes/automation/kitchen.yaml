@@ -36,9 +36,9 @@
         entity_id: switch.broadlink_kitchen_fan
         state: 'off'
       - condition: time
-        after: '08:00:00'
+        after: '08:30:00'
       - condition: time
-        before: '00:00:00'
+        before: '23:00:00'
     action:
       - service: switch.turn_on
         data:
