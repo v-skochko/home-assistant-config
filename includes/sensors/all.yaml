@@ -10,3 +10,8 @@
       - summary
       - icon
       - temperature
+  - platform: scrape
+    resource: https://www.mangooutlet.com/us/men
+    name: Mango
+    select: ".texto_header_banner"
+    scan_interval: 3600

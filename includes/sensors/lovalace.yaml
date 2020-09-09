@@ -23,30 +23,30 @@
    # discharging
       battery_skochko:
         friendly_name: Телефон
-        value_template: "{{ states('sensor.phone_skochko_battery_level')}}"
+        value_template: "{{ states('sensor.oneplus_a3010_battery_level')}}"
         unit_of_measurement: "%"
         device_class: battery
 
       battery_status_skochko:
         friendly_name: Статус
-        value_template: "{{ states('sensor.phone_skochko_battery_state')}}"
+        value_template: "{{ states('sensor.oneplus_a3010_battery_state')}}"
 
       skochko:
         friendly_name: "Вася"
         value_template: >-
-          {% if is_state('device_tracker.phone_skochko', 'home') %}
+          {% if is_state('device_tracker.oneplus_a3010', 'home') %}
             Вдома
-          {% elif is_state('device_tracker.phone_skochko', 'work') %}
+          {% elif is_state('device_tracker.oneplus_a3010', 'work') %}
            На роботі
-          {% elif is_state('device_tracker.phone_skochko', 'lviv_center') %}
+          {% elif is_state('device_tracker.oneplus_a3010', 'lviv_center') %}
            У центрі
-          {% elif is_state('device_tracker.phone_skochko', 'lviv') %}
+          {% elif is_state('device_tracker.oneplus_a3010', 'lviv') %}
            Львів
           {% else %}
             Невідомо
           {% endif %}
         entity_picture_template: >-
-          {% if is_state('device_tracker.phone_skochko', 'work') %}
+          {% if is_state('device_tracker.oneplus_a3010', 'work') %}
             /local/photos/skochko_at_work.jpg
           {% else %}
             /local/photos/skochko.jpg

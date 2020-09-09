@@ -43,55 +43,55 @@ views:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
-      - type: entity-button
-        name: Виключити комп'ютер
-        tap_action:
-          action: call-service
-          service: script.turn_on
-          icon: mdi:windows
-          service_data:
-            entity_id: script.turn_off_pc
-
       ### 2 колонка
+      - type: vertical-stack
+        cards:
+          - type: entity-button
+            name: Виключити комп'ютер
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              icon: mdi:windows
+              service_data:
+                entity_id: script.turn_off_pc
+          - type: entities
+            title: Вмикачі
+            icon: mdi:home-assistant
+            entities:
+              - entity: switch.wall_switch_right_158d0001dc2c2e
+                name: Кімната - Спот
+                icon: mdi:spotlight-beam
+              - entity: switch.broadlink_room_ambilight
+                name: Кімната - Підсвітка
+                icon: mdi:spotlight-beam
+              - entity: switch.wall_switch_left_158d0001dc2c2e
+                name: Кімната - Місяць
+                icon: mdi:brightness-1
+              - type: divider
 
-      - type: entities
-        title: Вмикачі
-        icon: mdi:home-assistant
-        entities:
-          - entity: switch.wall_switch_right_158d0001dc2c2e
-            name: Кімната - Спот
-            icon: mdi:spotlight-beam
-          - entity: switch.broadlink_room_ambilight
-            name: Кімната - Підсвітка
-            icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_left_158d0001dc2c2e
-            name: Кімната - Місяць
-            icon: mdi:brightness-1
-          - type: divider
-
-          - entity: switch.wall_switch_left_158d00019f6738
-            name: Кухня - Споти
-            icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_right_158d00019f6738
-            name: Кухня - Бра
-            icon: mdi:ceiling-light
-          - entity: switch.broadlink_kitchen_fan
-            name: Кухня - Вентиляція
-            icon: mdi:fan
-          - entity: switch.broadlink_pc
-            name: Комп
-            icon: mdi:monitor
-          - entity: switch.wall_switch_right_158d0001f4852b
-            name: Коридор - Споти
-            icon: mdi:spotlight-beam
-          - type: divider
-          - entity: switch.wall_switch_right_158d00016c31cf
-            name: Душова - Світло
-            icon: mdi:lightbulb-on
-          - entity: switch.wall_switch_left_158d00016c31cf
-            name: Душова - Вентиляція
-            icon: mdi:fan
-#          - type: divider
+              - entity: switch.wall_switch_left_158d00019f6738
+                name: Кухня - Споти
+                icon: mdi:spotlight-beam
+              - entity: switch.wall_switch_right_158d00019f6738
+                name: Кухня - Бра
+                icon: mdi:ceiling-light
+              - entity: switch.broadlink_kitchen_fan
+                name: Кухня - Вентиляція
+                icon: mdi:fan
+              - entity: switch.broadlink_pc
+                name: Комп
+                icon: mdi:monitor
+              - entity: switch.wall_switch_right_158d0001f4852b
+                name: Коридор - Споти
+                icon: mdi:spotlight-beam
+              - type: divider
+              - entity: switch.wall_switch_right_158d00016c31cf
+                name: Душова - Світло
+                icon: mdi:lightbulb-on
+              - entity: switch.wall_switch_left_158d00016c31cf
+                name: Душова - Вентиляція
+                icon: mdi:fan
+#             - type: divider
       #          - entity: switch.broadlink_christmas_tree
       #            name: Ялинка
       #            icon: mdi:pine-tree
@@ -124,47 +124,57 @@ views:
   - icon: mdi:speaker-multiple
     title: Second view
     cards:
-      - type: "custom:jukebox-card"
-        links:
-          - url: http://212.26.146.50:8000/sraka.mp3
-            name: Радіо Срака 😆
-          - url:
-            name: -------------------
-          - url: http://ua.uar.net:8000/vgolos
-            name: Вголос 🙀
-          - url: http://live-aacplus-64.kexp.org/kexp64.aac
-            name: KEXP
-          - url: http://94.23.40.70:8010/
-            name: Metal Radio 👿
-          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
-            name: Jazz Radio Blues
-          - url: http://stream.radioskovoroda.com:8060/skovoroda_music
-            name: Радіо Сковорода
-          - url: http://listen.shoutcast.com/Classic-RockFlorida
-            name: Classic-Rock Florida
-          - url: http://stream-uk1.radioparadise.com/aac-320
-            name: Paradise
-          - url: http://musicbird.leanstream.co/JCB077-MP3
-            name: Edogawa City
-          - url: http://0n-rock.radionetz.de/0n-rock.mp3
-            name: ON Rock
-          - url: http://bigrradio.cdnstream1.com/5186_128
-            name: 80s Metal FM
-          - url: http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow
-            name: eskaGO.pl - Kraków
-          - url: http://stream.laut.fm/nordiclights
-            name: Nordic Lights
-          - url: http://radio.ukr.radio:8000/ur1-lv-mp3-m
-            name: LV
-          - url: http://stream.mjoy.ua:8000/rzk-aac
-            name: Mjoy
-        entities:
-          - media_player.kitchen
-          - media_player.tv
-      - type: media-control
-        entity: media_player.kitchen
-      - type: media-control
-        entity: media_player.tv
+      - type: horizontal-stack
+        cards:
+          - type: "custom:jukebox-card"
+            links:
+              - url: http://212.26.146.50:8000/sraka.mp3
+                name: Радіо Срака 😆
+              - url:
+                name: -------------------
+              - url: http://ua.uar.net:8000/vgolos
+                name: Вголос 🙀
+              - url: http://live-aacplus-64.kexp.org/kexp64.aac
+                name: KEXP
+              - url: http://94.23.40.70:8010/
+                name: Metal Radio 👿
+              - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
+                name: Jazz Radio Blues
+              - url: http://stream.radioskovoroda.com:8060/skovoroda_music
+                name: Радіо Сковорода
+              - url: http://listen.shoutcast.com/Classic-RockFlorida
+                name: Classic-Rock Florida
+              - url: http://stream-uk1.radioparadise.com/aac-320
+                name: Paradise
+              - url: http://musicbird.leanstream.co/JCB077-MP3
+                name: Edogawa City
+              - url: http://0n-rock.radionetz.de/0n-rock.mp3
+                name: ON Rock
+              - url: http://bigrradio.cdnstream1.com/5186_128
+                name: 80s Metal FM
+              - url: http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow
+                name: eskaGO.pl - Kraków
+              - url: http://stream.laut.fm/nordiclights
+                name: Nordic Lights
+              - url: http://radio.ukr.radio:8000/ur1-lv-mp3-m
+                name: LV
+              - url: http://stream.mjoy.ua:8000/rzk-aac
+                name: Mjoy
+              - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
+                name: Промінь                
+                
+            entities:
+              - media_player.kitchen
+              - media_player.tv
+      - type: horizontal-stack
+        cards:
+          - type: media-control
+            entity: media_player.kitchen
+
+      - type: horizontal-stack
+        cards:
+          - type: media-control
+            entity: media_player.tv
   ### Кольори  ############
   - title: Кольори
     path: colors
