@@ -1,7 +1,6 @@
 title: Mothership
 # Include external resources
 resources:
-
   - url: /hacsfiles/light-entity-card/light-entity-card.js
     type: js
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
@@ -295,7 +294,7 @@ views:
                 name: "Безпровідний вмикач Васі"
               - entity: binary_sensor.wall_switch_both_158d00027c0ef6
                 name: "Безпровідний вмикач Віки"
-              - entity: sensor.phone_skochko_battery_level
+              - entity: sensor.oneplus_a3010_battery_level
                 name: "Телефон Васі"
               - entity: sensor.oneplus_a6000_battery_level
                 name: "Телефон Віки"

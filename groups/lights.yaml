@@ -3,3 +3,9 @@
     entities:
       - light.window
       - light.kitchen_light
+
+  - platform: group
+    name: group_room_yeelight
+    entities:
+      - light.master-lamp
+      - light.viktoriia-lamp
