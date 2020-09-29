@@ -1,10 +1,10 @@
   - platform: broadlink
-    host: 192.168.1.20
+  #  host: 192.168.1.20
     mac: '780F7761D452'
     type:  sp2
     friendly_name: 'broadlink_kitchen_fan'
   - platform: broadlink
-    host: 192.168.1.21
+  #  host: 192.168.1.21
     mac: '780F7717520D'
     type:  sp2
     friendly_name: 'broadlink_room_ambilight'
@@ -14,13 +14,13 @@
 #    type:  sp2
 #    friendly_name: 'broadlink_christmas_tree'
   - platform: broadlink
-    host: 192.168.1.23
+#    host: 192.168.1.23
     mac: '34ea34bd5fc2'
     type:  sp2
     timeout: 10
     friendly_name: 'broadlink_pc'
   - platform: broadlink
-    host: 192.168.1.24
+ #   host: 192.168.1.24
     mac: '34ea34852721'
     type:  mp1
     friendly_name: 'broadlink_root_socket'

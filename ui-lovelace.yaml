@@ -11,7 +11,6 @@ resources:
     type: module
   - url: /hacsfiles/battery-state-card/battery-state-card.js
     type: module
-
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
@@ -23,6 +22,9 @@ views:
       ### 1 колонка
       - type: vertical-stack
         cards:
+          - type: thermostat
+            entity: climate.beok
+            title: Котел
           - type: picture-glance
             entities: []
             title: Вхідні двері
@@ -67,7 +69,6 @@ views:
                 name: Кімната - Місяць
                 icon: mdi:brightness-1
               - type: divider
-
               - entity: switch.wall_switch_left_158d00019f6738
                 name: Кухня - Споти
                 icon: mdi:spotlight-beam
@@ -160,8 +161,7 @@ views:
               - url: http://stream.mjoy.ua:8000/rzk-aac
                 name: Mjoy
               - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
-                name: Промінь                
-                
+                name: Промінь
             entities:
               - media_player.kitchen
               - media_player.tv
@@ -169,7 +169,6 @@ views:
         cards:
           - type: media-control
             entity: media_player.kitchen
-
       - type: horizontal-stack
         cards:
           - type: media-control

@@ -81,14 +81,14 @@ speedtestdotnet:
     - upload
 
 person:
-  - name: skochko
+  - name: Skochko
     id: skochko
     device_trackers:
-      - device_tracker.phone_skochko
+      - device_tracker.oneplus_a3010
   - name: Viktoriia
-    id: viktoriia_skochko
+    id: viktoriia
     device_trackers:
-      - device_tracker.phone_viktoriia
+      - device_tracker.oneplus_a6000
 
 binary_sensor:
   - platform: workday
@@ -112,6 +112,13 @@ device_tracker:
       nergal: 192.168.1.7
 frontend:
   themes: !include_dir_merge_named themes
+
+climate:
+  platform: floureon
+  name: beok
+  mac: 34:EA:34:7A:69:94
+  host: 192.168.1.25
+  use_external_temp: false
 
 recorder:
   purge_keep_days: 5
