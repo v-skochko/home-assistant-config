@@ -1,0 +1,101 @@
+### Безпровідний вмикач Васі 158d0004650116 (single, double, long, both, double_both, long_both)
+## 1: Ліва один клік - лампа Васі (on\off)
+## 2: Права один клік - лампа Віки (on\off)
+## 3: Ліва довгий клік - споти (on\off)
+## 4: Права довгий клік - основне світло (on\off)
+## 5: Ліва подвійний клік - Комп'ютер On
+## 6: Права подвійний клік - Комп'ютер Off
+## 7: Дві кнопки разом один клік - вимкнути все в квартирі
+## 8: Дві кнопки разом довгий клік -
+## 9: Дві кнопки разом подвійний клік -
+
+#1: Ліва один клік - лампа Васі (on\off)
+- alias: wireless_master_binary_single_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d0004650116
+      click_type: single
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.master_lamp
+#2: Права один клік - лампа Віки (on\off)
+- alias: wireless_master_binary_single_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d0004650116
+      click_type: single
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.viktoriia_lamp
+#3: Ліва довний клік - споти (on\off)
+- alias: wireless_master_binary_long_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d0004650116
+      click_type: long
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_right_158d0001dc2c2e
+#4: Права довний клік - основне світло (on\off)
+- alias: wireless_master_binary_long_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d0004650116
+      click_type: long
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.room_moon
+
+
+#5: Ліва подвійний клік - Комп'ютер On
+- alias: wireless_master_binary_double_left_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d0004650116
+      click_type: double
+  action:
+    - service: script.turn_on_pc
+
+## 6: Права подвійний клік - Комп'ютер Off
+- alias: wireless_master_binary_double_right_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d0004650116
+      click_type: double
+  action:
+    - service: script.turn_off_pc
+
+#7: Дві кнопки разом один клік - вимкнути все в квартирі
+- alias: wireless_master_binary_long_both_click
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_both_158d0004650116
+      click_type: both
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.all_switches
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.speaker

@@ -1,0 +1,78 @@
+#################################################################
+#                                                               #
+#           Home Assistant Main Configuration File              #
+#                                                               #
+#################################################################
+homeassistant:
+  name: Mothership
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 302
+  unit_system: metric
+  time_zone: Europe/Kiev
+  customize: !include customize.yaml
+default_config:
+# Text to speech
+tts:
+  - platform: google_translate
+
+lovelace:
+  mode: yaml
+####################################################
+#                                                  #
+#                    Includes                      #
+#                                                  #
+####################################################
+zone: !include zones.yaml
+yeelight: !include yeelight.yaml
+group: !include groups/all-groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+notify:
+  - name: telegram_notifer
+    platform: telegram
+    chat_id: !secret telegram_chat_id
+
+camera:
+  - platform: generic
+    still_image_url: !secret camera_still_image_url
+    stream_source: !secret camera_stream_source
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_token
+    mode: daily
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 300
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+binary_sensor:
+  - platform: ping
+    host: 192.168.1.7
+    count: 2
+    name: 'Nergal'
+    scan_interval: 60
+  - platform: ping
+    host: 192.168.1.8
+    count: 2
+    name: 'Notebook'
+    scan_interval: 60
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_aqara_key

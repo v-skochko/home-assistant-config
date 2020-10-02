@@ -1,0 +1,316 @@
+title: Mothership
+# Include external resources
+resources:
+  - url: /hacsfiles/light-entity-card/light-entity-card.js
+    type: js
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+  - url: /local/radio-selector.js
+    type: module
+  - url: /hacsfiles/weather-card/weather-card.js
+    type: module
+  - url: /hacsfiles/battery-state-card/battery-state-card.js
+    type: module
+# Exclude entities from "Unused entities" view
+excluded_entities:
+views:
+  ### головний екран  ############
+  - title:
+    icon: mdi:home-account
+    path: test
+    cards:
+      ### 1 колонка
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.beok
+            title: Котел
+          - type: picture-glance
+            entities: []
+            title: Вхідні двері
+            camera_image:  camera.generic_camera
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - sensor.skochko
+                  - type: divider
+                  - sensor.battery_skochko
+                  - sensor.battery_status_skochko
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - sensor.viktoriia
+                  - type: divider
+                  - sensor.battery_viktoriia
+      ### 2 колонка
+      - type: vertical-stack
+        cards:
+          - type: entity-button
+            name: Виключити комп'ютер
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              icon: mdi:windows
+              service_data:
+                entity_id: script.turn_off_pc
+          - type: entities
+            title: Вмикачі
+            icon: mdi:home-assistant
+            entities:
+              - entity: switch.wall_switch_right_158d0001dc2c2e
+                name: Кімната - Спот
+                icon: mdi:spotlight-beam
+              - entity: switch.broadlink_room_ambilight
+                name: Кімната - Підсвітка
+                icon: mdi:spotlight-beam
+              - entity: switch.wall_switch_left_158d0001dc2c2e
+                name: Кімната - Місяць
+                icon: mdi:brightness-1
+              - type: divider
+              - entity: switch.wall_switch_left_158d00019f6738
+                name: Кухня - Споти
+                icon: mdi:spotlight-beam
+              - entity: switch.wall_switch_right_158d00019f6738
+                name: Кухня - Бра
+                icon: mdi:ceiling-light
+              - entity: switch.broadlink_kitchen_fan
+                name: Кухня - Вентиляція
+                icon: mdi:fan
+              - entity: switch.broadlink_pc
+                name: Комп
+                icon: mdi:monitor
+              - entity: switch.wall_switch_right_158d0001f4852b
+                name: Коридор - Споти
+                icon: mdi:spotlight-beam
+              - type: divider
+              - entity: switch.wall_switch_right_158d00016c31cf
+                name: Душова - Світло
+                icon: mdi:lightbulb-on
+              - entity: switch.wall_switch_left_158d00016c31cf
+                name: Душова - Вентиляція
+                icon: mdi:fan
+#             - type: divider
+      #          - entity: switch.broadlink_christmas_tree
+      #            name: Ялинка
+      #            icon: mdi:pine-tree
+      #          - entity: switch.wake_on_lan
+      #            name: wake_on_lan
+      ### 3 колонка
+      - type: vertical-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Температура в коридорі
+            entities:
+              - sensor.temperature_158d0002437932
+            line_color: var(--accent-color)
+            line_width: 4
+            hours_to_show: 72
+            font_size: 40
+            show:
+              labels: true
+            color_thresholds:
+              - value: 22
+                color: "#f39c12"
+              - value: 22.5
+                color: "#d35400"
+              - value: 23
+                color: "#c0392b"
+          - type: custom:weather-card
+            entity: weather.dark_sky
+            name: Львів
+  ### Media  ############
+  - icon: mdi:speaker-multiple
+    title: Second view
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: "custom:jukebox-card"
+            links:
+              - url: http://212.26.146.50:8000/sraka.mp3
+                name: Радіо Срака 😆
+              - url:
+                name: -------------------
+              - url: http://ua.uar.net:8000/vgolos
+                name: Вголос 🙀
+              - url: http://live-aacplus-64.kexp.org/kexp64.aac
+                name: KEXP
+              - url: http://94.23.40.70:8010/
+                name: Metal Radio 👿
+              - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
+                name: Jazz Radio Blues
+              - url: http://stream.radioskovoroda.com:8060/skovoroda_music
+                name: Радіо Сковорода
+              - url: http://listen.shoutcast.com/Classic-RockFlorida
+                name: Classic-Rock Florida
+              - url: http://stream-uk1.radioparadise.com/aac-320
+                name: Paradise
+              - url: http://musicbird.leanstream.co/JCB077-MP3
+                name: Edogawa City
+              - url: http://0n-rock.radionetz.de/0n-rock.mp3
+                name: ON Rock
+              - url: http://bigrradio.cdnstream1.com/5186_128
+                name: 80s Metal FM
+              - url: http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow
+                name: eskaGO.pl - Kraków
+              - url: http://stream.laut.fm/nordiclights
+                name: Nordic Lights
+              - url: http://radio.ukr.radio:8000/ur1-lv-mp3-m
+                name: LV
+              - url: http://stream.mjoy.ua:8000/rzk-aac
+                name: Mjoy
+              - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
+                name: Промінь
+            entities:
+              - media_player.kitchen
+              - media_player.tv
+      - type: horizontal-stack
+        cards:
+          - type: media-control
+            entity: media_player.kitchen
+      - type: horizontal-stack
+        cards:
+          - type: media-control
+            entity: media_player.tv
+  ### Кольори  ############
+  - title: Кольори
+    path: colors
+    id: colors
+    icon: mdi:palette
+    cards:
+      - type: custom:light-entity-card
+        entity: light.viktoriia_lamp
+        header: Лампа Віки
+      - type: custom:light-entity-card
+        entity: light.master_lamp
+        header: Лампа Васі
+      - type: custom:light-entity-card
+        entity: light.window
+        header: Вікно
+      - type: custom:light-entity-card
+        entity: light.kitchen_light
+        header: Кухня
+      - type: custom:light-entity-card
+        entity: light.group_kitchen_yeelight
+        header: Вся кухня
+      - type: custom:light-entity-card
+        entity: light.room_moon
+        header: Місяць
+  ### Погода  ############
+  - title: Погода
+    path: weather
+    id: weather
+    icon: mdi:weather-sunny
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Вологість
+            entities:
+              - sensor.humidity_158d0002437932
+            line_color: '#1976d2'
+            line_width: 4
+            font_size: 40
+            show:
+              labels: true
+          - type: custom:mini-graph-card
+            name: Освітлення
+            entities:
+              - sensor.illumination_158d0002b4745b
+            line_color: '#ffb300'
+            line_width: 4
+            font_size: 40
+            show:
+              labels: true
+      - type: custom:weather-card
+        entity: weather.dark_sky
+        name: Львів
+      - type: history-graph
+        title: 'Історія'
+        entities:
+          - entity: sensor.temperature_158d0002437932
+            name: Температура - Коридор
+          - entity: sensor.humidity_158d0002437932
+            name: Вологість - Коридор
+          - entity: sensor.pressure_158d0002437932
+            name: Тиск - Коридор
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Фаза Сонця
+            show_header_toggle: false
+            entities:
+              - sensor.nextsunset
+              - sensor.nextsunrise
+  - title: Система
+    path: system
+    id: system
+    icon: mdi:harddisk
+    cards:
+      ### 1 колонка
+      - type: vertical-stack
+        cards:
+          - type: entity-button
+            name: Перезавантажити
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.hass_restart
+            entity: script.hass_restart
+          - type: entity-button
+            name: Oновити Core config
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.reload_core_config
+            entity: script.reload_core_config
+          - type: entity-button
+            name: Оновити автоматизиції
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.automation_reload
+            entity: script.automation_reload
+      ### 2 колонка
+      - type: vertical-stack
+        cards:
+          - type: custom:battery-state-card
+            title: "Заряд Батарейок"
+            color_gradient:
+              - "#ff0000" # red
+              - "#ffff00" # yellow
+              - "#00ff00" # green
+            entities:
+              - entity: binary_sensor.motion_sensor_158d0002b4745b
+                name: "Датчик руху"
+              - entity: sensor.pressure_158d0002437932
+                name: "Датчик температури"
+              - entity: binary_sensor.wall_switch_both_158d0004650116
+                name: "Безпровідний вмикач Васі"
+              - entity: binary_sensor.wall_switch_both_158d00027c0ef6
+                name: "Безпровідний вмикач Віки"
+              - entity: sensor.oneplus_a3010_battery_level
+                name: "Телефон Васі"
+              - entity: sensor.oneplus_a6000_battery_level
+                name: "Телефон Віки"
+      ### 3 колонка
+      - type: vertical-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Швидкість Ітернету
+            icon: mdi:speedometer
+            entities:
+              - entity: sensor.speedtest_download
+                name: Завантаження
+              - entity: sensor.speedtest_upload
+                name: Вивантаження
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.speedtest_ping
+            name: PING
+            show:
+              graph: bar
