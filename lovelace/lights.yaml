@@ -1,0 +1,23 @@
+path: lights
+title: Lights
+icon: mdi:palette
+panel: true
+cards:
+  - type: custom:light-entity-card
+    entity: light.viktoriia_lamp
+    header: Лампа Віки
+  - type: custom:light-entity-card
+    entity: light.master_lamp
+    header: Лампа Васі
+  - type: custom:light-entity-card
+    entity: light.window
+    header: Вікно
+  - type: custom:light-entity-card
+    entity: light.kitchen_light
+    header: Кухня
+  - type: custom:light-entity-card
+    entity: light.group_kitchen_yeelight
+    header: Вся кухня
+  - type: custom:light-entity-card
+    entity: light.room_moon
+    header: Місяць

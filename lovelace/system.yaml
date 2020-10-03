@@ -1,0 +1,70 @@
+path: system
+title: system
+icon: mdi:harddisk
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entity-button
+        name: Перезавантажити
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.hass_restart
+        entity: script.hass_restart
+      - type: entity-button
+        name: Oновити Core config
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.reload_core_config
+        entity: script.reload_core_config
+      - type: entity-button
+        name: Оновити автоматизиції
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.automation_reload
+        entity: script.automation_reload
+  ### 2 колонка
+  - type: vertical-stack
+    cards:
+      - type: custom:battery-state-card
+        title: "Заряд Батарейок"
+        color_gradient:
+          - "#ff0000" # red
+          - "#ffff00" # yellow
+          - "#00ff00" # green
+        entities:
+          - entity: binary_sensor.motion_sensor_158d0002b4745b
+            name: "Датчик руху"
+          - entity: sensor.pressure_158d0002437932
+            name: "Датчик температури"
+          - entity: binary_sensor.wall_switch_both_158d0004650116
+            name: "Безпровідний вмикач Васі"
+          - entity: binary_sensor.wall_switch_both_158d00027c0ef6
+            name: "Безпровідний вмикач Віки"
+          - entity: sensor.oneplus_a3010_battery_level
+            name: "Телефон Васі"
+          - entity: sensor.oneplus_a6000_battery_level
+            name: "Телефон Віки"
+  ### 3 колонка
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Швидкість Ітернету
+        icon: mdi:speedometer
+        entities:
+          - entity: sensor.speedtest_download
+            name: Завантаження
+          - entity: sensor.speedtest_upload
+            name: Вивантаження
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.speedtest_ping
+        name: PING
+        show:
+          graph: bar

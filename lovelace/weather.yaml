@@ -1,0 +1,13 @@
+path: weather
+title: Weather
+icon: mdi:weather-sunny
+panel: true
+cards:
+  - type: entity-button
+    name: Виключити комп'ютер
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      icon: mdi:windows
+      service_data:
+        entity_id: script.turn_off_pc
