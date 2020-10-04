@@ -26,11 +26,11 @@ lovelace:
 zone: !include zones.yaml
 yeelight: !include yeelight.yaml
 group: !include groups/all-groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list includes/automation
 script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include_dir_merge_list includes/sensors
-switch: !include switch.yaml
+switch:
 
 telegram_bot:
   - platform: polling

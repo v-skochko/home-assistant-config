@@ -9,13 +9,6 @@ cards:
     cards:
       - type: vertical-stack
         cards:
-          - type: thermostat
-            entity: climate.beok
-            title: Котел
-          - type: picture-glance
-            entities: []
-            title: Вхідні двері
-            camera_image:  camera.generic_camera
           - type: horizontal-stack
             cards:
               - type: entities
@@ -24,13 +17,19 @@ cards:
                   - sensor.skochko
                   - type: divider
                   - sensor.battery_skochko
-                  - sensor.battery_status_skochko
               - type: entities
                 show_header_toggle: false
                 entities:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
+          - type: picture-glance
+            entities: [ ]
+            title: Вхідні двері
+            camera_image: camera.generic_camera
+          - type: thermostat
+            entity: climate.beok
+            title: Котел
       - break
       - type: entities
         title: Вмикачі
@@ -39,7 +38,7 @@ cards:
           - entity: switch.wall_switch_right_158d0001dc2c2e
             name: Кімната - Спот
             icon: mdi:spotlight-beam
-          - entity: switch.broadlink_room_ambilight
+          - entity: switch.broadlink_room_ambilight_switch
             name: Кімната - Підсвітка
             icon: mdi:spotlight-beam
           - entity: switch.wall_switch_left_158d0001dc2c2e
@@ -52,10 +51,10 @@ cards:
           - entity: switch.wall_switch_right_158d00019f6738
             name: Кухня - Бра
             icon: mdi:ceiling-light
-          - entity: switch.broadlink_kitchen_fan
+          - entity: switch.broadlink_kitchen_fan_switch
             name: Кухня - Вентиляція
             icon: mdi:fan
-          - entity: switch.broadlink_pc
+          - entity: switch.broadlink_pc_switch
             name: Комп
             icon: mdi:monitor
           - entity: switch.wall_switch_right_158d0001f4852b
@@ -72,10 +71,18 @@ cards:
       - break
       - type: vertical-stack
         cards:
+          - type: 'custom:mini-graph-card'
+            name: Якість повітря
+            entities:
+              - entity: sensor.lviv_eco_city
+                show_state: true
+                state_adaptive_color: true
+                color: '#a8a8a8'
           - type: custom:mini-graph-card
             name: Температура в коридорі
             entities:
               - sensor.temperature_158d0002437932
+              - sensor.dark_sky_temperature
             line_color: var(--accent-color)
             line_width: 4
             hours_to_show: 72
@@ -92,4 +99,3 @@ cards:
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
-

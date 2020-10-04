@@ -33,4 +33,7 @@ binary_sensor.temperature_158d0002437932:
 binary_sensor.dark_sky_temperature_1h:
     friendly_name: Температура надворі
 
-
+sensor.speedtest_download:
+    friendly_name: Завантаження
+sensor.speedtest_upload:
+    friendly_name: Вивантаження

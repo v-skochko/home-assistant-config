@@ -3,68 +3,109 @@ title: system
 icon: mdi:harddisk
 panel: true
 cards:
-  - type: vertical-stack
+  - type: custom:layout-card
+    layout: vertical
+    max_collumns: 3
     cards:
-      - type: entity-button
-        name: Перезавантажити
-        tap_action:
-          action: call-service
-          service: script.turn_on
-          service_data:
-            entity_id: script.hass_restart
-        entity: script.hass_restart
-      - type: entity-button
-        name: Oновити Core config
-        tap_action:
-          action: call-service
-          service: script.turn_on
-          service_data:
-            entity_id: script.reload_core_config
-        entity: script.reload_core_config
-      - type: entity-button
-        name: Оновити автоматизиції
-        tap_action:
-          action: call-service
-          service: script.turn_on
-          service_data:
-            entity_id: script.automation_reload
-        entity: script.automation_reload
-  ### 2 колонка
-  - type: vertical-stack
-    cards:
-      - type: custom:battery-state-card
-        title: "Заряд Батарейок"
-        color_gradient:
-          - "#ff0000" # red
-          - "#ffff00" # yellow
-          - "#00ff00" # green
-        entities:
-          - entity: binary_sensor.motion_sensor_158d0002b4745b
-            name: "Датчик руху"
-          - entity: sensor.pressure_158d0002437932
-            name: "Датчик температури"
-          - entity: binary_sensor.wall_switch_both_158d0004650116
-            name: "Безпровідний вмикач Васі"
-          - entity: binary_sensor.wall_switch_both_158d00027c0ef6
-            name: "Безпровідний вмикач Віки"
-          - entity: sensor.oneplus_a3010_battery_level
-            name: "Телефон Васі"
-          - entity: sensor.oneplus_a6000_battery_level
-            name: "Телефон Віки"
-  ### 3 колонка
-  - type: vertical-stack
-    cards:
-      - type: custom:mini-graph-card
-        name: Швидкість Ітернету
-        icon: mdi:speedometer
-        entities:
-          - entity: sensor.speedtest_download
-            name: Завантаження
-          - entity: sensor.speedtest_upload
-            name: Вивантаження
-      - type: custom:mini-graph-card
-        entities:
-          - entity: sensor.speedtest_ping
-        name: PING
-        show:
-          graph: bar
+     - type: vertical-stack
+       cards:
+         - type: custom:mini-graph-card
+           name: Процесор
+           entities:
+             - sensor.processor_use
+           line_color: '#7CB342'
+           hours_to_show: 1
+           points_per_hour: 100
+           animate: true
+           hour24: true
+           show:
+             graph: bar
+           severity:
+             green: 0
+             yellow: 75
+             red: 90
+         - type: gauge
+           name: Оперативна пам’ять
+           entity: sensor.memory_use_percent
+           severity:
+             green: 0
+             yellow: 50
+             red: 75
+         - type: gauge
+           name: Диск
+           entity: sensor.disk_use_percent
+           severity:
+             green: 0
+             yellow: 75
+             red: 90
+         - type: entity-button
+           name: Перезавантажити
+           tap_action:
+             action: call-service
+             service: script.turn_on
+             service_data:
+               entity_id: script.hass_restart
+           entity: script.hass_restart
+         - type: entity-button
+           name: Oновити Core config
+           tap_action:
+             action: call-service
+             service: script.turn_on
+             service_data:
+               entity_id: script.reload_core_config
+           entity: script.reload_core_config
+         - type: entity-button
+           name: Оновити автоматизиції
+           tap_action:
+             action: call-service
+             service: script.turn_on
+             service_data:
+               entity_id: script.automation_reload
+           entity: script.automation_reload
+     - break
+     - type: vertical-stack
+       cards:
+         - type: custom:battery-state-card
+           title: "Заряд Батарейок"
+           color_gradient:
+             - "#ff0000" # red
+             - "#ffff00" # yellow
+             - "#00ff00" # green
+           entities:
+             - entity: binary_sensor.motion_sensor_158d0002b4745b
+               name: "Датчик руху"
+             - entity: sensor.pressure_158d0002437932
+               name: "Датчик температури"
+             - entity: binary_sensor.wall_switch_both_158d0004650116
+               name: "Безпровідний вмикач Васі"
+             - entity: binary_sensor.wall_switch_both_158d00027c0ef6
+               name: "Безпровідний вмикач Віки"
+             - entity: sensor.oneplus_a3010_battery_level
+               name: "Телефон Васі"
+             - entity: sensor.oneplus_a6000_battery_level
+               name: "Телефон Віки"
+     - break
+     - type: vertical-stack
+       cards:
+         - type: custom:mini-graph-card
+           entities:
+             - sensor.speedtest_download
+             - sensor.speedtest_upload
+           line_color: '#76FF8D'
+           hours_to_show: 24
+           points_per_hour: 2
+           animate: true
+           hour24: true
+           extrema: true
+           name: Швидкість завантаження
+         - type: custom:mini-graph-card
+           name: Пінг
+           entities:
+             - sensor.speedtest_ping
+           line_color: '#2de5d1'
+           hours_to_show: 24
+           points_per_hour: 2
+           animate: true
+           hour24: true
+           show:
+             graph: bar
