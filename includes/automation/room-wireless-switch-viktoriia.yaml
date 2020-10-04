@@ -8,7 +8,6 @@
 ## 7: Дві кнопки разом один клік - вимкнути все в квартирі
 ## 8: Дві кнопки разом довгий клік -
 ## 9: Дві кнопки разом подвійний клік -
-
 #1: Ліва один клік - лампа Васі (on\off)
 - alias: binary_single_left_click
   trigger:
@@ -57,8 +56,6 @@
     - service: light.toggle
       data:
         entity_id: light.room_moon
-
-
 #5: Ліва подвійний клік -  Комп'ютер (on\off)
 - alias: binary_double_left_click
   trigger:
@@ -69,7 +66,6 @@
       click_type: double
   action:
     - service: script.turn_on_pc
-
 #7: Дві кнопки разом один клік - вимкнути все в квартирі
 - alias: binary_long_both_click
   trigger:

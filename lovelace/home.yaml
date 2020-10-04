@@ -82,11 +82,12 @@ cards:
             name: Температура в коридорі
             entities:
               - sensor.temperature_158d0002437932
-              - sensor.dark_sky_temperature
+              - sensor.beok_temperature
+#              - sensor.dark_sky_temperature
             line_color: var(--accent-color)
             line_width: 4
             hours_to_show: 72
-            font_size: 40
+            font_size: 30
             show:
               labels: true
             color_thresholds:

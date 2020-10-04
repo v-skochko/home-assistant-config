@@ -15,3 +15,4 @@
     name: Mango
     select: ".texto_header_banner"
     scan_interval: 3600
+
