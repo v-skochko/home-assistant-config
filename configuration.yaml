@@ -25,7 +25,9 @@ lovelace:
 ####################################################
 zone: !include zones.yaml
 yeelight: !include yeelight.yaml
-group: !include groups/all-groups.yaml
+group: !include groups/groups.yaml
+light: !include groups/lights.yaml
+
 automation: !include_dir_merge_list includes/automation
 script: !include scripts.yaml
 scene: !include scenes.yaml
@@ -55,7 +57,7 @@ weather:
 
 speedtestdotnet:
   scan_interval:
-    minutes: 300
+    hours: 2
   monitored_conditions:
     - ping
     - download

@@ -14,12 +14,16 @@ resources:
     type: module
   - url: /hacsfiles/jukebox-card/jukebox-card.js
     type: module
+  - url: /hacsfiles/button-card/button-card.js
+    type: module
+
 views:
   - !include lovelace/home.yaml
   - !include lovelace/music.yaml
   - !include lovelace/lights.yaml
   - !include lovelace/weather.yaml
   - !include lovelace/system.yaml
+  - !include lovelace/internet.yaml
 
 #title: Mothership
 ## Include external resources
