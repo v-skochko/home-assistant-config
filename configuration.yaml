@@ -32,6 +32,8 @@ automation: !include_dir_merge_list includes/automation
 script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include_dir_merge_list includes/sensors
+binary_sensor: !include_dir_merge_list includes/binary-sensors
+
 switch:
 
 telegram_bot:
@@ -63,17 +65,7 @@ speedtestdotnet:
     - download
     - upload
 
-binary_sensor:
-  - platform: ping
-    host: 192.168.1.7
-    count: 2
-    name: 'Nergal'
-    scan_interval: 60
-  - platform: ping
-    host: 192.168.1.8
-    count: 2
-    name: 'Notebook'
-    scan_interval: 60
+
 
 xiaomi_aqara:
   discovery_retry: 5
