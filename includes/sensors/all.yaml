@@ -16,3 +16,11 @@
     select: ".texto_header_banner"
     scan_interval: 3600
 
+
+  - platform: history_stats
+    name: total_time_nergal
+    entity_id: binary_sensor.nergal
+    state: 'on'
+    type: time
+    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: '{{ now() }}'
