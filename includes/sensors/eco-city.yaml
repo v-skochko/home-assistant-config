@@ -31,7 +31,7 @@
         {% endif %}
       {% endif %}
     {% endfor %}
-  scan_interval: 120 # every 2 minutes
+  scan_interval: 3600 # every hour
   json_attributes_path: "$.[?(@.id=='EcoCity_75')]"
   json_attributes:
     - id

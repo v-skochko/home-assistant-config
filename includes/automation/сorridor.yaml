@@ -1,0 +1,23 @@
+#Play random radio stantion
+- alias: left_key
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+    - service: script.play_radio
+
+#Automaticaly switch off left key
+- alias: left_key_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001f4852b
+
+

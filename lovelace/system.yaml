@@ -73,9 +73,21 @@ cards:
                   service_data:
                     entity_id: script.automation_reload
                 entity: script.automation_reload
-
-      - break
-
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                icon: mdi:reload
+                color_type: card
+                name: Відправити статистику в телеграм
+                color: green
+                styles:
+                  card:
+                    - font-size: 14px
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  service_data:
+                    entity_id: script.daily_statistic
       - break
       - type: vertical-stack
         cards:
@@ -98,4 +110,3 @@ cards:
                 name: "Телефон Васі"
               - entity: sensor.oneplus_a6000_battery_level
                 name: "Телефон Віки"
-

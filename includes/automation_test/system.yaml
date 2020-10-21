@@ -14,14 +14,14 @@
       entity_id: switch.broadlink_pc_switch
 
 #Автоматичне вимкнення всього світла вночі
-- alias: turn_off_all_switches
-  trigger:
-    - platform: time
-      at: '02:00:00'
-  action:
-    - service: switch.turn_off
-      entity_id: group.group_switches
-
+#- alias: turn_off_all_switches
+#  trigger:
+#    - platform: time
+#      at: '02:00:00'
+#  action:
+#    - service: switch.turn_off
+#      entity_id: group.group_switches
+#
 #Вимкнути комп'ютер вночі, якщо він ще працює
 - alias: Вимкнути Комп
   trigger:

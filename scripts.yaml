@@ -77,3 +77,9 @@ play_voice:
         media_content_id: http://ua.uar.net:8000/vgolos
 
 
+daily_statistic:
+  sequence:
+    - service: notify.telegram_notifer
+      data:
+        title: "daily_statistic"
+

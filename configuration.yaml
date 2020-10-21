@@ -15,7 +15,7 @@ default_config:
 # Text to speech
 tts:
   - platform: google_translate
-
+    language: uk # Ukrainian
 lovelace:
   mode: yaml
 ####################################################
@@ -27,7 +27,6 @@ zone: !include zones.yaml
 yeelight: !include yeelight.yaml
 group: !include groups/groups.yaml
 light: !include groups/lights.yaml
-
 automation: !include_dir_merge_list includes/automation
 script: !include scripts.yaml
 scene: !include scenes.yaml

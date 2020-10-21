@@ -1,0 +1,50 @@
+# Keeping left switch always on in room
+- alias: room_light_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001dc2c2e
+    to: 'off'
+    from: 'on'
+  action:
+    - delay: 10
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+
+# Reboot yeeLight on room
+- alias: room_moon_reboot
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ping_yeelight_moon
+      to: 'off'
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+    - delay: 10
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+
+
+# Pax light
+- alias: room_ambilight_on
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d0001dc2c2e
+    to: 'off'
+    from: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_room_ambilight_switch
+- alias: room_ambilight_off
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d0001dc2c2e
+    to: 'on'
+    from: 'off'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.broadlink_room_ambilight_switch

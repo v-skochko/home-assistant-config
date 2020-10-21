@@ -1,0 +1,70 @@
+- platform: history_stats
+  name: total_time_xiaomi_hub
+  entity_id: binary_sensor.ping_xiaomi_hub
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_echo_dot
+  entity_id: binary_sensor.ping_echo_dot
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_nergal
+  entity_id: binary_sensor.ping_nergal
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_notebook
+  entity_id: binary_sensor.ping_notebook
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_tv
+  entity_id: binary_sensor.ping_tv
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_chromecast_audio
+  entity_id: binary_sensor.ping_chromecast_audio
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_yeelight_moon
+  entity_id: binary_sensor.ping_yeelight_moon
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_viktoriia_lamp
+  entity_id: binary_sensor.ping_viktoriia_lamp
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_yeelight_master_lamp
+  entity_id: binary_sensor.ping_yeelight_master_lamp
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: total_time_yeelight_kitchen
+  entity_id: binary_sensor.ping_yeelight_kitchen
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
