@@ -32,8 +32,8 @@
   trigger:
     platform: state
     entity_id: switch.wall_switch_right_158d0001dc2c2e
-    to: 'off'
-    from: 'on'
+    to: 'on'
+    from: 'off'
   action:
     - service: switch.turn_on
       data:
@@ -42,8 +42,8 @@
   trigger:
     platform: state
     entity_id: switch.wall_switch_right_158d0001dc2c2e
-    to: 'on'
-    from: 'off'
+    to: 'off'
+    from: 'on'
   action:
     - service: switch.turn_off
       data:

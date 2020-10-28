@@ -4,7 +4,7 @@
     - platform: homeassistant
       event: start
   action:
-    - delay: 120
+    - delay: 10
     - service: notify.telegram_notifer
       data:
         title: "⚡⚡ Увага! "
@@ -17,25 +17,23 @@
       entity_id: media_player.room
       data:
         message: 'Домашній сервер успушно завантажився!'
-#- id: leave_work
-#  alias: Вася прийшов на роботу!
-#  trigger:
-#    - platform: state
-#      entity_id: device_tracker.skochko_oneplus3t
-#      from: zone.work
-#  action:
-#    service: notify.telegram_notifer
-#    data:
-#      title: "Вася прийшов на роботу!"
-#
-#- id: arrive_to_work
-#  alias: Вася вийшов з роботи!
-#  trigger:
-#    - platform: state
-#      entity_id: device_tracker.skochko_oneplus3t
-#      to: zone.work
-#  action:
-#    service: notify.telegram_notifer
-#    data:
-#      title: "Вася вийшов з роботи!"
+    - service: notify.telegram_notifer
+      data:
+        title: "Статистика використання: "
+        message: >-
+          Статистика використання: PC - {{ state_attr('sensor.total_time_nergal', 'value') }}, TV - {{ state_attr('sensor.total_time_tv', 'value') }}
+
+
+- id: total_for_day
+  alias: total_for_day
+  trigger:
+    - platform: time
+      at: "23:59:00"
+  action:
+    - service: notify.telegram_notifer
+      data:
+        title: "⚡⚡ Увага! "
+        message: >-
+          Статистика використання: 🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}, 📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}
+
 
