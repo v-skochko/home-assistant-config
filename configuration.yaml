@@ -10,31 +10,14 @@ homeassistant:
   elevation: 302
   unit_system: metric
   time_zone: Europe/Kiev
+  packages: !include_dir_named integrations
   customize: !include customize.yaml
 default_config:
 # Text to speech
 tts:
   - platform: google_translate
     language: uk # Ukrainian
-lovelace:
-  mode: yaml
-  resources:
-    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-      type: module
-    - url: /hacsfiles/battery-state-card/battery-state-card.js
-      type: module
-    - url: /hacsfiles/light-entity-card/light-entity-card.js
-      type: module
-    - url: /hacsfiles/lovelace-layout-card/layout-card.js
-      type: module
-    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-      type: module
-    - url: /hacsfiles/weather-card/weather-card.js
-      type: module
-    - url: /hacsfiles/jukebox-card/jukebox-card.js
-      type: module
-    - url: /hacsfiles/button-card/button-card.js
-      type: module
+
 ####################################################
 #                                                  #
 #                    Includes                      #
@@ -50,46 +33,4 @@ scene: !include scenes.yaml
 sensor: !include_dir_merge_list includes/sensors
 binary_sensor: !include_dir_merge_list includes/binary-sensors
 
-switch:
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_bot_api
-    allowed_chat_ids:
-      - !secret telegram_chat_id
-
-notify:
-  - name: telegram_notifer
-    platform: telegram
-    chat_id: !secret telegram_chat_id
-
-camera:
-  - platform: generic
-    still_image_url: !secret camera_still_image_url
-    stream_source: !secret camera_stream_source
-
-weather:
-  - platform: darksky
-    api_key: !secret darksky_token
-    mode: daily
-
-speedtestdotnet:
-  scan_interval:
-    hours: 2
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-
-
-xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - key: !secret xiaomi_aqara_key
-
-climate:
-  platform: floureon
-  name: beok
-  host: 192.168.1.25
-  use_external_temp: false

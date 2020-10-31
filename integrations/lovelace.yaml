@@ -1,0 +1,21 @@
+lovelace:
+  mode: yaml
+  resources:
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+    - url: /hacsfiles/battery-state-card/battery-state-card.js
+      type: module
+    - url: /hacsfiles/light-entity-card/light-entity-card.js
+      type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+    - url: /hacsfiles/weather-card/weather-card.js
+      type: module
+    - url: /hacsfiles/jukebox-card/jukebox-card.js
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /local/style.css
+      type: css
