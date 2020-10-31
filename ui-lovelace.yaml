@@ -6,6 +6,7 @@ views:
   - !include lovelace/weather.yaml
   - !include lovelace/system.yaml
   - !include lovelace/internet.yaml
+  - !include lovelace/test.yaml
 
 #title: Mothership
 ## Include external resources

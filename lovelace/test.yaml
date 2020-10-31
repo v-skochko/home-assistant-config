@@ -1,0 +1,60 @@
+path: test
+title: test
+icon: mdi:matrix
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    max_collumns: 3
+    cards:
+      - type: entities
+        title: Статус пристроїв
+        entities:
+          #### TV
+          - entity: sensor.total_time_tv
+            type: custom:multiple-entity-row
+            name: Телевізор
+            show_state: false
+            icon: mdi:television-classic
+            secondary_info:
+              attribute: value
+              name: Всього за сьогодні
+            entities:
+              - entity: binary_sensor.ping_tv
+                state_color: true
+                name: false
+                styles:
+                  width: 80px
+                  text-align: right
+          #### PC
+          - entity: sensor.total_time_nergal
+            type: custom:multiple-entity-row
+            name: Комп
+            show_state: false
+            icon: mdi:desktop-tower-monitor
+            secondary_info:
+              attribute: value
+              name: Всього за сьогодні
+            entities:
+              - entity: binary_sensor.ping_nergal
+                name: false
+                state_color: true
+                styles:
+                  width: 80px
+                  text-align: right
+          #### Notebook
+          - entity: sensor.total_time_notebook
+            type: custom:multiple-entity-row
+            name: Ноут
+            show_state: false
+            icon: mdi:laptop-windows
+            secondary_info:
+              attribute: value
+              name: Всього за сьогодні
+            entities:
+              - entity: binary_sensor.ping_notebook
+                name: false
+                hide_unavailable: true
+                styles:
+                  width: 80px
+                  text-align: right

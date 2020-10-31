@@ -17,5 +17,7 @@ lovelace:
       type: module
     - url: /hacsfiles/button-card/button-card.js
       type: module
+    - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
     - url: /local/style.css
       type: css
