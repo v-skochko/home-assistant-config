@@ -12,7 +12,7 @@
     - service: media_player.volume_set
       data:
         entity_id: media_player.room
-        volume_level: '0.3'
+        volume_level: '0.4'
     - service: tts.google_translate_say
       entity_id: media_player.room
       data:
@@ -20,8 +20,11 @@
     - service: notify.telegram_notifer
       data:
         title: "Статистика використання: "
-        message: >-
-          Статистика використання: PC - {{ state_attr('sensor.total_time_nergal', 'value') }}, TV - {{ state_attr('sensor.total_time_tv', 'value') }}
+        message: "
+          🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
+
+
+          📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
 
 
 - id: total_for_day
@@ -32,8 +35,8 @@
   action:
     - service: notify.telegram_notifer
       data:
-        title: "⚡⚡ Увага! "
+        title: "Статистика використання:"
         message: >-
-          Статистика використання: 🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}, 📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}
-
+          🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
+          \n 📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}
 

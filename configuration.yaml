@@ -1,8 +1,3 @@
-#################################################################
-#                                                               #
-#           Home Assistant Main Configuration File              #
-#                                                               #
-#################################################################
 homeassistant:
   name: Mothership
   latitude: !secret latitude
@@ -13,18 +8,10 @@ homeassistant:
   packages: !include_dir_named integrations
   customize: !include customize.yaml
 default_config:
-# Text to speech
-tts:
-  - platform: google_translate
-    language: uk # Ukrainian
 
-####################################################
-#                                                  #
-#                    Includes                      #
-#                                                  #
-####################################################
+## Includes
 zone: !include zones.yaml
-yeelight: !include yeelight.yaml
+#yeelight: !include yeelight.yaml
 group: !include groups/groups.yaml
 light: !include groups/lights.yaml
 automation: !include_dir_merge_list includes/automation

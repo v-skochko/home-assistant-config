@@ -1,9 +1,9 @@
 - id: hot_temperature
-  alias: "Температура піднялася вище 23°"
+  alias: hot_temperature_notification
   trigger:
     platform: numeric_state
     entity_id: sensor.temperature_158d0002437932
-    above: 23
+    above: 24
   action:
     service: notify.telegram_notifer
     data_template:
@@ -11,7 +11,7 @@
       message: "Температура в квартирі піднялася вище **{{ states('sensor.temperature_158d0002437932') }}**°"
 
 - id: cold_temperature
-  alias: "Температура опустилася нище 18°"
+  alias: cold_temperature_notification
   trigger:
     platform: numeric_state
     entity_id: sensor.temperature_158d0002437932
