@@ -24,8 +24,7 @@ cards:
                 state_color: true
                 name: false
                 styles:
-                  width: 80px
-                  text-align: right
+                text-align: right
           #### PC
           - entity: sensor.total_time_nergal
             type: custom:multiple-entity-row
@@ -39,9 +38,9 @@ cards:
               - entity: binary_sensor.ping_nergal
                 name: false
                 state_color: true
+                hide_unavailable: true
                 styles:
-                  width: 80px
-                  text-align: right
+                text-align: right
           #### Notebook
           - entity: sensor.total_time_notebook
             type: custom:multiple-entity-row
@@ -56,5 +55,4 @@ cards:
                 name: false
                 hide_unavailable: true
                 styles:
-                  width: 80px
-                  text-align: right
+                text-align: right

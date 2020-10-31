@@ -37,3 +37,7 @@ sensor.speedtest_download:
     friendly_name: Завантаження
 sensor.speedtest_upload:
     friendly_name: Вивантаження
+sensor.beok_temperature:
+    friendly_name: Котел
+sensor.temperature_158d0002437932:
+    friendly_name: Коридор
