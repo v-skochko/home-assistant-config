@@ -1,17 +1,17 @@
-#Ранкове провітрювання
+#kitchen_morning_airing
 - alias: kitchen_morning_airing
   trigger:
     - platform: time
-      at: '12:00:00'
+      at: '10:00:00'
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan_switch
     - delay: '01:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan
-#Вечірнє провітрювання
+        entity_id: switch.broadlink_kitchen_fan_switch
+#kitchen_night_airing
 - alias: kitchen_night_airing
   trigger:
     - platform: time
@@ -19,13 +19,13 @@
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan_switch
     - delay: '01:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan_switch
 
-#Увімкнути провітрення на годину якщо є рух
+#kitchen_motion_airing
 - alias: kitchen_motion_airing
   trigger:
     platform: state
@@ -33,7 +33,7 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: switch.broadlink_kitchen_fan
+      entity_id: switch.broadlink_kitchen_fan_switch
       state: 'off'
     - condition: time
       after: '08:30:00'
@@ -42,83 +42,10 @@
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan_switch
     - delay: '01:00:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.broadlink_kitchen_fan
+        entity_id: switch.broadlink_kitchen_fan_switch
 
-#Увімкнути led підсвітку та герлянду після заходу сонця якщо є рух
-- alias: motion_led
-  trigger:
-    platform: state
-    entity_id: binary_sensor.motion_sensor_158d0002b4745b
-    to: 'on'
-  condition:
-    - condition: sun
-      after: sunset
-    - condition: time
-      before: '23:59:00'
-    - condition: state
-      entity_id: light.group_kitchen_yeelight
-      state: 'off'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.group_kitchen_yeelight
-        transition: 5
-
-- alias: Motion Sensor Lights Off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d0002b4745b
-      to: 'off'
-      for:
-        minutes: 15
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.group_kitchen_yeelight
-        transition: 20
-
-#Вимкнути led підсвітку та ялинку опівночі
-- alias: led_off_on_midnight
-  trigger:
-    - platform: time
-      at: '00:00:00'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.group_kitchen_yeelight
-
-#Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
-- alias: wall_switch_and_led_on
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_right_158d00019f6738
-    to: 'on'
-    from: 'off'
-  condition:
-    - condition: state
-      entity_id: light.group_kitchen_yeelight
-      state: 'off'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.group_kitchen_yeelight
-
-- alias: wall_switch_and_led_off
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_right_158d00019f6738
-    to: 'off'
-    from: 'on'
-  condition:
-    - condition: state
-      entity_id: light.group_kitchen_yeelight
-      state: 'on'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.group_kitchen_yeelight
 

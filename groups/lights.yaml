@@ -1,11 +1,11 @@
 - platform: group
   name: light_group_kitchen
   entities:
-    - light.window
-    - light.kitchen_light
+    - light.yeelight_window
+    - light.yeelight_kitchen
 
 - platform: group
   name: light_group_room
   entities:
-    - light.master_lamp
-    - light.viktoriia_lamp
+    - light.yeelight_viktoriia_lamp
+    - light.yeelight_master_lamp

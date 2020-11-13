@@ -19,7 +19,7 @@
   action:
     - service: light.toggle
       data:
-        entity_id: light.master_lamp
+        entity_id: light.yeelight_master_lamp
 #2: Права один клік - лампа Віки (on\off)
 - alias: binary_single_right_click
   trigger:
@@ -31,7 +31,7 @@
   action:
     - service: light.toggle
       data:
-        entity_id: light.viktoriia_lamp
+        entity_id: light.yeelight_viktoriia_lamp
 #3: Ліва довний клік - споти (on\off)
 - alias: binary_long_left_click
   trigger:

@@ -9,16 +9,16 @@ cards:
     cards:
       - type: custom:light-entity-card
         header: Лампа Васі
-        entity: light.master_lamp
+        entity: light.yeelight_master_lamp
         shorten_cards: true
         consolidate_entities: true
       - type: custom:light-entity-card
         header: Лампа Віки
-        entity: light.viktoriia_lamp
+        entity: light.yeelight_viktoriia_lamp
         shorten_cards: true
         consolidate_entities: true
       - type: custom:light-entity-card
-        entity: light.room_moon
+        entity: light.yeelight_moon
         header: Місяць
         shorten_cards: true
         consolidate_entities: true
@@ -26,12 +26,12 @@ cards:
       - break
       #######
       - type: custom:light-entity-card
-        entity: light.window
+        entity: light.yeelight_window
         header: Вікно
         shorten_cards: true
         consolidate_entities: true
       - type: custom:light-entity-card
-        entity: light.kitchen_light
+        entity: light.yeelight_kitchen
         header: Кухня
         shorten_cards: true
         consolidate_entities: true

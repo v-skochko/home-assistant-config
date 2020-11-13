@@ -1,136 +1,94 @@
 ## Main (192.168.1.0 - 192.168.1.10)
 - platform: ping
   host: 192.168.1.3
-  count: 2
   name: 'ping_xiaomi_hub'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.4
-  count: 2
   name: 'ping_nergal'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.5
-  count: 2
   name: 'ping_notebook'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.6
-  count: 2
   name: 'ping_ubiquiti_us_8'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.7
-  count: 2
   name: 'ping_tv'
   scan_interval: 60
 ## Broadlink  (192.168.1.20 - 192.168.1.29)
 - platform: ping
   host: 192.168.1.20
-  count: 2
   name: 'ping_broadlink_kitchen_fan'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.21
-  count: 2
   name: 'ping_broadlink_pax_light'
-  scan_interval: 60
 #- platform: ping
 #  host: 192.168.1.22
-#  count: 2
 #  name: 'ping_broadlink_christmass_tree'
 #  scan_interval: 60
 - platform: ping
   host: 192.168.1.23
-  count: 2
   name: 'ping_broadlink_pc_switch'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.24
-  count: 2
   name: 'ping_broadlink_root_socket'
 ## Android Devices (192.168.1.30 - 192.168.1.39)
 - platform: ping
   host: 192.168.1.30
-  count: 2
   name: 'ping_phone_master'
-  scan_interval: 60
+  scan_interval: 120
 - platform: ping
   host: 192.168.1.31
-  count: 2
   name: 'ping_phone_viktoriia'
-  scan_interval: 60
+  scan_interval: 120
 ## Smart Speakers (192.168.1.30 - 192.168.1.39)
 - platform: ping
   host: 192.168.1.40
-  count: 2
   name: 'ping_chromecast_audio'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.41
-  count: 2
   name: 'ping_nest_room'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.42
-  count: 2
   name: 'ping_nest_hub'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.43
-  count: 2
   name: 'ping_echo_dot_3'
-  scan_interval: 60
 ## Climate (192.168.1.50 - 192.168.1.59)
 - platform: ping
   host: 192.168.1.50
-  count: 2
-  name: 'ping_ beok_thermostat'
-  scan_interval: 60
+  name: 'ping_beok_thermostat'
 - platform: ping
   host: 192.168.1.51
-  count: 2
   name: 'ping_air_conditioner'
-  scan_interval: 60
 - platform: ping
   host: 192.168.1.52
-  count: 2
   name: 'ping_lg_fridge'
-  scan_interval: 60
 #####Yeelight
 - platform: ping
   host: 192.168.1.100
-  count: 2
   name: 'ping_yeelight_master_lamp'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.101
-  count: 2
   name: 'ping_yeelight_viktoriia_lamp'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.102
-  count: 2
   name: 'ping_yeelight_moon'
-  scan_interval: 60
-- platform: ping
-  host: 192.168.1.102
-  count: 2
-  name: 'ping_yeelight_window'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.103
-  count: 2
-  name: 'ping_yeelight_moon'
+  name: 'ping_yeelight_window'
   scan_interval: 60
 - platform: ping
   host: 192.168.1.104
-  count: 2
   name: 'ping_yeelight_kitchen'
   scan_interval: 60
 ##### Cameras
 - platform: ping
   host: 192.168.1.110
-  count: 2
   name: 'ping_camera_front_door'
-  scan_interval: 60
