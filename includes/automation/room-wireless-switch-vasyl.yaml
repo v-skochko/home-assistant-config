@@ -55,7 +55,7 @@
   action:
     - service: light.toggle
       data:
-        entity_id: light.room_moon
+        entity_id: light.yeelight_moon
 #5: Ліва подвійний клік - Комп'ютер On
 - alias: wireless_master_binary_double_left_click
   trigger:
