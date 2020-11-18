@@ -35,6 +35,12 @@ cards:
             name: Mjoy
           - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
             name: Промінь
+          - url: http://bigrradio.cdnstream1.com/5104_128
+            name: 2000 FM - Hard Rock
+          - url: http://streaming.radionomy.com/JamendoLounge
+            name: Alternative Nation Radio
+          - url: http://bigrradio.cdnstream1.com/5104_128
+            name: Metallica & Iron Maiden ONLY
         entities:
           - media_player.kitchen
           - media_player.tv
