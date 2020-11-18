@@ -1,12 +1,54 @@
-#Play random radio stantion
+#Play random radio station
 - alias: left_key
   trigger:
     platform: state
     entity_id: switch.wall_switch_left_158d0001f4852b
     to: 'on'
     from: 'off'
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: media_player.kitchen
+          state: 'off'
+        - condition: state
+          entity_id: media_player.kitchen
+          state: 'idle'
+    - after: '6:00'
+      before: '23:00'
+      condition: time
   action:
     - service: script.play_radio
+    - service: light.toggle
+      data:
+        entity_id: light.yeelight_window
+    - service: light.toggle
+      data:
+        entity_id: light.yeelight_kitchen
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_left_158d0001f4852b
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_left_158d00016c31cf
+    - service: switch.toggle
+      data:
+        entity_id: switch.wall_switch_right_158d0001dc2c2e
+#- alias: left_key
+#  trigger:
+#    platform: state
+#    entity_id: switch.wall_switch_left_158d0001f4852b
+#    to: 'on'
+#    from: 'off'
+#  condition:
+#    condition: state
+#    entity_id:
+#      - media_player.kitchen
+#    state:
+#      - playing
+#      - paused
+#  action:
+#    - service: script.play_radio
 
 #Automaticaly switch off left key
 - alias: left_key_fix
