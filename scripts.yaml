@@ -1,18 +1,16 @@
-# Перезавантажити HASSIO
+### Reload HASSIO
 hass_restart:
   sequence:
     - service: hassio.host_reboot
-# Оновити автоматизиції
+### Reload Automation
 automation_reload:
   sequence:
     - service: automation.reload
-# Oновити Core config
+### Reload Core Config
 reload_core_config:
   sequence:
     - service: homeassistant.reload_core_config
-
-
-### Увімкнути/вимкнути комп'ютер
+### Turn on/off PC
 turn_on_pc:
   sequence:
     - service: switch.turn_on
@@ -23,16 +21,14 @@ turn_on_pc:
         gw_mac: 7811DCFAF643
         ringtone_id: 10003
         ringtone_vol: 20
-
-# Вимкнути комп'ютер
+### Turn off PC
 turn_off_pc:
   sequence:
     - service: hassio.addon_stdin
       data:
         addon: core_rpc_shutdown
         input: nergal
-
-## Увімкнути радіо
+## Randomly play radio
 play_radio:
   sequence:
     - service: media_player.media_stop
@@ -45,17 +41,15 @@ play_radio:
     - service: tts.google_translate_say
       entity_id: media_player.kitchen
       data:
-        message: 'Searching music for you my master'
+        message: 'Шукаю найкраще радіо для тебе!'
     - service: media_player.play_media
       data:
         entity_id: media_player.kitchen
         media_content_type: audio/mp3
       data_template:
         media_content_id: >
-          {{ ["http://icepe5.infomaniak.ch/jazzblues-high.mp3", "http://ua.uar.net:8000/vgolos", "http://212.26.146.50:8000/sraka.mp3", "http://94.23.40.70:8010/;", "http://stream.radioskovoroda.com:8060/skovoroda_music", "http://listen.shoutcast.com/Classic-RockFlorida"] | random}}
-
-
-
+          {{ ["http://212.26.146.50:8000/sraka.mp3", "http://ua.uar.net:8000/vgolos", "http://94.23.40.70:8010/",  "http://icepe5.infomaniak.ch/jazzblues-high.mp3", "http://stream.radioskovoroda.com:8060/skovoroda_music", "http://listen.shoutcast.com/Classic-RockFlorida", "http://stream-uk1.radioparadise.com/aac-320", "http://0n-rock.radionetz.de/0n-rock.mp3", "http://bigrradio.cdnstream1.com/5186_128", "http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow", "http://radio.ukr.radio:8000/ur1-lv-mp3-m", "http://stream.mjoy.ua:8000/rzk-aac", "http://radio.nrcu.gov.ua:8000/ur2-mp3", "http://bigrradio.cdnstream1.com/5104_128", "http://streaming.radionomy.com/JamendoLounge", "http://bigrradio.cdnstream1.com/5104_128" | random}}
+## play_voice
 play_voice:
   sequence:
     - service: media_player.media_stop
@@ -75,11 +69,8 @@ play_voice:
         media_content_type: audio/mp3
       data_template:
         media_content_id: http://ua.uar.net:8000/vgolos
-
-
 daily_statistic:
   sequence:
     - service: notify.telegram_notifer
       data:
         title: "daily_statistic"
-
