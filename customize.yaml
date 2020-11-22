@@ -41,3 +41,11 @@ sensor.beok_temperature:
     friendly_name: Котел
 sensor.temperature_158d0002437932:
     friendly_name: Коридор
+
+
+## phones
+sensor.oneplus_a3010_geocoded_location:
+    friendly_name: Локація Васі
+sensor.oneplus_a6000_geocoded_location:
+    friendly_name: Локація Віки
+

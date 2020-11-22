@@ -110,3 +110,23 @@ cards:
                 name: "Телефон Васі"
               - entity: sensor.oneplus_a6000_battery_level
                 name: "Телефон Віки"
+      - break
+      - type: vertical-stack
+        cards:
+          - type: logbook
+            entities:
+              - sensor.oneplus_a3010_geocoded_location
+              - sensor.oneplus_a3010_charger_type
+              - sensor.oneplus_a6000_geocoded_location
+              - sensor.oneplus_a6000_charger_type
+              - switch.wall_switch_left_158d0001f4852b
+              - switch.wall_switch_right_158d0001f4852b
+              - switch.wall_switch_right_158d0001dc2c2e
+              - switch.wall_switch_left_158d00016c31cf
+              - switch.wall_switch_right_158d00016c31cf
+              - switch.wall_switch_left_158d00019f6738
+              - switch.wall_switch_right_158d00019f6738
+              - switch.broadlink_kitchen_fan_switch
+              - switch.broadlink_pc_switch
+              - switch.broadlink_room_ambilight_switch
+            hours_to_show: 24

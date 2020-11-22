@@ -3,11 +3,19 @@ title: Weather
 icon: mdi:weather-sunny
 panel: true
 cards:
-  - type: entity-button
-    name: Виключити комп'ютер
-    tap_action:
-      action: call-service
-      service: script.turn_on
-      icon: mdi:windows
-      service_data:
-        entity_id: script.turn_off_pc
+  - type: grid
+    title: Backyard
+    columns: 2
+    square: false
+    cards:
+      - type: picture-entity
+        entity: group.all_lights
+        image:  /local/house.png
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: light.ceiling_lights
+            image: /local/bed_1.png
+          - type: picture-entity
+            entity: light.bed_light
+            image: /local/bed_2.png
