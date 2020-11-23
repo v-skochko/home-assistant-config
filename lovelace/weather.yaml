@@ -9,7 +9,7 @@ cards:
     square: false
     cards:
       - type: picture-entity
-        entity: group.all_lights
+        entity: group.lights_all
         image:  /local/house.png
       - type: horizontal-stack
         cards:

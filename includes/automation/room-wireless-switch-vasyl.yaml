@@ -90,7 +90,7 @@
         entity_id: group.all_switches
     - service: light.turn_off
       data:
-        entity_id: group.all_lights
+        entity_id: group.lights_all
     - service: media_player.media_stop
       data:
         entity_id: media_player.speaker

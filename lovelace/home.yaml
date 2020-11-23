@@ -3,6 +3,9 @@ title: home
 icon: mdi:home
 panel: true
 cards:
+
+
+
   - type: custom:layout-card
     layout: vertical
     max_collumns: 3

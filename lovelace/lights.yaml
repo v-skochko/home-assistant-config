@@ -39,12 +39,12 @@ cards:
       - break
       #######
       - type: custom:light-entity-card
-        entity: light.light_group_kitchen
+        entity: light.lights_kitchen
         header: Вся кухня
         group: true
         consolidate_entities: true
       - type: custom:light-entity-card
-        entity: light.light_group_room
+        entity: light.lights_room
         header: Вся Кімната
         group: true
         consolidate_entities: true
