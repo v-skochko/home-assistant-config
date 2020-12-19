@@ -86,6 +86,13 @@ cards:
             entities:
               - sensor.temperature_158d0002437932
               - sensor.beok_temperature
+              - sensor.ble_temperature_livingroom
+          - type: custom:mini-graph-card
+            name: Вода в чайнику
+            entities:
+              - sensor.ble_temperature_087cbe8bc9b9
+
+                            
             line_color: var(--accent-color)
             line_width: 4
             hours_to_show: 72

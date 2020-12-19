@@ -7,12 +7,12 @@
     - light.yeelight_window
     - light.yeelight_kitchen
 - platform: group
-  name: lights_kitchen
+  name: lights_room
   entities:
     - light.yeelight_master_lamp
     - light.yeelight_viktoriia_lamp
 - platform: group
-  name: lights_room
+  name: lights_kitchen
   entities:
     - light.yeelight_window
     - light.yeelight_kitchen

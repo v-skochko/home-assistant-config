@@ -1,80 +1,73 @@
-#Увімкнути led підсвітку та герлянду після заходу сонця якщо є рух
-- alias: motion_led
-  trigger:
-    platform: state
-    entity_id: binary_sensor.motion_sensor_158d0002b4745b
-    to: 'on'
-  condition:
-    - condition: sun
-      after: sunset
-    - condition: time
-      before: '23:59:00'
-    - condition: state
-      entity_id: light.yeelight_window
-      state: 'off'
-    - condition: state
-      entity_id: light.yeelight_kitchen
-      state: 'off'
-  action:
-    - service: light.turn_on
-      data:
-        transition: 7
-        entity_id:
-          - light.yeelight_window
-          - light.yeelight_kitchen
-- alias: Motion Sensor Lights Off
-  trigger:
-    - platform: state
+  #Увімкнути led підсвітку та герлянду після заходу сонця якщо є рух
+  - alias: motion_led
+    trigger:
+      platform: state
       entity_id: binary_sensor.motion_sensor_158d0002b4745b
+      to: 'on'
+    condition:
+      - condition: sun
+        after: sunset
+      - condition: time
+        before: '23:59:00'
+      - condition: state
+        entity_id: light.lights_kitchen
+        state: 'off'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.lights_kitchen
+          transition: 5
+
+  - alias: Motion Sensor Lights Off
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_158d0002b4745b
+        to: 'off'
+        for:
+          minutes: 20
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.lights_kitchen
+          transition: 5
+
+  #Вимкнути led підсвітку та ялинку опівночі
+  - alias: led_off_on_midnight
+    trigger:
+      - platform: time
+        at: '00:00:00'
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.lights_kitchen
+
+  #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
+  - alias: wall_switch_and_led_on
+    trigger:
+      platform: state
+      entity_id: switch.wall_switch_right_158d00019f6738
+      to: 'on'
+      from: 'off'
+    condition:
+      - condition: state
+        entity_id: light.lights_kitchen
+        state: 'off'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.lights_kitchen
+
+  - alias: wall_switch_and_led_off
+    trigger:
+      platform: state
+      entity_id: switch.wall_switch_right_158d00019f6738
       to: 'off'
-      for:
-        minutes: 15
-  action:
-    - service: light.turn_off
-      data:
-        transition: 7
-        entity_id:
-          - light.yeelight_window
-          - light.yeelight_kitchen
-
-#Вимкнути led підсвітку та ялинку опівночі
-- alias: led_off_on_midnight
-  trigger:
-    - platform: time
-      at: '00:00:00'
-  action:
-    - service: light.turn_off
-      data:
-        #transition: 60
-        entity_id:
-          - light.yeelight_window
-          - light.yeelight_kitchen
-
-#Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
-- alias: wall_switch_and_led_on
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_right_158d00019f6738
-    to: 'on'
-    from: 'off'
-  action:
-    - service: light.turn_on
-      data:
-        transition: 60
-        entity_id:
-          - light.yeelight_window
-          - light.yeelight_kitchen
-
-- alias: wall_switch_and_led_off
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_right_158d00019f6738
-    to: 'off'
-    from: 'on'
-  action:
-    - service: light.turn_off
-      data:
-        transition: 60
-        entity_id:
-          - light.yeelight_window
-          - light.yeelight_kitchen
+      from: 'on'
+    condition:
+      - condition: state
+        entity_id: light.lights_kitchen
+        state: 'on'
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.lights_kitchen

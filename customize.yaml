@@ -28,10 +28,12 @@ switch.wall_switch_right_158d00019f6738:
 ## Sensors
 binary_sensor.motion_sensor_158d0002b4745b:
     friendly_name: Датчик руху
-binary_sensor.temperature_158d0002437932:
-    friendly_name: Температура в кімнаті
+
 binary_sensor.dark_sky_temperature_1h:
     friendly_name: Температура надворі
+
+sensor.ble_temperature_livingroom:
+    friendly_name: Кімната
 
 sensor.speedtest_download:
     friendly_name: Завантаження
