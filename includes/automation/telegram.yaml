@@ -4,7 +4,7 @@
     - platform: homeassistant
       event: start
   action:
-    - delay: 10
+    - delay: 30
     - service: notify.telegram_notifer
       data:
         title: "⚡⚡ Увага! "
@@ -16,16 +16,7 @@
     - service: tts.google_translate_say
       entity_id: media_player.room
       data:
-        message: 'Домашній сервер успушно завантажився!'
-    - service: notify.telegram_notifer
-      data:
-        title: "Статистика використання: "
-        message: "
-          🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
-
-
-          📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
-
+        message: 'Домашній сервер завантажився!'
 
 - id: total_for_day
   alias: total_for_day
@@ -36,7 +27,7 @@
     - service: notify.telegram_notifer
       data:
         title: "Статистика використання:"
-        message: >-
+        message: "
           🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
-          \n 📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}
+          📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
 

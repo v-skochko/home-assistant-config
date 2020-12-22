@@ -1,1 +1,17 @@
-[]
+- id: '1608483420786'
+  alias: Arival to home (day)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: group.group_switches
+    state: 'on'
+  action:
+  - service: camera.snapshot
+    data: {}
+    entity_id: camera.generic_camera
+  mode: single
