@@ -3,19 +3,58 @@ title: Weather
 icon: mdi:weather-sunny
 panel: true
 cards:
-  - type: grid
-    title: Backyard
-    columns: 2
-    square: false
+  - type: custom:layout-card
+    layout: vertical
+    max_collumns: 3
     cards:
-      - type: picture-entity
-        entity: group.lights_all
-        image:  /local/house.png
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
-          - type: picture-entity
-            entity: light.ceiling_lights
-            image: /local/bed_1.png
-          - type: picture-entity
-            entity: light.bed_light
-            image: /local/bed_2.png
+          - type: thermostat
+            entity: climate.beok
+            title: Котел
+          - type: custom:mini-graph-card
+            name: Температура в квартирі
+            entities:
+              - sensor.temperature_158d0002437932
+              - sensor.beok_temperature
+              - sensor.ble_temperature_livingroom
+
+      #############################################################
+      - break
+      #############################################################
+      - type: vertical-stack
+        cards:
+          - type: custom:weather-card
+            entity: weather.dark_sky
+            name: Львів
+
+      #############################################################
+      - break
+      #############################################################
+      - type: vertical-stack
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Якість повітря (Малоголосківська)
+            entities:
+              - entity: sensor.lviv_eco_city
+                show_state: true
+                state_adaptive_color: true
+                color: '#a8a8a8'
+
+          - type: custom:mini-graph-card
+            name: Вода в чайнику
+            entities:
+              - sensor.ble_temperature_087cbe8bc9b9
+            line_color: var(--accent-color)
+            line_width: 1
+            hours_to_show: 24
+#            font_size: 40
+            show:
+              labels: true
+            color_thresholds:
+              - value: 20
+                color: "#f39c12"
+              - value: 60
+                color: "#d35400"
+              - value: 90
+                color: "#c0392b"
