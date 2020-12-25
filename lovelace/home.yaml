@@ -27,6 +27,68 @@ cards:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
+          ####################
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                entity: light.yeelight_window
+                icon: mdi:car-light-fog
+                color: auto
+                color_type: card
+                tap_action:
+                  action: call-service
+                  service: light.toggle
+                name: Вимкнути все
+                styles:
+                  card:
+                    - font-size: 12px
+                    - height: 80px
+
+
+              - type: 'custom:button-card'
+                entity: light.yeelight_window
+                icon: mdi:car-light-high
+                color: auto
+                color_type: card
+                tap_action:
+                  action: call-service
+                  service: light.toggle
+                name: Увімкнути все
+                styles:
+                  card:
+                    - font-size: 12px
+                    - height: 80px
+              - type: 'custom:button-card'
+                entity: light.yeelight_window
+                icon: mdi:airplane-landing
+                color: auto
+                color_type: card
+                tap_action:
+                  action: call-service
+                  service: light.toggle
+                name: Йдем додому
+                styles:
+                  card:
+                    - font-size: 12px
+                    - height: 80px
+              - type: 'custom:button-card'
+                entity: light.yeelight_window
+                icon: mdi:airplane-takeoff
+                color: auto
+                color_type: card
+                tap_action:
+                  action: call-service
+                  service: light.toggle
+                name: Пішли з дому
+                styles:
+                  card:
+                    - font-size: 12px
+                    - height: 80px
+
+
+
+
+
           - type: custom:mini-graph-card
             name: Температура в квартирі
             entities:
@@ -54,6 +116,8 @@ cards:
               volume: true
               source: true
               power_state: false
+
+
       #############################################################
       - break
       #############################################################
