@@ -431,6 +431,162 @@ cards:
               card:
                 - font-size: 12px
                 - height: 80px
+
+
+
+
+
+
+
+
+
+
+
+      - type: 'custom:button-card'
+        entity: zone.lviv
+        color: auto
+        color_type: icon
+        tap_action:
+          action: call-service
+          service: light.toggle
+          service_data:
+            entity_id: light.yeelight_master_lamp
+            transition: 1
+        name: 'Душова'
+        styles:
+          card:
+            - font-size: 15px;
+            - height: 30px;
+            - padding: 5px 0px;
+            - font-weight: bold;
+      - type: horizontal-stack
+        cards:
+          ####################
+          - type: 'custom:button-card'
+            entity: switch.wall_switch_left_158d00016c31cf
+            icon: mdi:spotlight-beam
+            color: auto
+            color_type: card
+            state:
+              - value: 'on'
+                color: rgb(255, 99, 71)
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              service_data:
+                entity_id: switch.wall_switch_left_158d00016c31cf
+            name: Освітлення
+            styles:
+              card:
+                - font-size: 12px
+                - height: 80px
+          ####################
+
+          - type: 'custom:button-card'
+            entity: switch.wall_switch_right_158d00016c31cf
+            icon: mdi:pinwheel
+            color: auto
+            color_type: card
+            state:
+              - value: 'on'
+                icon: mdi:pinwheel
+                styles:
+                  icon:
+                    - animation: spin 1s linear infinite
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(95,95,196)
+                  name:
+                    - color: rgb(255, 255, 255)
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              service_data:
+                entity_id: switch.wall_switch_right_158d00016c31cf
+            name: Провітрення
+            extra_styles: |
+              @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+            styles:
+              icon:
+              card:
+                - font-size: 12px
+                - height: 80px
+
+
+
+
+
+
+
+
+      - type: 'custom:button-card'
+        entity: zone.lviv
+        color: auto
+        color_type: icon
+        tap_action:
+          action: call-service
+          service: light.toggle
+          service_data:
+            entity_id: light.yeelight_master_lamp
+            transition: 1
+        name: 'Коридор'
+        styles:
+          card:
+            - font-size: 15px;
+            - height: 30px;
+            - padding: 5px 0px;
+            - font-weight: bold;
+      - type: horizontal-stack
+        cards:
+          ####################
+          - type: 'custom:button-card'
+            entity: switch.wall_switch_left_158d00016c31cf
+            icon: mdi:spotlight-beam
+            color: auto
+            color_type: card
+            state:
+              - value: 'on'
+                color: rgb(255, 99, 71)
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              service_data:
+                entity_id: switch.wall_switch_right_158d0001f4852b
+            name: Освітлення
+            styles:
+              card:
+                - font-size: 12px
+                - height: 80px
+
+
+          ####################
+          - type: 'custom:button-card'
+            entity: switch.wall_switch_left_158d00016c31cf
+            icon: mdi:spotlight-beam
+            color: auto
+            color_type: card
+            state:
+              - value: 'on'
+                color: rgb(255, 99, 71)
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              service_data:
+                entity_id: switch.wall_switch_right_158d0001f4852b
+            name: Сушка для взуття
+            styles:
+              card:
+                - font-size: 12px
+                - height: 80px
+
+
+
+
+
+
+
+
+
       #############################################################
       - break
       #############################################################
