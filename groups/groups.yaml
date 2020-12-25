@@ -1,7 +1,6 @@
 group_switches:
   name: Вмикачі
   entities:
-    - switch.wall_switch_left_158d0001f4852b
     - switch.wall_switch_right_158d0001f4852b
     - switch.wall_switch_right_158d0001dc2c2e
     - switch.wall_switch_left_158d00016c31cf
@@ -9,8 +8,8 @@ group_switches:
     - switch.wall_switch_left_158d00019f6738
     - switch.wall_switch_right_158d00019f6738
     - switch.broadlink_kitchen_fan_switch
-    - switch.broadlink_pc_switch
     - switch.broadlink_room_ambilight_switch
+    - switch.christmas_tree_switch
 
 Residence Radio:
   name: Residentie Radio
