@@ -56,3 +56,34 @@ cards:
                 hide_unavailable: true
                 styles:
                 text-align: right
+      #############################################################
+      - break
+      #############################################################
+      - type: entities
+        title: Вмикачі
+        icon: mdi:home-assistant
+        entities:
+          - entity: switch.wall_switch_right_158d0001dc2c2e
+            name: Кімната - Спот
+            icon: mdi:spotlight-beam
+          - entity: switch.broadlink_room_ambilight_switch
+            name: Кімната - Підсвітка
+            icon: mdi:spotlight-beam
+          - entity: switch.wall_switch_left_158d0001dc2c2e
+            name: Кімната - Місяць
+            icon: mdi:brightness-1
+          - type: divider
+          - entity: switch.broadlink_pc_switch
+            name: Комп
+            icon: mdi:monitor
+          - entity: switch.wall_switch_right_158d0001f4852b
+            name: Коридор - Споти
+            icon: mdi:spotlight-beam
+          - type: divider
+          - entity: switch.wall_switch_right_158d00016c31cf
+            name: Душова - Світло
+            icon: mdi:lightbulb-on
+          - entity: switch.wall_switch_left_158d00016c31cf
+            name: Душова - Вентиляція
+            icon: mdi:fan
+          - type: divider

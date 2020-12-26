@@ -27,6 +27,154 @@ cards:
                   - sensor.viktoriia
                   - type: divider
                   - sensor.battery_viktoriia
+
+
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                entity: 'sensor.oneplus_a3010_battery_level'
+                icon: 'mdi:cellphone'
+                aspect_ratio: 1/1
+                name: OnePlus 3T
+                styles:
+                  card:
+                    - background-color: 'transparent'
+                    - border-radius: 0%
+                    - padding: 10px
+                    - font-size: 12px
+                    - text-shadow: 0px 0px 5px black
+                    - height: 80px
+                  grid:
+                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi"'
+                    - grid-template-columns: 1fr 1fr
+                    - grid-template-rows: 1fr min-content min-content min-content min-content
+                  name:
+                    - font-weight: bold
+                    - font-size: 13px
+                    - color: white
+                    - align-self: middle
+                    - justify-self: start
+                    - padding-bottom: 4px
+                  img_cell:
+                    - justify-content: start
+                    - align-items: start
+                    - margin: none
+                    - display: none
+                  icon:
+                    - color: >
+                        [[[
+                          if (entity.state < 60) return 'red';
+                          if (entity.state >= 60 && entity.state < 80) return 'orange';
+                          else return 'lime';
+                        ]]]
+                    - width: 70%
+                    - margin-top: -10%
+                  custom_fields:
+                    temp:
+                      - align-self: start
+                      - justify-self: end
+                    location:
+                      - padding-bottom: 2px
+                      - align-self: middle
+                      - justify-self: start
+                    wifi:
+                      - padding-bottom: 2px
+                      - align-self: middle
+                      - justify-self: start
+                custom_fields:
+                  temp: >
+                    [[[
+                      return `<ha-icon
+                        icon="mdi:battery"
+                        style="width: 12px; height: 12px; color: yellow;">
+                        </ha-icon><span>${entity.state}%</span>`
+                    ]]]
+                  location: >
+                    [[[
+                      return `<ha-icon
+                        icon="mdi:google-maps"
+                        style="width: 20px; height: 30px; color: white;">
+                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_geocoded_location'].state}</span></span>`
+                    ]]]
+                  wifi: >
+                    [[[
+                    return `<ha-icon
+                    icon="mdi:wifi"
+                    style="width: 20px; height: 30px; color: white;">
+                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_wifi_connection'].state}</span></span>`
+                    ]]]
+              - type: 'custom:button-card'
+                entity: 'sensor.oneplus_a3010_battery_level'
+                icon: 'mdi:cellphone'
+                aspect_ratio: 1/1
+                name: OnePlus 6
+                styles:
+                  card:
+                    - background-color: 'transparent'
+                    - border-radius: 0%
+                    - padding: 10px
+                    - font-size: 12px
+                    - text-shadow: 0px 0px 5px black
+                    - height: 80px
+                  grid:
+                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi"'
+                    - grid-template-columns: 1fr 1fr
+                    - grid-template-rows: 1fr min-content min-content min-content min-content
+                  name:
+                    - font-weight: bold
+                    - font-size: 13px
+                    - color: white
+                    - align-self: middle
+                    - justify-self: start
+                    - padding-bottom: 4px
+                  img_cell:
+                    - justify-content: start
+                    - align-items: start
+                    - margin: none
+                    - display: none
+                  icon:
+                    - color: >
+                        [[[
+                          if (entity.state < 60) return 'red';
+                          if (entity.state >= 60 && entity.state < 80) return 'orange';
+                          else return 'lime';
+                        ]]]
+                    - width: 70%
+                    - margin-top: -10%
+                  custom_fields:
+                    temp:
+                      - align-self: start
+                      - justify-self: end
+                    location:
+                      - padding-bottom: 2px
+                      - align-self: middle
+                      - justify-self: start
+                    wifi:
+                      - padding-bottom: 2px
+                      - align-self: middle
+                      - justify-self: start
+                custom_fields:
+                  temp: >
+                    [[[
+                      return `<ha-icon
+                        icon="mdi:battery"
+                        style="width: 12px; height: 12px; color: yellow;">
+                        </ha-icon><span>${entity.state}%</span>`
+                    ]]]
+                  location: >
+                    [[[
+                      return `<ha-icon
+                        icon="mdi:google-maps"
+                        style="width: 20px; height: 30px; color: white;">
+                        </ha-icon><span>  Локація: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_geocoded_location'].state}</span></span>`
+                    ]]]
+                  wifi: >
+                    [[[
+                    return `<ha-icon
+                    icon="mdi:wifi"
+                    style="width: 20px; height: 30px; color: white;">
+                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_wifi_connection'].state}</span></span>`
+                    ]]]
           ####################
           - type: horizontal-stack
             cards:
@@ -86,33 +234,8 @@ cards:
                   card:
                     - font-size: 12px
                     - height: 80px
-          - type: custom:mini-graph-card
-            name: Температура в квартирі
-            entities:
-              - entity: sensor.ble_temperature_livingroom
-              - entity: sensor.temperature_158d0002437932
-              - entity: sensor.beok_temperature
-            line_color: var(--accent-color)
-            line_width: 2
-            hours_to_show: 24
-            color_thresholds:
-              - value: 20
-                color: "#2196f3"
-              - value: 23
-                color: "#2e7d32"
-              - value: 24
-                color: "#c62828"
-          - type: custom:mini-media-player
-            entity: media_player.kitchen
-            icon: mdi:spotify
-            artwork: cover
-            name: Кухня
-            volume: true
-            info: true
-            hide:
-              volume: true
-              source: true
-              power_state: false
+
+
       #############################################################
       - break
       #############################################################
@@ -540,7 +663,7 @@ cards:
         cards:
           ####################
           - type: 'custom:button-card'
-            entity: switch.wall_switch_left_158d00016c31cf
+            entity: switch.wall_switch_right_158d0001f4852b
             icon: mdi:spotlight-beam
             color: auto
             color_type: card
@@ -557,81 +680,36 @@ cards:
               card:
                 - font-size: 12px
                 - height: 80px
-
-
-          ####################
-          - type: 'custom:button-card'
-            entity: switch.wall_switch_left_158d00016c31cf
-            icon: mdi:spotlight-beam
-            color: auto
-            color_type: card
-            state:
-              - value: 'on'
-                color: rgb(255, 99, 71)
-            tap_action:
-              action: call-service
-              service: switch.toggle
-              service_data:
-                entity_id: switch.wall_switch_right_158d0001f4852b
-            name: Сушка для взуття
-            styles:
-              card:
-                - font-size: 12px
-                - height: 80px
-
-
-
-
-
-
-
-
-
       #############################################################
       - break
       #############################################################
-      - type: entities
-        title: Кімната
-        icon: mdi:television-classic
+      - type: custom:mini-media-player
+        entity: media_player.kitchen
+        icon: mdi:spotify
+        artwork: cover
+        name: Кухня
+        volume: true
+        info: true
+        hide:
+          volume: true
+          source: true
+          power_state: false
+
+
+
+      - type: custom:mini-graph-card
+        name: Температура в квартирі
         entities:
-          - entity: light.yeelight_master_lamp
-            name: Лампа Васі
-          - entity: light.yeelight_viktoriia_lamp
-            name: Лампа Віки
-          - entity: switch.wall_switch_right_158d0001dc2c2e
-            name: Споти
-            icon: mdi:spotlight-beam
-          - entity: switch.broadlink_room_ambilight_switch
-            name: Підсвітка
-            icon: mdi:spotlight-beam
-          - entity: light.yeelight_moon
-            name: Місяць
-            icon: mdi:brightness-1
-      - type: entities
-        title: Вмикачі
-        icon: mdi:home-assistant
-        entities:
-          - entity: switch.wall_switch_right_158d0001dc2c2e
-            name: Кімната - Спот
-            icon: mdi:spotlight-beam
-          - entity: switch.broadlink_room_ambilight_switch
-            name: Кімната - Підсвітка
-            icon: mdi:spotlight-beam
-          - entity: switch.wall_switch_left_158d0001dc2c2e
-            name: Кімната - Місяць
-            icon: mdi:brightness-1
-          - type: divider
-          - entity: switch.broadlink_pc_switch
-            name: Комп
-            icon: mdi:monitor
-          - entity: switch.wall_switch_right_158d0001f4852b
-            name: Коридор - Споти
-            icon: mdi:spotlight-beam
-          - type: divider
-          - entity: switch.wall_switch_right_158d00016c31cf
-            name: Душова - Світло
-            icon: mdi:lightbulb-on
-          - entity: switch.wall_switch_left_158d00016c31cf
-            name: Душова - Вентиляція
-            icon: mdi:fan
-          - type: divider
+          - entity: sensor.ble_temperature_livingroom
+          - entity: sensor.temperature_158d0002437932
+          - entity: sensor.beok_temperature
+        line_color: var(--accent-color)
+        line_width: 2
+        hours_to_show: 24
+        color_thresholds:
+          - value: 20
+            color: "#2196f3"
+          - value: 23
+            color: "#2e7d32"
+          - value: 24
+            color: "#c62828"
