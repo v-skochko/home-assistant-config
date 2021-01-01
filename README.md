@@ -1,4 +1,4 @@
-<h1 align="center">Mothership Smart Home Configuration</h1>    
+<h1 align="center">Mothership Smart Home</h1>    
 <h4 align="center"> Home Assistant Configuration & Documentation for my Smart House.</h4>
 
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
