@@ -10,7 +10,7 @@
 | 192.168.1.4   | PC | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Windows.jpg) |  
 | 192.168.1.5   | Notebook |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Windows.jpg) |  
 | 192.168.1.6   | Ubiquiti UniFi US-8 Router |   ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Ubiquiti-UniFi-US-8-Router.jpg) |  
-| 192.168.1.7   | Philips 2K18 TV |   ![]() |  
+| 192.168.1.7   | Philips 49pus8303/12 |   ![]() |  
 | 192.168.1.11 0 | Reolink RLC-410 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Reolink-RLC-410.jpg) |  
 | 192.168.1.20 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |   
 | 192.168.1.21 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
