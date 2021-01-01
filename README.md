@@ -2,7 +2,7 @@
 
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
 
-
+<h4 >WiFi Devices</h3>    
 | IP   | Name |  Image |  
 | --- | ----------- | ----------- |  
 | ---.---.---.---   | Xiaomi Mi Wi-Fi Router 3 |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Xiaomi-Mi-Wi-Fi-Router-3.jpg) |  
@@ -13,6 +13,7 @@
 | 192.168.1.6   | Ubiquiti UniFi US-8 Router |   ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Ubiquiti-UniFi-US-8-Router.jpg) |  
 | 192.168.1.7   | Philips 49pus8303/12 |   ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Philips-49pus8303.jpg) |  
 | 192.168.1.11 0 | Reolink RLC-410 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Reolink-RLC-410.jpg) |  
+| 192.168.1.11 0 | Xiaomi Aqara Cam ( gateway version) | ![]() |  
 | 192.168.1.20 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |   
 | 192.168.1.21 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
 | 192.168.1.22 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
@@ -32,3 +33,8 @@
 | 192.168.1.102 | Yeelight LED Ceiling Light (3nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-LED-Ceiling-Light-(3nd-Gen).jpg) |  
 | 192.168.1.103 | Yeelight Smart Light Strip Plus |![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-Smart-Light-Strip-Plus.jpg) |  
 | 192.168.1.104 | Yeelight Smart Light Strip Plus | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-Smart-Light-Strip-Plus.jpg) |   
+
+<h4 >Zigbee Devices</h3>    
+| Name |  Image |  
+| ----------- | ----------- |  
+| Lg Fridge | ![]() |  
