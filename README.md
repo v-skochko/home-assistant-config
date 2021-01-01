@@ -2,6 +2,18 @@
 
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
 
+<h4 >Zigbee Devices</h3>
+
+| Name |  Image |  
+| ----------- | ----------- |  
+| x2 Aqara Wireless - two buttons (2nd Gen) | ![]() |  
+| x4 Aqara Wall Switch (No Neutral) | ![]() |  
+| Aqara Motion Sensor & Light Intensity Sensors | ![]() |  
+| Aqara Smart Temperature Sensor | ![]() |  
+| Bluetooth Digital Thermometer 2 LCD Screen | ![]() |  
+
+
+
 <h4 >WiFi Devices</h3>    
 
 | IP   | Name |  Image |  
@@ -34,8 +46,4 @@
 | 192.168.1.104 | Yeelight Smart Light Strip Plus | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-Smart-Light-Strip-Plus.jpg) |   
 | 192.168.1.110 | Reolink RLC-410 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Reolink-RLC-410.jpg) |  
 | 192.168.1.111 | Xiaomi Aqara Cam ( gateway version) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Xiaomi-Aqara-Cam-(-gateway-version).jpg) |  
-<h4 >Zigbee Devices</h3>    
 
-| Name |  Image |  
-| ----------- | ----------- |  
-| Lg Fridge | ![]() |  
