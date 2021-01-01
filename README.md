@@ -3,9 +3,10 @@
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
 
 <h4 >WiFi Devices</h3>    
+
 | IP   | Name |  Image |  
 | --- | ----------- | ----------- |  
-| ---.---.---.---   | Xiaomi Mi Wi-Fi Router 3 |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Xiaomi-Mi-Wi-Fi-Router-3.jpg) |  
+| 192.168.1.1 | Xiaomi Mi Wi-Fi Router 3 |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Xiaomi-Mi-Wi-Fi-Router-3.jpg) |  
 | 192.168.1.2   | Raspberry pi 3b+ |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Raspberry-pi-3b%2B.jpg) |  
 | 192.168.1.3   | Mijia  BLE Gateway 3 |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Mijia--BLE-Gateway-3.jpg) |  
 | 192.168.1.4   | PC | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Windows.jpg) |  
@@ -35,6 +36,7 @@
 | 192.168.1.104 | Yeelight Smart Light Strip Plus | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-Smart-Light-Strip-Plus.jpg) |   
 
 <h4 >Zigbee Devices</h3>    
+
 | Name |  Image |  
 | ----------- | ----------- |  
 | Lg Fridge | ![]() |  
