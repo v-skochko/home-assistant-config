@@ -6,11 +6,11 @@
 
 | Name |  Image |  
 | ----------- | ----------- |  
-| x2 Aqara Wireless - two buttons (2nd Gen) | ![]() |  
-| x4 Aqara Wall Switch (No Neutral) | ![]() |  
-| Aqara Motion Sensor & Light Intensity Sensors | ![]() |  
-| Aqara Smart Temperature Sensor | ![]() |  
-| Bluetooth Digital Thermometer 2 LCD Screen | ![]() |  
+| x2 Aqara Wireless - two buttons (2nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Aqara-Wireless---Double-Key-(2nd-Gen).jpg) |  
+| x4 Aqara Wall Switch (No Neutral) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Aqara-Wall-Switch-(No-Neutral).jpg) |  
+| Aqara Motion Sensor & Light Intensity Sensors | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Aqara-Motion-Sensor-%26-Light-Intensity-Sensors.jpg) |  
+| Aqara Temperature Sensor | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Aqara-Smart-Temperature-Sensor.jpg) |  
+| Bluetooth Digital Thermometer 2 LCD Screen | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Bluetooth-Digital-Thermometer-2-LCD-Screen.jpg) |  
 
 
 
