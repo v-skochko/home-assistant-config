@@ -5,6 +5,7 @@
 
 | IP   | Name |  Image |  
 | --- | ----------- | ----------- |  
+| ---.---.---.---   | Xiaomi Mi Wi-Fi Router 3 |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Raspberry-pi-3b%2B.jpg) |  
 | 192.168.1.2   | Raspberry pi 3b+ |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Raspberry-pi-3b%2B.jpg) |  
 | 192.168.1.3   | Mijia  BLE Gateway 3 |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Mijia--BLE-Gateway-3.jpg) |  
 | 192.168.1.4   | PC | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Windows.jpg) |  
