@@ -19,9 +19,9 @@
 | 192.168.1.30 | OnePlus 3T | |  
 | 192.168.1.31 | OnePlus 6 | |  
 | 192.168.1.40 | Google Chromecast Audio | |  
-| 192.168.1.41 | Google Nest hub | |  
+| 192.168.1.41 | Google Nest Hub | |  
 | 192.168.1.42 | Google Nest Mini (2nd Gen) | |  
-| 192.168.1.43 |Amazon Echo Dot (3rd Gen) | |  
+| 192.168.1.43 | Amazon Echo Dot (3rd Gen) | |  
 | 192.168.1.50 | Beok TGT70WIFI Gas Boiler Thermostat | |  
 | 192.168.1.51 | Neoclima Air conditioner | |  
 | 192.168.1.52 | Lg Fridge | |  
