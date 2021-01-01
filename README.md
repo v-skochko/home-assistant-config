@@ -1,6 +1,6 @@
 <h1 align="center">Mothership Smart Home Configuration</h1>  
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
-|IP   | Name |  Image
+|IP   | Name |  Image |
 |192.168.1.2   | raspberry pi 3b+ |   |
 |192.168.1.3   | xiaomi_hub |   |
 |192.168.1.4   | nergal |   |
