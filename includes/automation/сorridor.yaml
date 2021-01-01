@@ -14,9 +14,7 @@
         - condition: state
           entity_id: media_player.kitchen
           state: 'idle'
-    - after: '6:00'
-      before: '23:00'
-      condition: time
+
   action:
     - service: script.play_radio
     - service: light.toggle
@@ -34,21 +32,7 @@
     - service: switch.toggle
       data:
         entity_id: switch.wall_switch_right_158d0001dc2c2e
-#- alias: left_key
-#  trigger:
-#    platform: state
-#    entity_id: switch.wall_switch_left_158d0001f4852b
-#    to: 'on'
-#    from: 'off'
-#  condition:
-#    condition: state
-#    entity_id:
-#      - media_player.kitchen
-#    state:
-#      - playing
-#      - paused
-#  action:
-#    - service: script.play_radio
+
 
 #Automaticaly switch off left key
 - alias: left_key_fix
@@ -62,4 +46,19 @@
     - service: switch.turn_off
       entity_id: switch.wall_switch_left_158d0001f4852b
 
+# Update Last Motion variable
+- alias: 'Update Last Motion'
+  id: 'Update Last Motion'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id:
+#      - switch.wall_switch_right_158d0001f4852b
+      - binary_sensor.motion_sensor_158d0002b4745b
+    to: 'on'
+  action:
+    - service: variable.set_variable
+      data:
+        variable: last_motion
+        value: '{{ now().hour }}:{{ now().minute }} ( {{ now().day }}/{{ now().month }}/{{ now().year }})'
 

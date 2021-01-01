@@ -17,7 +17,9 @@
         data:
           entity_id: light.lights_kitchen
           transition: 5
-
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas_tree_switch
   - alias: Motion Sensor Lights Off
     trigger:
       - platform: state
@@ -30,7 +32,9 @@
         data:
           entity_id: light.lights_kitchen
           transition: 5
-
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas_tree_switch
   #Вимкнути led підсвітку та ялинку опівночі
   - alias: led_off_on_midnight
     trigger:
@@ -40,7 +44,9 @@
       - service: light.turn_off
         data:
           entity_id: light.lights_kitchen
-
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas_tree_switch
   #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
   - alias: wall_switch_and_led_on
     trigger:
@@ -56,6 +62,10 @@
       - service: light.turn_on
         data:
           entity_id: light.lights_kitchen
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas_tree_switch
+
 
   - alias: wall_switch_and_led_off
     trigger:
@@ -71,3 +81,6 @@
       - service: light.turn_off
         data:
           entity_id: light.lights_kitchen
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas_tree_switch

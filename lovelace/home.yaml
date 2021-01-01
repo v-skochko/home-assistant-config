@@ -19,16 +19,10 @@ cards:
                 show_header_toggle: false
                 entities:
                   - sensor.skochko
-                  - type: divider
-                  - sensor.battery_skochko
               - type: entities
                 show_header_toggle: false
                 entities:
                   - sensor.viktoriia
-                  - type: divider
-                  - sensor.battery_viktoriia
-
-
           - type: horizontal-stack
             cards:
               - type: 'custom:button-card'
@@ -40,12 +34,12 @@ cards:
                   card:
                     - background-color: 'transparent'
                     - border-radius: 0%
-                    - padding: 10px
+                    - padding: 5px
                     - font-size: 12px
                     - text-shadow: 0px 0px 5px black
-                    - height: 80px
+                    - height: 120px
                   grid:
-                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi"'
+                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
                     - grid-template-columns: 1fr 1fr
                     - grid-template-rows: 1fr min-content min-content min-content min-content
                   name:
@@ -81,6 +75,10 @@ cards:
                       - padding-bottom: 2px
                       - align-self: middle
                       - justify-self: start
+                    battery_status:
+                      - padding-bottom: 2px
+                      - align-self: middle
+                      - justify-self: start
                 custom_fields:
                   temp: >
                     [[[
@@ -94,7 +92,7 @@ cards:
                       return `<ha-icon
                         icon="mdi:google-maps"
                         style="width: 20px; height: 30px; color: white;">
-                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_geocoded_location'].state}</span></span>`
+                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a3010_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a3010_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
                     ]]]
                   wifi: >
                     [[[
@@ -103,8 +101,16 @@ cards:
                     style="width: 20px; height: 30px; color: white;">
                     </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_wifi_connection'].state}</span></span>`
                     ]]]
+                  battery_status: >
+                    [[[
+                    return `<ha-icon
+                    icon="mdi:power-plug"
+                    style="width: 20px; height: 30px; color: white;">
+                    </ha-icon><span>Зарядка:
+                    <span> ${states['sensor.oneplus_a3010_battery_state'].state}</span></span>`
+                    ]]]
               - type: 'custom:button-card'
-                entity: 'sensor.oneplus_a3010_battery_level'
+                entity: 'sensor.oneplus_a6000_battery_level'
                 icon: 'mdi:cellphone'
                 aspect_ratio: 1/1
                 name: OnePlus 6
@@ -112,12 +118,12 @@ cards:
                   card:
                     - background-color: 'transparent'
                     - border-radius: 0%
-                    - padding: 10px
+                    - padding: 5px
                     - font-size: 12px
                     - text-shadow: 0px 0px 5px black
-                    - height: 80px
+                    - height: 120px
                   grid:
-                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi"'
+                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
                     - grid-template-columns: 1fr 1fr
                     - grid-template-rows: 1fr min-content min-content min-content min-content
                   name:
@@ -153,6 +159,10 @@ cards:
                       - padding-bottom: 2px
                       - align-self: middle
                       - justify-self: start
+                    battery_status:
+                      - padding-bottom: 2px
+                      - align-self: middle
+                      - justify-self: start
                 custom_fields:
                   temp: >
                     [[[
@@ -166,14 +176,22 @@ cards:
                       return `<ha-icon
                         icon="mdi:google-maps"
                         style="width: 20px; height: 30px; color: white;">
-                        </ha-icon><span>  Локація: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_geocoded_location'].state}</span></span>`
+                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
                     ]]]
                   wifi: >
                     [[[
                     return `<ha-icon
                     icon="mdi:wifi"
                     style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_wifi_connection'].state}</span></span>`
+                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection'].state}</span></span>`
+                    ]]]
+                  battery_status: >
+                    [[[
+                    return `<ha-icon
+                    icon="mdi:power-plug"
+                    style="width: 20px; height: 30px; color: white;">
+                    </ha-icon><span>Зарядка:
+                    <span> ${states['sensor.oneplus_a6000_battery_state'].state}</span></span>`
                     ]]]
           ####################
           - type: horizontal-stack
@@ -234,8 +252,6 @@ cards:
                   card:
                     - font-size: 12px
                     - height: 80px
-
-
       #############################################################
       - break
       #############################################################
@@ -268,7 +284,7 @@ cards:
                 return (bri ? 'Яскравість: ' + bri  + '%' : 'Вимкнено');
               ]]]
             show_label: true
-            icon: mdi:lightbulb-outline
+            icon: mdi:wall-sconce
             color: auto
             color_type: card
             state:
@@ -297,7 +313,7 @@ cards:
                 return (bri ? 'Яскравість: ' + bri  + '%' : 'Вимкнено');
               ]]]
             show_label: true
-            icon: mdi:lightbulb-outline
+            icon: mdi:wall-sconce
             color: auto
             color_type: card
             state:
@@ -310,33 +326,37 @@ cards:
               service_data:
                 entity_id: light.yeelight_viktoriia_lamp
                 transition: 1
+            hold_action:
+              action: more-info
             name: Лампа Віки
             styles:
               card:
                 - font-size: 12px
                 - height: 80px
-          ####################
           - type: 'custom:button-card'
-            entity: light.yeelight_moon
+            entity: light.lights_room
             label: >
               [[[
-                var bri = states['light.yeelight_moon'].attributes.brightness;
-                return  (bri ? 'Яскравість: ' + bri + '%' : 'Вимкнено') ;
+                var bri = states['light.lights_room'].attributes.brightness;
+                return (bri ? 'Яскравість: ' + bri  + '%' : 'Вимкнено');
               ]]]
             show_label: true
-            icon: mdi:brightness-3
+            icon: mdi:wall-sconce
             color: auto
             color_type: card
             state:
               - value: 'on'
-                icon: mdi:brightness-1
+                icon: mdi:lightbulb-on-outline
+                color: rgb(255, 99, 71)
             tap_action:
               action: call-service
               service: light.toggle
               service_data:
-                entity_id: light.yeelight_moon
+                entity_id: light.lights_room
                 transition: 1
-            name: Місяць
+            hold_action:
+              action: more-info
+            name: Обидві лампи
             styles:
               card:
                 - font-size: 12px
@@ -378,6 +398,32 @@ cards:
               service_data:
                 entity_id: switch.wall_switch_right_158d0001dc2c2e
             name: Підсвітка
+            styles:
+              card:
+                - font-size: 12px
+                - height: 80px
+          ####################
+          - type: 'custom:button-card'
+            entity: light.yeelight_moon
+            label: >
+              [[[
+                var bri = states['light.yeelight_moon'].attributes.brightness;
+                return  (bri ? 'Яскравість: ' + bri + '%' : 'Вимкнено') ;
+              ]]]
+            show_label: true
+            icon: mdi:brightness-3
+            color: auto
+            color_type: card
+            state:
+              - value: 'on'
+                icon: mdi:brightness-1
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.yeelight_moon
+                transition: 1
+            name: Місяць
             styles:
               card:
                 - font-size: 12px
@@ -554,17 +600,6 @@ cards:
               card:
                 - font-size: 12px
                 - height: 80px
-
-
-
-
-
-
-
-
-
-
-
       - type: 'custom:button-card'
         entity: zone.lviv
         color: auto
@@ -587,7 +622,7 @@ cards:
           ####################
           - type: 'custom:button-card'
             entity: switch.wall_switch_left_158d00016c31cf
-            icon: mdi:spotlight-beam
+            icon: mdi:wall-sconce-flat
             color: auto
             color_type: card
             state:
@@ -604,7 +639,6 @@ cards:
                 - font-size: 12px
                 - height: 80px
           ####################
-
           - type: 'custom:button-card'
             entity: switch.wall_switch_right_158d00016c31cf
             icon: mdi:pinwheel
@@ -621,6 +655,11 @@ cards:
                     - background: rgb(95,95,196)
                   name:
                     - color: rgb(255, 255, 255)
+                  label:
+                    - opaciti: .7
+                    - color: rgb(255, 255, 255)
+            label: 'Автовимкнення через: 30 хв'
+            show_label: true
             tap_action:
               action: call-service
               service: switch.toggle
@@ -630,18 +669,16 @@ cards:
             extra_styles: |
               @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
             styles:
-              icon:
               card:
-                - font-size: 12px
+                - font-size: 14px
                 - height: 80px
-
-
-
-
-
-
-
-
+                - padding: 5px
+              name:
+                - font-size: 14px
+                - padding-bottom: 3px
+              label:
+                - color: transparent
+                - font-size: 12px
       - type: 'custom:button-card'
         entity: zone.lviv
         color: auto
@@ -664,7 +701,7 @@ cards:
           ####################
           - type: 'custom:button-card'
             entity: switch.wall_switch_right_158d0001f4852b
-            icon: mdi:spotlight-beam
+            icon: mdi:wall-sconce-flat
             color: auto
             color_type: card
             state:
@@ -680,6 +717,46 @@ cards:
               card:
                 - font-size: 12px
                 - height: 80px
+          - type: 'custom:button-card'
+            entity: binary_sensor.motion_sensor_158d0002b4745b
+            icon: mdi:run
+            color: auto
+            color_type: card
+            tap_action:
+              action: more-info
+            label: >
+              [[[
+                var time = states['variable.last_motion'].state;
+                return time;
+              ]]]
+            show_label: true
+            name: 'Останній рух зафіксовано:'
+            styles:
+              card:
+                - font-size: 12px
+                - height: 80px
+                - padding: 5px
+              name:
+                - font-size: 13px
+                - padding-bottom: 5px
+              label:
+                - font-size: 12px
+                - opacity: .8
+            state:
+              - value: 'on'
+                name: Виявлено рух!
+                icon: mdi:run-fast
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(211, 47, 47)
+                  name:
+                    - color: rgb(255, 255, 255)
+                    - font-size: 14px
+                    - padding-bottom: 5px
+                  label:
+                    - color: rgb(255, 255, 255)
       #############################################################
       - break
       #############################################################
@@ -694,9 +771,6 @@ cards:
           volume: true
           source: true
           power_state: false
-
-
-
       - type: custom:mini-graph-card
         name: Температура в квартирі
         entities:
@@ -713,3 +787,48 @@ cards:
             color: "#2e7d32"
           - value: 24
             color: "#c62828"
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_nergal
+            icon: mdi:microsoft-windows
+            color: auto
+            color_type: card
+            tap_action:
+              action: more-info
+            name: Комп
+            label: >
+              [[[
+                var total = states['sensor.total_time_nergal'].attributes.value;
+                return 'Всього: ' + total;
+              ]]]
+            show_label: true
+            styles:
+              card:
+
+                - height: 80px
+                - background: transparent
+                - padding: 5px
+              icon:
+                - color: black
+              name:
+                - color: white
+                - font-size: 14px
+              label:
+                - color: black
+                - font-size: 13px
+            state:
+              - value: 'on'
+                color: rgb(255, 99, 71)
+                styles:
+                  card:
+                    - height: 80px
+                    - background: rgb(85,193,243)
+                  icon:
+                    - color: white
+                  name:
+                    - color: white
+
+                  label:
+                    - color: white
+
