@@ -10,13 +10,13 @@
 | 192.168.1.4   | PC | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Windows.jpg) |  
 | 192.168.1.5   | Notebook |  ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Windows.jpg) |  
 | 192.168.1.6   | Ubiquiti UniFi US-8 Router |   ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Ubiquiti-UniFi-US-8-Router.jpg) |  
-| 192.168.1.7   | Philips 49pus8303/12 |   ![]() |  
+| 192.168.1.7   | Philips 49pus8303/12 |   ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Philips-49pus8303.jpg) |  
 | 192.168.1.11 0 | Reolink RLC-410 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Reolink-RLC-410.jpg) |  
 | 192.168.1.20 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |   
 | 192.168.1.21 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
 | 192.168.1.22 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
 | 192.168.1.23 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
-| 192.168.1.24 | Broadlink MP1 | ![]() |  
+| 192.168.1.24 | Broadlink MP1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-MP1.jpg) |  
 | 192.168.1.30 | OnePlus 3T | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/OnePlus-3T.jpg) |  
 | 192.168.1.31 | OnePlus 6 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/OnePlus-6.jpg) |  
 | 192.168.1.40 | Google Chromecast Audio | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Google-Chromecast-Audio.jpg) |  
