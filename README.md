@@ -2,9 +2,10 @@
 
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
 
+
 | IP   | Name |  Image |  
 | --- | ----------- | ----------- |  
-| 192.168.1.2   | Raspberry pi 3b+ |   |  
+| 192.168.1.2   | Raspberry pi 3b+ |  ![Raspberry pi 3b+](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Raspberry-pi-3b%2B.jpg ) |  
 | 192.168.1.3   | Mijia  BLE Gateway 3 |   |  
 | 192.168.1.4   | PC |   |  
 | 192.168.1.5   | Notebook |   |  
