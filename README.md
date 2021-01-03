@@ -3,7 +3,7 @@
 
 ![Main](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/main.jpg "Main")
 
-<h4 >Zigbee Devices</h3>
+<h4 >Zigbee/Bluetooth Devices</h3>
 
 | Name |  Image |  
 | ----------- | ----------- |  
