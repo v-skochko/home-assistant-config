@@ -1,10 +1,8 @@
-- id: '1609875743444'
-  alias: Wake-up light alarm with sunrise effect
+- id: '1609918291109'
+  alias: Synchronize states
   description: ''
   use_blueprint:
-    path: homeassistant/wake-up-light-alarm-with-sunrise-effect.yaml
+    path: homeassistant/synchronize-2-entities.yaml
     input:
-      end_brightness: 190
-      light_entity: light.yeelight_master_lamp
-      timestamp_sensor: sensor.oneplus_a3010_next_alarm
-      sunrise_duration: 20
+      entity_1: switch.wall_switch_right_158d0001dc2c2e
+      entity_2: switch.broadlink_room_ambilight_switch
