@@ -30,4 +30,3 @@
         message: "
           🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
           📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
-

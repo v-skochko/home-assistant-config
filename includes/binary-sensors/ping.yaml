@@ -9,14 +9,14 @@
 - platform: ping
   host: 192.168.1.5
   name: 'ping_notebook'
-  scan_interval: 60
+
 - platform: ping
   host: 192.168.1.6
   name: 'ping_ubiquiti_us_8'
 - platform: ping
   host: 192.168.1.7
   name: 'ping_tv'
-  scan_interval: 60
+  scan_interval: 120
 ## Broadlink  (192.168.1.20 - 192.168.1.29)
 - platform: ping
   host: 192.168.1.20
@@ -38,16 +38,16 @@
 - platform: ping
   host: 192.168.1.30
   name: 'ping_phone_master'
-  scan_interval: 120
+
 - platform: ping
   host: 192.168.1.31
   name: 'ping_phone_viktoriia'
-  scan_interval: 120
+
 ## Smart Speakers (192.168.1.30 - 192.168.1.39)
 - platform: ping
   host: 192.168.1.40
   name: 'ping_chromecast_audio'
-  scan_interval: 60
+
 - platform: ping
   host: 192.168.1.41
   name: 'ping_nest_room'

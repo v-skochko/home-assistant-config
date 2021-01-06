@@ -1,8 +1,0 @@
-- id: '1609918291109'
-  alias: Synchronize states
-  description: ''
-  use_blueprint:
-    path: homeassistant/synchronize-2-entities.yaml
-    input:
-      entity_1: switch.wall_switch_right_158d0001dc2c2e
-      entity_2: switch.broadlink_room_ambilight_switch
