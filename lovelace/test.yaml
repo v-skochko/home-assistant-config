@@ -123,6 +123,7 @@ cards:
                 - font-size: 12px
                 - height: 90px
                 - padding: 5px
+                - background: rgb(211, 47, 47)
               icon:
                 - color: rgb(255, 255, 255)
               name:
@@ -130,7 +131,6 @@ cards:
               label:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
-
           - type: 'custom:button-card'
             entity: binary_sensor.ping_nergal
             icon: mdi:alert
@@ -162,6 +162,7 @@ cards:
                 - font-size: 12px
                 - height: 90px
                 - padding: 5px
+                - background: rgb(211, 47, 47)
               icon:
                 - color: rgb(255, 255, 255)
               name:
@@ -169,8 +170,839 @@ cards:
               label:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
-
-
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_notebook
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_notebook'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_notebook'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_notebook
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_ubiquiti_us_8
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_ubiquiti_us_8'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_ubiquiti_us_8'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_ubiquiti_us_8
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_tv
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_tv'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_tv'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: ping_tv
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_broadlink_kitchen_fan
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_broadlink_kitchen_fan'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_broadlink_kitchen_fan'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_broadlink_kitchen_fan
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_broadlink_pax_light
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_broadlink_pax_light'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_broadlink_pax_light'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_broadlink_pax_light
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_broadlink_christmass_tree
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_broadlink_christmass_tree'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_broadlink_christmass_tree'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_broadlink_christmass_tree
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_broadlink_pc_switch
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_broadlink_pc_switch'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_broadlink_pc_switch'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_broadlink_pc_switch
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_broadlink_root_socket
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_broadlink_root_socket'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_broadlink_root_socket'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_broadlink_root_socket
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_phone_master
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_phone_master'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_phone_master'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_phone_master
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_phone_viktoriia
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_phone_viktoriia'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_phone_viktoriia'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_phone_viktoriia
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_chromecast_audio
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_chromecast_audio'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_chromecast_audio'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_chromecast_audio
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_nest_room
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_broadlink_nest_room'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_broadlink_nest_room'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_broadlink_nest_room
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_nest_hub
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_nest_hub'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_nest_hub'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_nest_hub
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_echo_dot_3
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_echo_dot_3'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_echo_dot_3'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_echo_dot_3
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_beok_thermostat
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_beok_thermostat'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_beok_thermostat'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_beok_thermostat
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_air_conditioner
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_air_conditioner'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_air_conditioner'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_air_conditioner
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_lg_fridge
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_lg_fridge'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_lg_fridge'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_lg_fridge
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_yeelight_master_lamp
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_yeelight_master_lamp'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_yeelight_master_lamp'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_yeelight_master_lamp
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_yeelight_viktoriia_lamp
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_yeelight_viktoriia_lamp'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_yeelight_viktoriia_lamp'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_yeelight_viktoriia_lamp
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_yeelight_moon
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_yeelight_moon'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_yeelight_moon'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_yeelight_moon
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_yeelight_window
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_yeelight_window'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_yeelight_window'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_yeelight_window
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
           - type: 'custom:button-card'
             entity: binary_sensor.ping_yeelight_kitchen
             icon: mdi:alert
@@ -182,30 +1014,111 @@ cards:
               ]]]
             state:
               - value: 'on'
-                icon: mdi:wall-sconce-flat
                 color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
                 styles:
                   icon:
                     - color: rgb(255, 255, 255)
                   card:
                     - background: rgb(56,142,60)
-                  label: >
-                    [[[
-                      var total = states['sensor.total_time_yeelight_kitchen'].attributes.value;
-                      return 'Онлайн: ' + total;
-                    ]]]
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_yeelight_kitchen'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
             tap_action:
               action: more-info
-            name: Yeelight kitchen
+            name: total_time_yeelight_kitchen
             styles:
               card:
-                - background: rgb(211, 47, 47)
                 - font-size: 12px
                 - height: 90px
                 - padding: 5px
+                - background: rgb(211, 47, 47)
               icon:
                 - color: rgb(255, 255, 255)
               name:
                 - color: rgb(255, 255, 255)
               label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_camera_front_door
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_camera_front_door'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_camera_front_door'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_camera_front_door
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_camera_aqara_cam
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_camera_aqara_cam'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_camera_aqara_cam'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: total_time_camera_aqara_cam
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
                 - color: rgb(255, 255, 255)
