@@ -87,3 +87,125 @@ cards:
             name: Душова - Вентиляція
             icon: mdi:fan
           - type: divider
+      #############################################################
+      - break
+      #############################################################
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_xiaomi_hub
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_xiaomi_hub'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_xiaomi_hub'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: Mijia  BLE Gateway 3
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_nergal
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_nergal'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:wall-sconce-flat
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_time_nergal'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: ping_nergal
+            styles:
+              card:
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
+
+
+          - type: 'custom:button-card'
+            entity: binary_sensor.ping_yeelight_kitchen
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_time_yeelight_kitchen'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                icon: mdi:wall-sconce-flat
+                color: rgb(255, 255, 255)
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                  label: >
+                    [[[
+                      var total = states['sensor.total_time_yeelight_kitchen'].attributes.value;
+                      return 'Онлайн: ' + total;
+                    ]]]
+            tap_action:
+              action: more-info
+            name: Yeelight kitchen
+            styles:
+              card:
+                - background: rgb(211, 47, 47)
+                - font-size: 12px
+                - height: 90px
+                - padding: 5px
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - color: rgb(255, 255, 255)

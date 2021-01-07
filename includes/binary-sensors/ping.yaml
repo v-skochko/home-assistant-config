@@ -9,7 +9,6 @@
 - platform: ping
   host: 192.168.1.5
   name: 'ping_notebook'
-
 - platform: ping
   host: 192.168.1.6
   name: 'ping_ubiquiti_us_8'
@@ -24,10 +23,10 @@
 - platform: ping
   host: 192.168.1.21
   name: 'ping_broadlink_pax_light'
-#- platform: ping
-#  host: 192.168.1.22
-#  name: 'ping_broadlink_christmass_tree'
-#  scan_interval: 60
+- platform: ping
+  host: 192.168.1.22
+  name: 'ping_broadlink_christmass_tree'
+  scan_interval: 60
 - platform: ping
   host: 192.168.1.23
   name: 'ping_broadlink_pc_switch'
@@ -38,16 +37,13 @@
 - platform: ping
   host: 192.168.1.30
   name: 'ping_phone_master'
-
 - platform: ping
   host: 192.168.1.31
   name: 'ping_phone_viktoriia'
-
 ## Smart Speakers (192.168.1.30 - 192.168.1.39)
 - platform: ping
   host: 192.168.1.40
   name: 'ping_chromecast_audio'
-
 - platform: ping
   host: 192.168.1.41
   name: 'ping_nest_room'
@@ -92,3 +88,6 @@
 - platform: ping
   host: 192.168.1.110
   name: 'ping_camera_front_door'
+- platform: ping
+  host: 192.168.1.111
+  name: 'ping_camera_aqara_cam'
