@@ -8,59 +8,7 @@ cards:
     max_collumns: 3
     cards:
       - type: entities
-        title: Статус пристроїв
-        entities:
-          #### TV
-          - entity: sensor.total_time_tv
-            type: custom:multiple-entity-row
-            name: Телевізор
-            show_state: false
-            icon: mdi:television-classic
-            secondary_info:
-              attribute: value
-              name: Всього за сьогодні
-            entities:
-              - entity: binary_sensor.ping_tv
-                state_color: true
-                name: false
-                styles:
-                text-align: right
-          #### PC
-          - entity: sensor.total_time_nergal
-            type: custom:multiple-entity-row
-            name: Комп
-            show_state: false
-            icon: mdi:desktop-tower-monitor
-            secondary_info:
-              attribute: value
-              name: Всього за сьогодні
-            entities:
-              - entity: binary_sensor.ping_nergal
-                name: false
-                state_color: true
-                hide_unavailable: true
-                styles:
-                text-align: right
-          #### Notebook
-          - entity: sensor.total_time_notebook
-            type: custom:multiple-entity-row
-            name: Ноут
-            show_state: false
-            icon: mdi:laptop-windows
-            secondary_info:
-              attribute: value
-              name: Всього за сьогодні
-            entities:
-              - entity: binary_sensor.ping_notebook
-                name: false
-                hide_unavailable: true
-                styles:
-                text-align: right
-      #############################################################
-      - break
-      #############################################################
-      - type: entities
-        title: Вмикачі
+        title: Фізичні Вмикачі
         icon: mdi:home-assistant
         entities:
           - entity: switch.wall_switch_right_158d0001dc2c2e
@@ -104,7 +52,7 @@ cards:
             state:
               - value: 'on'
                 color: rgb(255, 255, 255)
-                icon: mdi:wall-sconce-flat
+                icon: mdi:digital-ocean
                 styles:
                   icon:
                     - color: rgb(255, 255, 255)
@@ -121,7 +69,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -143,7 +91,7 @@ cards:
             state:
               - value: 'on'
                 color: rgb(255, 255, 255)
-                icon: mdi:wall-sconce-flat
+                icon: mdi:microsoft-windows
                 styles:
                   icon:
                     - color: rgb(255, 255, 255)
@@ -160,7 +108,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -199,7 +147,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -240,7 +188,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -279,7 +227,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -318,7 +266,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -359,7 +307,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -398,7 +346,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -437,7 +385,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -478,7 +426,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -517,7 +465,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -556,7 +504,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -597,7 +545,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -636,7 +584,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -675,7 +623,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -716,7 +664,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -755,7 +703,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -794,7 +742,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -835,7 +783,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -874,7 +822,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -913,7 +861,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -954,7 +902,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -993,7 +941,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -1032,7 +980,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -1073,7 +1021,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
@@ -1112,7 +1060,7 @@ cards:
             styles:
               card:
                 - font-size: 12px
-                - height: 90px
+                - height: 80px
                 - padding: 5px
                 - background: rgb(211, 47, 47)
               icon:
