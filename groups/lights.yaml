@@ -1,3 +1,4 @@
+#lights_all
 - platform: group
   name: lights_all
   entities:
@@ -6,11 +7,13 @@
     - light.yeelight_moon
     - light.yeelight_window
     - light.yeelight_kitchen
+#lights_room
 - platform: group
   name: lights_room
   entities:
     - light.yeelight_master_lamp
     - light.yeelight_viktoriia_lamp
+#lights_kitchen
 - platform: group
   name: lights_kitchen
   entities:

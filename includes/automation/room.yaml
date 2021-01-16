@@ -6,7 +6,7 @@
     to: 'off'
     from: 'on'
   action:
-    - delay: 10
+    - delay: 1
     - service: switch.turn_on
       entity_id: switch.wall_switch_left_158d0001dc2c2e
 
@@ -25,5 +25,4 @@
     - delay: 10
     - service: switch.turn_on
       entity_id: switch.wall_switch_left_158d0001dc2c2e
-
 

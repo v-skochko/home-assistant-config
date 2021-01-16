@@ -1,86 +1,56 @@
-  #Увімкнути led підсвітку та герлянду після заходу сонця якщо є рух
-  - alias: motion_led
-    trigger:
-      platform: state
+#Turn on kitchen light by motion
+- alias: motion_led
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b4745b
+    to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+    - condition: time
+      before: '23:59:00'
+    - condition: state
+      entity_id: light.lights_kitchen
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.lights_kitchen
+        transition: 3
+    - service: switch.turn_on
+      data:
+        entity_id: switch.christmas_tree_switch
+#Turn off kitchen light by motion
+- alias: Motion Sensor Lights Off
+  trigger:
+    - platform: state
       entity_id: binary_sensor.motion_sensor_158d0002b4745b
-      to: 'on'
-    condition:
-      - condition: sun
-        after: sunset
-      - condition: time
-        before: '23:59:00'
-      - condition: state
-        entity_id: light.lights_kitchen
-        state: 'off'
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.lights_kitchen
-          transition: 5
-      - service: switch.turn_on
-        data:
-          entity_id: switch.christmas_tree_switch
-  - alias: Motion Sensor Lights Off
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.motion_sensor_158d0002b4745b
-        to: 'off'
-        for:
-          minutes: 20
-    action:
-      - service: light.turn_off
-        data:
-          entity_id: light.lights_kitchen
-          transition: 5
-      - service: switch.turn_off
-        data:
-          entity_id: switch.christmas_tree_switch
-  #Вимкнути led підсвітку та ялинку опівночі
-  - alias: led_off_on_midnight
-    trigger:
-      - platform: time
-        at: '00:00:00'
-    action:
-      - service: light.turn_off
-        data:
-          entity_id: light.lights_kitchen
-      - service: switch.turn_off
-        data:
-          entity_id: switch.christmas_tree_switch
-  #Автоматичне ввімкнення/вимкнення лед підсвітки разом із світильником
-  - alias: wall_switch_and_led_on
-    trigger:
-      platform: state
-      entity_id: switch.wall_switch_right_158d00019f6738
-      to: 'on'
-      from: 'off'
-    condition:
-      - condition: state
-        entity_id: light.lights_kitchen
-        state: 'off'
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.lights_kitchen
-      - service: switch.turn_on
-        data:
-          entity_id: switch.christmas_tree_switch
-
-
-  - alias: wall_switch_and_led_off
-    trigger:
-      platform: state
-      entity_id: switch.wall_switch_right_158d00019f6738
       to: 'off'
-      from: 'on'
-    condition:
-      - condition: state
+      for:
+        minutes: 30
+  action:
+    - service: light.turn_off
+      data:
         entity_id: light.lights_kitchen
-        state: 'on'
-    action:
-      - service: light.turn_off
-        data:
-          entity_id: light.lights_kitchen
-      - service: switch.turn_off
-        data:
-          entity_id: switch.christmas_tree_switch
+        transition: 10
+#Turning off kitchen light after midnight
+- alias: led_off_on_midnight
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.lights_kitchen
+    - service: switch.turn_off
+      data:
+        entity_id: switch.christmas_tree_switch
+#Synchronizing kitchen light with  main switch
+- id: '1610815644892'
+  alias: Synchronize states
+  description: ''
+  use_blueprint:
+    path: homeassistant/synchronize-2-entities.yaml
+    input:
+      entity_1: switch.wall_switch_right_158d00019f6738
+      entity_2: light.lights_kitchen
