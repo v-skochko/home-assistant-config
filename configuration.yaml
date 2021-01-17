@@ -9,6 +9,9 @@ homeassistant:
   customize: !include customize.yaml
 default_config:
 
+#http:
+#  ssl_certificate: /ssl/fullchain.pem
+#  ssl_key: /ssl/privkey.pem
 ## Includes
 zone: !include zones.yaml
 yeelight: !include yeelight.yaml

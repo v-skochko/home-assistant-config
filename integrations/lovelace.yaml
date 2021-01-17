@@ -1,8 +1,6 @@
 lovelace:
   mode: yaml
   resources:
-    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-      type: module
     - url: /hacsfiles/battery-state-card/battery-state-card.js
       type: module
     - url: /hacsfiles/light-entity-card/light-entity-card.js
@@ -18,4 +16,6 @@ lovelace:
     - url: /hacsfiles/button-card/button-card.js
       type: module
     - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
+    - url: /hacsfiles/vacuum-card/vacuum-card.js
       type: module
