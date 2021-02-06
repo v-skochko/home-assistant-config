@@ -30,3 +30,26 @@
         message: "
           🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
           📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
+
+
+
+- alias: WIFI_Skochko
+  trigger:
+    - platform: state
+      entity_id: sensor.oneplus_a3010_wifi_connection
+  action:
+    - service: notify.telegram_notifer
+      data:
+        title: "👨 WIFI Вася:"
+        message: "{{ states('sensor.oneplus_a3010_wifi_connection') }} "
+
+
+- alias: WIFI_Viktorria
+  trigger:
+    - platform: state
+      entity_id: sensor.oneplus_a6000_wifi_connection
+  action:
+    - service: notify.telegram_notifer
+      data:
+        title: "👧 WIFI Віка:"
+        message: "{{ states('sensor.oneplus_a6000_wifi_connection') }} "

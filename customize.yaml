@@ -28,13 +28,10 @@ switch.wall_switch_right_158d00019f6738:
 ## Sensors
 binary_sensor.motion_sensor_158d0002b4745b:
     friendly_name: Датчик руху
-
 binary_sensor.dark_sky_temperature_1h:
     friendly_name: Температура надворі
-
 sensor.ble_temperature_livingroom:
     friendly_name: Кімната
-
 sensor.speedtest_download:
     friendly_name: Завантаження
 sensor.speedtest_upload:
@@ -43,11 +40,8 @@ sensor.beok_temperature:
     friendly_name: Котел
 sensor.temperature_158d0002437932:
     friendly_name: Коридор
-
-
 ## phones
 sensor.oneplus_a3010_geocoded_location:
     friendly_name: Локація Васі
 sensor.oneplus_a6000_geocoded_location:
     friendly_name: Локація Віки
-

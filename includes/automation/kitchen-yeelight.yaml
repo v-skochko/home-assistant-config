@@ -45,12 +45,4 @@
     - service: switch.turn_off
       data:
         entity_id: switch.christmas_tree_switch
-#Synchronizing kitchen light with  main switch
-- id: '1610815644892'
-  alias: Synchronize states
-  description: ''
-  use_blueprint:
-    path: homeassistant/synchronize-2-entities.yaml
-    input:
-      entity_1: switch.wall_switch_right_158d00019f6738
-      entity_2: light.lights_kitchen
+

@@ -104,7 +104,7 @@
   end: '{{ now() }}'
 ## total_time_nest_room
 - platform: history_stats
-  name: total_time_broadlink_nest_room
+  name: total_time_nest_room
   entity_id: binary_sensor.ping_nest_room
   state: 'on'
   type: time
@@ -146,6 +146,14 @@
 - platform: history_stats
   name: total_time_lg_fridge
   entity_id: binary_sensor.ping_lg_fridge
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+## total_time_lg_fridge
+- platform: history_stats
+  name: total_time_vacuum_cleaner
+  entity_id: binary_sensor.ping_vacuum_cleaner
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'

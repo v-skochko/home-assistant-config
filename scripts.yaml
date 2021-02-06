@@ -74,9 +74,7 @@ daily_statistic:
     - service: notify.telegram_notifer
       data:
         title: "daily_statistic"
-
 ### Turn on all lights
-
 turn_on_all:
   sequence:
     - service: light.turn_on
@@ -84,7 +82,6 @@ turn_on_all:
         entity_id: light.lights_all
     - service: switch.turn_on
       entity_id: group.group_switches
-
 turn_off_all:
   sequence:
     - service: light.turn_off
