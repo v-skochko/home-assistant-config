@@ -42,3 +42,46 @@
     - longitude
     - timezone
     - pollutants
+- platform: rest
+  name: lviv_eco_city_pidzamche
+  resource: https://eco-city.org.ua/output.json
+  value_template: >-
+    {% set station = 'EcoCity_937' %}
+    {# #}
+    {% macro aqi(aqihigh, aqilow, conchigh, conclow, conc) -%}
+      {{ ((aqihigh - aqilow) / (conchigh - conclow) * (conc - conclow) + aqilow) | int }}
+    {%- endmacro %}
+    {# #}
+    {% for sensor in value_json %}
+      {% if sensor.id == station %}
+        {% set conc = sensor.pollutants[0].value | float %}
+        {% if conc >= 0 and conc <= 50 %}
+            {{ aqi(50, 0, 12, 0, conc) }}
+        {% elif conc > 50 and conc <= 100 %}
+            {{ aqi(100, 51, 35.4, 12.1, conc) }}
+        {% elif conc > 100 and conc <= 150 %}
+            {{ aqi(150, 101, 55.4, 35.5, conc) }}
+        {% elif conc > 150 and conc <= 200 %}
+            {{ aqi(200, 151, 150.4, 55.5, conc) }}
+        {% elif conc > 200 and conc <= 300 %}
+            {{ aqi(300, 201, 250.4, 150.5, conc) }}
+        {% elif conc > 300 and conc <= 400 %}
+            {{ aqi(400, 301, 350.4, 250.5, conc) }}
+        {% elif conc > 400 and conc <= 500 %}
+            {{ aqi(500, 401, 500.4, 350.5, conc) }}
+        {% else %}
+            unknown
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  scan_interval: 3600 # every hour
+  json_attributes_path: "$.[?(@.id=='EcoCity_937')]"
+  json_attributes:
+    - id
+    - cityName
+    - stationName
+    - localName
+    - latitude
+    - longitude
+    - timezone
+    - pollutants

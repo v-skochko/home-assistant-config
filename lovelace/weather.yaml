@@ -9,38 +9,81 @@ cards:
     cards:
       - type: vertical-stack
         cards:
-          - type: thermostat
-            entity: climate.beok
-            title: Котел
           - type: custom:mini-graph-card
-            name: Температура в квартирі
+            name: Температура
             entities:
-              - sensor.temperature_158d0002437932
-              - sensor.beok_temperature
-              - sensor.ble_temperature_livingroom
-
+              - entity: sensor.ble_temperature_livingroom
+              - entity: sensor.temperature_158d0002437932
+              - entity: sensor.beok_temperature
+            line_color: var(--accent-color)
+            line_width: 2
+            hours_to_show: 24
+            color_thresholds:
+              - value: 20
+                color: "#2196f3"
+              - value: 23
+                color: "#2e7d32"
+              - value: 24
+                color: "#c62828"
+          - type: custom:mini-graph-card
+            name: Вологість
+            entities:
+              - entity: sensor.ble_humidity_livingroom
+              - entity: sensor.humidity_158d0002437932
+            line_color: var(--accent-color)
+            line_width: 2
+            hours_to_show: 24
+            color_thresholds:
+              - value: 40
+                color: "#C62828"
+              - value: 60
+                color: "#2E7D32"
+              - value: 100
+                color: "#C62828"
+          - type: custom:mini-graph-card
+            name: Рівень освітлення
+            entities:
+              - entity: sensor.illumination_7811dcfaf6437811dcfaf643
+              - entity: sensor.illumination_158d0002b4745b
       #############################################################
       - break
       #############################################################
       - type: vertical-stack
         cards:
+          - type: thermostat
+            entity: climate.beok
+            title: Котел
+            name: Термостат котла
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
-
       #############################################################
       - break
       #############################################################
       - type: vertical-stack
         cards:
           - type: 'custom:mini-graph-card'
-            name: Якість повітря (Малоголосківська)
+            name: Якість повітря у Львові
+            icon: mdi:weather-cloudy-alert
             entities:
               - entity: sensor.lviv_eco_city
-                show_state: true
-                state_adaptive_color: true
-                color: '#a8a8a8'
-
+              - entity: sensor.lviv_eco_city_pidzamche
+            line_color: var(--accent-color)
+            line_width: 2
+            hours_to_show: 24
+            color_thresholds:
+              - value: 50
+                color: "#7bbd66"
+              # Мінімальний вплив
+              - value: 100
+                color: "#bbcf4c"
+              # Задовільний
+              - value: 150
+                color: "#ffcf00"
+              # Помірно забруднений
+              - value: 150
+                color: "#ff9a00"
+              # Високий
           - type: custom:mini-graph-card
             name: Вода в чайнику
             entities:
@@ -48,7 +91,6 @@ cards:
             line_color: var(--accent-color)
             line_width: 1
             hours_to_show: 24
-#            font_size: 40
             show:
               labels: true
             color_thresholds:

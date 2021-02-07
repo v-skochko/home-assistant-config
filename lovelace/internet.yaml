@@ -8,30 +8,45 @@ cards:
     max_collumns: 2
     cards:
       - type: custom:mini-graph-card
-        entities:
-          - sensor.speedtest_download
-          - sensor.speedtest_upload
-        line_color: '#76FF8D'
-        hours_to_show: 72
-        points_per_hour: 0.5
-        animate: true
-        hour24: true
-        cache: true
-        extrema: true
         name: Швидкість Інтернету
-      - type: custom:mini-graph-card
-        name: Пінг
-        icon: mdi:clock-time-four
+        align_state: center
+        icon: mdi:speedometer
+        animate: true
+        line_width: 2
+        show:
+          extrema: true
+          labels: true
+          points: true
         entities:
-          - sensor.speedtest_ping
-        line_color: '#2de5d1'
-        hours_to_show: 72
-        points_per_hour: 0.5
-        cache: true
+          - entity: sensor.speedtest_download
+            name: Завантаження
+            color: '#76FF8D'
+          - entity: sensor.speedtest_upload
+            name: Upload
+            color: '#f57f17'
+          - entity: sensor.speedtest_ping
+            name: Пінг
+            color: '#2de5d1'
+      - type: custom:mini-graph-card
+        name: Трафік
+        value_factor: -9
+        decimals: 2
+        unit: GB
+        entities:
+          - entity: sensor.xiaomi_mi_mini_wireless_router_b_received
+            name: Завантажено
+            show_state: true
+            color: '#76FF8D'
+          - entity: sensor.xiaomi_mi_mini_wireless_router_b_sent
+            name: Вивантажено
+            color: '#f57f17'
+            show_state: true
+        line_color: '#33DBFF'
+        hours_to_show: 24
         animate: true
         hour24: true
-        show:
-          graph: bar
+        group_by: hour
+        aggregate_func: delta
       #######
       - break
       #######
