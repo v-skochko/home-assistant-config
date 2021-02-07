@@ -40,7 +40,7 @@
 | 192.168.1.50 | Beok TGT70WIFI Gas Boiler Thermostat | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Beok-TGT70WIFI-Gas-Boiler-Thermostat.jpg) |  
 | 192.168.1.51 | Neoclima Air conditioner | ![]() |  
 | 192.168.1.52 | Lg Fridge | ![]() |  
-| 192.168.1.53 | Xiaomi vacuum cleaner 1c | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Xiaomi-vacuum-cleaner-1c.jpg) |  
+| 192.168.1.53 | Xiaomi vacuum cleaner 1c | ![](https://raw.githubusercontent.com/v-skochko/home-assistant-config/master/www/readme/devices/Xiaomi-vacuum-cleaner-1c.png) |  
 | 192.168.1.100 | Yeelight Bulb (2nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-Bulb-(2nd-Gen).jpg) |  
 | 192.168.1.101 | Yeelight Bulb (2nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-Bulb-(2nd-Gen).jpg) |  
 | 192.168.1.102 | Yeelight LED Ceiling Light (3nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Yeelight-LED-Ceiling-Light-(3nd-Gen).jpg) |  
