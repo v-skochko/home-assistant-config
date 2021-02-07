@@ -1,8 +1,8 @@
 title: Mothership
 views:
   - !include lovelace/home.yaml
+  - !include lovelace/weather.yaml
   - !include lovelace/music.yaml
   - !include lovelace/lights.yaml
-  - !include lovelace/weather.yaml
-  - !include lovelace/system.yaml
   - !include lovelace/internet.yaml
+  - !include lovelace/system.yaml
