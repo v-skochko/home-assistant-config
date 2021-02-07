@@ -9,6 +9,14 @@ homeassistant:
   customize: !include customize.yaml
 default_config:
 
+google_assistant:
+  project_id: !secret google_project_id
+  service_account: !include SERVICE_ACCOUNT.json
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
+
 ## Includes
 zone: !include zones.yaml
 yeelight: !include yeelight.yaml
@@ -20,4 +28,3 @@ scene: !include scenes.yaml
 sensor: !include_dir_merge_list includes/sensors
 binary_sensor: !include_dir_merge_list includes/binary-sensors
 variable: !include includes/variables.yaml
-

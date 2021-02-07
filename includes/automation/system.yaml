@@ -33,19 +33,7 @@
         addon: core_rpc_shutdown
         input: nergal
 
-#iftt_income action listener
-- id: iftt_income
-  alias: Income IFTT action
-  trigger:
-    - event_data:
-        action: call_service
-      event_type: ifttt_webhook_received
-      platform: event
-  condition: [ ]
-  action:
-    - data_template:
-        entity_id: '{{ trigger.event.data.entity_id }}'
-      service_template: '{{ trigger.event.data.service }}'
+
 
 
 

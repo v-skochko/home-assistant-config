@@ -10,7 +10,7 @@ switch.wall_switch_right_158d0001f4852b:
     friendly_name: Коридор права клавіша
     icon: mdi:spotlight-beam
 switch.wall_switch_right_158d0001dc2c2e:
-    friendly_name: Споти в кімнаті
+    friendly_name: Room Spot
 switch.wall_switch_left_158d0001dc2c2e:
     friendly_name: Основне світло в кімнаті
 switch.wall_switch_left_158d00016c31cf:

@@ -251,7 +251,6 @@ cards:
                     </ha-icon><span>Зарядка:
                     <span> ${states['sensor.oneplus_a6000_battery_state'].state}</span></span>`
                     ]]]
-
       #############################################################
       - break
       #############################################################
@@ -794,7 +793,6 @@ cards:
             show_label: true
             styles:
               card:
-
                 - height: 80px
                 - background: transparent
                 - padding: 5px
@@ -817,7 +815,6 @@ cards:
                     - color: white
                   name:
                     - color: white
-
                   label:
                     - color: white
       - type: 'custom:vacuum-card'
