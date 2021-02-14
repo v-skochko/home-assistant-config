@@ -16,11 +16,11 @@ turn_on_pc:
     - service: switch.turn_on
       data:
         entity_id: switch.broadlink_PC_switch
-    - service: xiaomi_aqara.play_ringtone
-      data:
-        gw_mac: 7811DCFAF643
-        ringtone_id: 10003
-        ringtone_vol: 20
+    #- service: xiaomi_aqara.play_ringtone
+    #  data:
+    #    gw_mac: 7811DCFAF643
+    #    ringtone_id: 10003
+    #    ringtone_vol: 20
 ### Turn off PC
 turn_off_pc:
   sequence:
@@ -69,12 +69,12 @@ play_voice:
         media_content_type: audio/mp3
       data_template:
         media_content_id: http://ua.uar.net:8000/vgolos
+
 daily_statistic:
   sequence:
     - service: notify.telegram_notifer
       data:
         title: "daily_statistic"
-### Turn on all lights
 
 turn_off_all:
   sequence:
@@ -85,7 +85,6 @@ turn_off_all:
       entity_id: group.group_switches
     - service: media_player.media_stop
       entity_id: media_player.kitchen
-
 
 prepare_home:
   sequence:
