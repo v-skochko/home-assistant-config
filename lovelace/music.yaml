@@ -45,21 +45,26 @@ cards:
       - break
       - type: custom:mini-media-player
         name: Колонки на кухні
+        artwork: cover
         entity: media_player.kitchen
         icon: mdi:speaker-wireless
       - type: custom:mini-media-player
         name: Nest на кухні
+        artwork: cover
         entity: media_player.kitchen_screen
         icon: mdi:speaker-wireless
       - type: custom:mini-media-player
         name: Nest в кімнаті
+        artwork: cover
         entity: media_player.room
         icon: mdi:speaker-wireless
       - type: custom:mini-media-player
         name: Телевізор
+        artwork: cover
         entity: media_player.tv
         icon: mdi:speaker-wireless
       - type: custom:mini-media-player
         name: PLEX
+        artwork: cover
         entity: media_player.plex_plex_for_android_tv_tpm171e
         icon: mdi:speaker-wireless
