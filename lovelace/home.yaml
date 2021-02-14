@@ -13,6 +13,10 @@ cards:
             entities: [ ]
             title: Вхідні двері
             camera_image: camera.generic_camera
+          - type: custom:mini-media-player
+            artwork: cover
+            icon: mdi:speaker-wireless
+            entity: media_player.kitchen
           - type: horizontal-stack
             cards:
               - type: 'custom:button-card'

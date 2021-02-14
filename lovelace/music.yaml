@@ -39,23 +39,27 @@ cards:
             name: 2000 FM - Hard Rock
           - url: http://streaming.radionomy.com/JamendoLounge
             name: Alternative Nation Radio
-
         entities:
           - media_player.kitchen
           - media_player.tv
       - break
-      - type: media-control
-        name: Kitchen Chromecast audio
+      - type: custom:mini-media-player
+        name: Колонки на кухні
         entity: media_player.kitchen
-      - type: media-control
-        name: Kitchen screen
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: Nest на кухні
         entity: media_player.kitchen_screen
-      - type: media-control
-        name: Nest Room
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: Nest в кімнаті
         entity: media_player.room
-      - type: media-control
-        name: TV
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: Телевізор
         entity: media_player.tv
-      - type: media-control
-        name: Plex Server
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: PLEX
         entity: media_player.plex_plex_for_android_tv_tpm171e
+        icon: mdi:speaker-wireless
