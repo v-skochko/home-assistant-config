@@ -1,0 +1,20 @@
+- alias: Broadlink PC off fix
+  trigger:
+    platform: state
+    entity_id: switch.broadlink_pc_switch
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.broadlink_pc_switch
+
+- alias: Turn off PC
+  trigger:
+    - platform: time
+      at: '02:00:00'
+  action:
+    - service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: nergal

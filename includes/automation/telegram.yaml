@@ -36,12 +36,12 @@
 - alias: WIFI_Skochko
   trigger:
     - platform: state
-      entity_id: sensor.oneplus_a3010_wifi_connection
+      entity_id: sensor.pixel_5_wifi_connection
   action:
     - service: notify.telegram_notifer
       data:
         title: "👨 WIFI Вася:"
-        message: "{{ states('sensor.oneplus_a3010_wifi_connection') }} "
+        message: "{{ states('sensor.pixel_5_wifi_connection') }} "
 
 
 - alias: WIFI_Viktorria

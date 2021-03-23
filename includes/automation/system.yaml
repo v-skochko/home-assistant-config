@@ -1,78 +1,14 @@
-####### 5 - Системні сценарії
-###############################################################################
-#
-#Вимкнути broadlink_PC одразу після вмикання
-- alias: broadlink_PC_off_fix
-  trigger:
-    platform: state
-    entity_id: switch.broadlink_pc_switch
-    to: 'on'
-    from: 'off'
-  action:
-    - delay: 1
-    - service: switch.turn_off
-      entity_id: switch.broadlink_pc_switch
-
-#Автоматичне вимкнення всього світла вночі
-#- alias: turn_off_all_switches
-#  trigger:
-#    - platform: time
-#      at: '02:00:00'
-#  action:
-#    - service: switch.turn_off
-#      entity_id: group.group_switches
-#
-#Вимкнути комп'ютер вночі, якщо він ще працює
-- alias: Вимкнути Комп
+- alias: turn_off_all_switches
   trigger:
     - platform: time
       at: '02:00:00'
   action:
-    - service: hassio.addon_stdin
-      data:
-        addon: core_rpc_shutdown
-        input: nergal
-
-
-
-
-
-
-#############
-#############
-#############
-#############
-####### ТЕСТИ
-###############################################################################
-#
-#hub ringtone
-#{
-#  "gw_mac": "7811DCFAF643",
-#  "ringtone_id": 29,
-#  "ringtone_vol": 8
-#}
-#- alias: "Night Light Routine"
-#  trigger:
-#    platform: state
-#    entity_id: switch.wall_switch_right_158d0001dc2c2e
-#    to: 'on'
-#    from: 'off'
-#
-#  action:
-#    - service: xiaomi_aqara.play_ringtone
-#      data:
-#        gw_mac: 7811DCFAF643
-#        ringtone_id: 1001
-#        ringtone_vol: 8
-#----Тести--#
-#- alias: sunset
-#  trigger:
-#    platform: sun
-#    event: sunset
-#  action:
-#    - service: switch.turn_on
-#      data:
-#        entity_id: switch.wall_switch_left_158d0001dc2c2e
-
-
-
+    - service: switch.turn_off
+      entity_id: group.group_switches
+# restart HA to keep it fresh
+- alias: Restart HA
+  trigger:
+    platform: time
+    at: "01:00:00"
+  action:
+    - service: homeassistant.restart

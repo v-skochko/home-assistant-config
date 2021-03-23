@@ -15,6 +15,7 @@ cards:
             name: Термостат котла
           - type: custom:mini-graph-card
             name: Температура
+            animate: true
             entities:
               - entity: sensor.ble_temperature_livingroom
               - entity: sensor.temperature_158d0002437932
@@ -31,6 +32,7 @@ cards:
                 color: "#c62828"
           - type: custom:mini-graph-card
             name: Вологість
+            animate: true
             entities:
               - entity: sensor.ble_humidity_livingroom
               - entity: sensor.humidity_158d0002437932
@@ -45,6 +47,7 @@ cards:
               - value: 100
                 color: "#C62828"
           - type: custom:mini-graph-card
+            animate: true
             name: Рівень освітлення
             entities:
               - entity: sensor.illumination_7811dcfaf6437811dcfaf643
@@ -60,6 +63,7 @@ cards:
             name: Львів
           - type: 'custom:mini-graph-card'
             name: Якість повітря у Львові
+            animate: true
             icon: mdi:weather-cloudy-alert
             entities:
               - entity: sensor.lviv_eco_city

@@ -22,10 +22,10 @@ cards:
           - type: horizontal-stack
             cards:
               - type: 'custom:button-card'
-                entity: 'sensor.oneplus_a3010_battery_level'
+                entity: 'sensor.pixel_5_battery_level'
                 icon: 'mdi:cellphone'
 #                aspect_ratio: 1/1
-                name: OnePlus 3T
+                name: Pixel 5
                 styles:
                   card:
                     - background-color: 'transparent'
@@ -88,14 +88,14 @@ cards:
                       return `<ha-icon
                         icon="mdi:google-maps"
                         style="width: 20px; height: 30px; color: white;">
-                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a3010_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a3010_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
+                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
                     ]]]
                   wifi: >
                     [[[
                     return `<ha-icon
                     icon="mdi:wifi"
                     style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a3010_wifi_connection'].state}</span></span>`
+                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_wifi_connection'].state}</span></span>`
                     ]]]
                   battery_status: >
                     [[[
@@ -103,7 +103,7 @@ cards:
                     icon="mdi:power-plug"
                     style="width: 20px; height: 30px; color: white;">
                     </ha-icon><span>Зарядка:
-                    <span> ${states['sensor.oneplus_a3010_battery_state'].state}</span></span>`
+                    <span> ${states['sensor.pixel_5_battery_state'].state}</span></span>`
                     ]]]
               - type: 'custom:button-card'
                 entity: 'sensor.oneplus_a6000_battery_level'

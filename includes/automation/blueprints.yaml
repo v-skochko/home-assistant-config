@@ -6,7 +6,7 @@
     input:
       charged_percent: '98'
       switch: switch.broadlink_root_socket_s4
-      phone_battery: sensor.oneplus_a3010_battery_level
+      phone_battery: sensor.pixel_5_battery_level
 
 #room light
 - id: '1609918291109'
