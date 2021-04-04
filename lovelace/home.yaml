@@ -636,7 +636,7 @@ cards:
         cards:
           ####################
           - type: 'custom:button-card'
-            entity: switch.wall_switch_left_158d00016c31cf
+            entity: switch.wall_switch_right_158d00016c31cf
             icon: mdi:wall-sconce-flat
             color: auto
             color_type: card
@@ -647,7 +647,7 @@ cards:
               action: call-service
               service: switch.toggle
               service_data:
-                entity_id: switch.wall_switch_left_158d00016c31cf
+                entity_id: switch.wall_switch_right_158d00016c31cf
             name: Освітлення
             styles:
               card:
@@ -655,7 +655,7 @@ cards:
                 - height: 80px
           ####################
           - type: 'custom:button-card'
-            entity: switch.wall_switch_right_158d00016c31cf
+            entity: switch.wall_switch_left_158d00016c31cf
             icon: mdi:pinwheel
             color: auto
             color_type: card
@@ -679,7 +679,7 @@ cards:
               action: call-service
               service: switch.toggle
               service_data:
-                entity_id: switch.wall_switch_right_158d00016c31cf
+                entity_id: switch.wall_switch_left_158d00016c31cf
             name: Провітрення
             extra_styles: |
               @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
@@ -781,6 +781,7 @@ cards:
           - entity: sensor.ble_temperature_livingroom
           - entity: sensor.temperature_158d0002437932
           - entity: sensor.beok_temperature
+          - entity: sensor.ble_temperature_e72e00d074d4
         line_color: var(--accent-color)
         line_width: 2
         hours_to_show: 24

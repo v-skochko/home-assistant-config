@@ -1194,7 +1194,8 @@ cards:
           - entity: switch.wall_switch_left_158d00016c31cf
             name: Душова - Вентиляція
             icon: mdi:fan
-          - type: divider
+          - entity: switch.pc_wlan
+            name: PC WLAN
       ########################
       - type: vertical-stack
         cards:

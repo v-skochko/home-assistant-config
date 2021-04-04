@@ -49,6 +49,10 @@ sensor.ble_humidity_livingroom:
 sensor.humidity_158d0002437932:
     friendly_name: Коридор
 
+sensor.ble_temperature_e72e00d074d4:
+    friendly_name: Душова
+sensor.ble_humidity_e72e00d074d4:
+    friendly_name: Душова
 ## phones
 sensor.pixel_5_geocoded_location:
     friendly_name: Локація Васі

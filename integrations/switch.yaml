@@ -1,1 +1,4 @@
 switch:
+  - platform: wake_on_lan
+    name: pc_wlan
+    mac: B42E99361BB8

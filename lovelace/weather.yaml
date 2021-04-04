@@ -20,6 +20,7 @@ cards:
               - entity: sensor.ble_temperature_livingroom
               - entity: sensor.temperature_158d0002437932
               - entity: sensor.beok_temperature
+              - entity: sensor.ble_temperature_e72e00d074d4
             line_color: var(--accent-color)
             line_width: 2
             hours_to_show: 24
@@ -36,6 +37,7 @@ cards:
             entities:
               - entity: sensor.ble_humidity_livingroom
               - entity: sensor.humidity_158d0002437932
+              - entity: sensor.ble_humidity_e72e00d074d4
             line_color: var(--accent-color)
             line_width: 2
             hours_to_show: 24
