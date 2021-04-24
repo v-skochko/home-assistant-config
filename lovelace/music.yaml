@@ -61,7 +61,7 @@ cards:
       - type: custom:mini-media-player
         name: Телевізор
         artwork: cover
-        entity: media_player.tv
+        entity: media_player.tv_2
         icon: mdi:speaker-wireless
       - type: custom:mini-media-player
         name: PLEX
