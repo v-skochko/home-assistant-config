@@ -1,13 +1,3 @@
-- id: '1609874408910'
-  alias: Turn off charging after device is charged
-  description: ''
-  use_blueprint:
-    path: homeassistant/Turn off phone charging after the phone is charged.yaml
-    input:
-      charged_percent: '98'
-      switch: switch.broadlink_root_socket_s4
-      phone_battery: sensor.pixel_5_battery_level
-
 #room light
 - id: '1609918291109'
   alias: Synchronize states

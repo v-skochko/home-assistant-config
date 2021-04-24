@@ -52,7 +52,6 @@
   trigger:
     platform: state
     entity_id:
-#      - switch.wall_switch_right_158d0001f4852b
       - binary_sensor.motion_sensor_158d0002b4745b
     to: 'on'
   action:

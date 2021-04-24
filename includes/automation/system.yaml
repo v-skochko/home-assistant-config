@@ -5,4 +5,3 @@
   action:
     - service: switch.turn_off
       entity_id: group.group_switches
-
