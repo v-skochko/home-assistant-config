@@ -176,12 +176,12 @@ cards:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
           - type: 'custom:button-card'
-            entity: binary_sensor.ping_notebook
+            entity: binary_sensor.ping_macbook
             icon: mdi:alert
             show_label: true
             label: >
               [[[
-                var total = states['sensor.total_time_notebook'].attributes.value;
+                var total = states['sensor.total_time_macbook'].attributes.value;
                 return 'Офлайн!! (' + total + ')';
               ]]]
             state:
@@ -195,12 +195,12 @@ cards:
                     - background: rgb(56,142,60)
                 label: >
                   [[[
-                    var total = states['sensor.total_time_notebook'].attributes.value;
+                    var total = states['sensor.total_time_macbook'].attributes.value;
                     return 'Онлайн: ' + total;
                   ]]]
             tap_action:
               action: more-info
-            name: Notebook
+            name: Macbook
             styles:
               card:
                 - font-size: 12px
@@ -1196,6 +1196,14 @@ cards:
             icon: mdi:fan
           - entity: switch.pc_wlan
             name: PC WLAN
+          - entity: switch.broadlink_root_socket_s1
+            name: Переноска 1
+          - entity: switch.broadlink_root_socket_s2
+            name: Переноска 2
+          - entity: switch.broadlink_root_socket_s3
+            name: Переноска 3
+          - entity: switch.broadlink_root_socket_s4
+            name: Переноска 4
       ########################
       - type: vertical-stack
         cards:

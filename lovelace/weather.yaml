@@ -86,6 +86,19 @@ cards:
               - value: 150
                 color: "#ff9a00"
               # Високий
+
+          - type: custom:mini-graph-card
+            name: Вага
+            animate: true
+            entities:
+              - entity: sensor.ble_non_stabilized_weight_880f108ad754
+            line_color: var(--accent-color)
+            line_width: 2
+            lower_bound: 50
+            hours_to_show: 280
+
+
+
       #############################################################
       - break
       #############################################################

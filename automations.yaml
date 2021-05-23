@@ -1,1 +1,9 @@
-
+- id: '1619292146375'
+  alias: Turn off charging after device is charged
+  description: ''
+  use_blueprint:
+    path: homeassistant/Turn off phone charging after the phone is charged.yaml
+    input:
+      switch: switch.broadlink_root_socket_s3
+      phone_battery: sensor.pixel_5_battery_level
+      charged_percent: 98

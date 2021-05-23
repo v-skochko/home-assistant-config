@@ -20,7 +20,7 @@
 | 192.168.1.23 | Broadlink SC1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-SC1.jpg) |  
 | 192.168.1.24 | Broadlink MP1 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Broadlink-MP1.jpg) |  
 | 192.168.1.31 | OnePlus 6 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/OnePlus-6.jpg) |  
-| 192.168.1.31 | Pixel 5 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Pixel_5.jpg) |  
+| 192.168.1.32 | Pixel 5 | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Pixel_5.jpg) |  
 | 192.168.1.40 | Google Chromecast Audio | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Google-Chromecast-Audio.jpg) |  
 | 192.168.1.41 | Google Nest Hub | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Google-Nest-Hub.jpg) |  
 | 192.168.1.42 | Google Nest Mini (2nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Google-Nest-Mini-(2nd-Gen).jpg) |  

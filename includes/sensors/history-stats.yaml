@@ -16,8 +16,8 @@
   end: '{{ now() }}'
 ## total_time_notebook
 - platform: history_stats
-  name: total_time_notebook
-  entity_id: binary_sensor.ping_notebook
+  name: total_time_macbook
+  entity_id: binary_sensor.ping_macbook
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'

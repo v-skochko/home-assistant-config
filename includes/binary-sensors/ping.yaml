@@ -7,15 +7,16 @@
   name: 'ping_nergal'
   scan_interval: 60
 - platform: ping
-  host: 192.168.1.5
-  name: 'ping_notebook'
-- platform: ping
   host: 192.168.1.6
   name: 'ping_ubiquiti_us_8'
 - platform: ping
   host: 192.168.1.7
   name: 'ping_tv'
   scan_interval: 120
+- platform: ping
+  host: 192.168.1.8
+  name: 'ping_macbook'
+
 ## Broadlink  (192.168.1.20 - 192.168.1.29)
 - platform: ping
   host: 192.168.1.20
@@ -35,7 +36,7 @@
   name: 'ping_broadlink_root_socket'
 ## Android Devices (192.168.1.30 - 192.168.1.39)
 - platform: ping
-  host: 192.168.1.30
+  host: 192.168.1.32
   name: 'ping_phone_master'
 - platform: ping
   host: 192.168.1.31

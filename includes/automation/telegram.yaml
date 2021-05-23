@@ -29,8 +29,8 @@
         title: "Статистика використання:"
         message: "
           🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
+          💻 Macbook - {{ state_attr('sensor.total_time_macbook', 'value') }}
           📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
-
 
 
 - alias: WIFI_Skochko
