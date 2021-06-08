@@ -518,7 +518,7 @@ cards:
                   ]]]
             tap_action:
               action: more-info
-            name: OnePlus 3T
+            name: Pixel 5
             styles:
               card:
                 - font-size: 12px

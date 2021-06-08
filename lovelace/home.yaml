@@ -24,7 +24,7 @@ cards:
               - type: 'custom:button-card'
                 entity: 'sensor.pixel_5_battery_level'
                 icon: 'mdi:cellphone'
-#                aspect_ratio: 1/1
+                #                aspect_ratio: 1/1
                 name: Pixel 5
                 styles:
                   card:
@@ -108,7 +108,7 @@ cards:
               - type: 'custom:button-card'
                 entity: 'sensor.oneplus_a6000_battery_level'
                 icon: 'mdi:cellphone'
-#                aspect_ratio: 1/1
+                #                aspect_ratio: 1/1
                 name: OnePlus 6
                 styles:
                   card:
@@ -841,7 +841,7 @@ cards:
           default:
             - attribute: filter_left_time
               unit: hours
-              subtitle: Фільтер
+              subtitle: Фільтр
             - attribute: main_brush_time_left
               unit: hours
               subtitle: Основна щітка

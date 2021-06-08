@@ -54,7 +54,22 @@ cards:
             entities:
               - entity: sensor.illumination_7811dcfaf6437811dcfaf643
               - entity: sensor.illumination_158d0002b4745b
-
+          - type: custom:mini-graph-card
+            name: Вода в чайнику
+            entities:
+              - sensor.ble_temperature_087cbe8bc9b9
+            line_color: var(--accent-color)
+            line_width: 1
+            hours_to_show: 24
+            show:
+              labels: true
+            color_thresholds:
+              - value: 20
+                color: "#f39c12"
+              - value: 60
+                color: "#d35400"
+              - value: 90
+                color: "#c0392b"
       #############################################################
       - break
       #############################################################
@@ -63,6 +78,30 @@ cards:
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
+          - type: custom:sun-card
+            darkMode: true
+          - type: custom:mini-graph-card
+            name: Вага
+            animate: true
+            entities:
+              - entity: sensor.ble_non_stabilized_weight_880f108ad754
+            line_color: var(--accent-color)
+            line_width: 2
+            lower_bound: 50
+            hours_to_show: 280
+      #############################################################
+      - break
+      #############################################################
+      - type: vertical-stack
+        cards:
+          - type: picture-glance
+            entities: [ ]
+            title: Проспект Свободи
+            camera_image: camera.liviv_svobody_avenue
+          - type: picture-glance
+            entities: [ ]
+            title: Ратуша
+            camera_image: camera.liviv_ratusha
           - type: 'custom:mini-graph-card'
             name: Якість повітря у Львові
             animate: true
@@ -86,48 +125,3 @@ cards:
               - value: 150
                 color: "#ff9a00"
               # Високий
-
-          - type: custom:mini-graph-card
-            name: Вага
-            animate: true
-            entities:
-              - entity: sensor.ble_non_stabilized_weight_880f108ad754
-            line_color: var(--accent-color)
-            line_width: 2
-            lower_bound: 50
-            hours_to_show: 280
-
-
-
-      #############################################################
-      - break
-      #############################################################
-      - type: vertical-stack
-        cards:
-          - type: picture-glance
-            entities: [ ]
-            title: Проспект Свободи
-            camera_image: camera.liviv_svobody_avenue
-          - type: picture-glance
-            entities: [ ]
-            title: Ратуша
-            camera_image: camera.liviv_ratusha
-
-
-
-#          - type: custom:mini-graph-card
-#            name: Вода в чайнику
-#            entities:
-#              - sensor.ble_temperature_087cbe8bc9b9
-#            line_color: var(--accent-color)
-#            line_width: 1
-#            hours_to_show: 24
-#            show:
-#              labels: true
-#            color_thresholds:
-#              - value: 20
-#                color: "#f39c12"
-#              - value: 60
-#                color: "#d35400"
-#              - value: 90
-#                color: "#c0392b"
