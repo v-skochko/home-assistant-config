@@ -24,7 +24,6 @@ cards:
               - type: 'custom:button-card'
                 entity: 'sensor.pixel_5_battery_level'
                 icon: 'mdi:cellphone'
-                #                aspect_ratio: 1/1
                 name: Pixel 5
                 styles:
                   card:
@@ -106,9 +105,8 @@ cards:
                     <span> ${states['sensor.pixel_5_battery_state'].state}</span></span>`
                     ]]]
               - type: 'custom:button-card'
-                entity: 'sensor.oneplus_a6000_battery_level'
+                entity: 'sensor.oneplus_a6000_battery_level_2'
                 icon: 'mdi:cellphone'
-                #                aspect_ratio: 1/1
                 name: OnePlus 6
                 styles:
                   card:
@@ -172,14 +170,14 @@ cards:
                       return `<ha-icon
                         icon="mdi:google-maps"
                         style="width: 20px; height: 30px; color: white;">
-                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
+                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Locality' ]}</span></span>`
                     ]]]
                   wifi: >
                     [[[
                     return `<ha-icon
                     icon="mdi:wifi"
                     style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection'].state}</span></span>`
+                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection_2'].state}</span></span>`
                     ]]]
                   battery_status: >
                     [[[
@@ -187,7 +185,7 @@ cards:
                     icon="mdi:power-plug"
                     style="width: 20px; height: 30px; color: white;">
                     </ha-icon><span>Зарядка:
-                    <span> ${states['sensor.oneplus_a6000_battery_state'].state}</span></span>`
+                    <span> ${states['sensor.oneplus_a6000_battery_state_2'].state}</span></span>`
                     ]]]
 
 
@@ -740,10 +738,10 @@ cards:
             tap_action:
               action: more-info
             label: >
-              [[[
-                var time = states['variable.last_motion'].state;
-                return time;
-              ]]]
+#              [[[
+#                var time = states['variable.last_motion'].state;
+#                return time;
+#              ]]]
             show_label: true
             name: 'Останній рух зафіксовано:'
             styles:

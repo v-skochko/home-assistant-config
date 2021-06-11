@@ -46,23 +46,23 @@
         {% endif %}
     battery_viktoriia:
       friendly_name: ""
-      value_template: "{{states('sensor.oneplus_a6000_battery_level')}}"
+      value_template: "{{states('sensor.oneplus_a6000_battery_level_2')}}"
       unit_of_measurement: "%"
       device_class: battery
     viktoriia:
       friendly_name: "Віка"
       value_template: >-
-        {% if is_state('device_tracker.oneplus_a6000', 'home') %}
+        {% if is_state('device_tracker.oneplus_a6000_2', 'home') %}
           Вдома
-        {% elif is_state('device_tracker.oneplus_a6000', 'lviv_center') %}
+        {% elif is_state('device_tracker.oneplus_a6000_2', 'lviv_center') %}
          у центрі
-        {% elif is_state('device_tracker.oneplus_a6000', 'lviv') %}
+        {% elif is_state('device_tracker.oneplus_a6000_2', 'lviv') %}
          Львів
         {% else %}
           Невідомо
         {% endif %}
       entity_picture_template: >-
-        {% if is_state('device_tracker.oneplus_a6000', 'work') %}
+        {% if is_state('device_tracker.oneplus_a6000_2', 'work') %}
           /local/photos/viktoriia.jpg
         {% else %}
           /local/photos/viktoriia.jpg
