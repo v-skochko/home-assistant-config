@@ -25,6 +25,7 @@
 | 192.168.1.41 | Google Nest Hub | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Google-Nest-Hub.jpg) |  
 | 192.168.1.42 | Google Nest Mini (2nd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Google-Nest-Mini-(2nd-Gen).jpg) |  
 | 192.168.1.43 | Amazon Echo Dot (3rd Gen) | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Amazon-Echo-Dot-(3rd-Gen).jpg) |  
+| 192.168.1.43 |JBL Bar 5 0 Multibeam | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/JBL-Bar-5-0-Multibeam.jpg) |  
 | 192.168.1.50 | Beok TGT70WIFI Gas Boiler Thermostat | ![](https://github.com/v-skochko/home-assistant-config/blob/master/www/readme/devices/Beok-TGT70WIFI-Gas-Boiler-Thermostat.jpg) |  
 | 192.168.1.51 | Neoclima Air conditioner | ![]() |  
 | 192.168.1.52 | Lg Fridge | ![]() |  
