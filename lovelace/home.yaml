@@ -738,10 +738,10 @@ cards:
             tap_action:
               action: more-info
             label: >
-#              [[[
-#                var time = states['variable.last_motion'].state;
-#                return time;
-#              ]]]
+            #              [[[
+            #                var time = states['variable.last_motion'].state;
+            #                return time;
+            #              ]]]
             show_label: true
             name: 'Останній рух зафіксовано:'
             styles:

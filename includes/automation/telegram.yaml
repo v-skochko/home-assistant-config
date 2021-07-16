@@ -52,4 +52,4 @@
     - service: notify.telegram_notifer
       data:
         title: "👧 WIFI Віка:"
-        message: "{{ states('sensor.oneplus_a6000_wifi_connection') }} "
+        message: "{{ states('sensor.oneplus_a6000_wifi_connection_2') }} "

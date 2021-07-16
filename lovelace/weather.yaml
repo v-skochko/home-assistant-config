@@ -78,8 +78,6 @@ cards:
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
-          - type: custom:sun-card
-            darkMode: true
           - type: custom:mini-graph-card
             name: Вага
             animate: true
