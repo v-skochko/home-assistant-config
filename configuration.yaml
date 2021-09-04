@@ -27,8 +27,8 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include_dir_merge_list includes/sensors
 binary_sensor: !include_dir_merge_list includes/binary-sensors
-variable: !include includes/variables.yaml
 
 discovery:
   ignore:
     - homekit
+cloud:
