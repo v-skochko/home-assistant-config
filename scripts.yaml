@@ -16,11 +16,7 @@ turn_on_pc:
     - service: switch.turn_on
       data:
         entity_id: switch.broadlink_PC_switch
-    #- service: xiaomi_aqara.play_ringtone
-    #  data:
-    #    gw_mac: 7811DCFAF643
-    #    ringtone_id: 10003
-    #    ringtone_vol: 20
+
 ### Turn off PC
 turn_off_pc:
   sequence:
@@ -49,26 +45,7 @@ play_radio:
       data_template:
         media_content_id: >
           {{ ["http://212.26.146.50:8000/sraka.mp3", "http://ua.uar.net:8000/vgolos", "http://94.23.40.70:8010/",  "http://icepe5.infomaniak.ch/jazzblues-high.mp3", "http://stream.radioskovoroda.com:8060/skovoroda_music", "http://listen.shoutcast.com/Classic-RockFlorida", "http://stream-uk1.radioparadise.com/aac-320", "http://0n-rock.radionetz.de/0n-rock.mp3", "http://bigrradio.cdnstream1.com/5186_128", "http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow", "http://radio.ukr.radio:8000/ur1-lv-mp3-m", "http://stream.mjoy.ua:8000/rzk-aac", "http://radio.nrcu.gov.ua:8000/ur2-mp3", "http://bigrradio.cdnstream1.com/5104_128", "http://streaming.radionomy.com/JamendoLounge", "http://bigrradio.cdnstream1.com/5104_128"] | random}}
-## play_voice
-play_voice:
-  sequence:
-    - service: media_player.media_stop
-      data:
-        entity_id: media_player.kitchen
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.kitchen
-        volume_level: '0.5'
-    - service: tts.google_translate_say
-      entity_id: media_player.kitchen
-      data:
-        message: 'Tune in to radio VGOLOS'
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.kitchen
-        media_content_type: audio/mp3
-      data_template:
-        media_content_id: http://ua.uar.net:8000/vgolos
+
 
 daily_statistic:
   sequence:

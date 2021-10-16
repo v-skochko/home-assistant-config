@@ -1,28 +1,28 @@
 ### Безпровідний вмикач Васі 158d0004650116 (single, double, long, both, double_both, long_both)
 #1: Left single click
-- alias: wireless_master_binary_single_left_click
-  trigger:
-    platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.wall_switch_left_158d0004650116
-      click_type: single
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.yeelight_master_lamp
+#- alias: wireless_master_binary_single_left_click
+#  trigger:
+#    platform: event
+#    event_type: xiaomi_aqara.click
+#    event_data:
+#      entity_id: binary_sensor.wall_switch_left_158d0004650116
+#      click_type: single
+#  action:
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.yeelight_master_lamp
 #2: Right single click
-- alias: wireless_master_binary_single_right_click
-  trigger:
-    platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.wall_switch_right_158d0004650116
-      click_type: single
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.yeelight_master_lamp
+#- alias: wireless_master_binary_single_right_click
+#  trigger:
+#    platform: event
+#    event_type: xiaomi_aqara.click
+#    event_data:
+#      entity_id: binary_sensor.wall_switch_right_158d0004650116
+#      click_type: single
+#  action:
+#    - service: light.turn_off
+#      data:
+#        entity_id: light.yeelight_master_lamp
 #3: Left long click
 - alias: wireless_master_binary_long_left_click
   trigger:

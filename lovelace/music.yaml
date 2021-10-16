@@ -53,13 +53,9 @@ cards:
         artwork: cover
         entity: media_player.soundbar
         icon: mdi:speaker-wireless
+
       - type: custom:mini-media-player
-        name: Nest на кухні
-        artwork: cover
-        entity: media_player.kitchen_screen
-        icon: mdi:speaker-wireless
-      - type: custom:mini-media-player
-        name: Nest в кімнаті
+        name: Google Nest
         artwork: cover
         entity: media_player.room
         icon: mdi:speaker-wireless

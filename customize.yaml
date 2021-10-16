@@ -1,5 +1,3 @@
-sensor.time:
-    friendly_name: Час
 script.radio538:
     friendly_name: Start Playing
     icon: mdi:play
