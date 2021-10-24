@@ -1,0 +1,14 @@
+### Turn on/off PC
+turn_on_pc:
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.broadlink_PC_switch
+
+### Turn off PC
+turn_off_pc:
+  sequence:
+    - service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: nergal

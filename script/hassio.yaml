@@ -1,0 +1,14 @@
+### Reload HASSIO
+hass_restart:
+  sequence:
+    - service: hassio.host_reboot
+
+### Reload Automation
+automation_reload:
+  sequence:
+    - service: automation.reload
+
+### Reload Core Config
+reload_core_config:
+  sequence:
+    - service: homeassistant.reload_core_config

@@ -5,8 +5,8 @@ homeassistant:
   elevation: 302
   unit_system: metric
   time_zone: Europe/Kiev
-  packages: !include_dir_named integrations
-  customize: !include customize.yaml
+  packages: !include_dir_named packages
+  customize: !include_dir_merge_named customize
 default_config:
 
 google_assistant:
@@ -18,15 +18,12 @@ google_assistant:
     - light
 
 ## Includes
+group: !include_dir_merge_named group
 zone: !include zones.yaml
 yeelight: !include yeelight.yaml
-group: !include groups/groups.yaml
-light: !include groups/lights.yaml
-automation: !include_dir_merge_list includes/automation
-script: !include scripts.yaml
-scene: !include scenes.yaml
-sensor: !include_dir_merge_list includes/sensors
-binary_sensor: !include_dir_merge_list includes/binary-sensors
-
-
+automation: !include_dir_merge_list automation
+sensor: !include_dir_merge_list sensors
+binary_sensor: !include_dir_merge_list binary-sensors
 cloud:
+script: !include_dir_merge_named script
+

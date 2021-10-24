@@ -12,7 +12,7 @@
     - service: media_player.volume_set
       data:
         entity_id: media_player.room
-        volume_level: '0.4'
+        volume_level: '0.2'
     - service: tts.google_translate_say
       entity_id: media_player.room
       data:
@@ -32,24 +32,3 @@
           💻 Macbook - {{ state_attr('sensor.total_time_macbook', 'value') }}
           📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
 
-
-- alias: WIFI_Skochko
-  trigger:
-    - platform: state
-      entity_id: sensor.pixel_5_wifi_connection
-  action:
-    - service: notify.telegram_notifer
-      data:
-        title: "👨 WIFI Вася:"
-        message: "{{ states('sensor.pixel_5_wifi_connection') }} "
-
-
-- alias: WIFI_Viktorria
-  trigger:
-    - platform: state
-      entity_id: sensor.oneplus_a6000_wifi_connection
-  action:
-    - service: notify.telegram_notifer
-      data:
-        title: "👧 WIFI Віка:"
-        message: "{{ states('sensor.oneplus_a6000_wifi_connection_2') }} "
