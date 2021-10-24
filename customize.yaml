@@ -38,10 +38,7 @@ sensor.beok_temperature:
     friendly_name: Котел
 sensor.temperature_158d0002437932:
     friendly_name: Коридор
-sensor.lviv_eco_city:
-    friendly_name: Малоголосіївська
-sensor.lviv_eco_city_pidzamche:
-    friendly_name: Підзамче
+
 sensor.ble_humidity_livingroom:
     friendly_name: Кімната
 sensor.humidity_158d0002437932:
