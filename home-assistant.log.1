@@ -1,0 +1,17 @@
+2021-10-24 14:04:08 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration floureon which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-24 14:04:08 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration xiaomi_vacuum which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-24 14:04:08 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration ble_monitor which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-24 14:04:08 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-24 14:04:11 ERROR (Recorder) [homeassistant.components.recorder.util] The database at //config/home-assistant_v2.db is corrupt or malformed
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/recorder/util.py", line 210, in validate_sqlite_database
+    run_checks_on_open_db(dbpath, conn.cursor())
+  File "/usr/src/homeassistant/homeassistant/components/recorder/util.py", line 221, in run_checks_on_open_db
+    sanity_check_passed = basic_sanity_check(cursor)
+  File "/usr/src/homeassistant/homeassistant/components/recorder/util.py", line 199, in basic_sanity_check
+    cursor.execute(f"SELECT * FROM {table} LIMIT 1;")  # nosec # not injection
+sqlite3.OperationalError: no such table: states
+2021-10-24 14:04:11 ERROR (Recorder) [homeassistant.components.recorder.util] The system will rename the corrupt database file //config/home-assistant_v2.db to //config/home-assistant_v2.db.corrupt.2021-10-24T11:04:11.581550+00:00 in order to allow startup to proceed
+2021-10-24 14:04:29 WARNING (MainThread) [homeassistant.setup] Setup of zone is taking over 10 seconds.
+2021-10-24 14:04:37 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Stripe 0x7c34e40' for yeelight integration not ready yet: Failed to read from the socket at 192.168.1.103:55443: [Errno 113] Connect call failed ('192.168.1.103', 55443).; Retrying in background
+2021-10-24 14:04:45 WARNING (MainThread) [frontend.js.latest.202110071] Icon mdi:cellphone-android was renamed to mdi:cellphone, please change your config, it will be removed in version 2021.12.
