@@ -11,182 +11,182 @@ cards:
         cards:
           - type: horizontal-stack
             cards:
-              - type: entities
-                show_header_toggle: false
-                entities:
-                  - sensor.skochko
-              - type: entities
-                show_header_toggle: false
-                entities:
-                  - sensor.viktoriia
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                entity: 'sensor.pixel_5_battery_level'
-                icon: 'mdi:cellphone'
-                name: Pixel 5
-                styles:
-                  card:
-                    - background-color: 'transparent'
-                    - border-radius: 0%
-                    - padding: 5px
-                    - font-size: 12px
-                    - text-shadow: 0px 0px 5px black
-                    - height: 120px
-                  grid:
-                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
-                    - grid-template-columns: 1fr 1fr
-                    - grid-template-rows: 1fr min-content min-content min-content min-content
-                  name:
-                    - font-weight: bold
-                    - font-size: 13px
-                    - color: white
-                    - align-self: middle
-                    - justify-self: start
-                    - padding-bottom: 4px
-                  img_cell:
-                    - justify-content: start
-                    - align-items: start
-                    - margin: none
-                    - display: none
-                  icon:
-                    - color: >
-                        [[[
-                          if (entity.state < 60) return 'red';
-                          if (entity.state >= 60 && entity.state < 80) return 'orange';
-                          else return 'lime';
-                        ]]]
-                    - width: 70%
-                    - margin-top: -10%
-                  custom_fields:
-                    temp:
-                      - align-self: start
-                      - justify-self: end
-                    location:
-                      - padding-bottom: 2px
-                      - align-self: middle
-                      - justify-self: start
-                    wifi:
-                      - padding-bottom: 2px
-                      - align-self: middle
-                      - justify-self: start
-                    battery_status:
-                      - padding-bottom: 2px
-                      - align-self: middle
-                      - justify-self: start
-                custom_fields:
-                  temp: >
-                    [[[
-                      return `<ha-icon
-                        icon="mdi:battery"
-                        style="width: 12px; height: 12px; color: yellow;">
-                        </ha-icon><span>${entity.state}%</span>`
-                    ]]]
-                  location: >
-                    [[[
-                      return `<ha-icon
-                        icon="mdi:google-maps"
-                        style="width: 20px; height: 30px; color: white;">
-                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
-                    ]]]
-                  wifi: >
-                    [[[
-                    return `<ha-icon
-                    icon="mdi:wifi"
-                    style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_wifi_connection'].state}</span></span>`
-                    ]]]
-                  battery_status: >
-                    [[[
-                    return `<ha-icon
-                    icon="mdi:power-plug"
-                    style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>Зарядка:
-                    <span> ${states['sensor.pixel_5_battery_state'].state}</span></span>`
-                    ]]]
-              - type: 'custom:button-card'
-                entity: 'sensor.oneplus_a6000_battery_level_2'
-                icon: 'mdi:cellphone'
-                name: OnePlus 6
-                styles:
-                  card:
-                    - background-color: 'transparent'
-                    - border-radius: 0%
-                    - padding: 5px
-                    - font-size: 12px
-                    - text-shadow: 0px 0px 5px black
-                    - height: 120px
-                  grid:
-                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
-                    - grid-template-columns: 1fr 1fr
-                    - grid-template-rows: 1fr min-content min-content min-content min-content
-                  name:
-                    - font-weight: bold
-                    - font-size: 13px
-                    - color: white
-                    - align-self: middle
-                    - justify-self: start
-                    - padding-bottom: 4px
-                  img_cell:
-                    - justify-content: start
-                    - align-items: start
-                    - margin: none
-                    - display: none
-                  icon:
-                    - color: >
-                        [[[
-                          if (entity.state < 60) return 'red';
-                          if (entity.state >= 60 && entity.state < 80) return 'orange';
-                          else return 'lime';
-                        ]]]
-                    - width: 70%
-                    - margin-top: -10%
-                  custom_fields:
-                    temp:
-                      - align-self: start
-                      - justify-self: end
-                    location:
-                      - padding-bottom: 2px
-                      - align-self: middle
-                      - justify-self: start
-                    wifi:
-                      - padding-bottom: 2px
-                      - align-self: middle
-                      - justify-self: start
-                    battery_status:
-                      - padding-bottom: 2px
-                      - align-self: middle
-                      - justify-self: start
-                custom_fields:
-                  temp: >
-                    [[[
-                      return `<ha-icon
-                        icon="mdi:battery"
-                        style="width: 12px; height: 12px; color: yellow;">
-                        </ha-icon><span>${entity.state}%</span>`
-                    ]]]
-                  location: >
-                    [[[
-                      return `<ha-icon
-                        icon="mdi:google-maps"
-                        style="width: 20px; height: 30px; color: white;">
-                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Locality' ]}</span></span>`
-                    ]]]
-                  wifi: >
-                    [[[
-                    return `<ha-icon
-                    icon="mdi:wifi"
-                    style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection_2'].state}</span></span>`
-                    ]]]
-                  battery_status: >
-                    [[[
-                    return `<ha-icon
-                    icon="mdi:power-plug"
-                    style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span>Зарядка:
-                    <span> ${states['sensor.oneplus_a6000_battery_state_2'].state}</span></span>`
-                    ]]]
+#              - type: entities
+#                show_header_toggle: false
+#                entities:
+#                  - sensor.skochko
+#              - type: entities
+#                show_header_toggle: false
+#                entities:
+#                  - sensor.viktoriia
+#          - type: horizontal-stack
+#            cards:
+#              - type: 'custom:button-card'
+#                entity: 'sensor.pixel_5_battery_level'
+#                icon: 'mdi:cellphone'
+#                name: Pixel 5
+#                styles:
+#                  card:
+#                    - background-color: 'transparent'
+#                    - border-radius: 0%
+#                    - padding: 5px
+#                    - font-size: 12px
+#                    - text-shadow: 0px 0px 5px black
+#                    - height: 120px
+#                  grid:
+#                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
+#                    - grid-template-columns: 1fr 1fr
+#                    - grid-template-rows: 1fr min-content min-content min-content min-content
+#                  name:
+#                    - font-weight: bold
+#                    - font-size: 13px
+#                    - color: white
+#                    - align-self: middle
+#                    - justify-self: start
+#                    - padding-bottom: 4px
+#                  img_cell:
+#                    - justify-content: start
+#                    - align-items: start
+#                    - margin: none
+#                    - display: none
+#                  icon:
+#                    - color: >
+#                        [[[
+#                          if (entity.state < 60) return 'red';
+#                          if (entity.state >= 60 && entity.state < 80) return 'orange';
+#                          else return 'lime';
+#                        ]]]
+#                    - width: 70%
+#                    - margin-top: -10%
+#                  custom_fields:
+#                    temp:
+#                      - align-self: start
+#                      - justify-self: end
+#                    location:
+#                      - padding-bottom: 2px
+#                      - align-self: middle
+#                      - justify-self: start
+#                    wifi:
+#                      - padding-bottom: 2px
+#                      - align-self: middle
+#                      - justify-self: start
+#                    battery_status:
+#                      - padding-bottom: 2px
+#                      - align-self: middle
+#                      - justify-self: start
+#                custom_fields:
+#                  temp: >
+#                    [[[
+#                      return `<ha-icon
+#                        icon="mdi:battery"
+#                        style="width: 12px; height: 12px; color: yellow;">
+#                        </ha-icon><span>${entity.state}%</span>`
+#                    ]]]
+#                  location: >
+#                    [[[
+#                      return `<ha-icon
+#                        icon="mdi:google-maps"
+#                        style="width: 20px; height: 30px; color: white;">
+#                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
+#                    ]]]
+#                  wifi: >
+#                    [[[
+#                    return `<ha-icon
+#                    icon="mdi:wifi"
+#                    style="width: 20px; height: 30px; color: white;">
+#                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_wifi_connection'].state}</span></span>`
+#                    ]]]
+#                  battery_status: >
+#                    [[[
+#                    return `<ha-icon
+#                    icon="mdi:power-plug"
+#                    style="width: 20px; height: 30px; color: white;">
+#                    </ha-icon><span>Зарядка:
+#                    <span> ${states['sensor.pixel_5_battery_state'].state}</span></span>`
+#                    ]]]
+#              - type: 'custom:button-card'
+#                entity: 'sensor.oneplus_a6000_battery_level_2'
+#                icon: 'mdi:cellphone'
+#                name: OnePlus 6
+#                styles:
+#                  card:
+#                    - background-color: 'transparent'
+#                    - border-radius: 0%
+#                    - padding: 5px
+#                    - font-size: 12px
+#                    - text-shadow: 0px 0px 5px black
+#                    - height: 120px
+#                  grid:
+#                    - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
+#                    - grid-template-columns: 1fr 1fr
+#                    - grid-template-rows: 1fr min-content min-content min-content min-content
+#                  name:
+#                    - font-weight: bold
+#                    - font-size: 13px
+#                    - color: white
+#                    - align-self: middle
+#                    - justify-self: start
+#                    - padding-bottom: 4px
+#                  img_cell:
+#                    - justify-content: start
+#                    - align-items: start
+#                    - margin: none
+#                    - display: none
+#                  icon:
+#                    - color: >
+#                        [[[
+#                          if (entity.state < 60) return 'red';
+#                          if (entity.state >= 60 && entity.state < 80) return 'orange';
+#                          else return 'lime';
+#                        ]]]
+#                    - width: 70%
+#                    - margin-top: -10%
+#                  custom_fields:
+#                    temp:
+#                      - align-self: start
+#                      - justify-self: end
+#                    location:
+#                      - padding-bottom: 2px
+#                      - align-self: middle
+#                      - justify-self: start
+#                    wifi:
+#                      - padding-bottom: 2px
+#                      - align-self: middle
+#                      - justify-self: start
+#                    battery_status:
+#                      - padding-bottom: 2px
+#                      - align-self: middle
+#                      - justify-self: start
+#                custom_fields:
+#                  temp: >
+#                    [[[
+#                      return `<ha-icon
+#                        icon="mdi:battery"
+#                        style="width: 12px; height: 12px; color: yellow;">
+#                        </ha-icon><span>${entity.state}%</span>`
+#                    ]]]
+#                  location: >
+#                    [[[
+#                      return `<ha-icon
+#                        icon="mdi:google-maps"
+#                        style="width: 20px; height: 30px; color: white;">
+#                        </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location_2'].attributes[ 'Locality' ]}</span></span>`
+#                    ]]]
+#                  wifi: >
+#                    [[[
+#                    return `<ha-icon
+#                    icon="mdi:wifi"
+#                    style="width: 20px; height: 30px; color: white;">
+#                    </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection_2'].state}</span></span>`
+#                    ]]]
+#                  battery_status: >
+#                    [[[
+#                    return `<ha-icon
+#                    icon="mdi:power-plug"
+#                    style="width: 20px; height: 30px; color: white;">
+#                    </ha-icon><span>Зарядка:
+#                    <span> ${states['sensor.oneplus_a6000_battery_state_2'].state}</span></span>`
+#                    ]]]
 
 
           - type: horizontal-stack

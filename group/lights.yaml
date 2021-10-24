@@ -1,21 +1,20 @@
-#lights_all
-- platform: group
-  name: lights_all
+lights_all:
+  name: Все світло
   entities:
     - light.yeelight_master_lamp
     - light.yeelight_viktoriia_lamp
     - light.yeelight_moon
     - light.yeelight_window
     - light.yeelight_kitchen
-#lights_room
-- platform: group
-  name: lights_room
+
+lights_room:
+  name: Світло кімната
   entities:
     - light.yeelight_master_lamp
     - light.yeelight_viktoriia_lamp
-#lights_kitchen
-- platform: group
-  name: lights_kitchen
+
+lights_kitchen:
+  name: Світло Кухня
   entities:
     - light.yeelight_window
     - light.yeelight_kitchen

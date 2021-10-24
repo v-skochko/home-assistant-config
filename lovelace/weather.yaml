@@ -100,26 +100,4 @@ cards:
             entities: [ ]
             title: Ратуша
             camera_image: camera.liviv_ratusha
-          - type: 'custom:mini-graph-card'
-            name: Якість повітря у Львові
-            animate: true
-            icon: mdi:weather-cloudy-alert
-            entities:
-              - entity: sensor.lviv_eco_city
-              - entity: sensor.lviv_eco_city_pidzamche
-            line_color: var(--accent-color)
-            line_width: 2
-            hours_to_show: 24
-            color_thresholds:
-              - value: 50
-                color: "#7bbd66"
-              # Мінімальний вплив
-              - value: 100
-                color: "#bbcf4c"
-              # Задовільний
-              - value: 150
-                color: "#ffcf00"
-              # Помірно забруднений
-              - value: 150
-                color: "#ff9a00"
-              # Високий
+

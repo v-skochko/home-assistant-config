@@ -70,14 +70,8 @@
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
-## total_time_broadlink_root_socket
-- platform: history_stats
-  name: total_time_broadlink_root_socket
-  entity_id: binary_sensor.ping_broadlink_root_socket
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
+
+
 ## total_time_phone_master
 - platform: history_stats
   name: total_time_phone_master
@@ -111,13 +105,7 @@
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 ## total_time_nest_hub
-- platform: history_stats
-  name: total_time_nest_hub
-  entity_id: binary_sensor.ping_nest_hub
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
+
 ## total_time_echo_dot_3
 - platform: history_stats
   name: total_time_echo_dot_3

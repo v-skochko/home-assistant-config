@@ -31,9 +31,7 @@
 - platform: ping
   host: 192.168.1.23
   name: 'ping_broadlink_pc_switch'
-- platform: ping
-  host: 192.168.1.24
-  name: 'ping_broadlink_root_socket'
+
 ## Android Devices (192.168.1.30 - 192.168.1.39)
 - platform: ping
   host: 192.168.1.32
@@ -48,9 +46,7 @@
 - platform: ping
   host: 192.168.1.41
   name: 'ping_nest_room'
-- platform: ping
-  host: 192.168.1.42
-  name: 'ping_nest_hub'
+
 - platform: ping
   host: 192.168.1.43
   name: 'ping_echo_dot_3'
