@@ -10,10 +10,10 @@ switch.wall_switch_left_158d0001dc2c2e:
   friendly_name: Основне світло в кімнаті
 switch.wall_switch_left_158d00016c31cf:
   friendly_name: Світло в душовій
-  icon: mdi:fan
+  icon: mdi:lightbulb-on
 switch.wall_switch_right_158d00016c31cf:
   friendly_name: Провітрення в душовій
-  icon: mdi:lightbulb-on
+  icon: mdi:fun
 switch.wall_switch_left_158d00019f6738:
   friendly_name: Споти на кухні
   icon: mdi:spotlight-beam

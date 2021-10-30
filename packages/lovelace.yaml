@@ -19,5 +19,8 @@ lovelace:
       type: module
     - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
       type: module
-    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+
+    - url: /hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js
       type: module

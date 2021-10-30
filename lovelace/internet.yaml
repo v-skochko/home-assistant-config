@@ -88,3 +88,50 @@ cards:
         hours_to_show: 24
         animate: true
         hour24: true
+      ########## Stack 3 ######################################################################
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.speedtest_ping
+            height: 20
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 0.3
+            show:
+              # extrema: true
+              fill: true
+              graph: bar
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.speedtest_download
+            height: 50
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 0.3
+            show:
+              extrema: true
+              fill: true
+            color_thresholds:
+              - value: 150
+                color: "#bf4040"
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.speedtest_upload
+            height: 50
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 0.3
+            show:
+              extrema: true
+              fill: true
+            color_thresholds:
+              - value: 13
+                color: "#bf4040"

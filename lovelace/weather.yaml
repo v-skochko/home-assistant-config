@@ -74,6 +74,9 @@ cards:
     cards:
       - type: vertical-stack
         cards:
+          - type: custom:sun-card
+            darkMode: true
+            name: Львів
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
