@@ -1126,9 +1126,8 @@ cards:
           - type: logbook
             entities:
               - sensor.pixel_5_geocoded_location
-              - sensor.pixel_5_charger_type
               - sensor.oneplus_a6000_geocoded_location
-              - sensor.oneplus_a6000_charger_type
+              - sensor.pixel_5_charger_type
               - switch.wall_switch_left_158d0001f4852b
               - switch.wall_switch_right_158d0001f4852b
               - switch.wall_switch_right_158d0001dc2c2e

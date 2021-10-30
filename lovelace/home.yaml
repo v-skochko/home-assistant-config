@@ -851,8 +851,7 @@ cards:
           - media_player.kitchen
           - media_player.soundbar
 
-  ########## Stack 4 ###########
-  # Temperature and humidity in house
+  ########## Stack 4 ######################################################################
   - type: vertical-stack
     cards:
       # Extra explanation

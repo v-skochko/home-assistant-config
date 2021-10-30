@@ -1,11 +1,9 @@
 path: lights
 title: Lights
 icon: mdi:palette
-panel: true
 cards:
-  - type: custom:layout-card
-    layout: vertical
-    max_collumns: 4
+  ########## Stack 1 ######################################################################
+  - type: vertical-stack
     cards:
       - type: custom:light-entity-card
         header: Лампа Васі
@@ -22,9 +20,9 @@ cards:
         header: Місяць
         shorten_cards: true
         consolidate_entities: true
-      #######
-      - break
-      #######
+  ########## Stack 2 ######################################################################
+  - type: vertical-stack
+    cards:
       - type: custom:light-entity-card
         entity: light.yeelight_window
         header: Вікно
@@ -35,17 +33,11 @@ cards:
         header: Кухня
         shorten_cards: true
         consolidate_entities: true
-      #######
-      - break
-      #######
+  ########## Stack 3 ######################################################################
+  - type: vertical-stack
+    cards:
       - type: custom:light-entity-card
-        entity: light.lights_kitchen
-        header: Вся кухня
-        group: true
+        entity: light.gateway_light_7811dcfaf643
+        header: Нічник
+        shorten_cards: true
         consolidate_entities: true
-      - type: custom:light-entity-card
-        entity: light.lights_room
-        header: Вся Кімната
-        group: true
-        consolidate_entities: true
-      - break
