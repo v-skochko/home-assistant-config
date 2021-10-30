@@ -1,11 +1,9 @@
 path: internet
 title: internet
 icon: mdi:google-chrome
-panel: true
 cards:
-  - type: custom:layout-card
-    layout: vertical
-    max_collumns: 2
+  ########## Stack 1 ######################################################################
+  - type: vertical-stack
     cards:
       - type: custom:mini-graph-card
         name: Швидкість Інтернету
@@ -48,9 +46,9 @@ cards:
         hour24: true
         group_by: hour
         aggregate_func: delta
-      #######
-      - break
-      #######
+  ########## Stack 2 ######################################################################
+  - type: vertical-stack
+    cards:
       - type: custom:mini-graph-card
         entities:
           - sensor.adguard_dns_queries_blocked_ratio
@@ -81,7 +79,6 @@ cards:
         hour24: true
         group_by: hour
         aggregate_func: delta
-
       - type: custom:mini-graph-card
         line_width: 2
         name: Швидкість опрацювання одного запиту
@@ -91,4 +88,3 @@ cards:
         hours_to_show: 24
         animate: true
         hour24: true
-

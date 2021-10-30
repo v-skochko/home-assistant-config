@@ -1,11 +1,9 @@
 path: system
 title: system
 icon: mdi:harddisk
-panel: true
 cards:
-  - type: custom:layout-card
-    layout: vertical
-    max_collumns: 3
+  ########## Stack 1 ######################################################################
+  - type: vertical-stack
     cards:
       - type: vertical-stack
         cards:
@@ -94,7 +92,10 @@ cards:
                 name: "Телефон Васі"
               - entity: sensor.oneplus_a6000_battery_level
                 name: "Телефон Віки"
-      - break
+
+  ########## Stack 2 ######################################################################
+  - type: vertical-stack
+    cards:
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -1089,7 +1090,11 @@ cards:
               label:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
-      - break
+
+
+  ########## Stack 3 ######################################################################
+  - type: vertical-stack
+    cards:
       - type: entities
         title: Фізичні Вмикачі
         icon: mdi:home-assistant
@@ -1097,19 +1102,9 @@ cards:
           - entity: switch.wall_switch_right_158d0001dc2c2e
             name: Кімната - Спот
             icon: mdi:spotlight-beam
-          - entity: switch.broadlink_room_ambilight_switch
-            name: Кімната - Підсвітка
-            icon: mdi:spotlight-beam
           - entity: switch.wall_switch_left_158d0001dc2c2e
             name: Кімната - Місяць
             icon: mdi:brightness-1
-          - type: divider
-          - entity: switch.broadlink_pc_switch
-            name: Комп
-            icon: mdi:monitor
-          - entity: switch.wall_switch_right_158d0001f4852b
-            name: Коридор - Споти
-            icon: mdi:spotlight-beam
           - type: divider
           - entity: switch.wall_switch_right_158d00016c31cf
             name: Душова - Світло
@@ -1117,9 +1112,14 @@ cards:
           - entity: switch.wall_switch_left_158d00016c31cf
             name: Душова - Вентиляція
             icon: mdi:fan
-          - entity: switch.pc_wlan
-            name: PC WLAN
-
+          - type: divider
+          - entity: switch.wall_switch_right_158d0001f4852b
+            name: Коридор - Споти
+            icon: mdi:spotlight-beam
+          - type: divider
+          - entity: switch.broadlink_pc_switch
+            name: Комп
+            icon: mdi:monitor
       ########################
       - type: vertical-stack
         cards:
