@@ -1,8 +1,8 @@
+path: home
 title: Дім
 icon: mdi:home-assistant
-path: home
 cards:
-  ########## Stack 1 ###########
+  ########## Stack 1 ######################################################################
   - type: vertical-stack
     cards:
       - type: horizontal-stack
@@ -183,11 +183,6 @@ cards:
                 </ha-icon><span>Зарядка:
                 <span> ${states['sensor.oneplus_a6000_battery_state'].state}</span></span>`
                 ]]]
-
-
-
-
-
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -256,17 +251,39 @@ cards:
                 - color: rgb(255, 255, 255)
                 - font-size: 14px
       - type: custom:mini-media-player
-        artwork: cover
         name: Колонки на кухні
-        icon: mdi:speaker-wireless
+        artwork: cover
         entity: media_player.kitchen
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: Soundbar
+        artwork: cover
+        entity: media_player.soundbar
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: Google Nest
+        artwork: cover
+        entity: media_player.room
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: Телевізор
+        artwork: cover
+        entity: media_player.tv_2
+        icon: mdi:speaker-wireless
+      - type: custom:mini-media-player
+        name: PLEX
+        artwork: cover
+        entity: media_player.plex_plex_for_android_tv_tpm171e
+        icon: mdi:speaker-wireless
+
+
+
+
       - type: picture-glance
         entities: [ ]
         title: Вхідні двері
         camera_image: camera.generic_camera
-
-
-  ########## Stack 2 ###########
+  ########## Stack 2 ######################################################################
   # Show the lights in house
   - type: vertical-stack
     cards:
@@ -744,10 +761,7 @@ cards:
                     - padding-bottom: 5px
                   label:
                     - color: rgb(255, 255, 255)
-
-
-
-  ########## Stack 3 ###########
+  ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:
       - type: custom:mini-graph-card
@@ -767,48 +781,6 @@ cards:
             color: "#2e7d32"
           - value: 24
             color: "#c62828"
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            entity: binary_sensor.ping_nergal
-            icon: mdi:microsoft-windows
-            color: auto
-            color_type: card
-            tap_action:
-              action: more-info
-            name: Комп
-            label: >
-              [[[
-                var total = states['sensor.total_time_nergal'].attributes.value;
-                return 'Всього: ' + total;
-              ]]]
-            show_label: true
-            styles:
-              card:
-                - height: 80px
-                - background: transparent
-                - padding: 5px
-              icon:
-                - color: black
-              name:
-                - color: white
-                - font-size: 14px
-              label:
-                - color: black
-                - font-size: 13px
-            state:
-              - value: 'on'
-                color: rgb(255, 99, 71)
-                styles:
-                  card:
-                    - height: 80px
-                    - background: rgb(85,193,243)
-                  icon:
-                    - color: white
-                  name:
-                    - color: white
-                  label:
-                    - color: white
       - type: 'custom:vacuum-card'
         entity: vacuum.xiaomi_vacuum
         show_name: false
@@ -843,7 +815,41 @@ cards:
           - name: Прибрати кімнату
             service: script.clean_kitchen
             icon: 'mdi:silverware-fork-knife'
-
+      - type: "custom:jukebox-card"
+        links:
+          - url: http://212.26.146.50:8000/sraka.mp3
+            name: Радіо Срака 😆
+          - url: http://ua.uar.net:8000/vgolos
+            name: Вголос 🙀
+          - url: http://94.23.40.70:8010/
+            name: Metal Radio 👿
+          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
+            name: Jazz Radio Blues
+          - url: http://stream.radioskovoroda.com:8060/skovoroda_music
+            name: Радіо Сковорода
+          - url: http://listen.shoutcast.com/Classic-RockFlorida
+            name: Classic-Rock Florida
+          - url: http://stream-uk1.radioparadise.com/aac-320
+            name: Paradise
+          - url: http://0n-rock.radionetz.de/0n-rock.mp3
+            name: ON Rock
+          - url: http://bigrradio.cdnstream1.com/5186_128
+            name: 80s Metal FM
+          - url: http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow
+            name: eskaGO.pl - Kraków
+          - url: http://radio.ukr.radio:8000/ur1-lv-mp3-m
+            name: LV
+          - url: http://stream.mjoy.ua:8000/rzk-aac
+            name: Mjoy
+          - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
+            name: Промінь
+          - url: http://bigrradio.cdnstream1.com/5104_128
+            name: 2000 FM - Hard Rock
+          - url: http://streaming.radionomy.com/JamendoLounge
+            name: Alternative Nation Radio
+        entities:
+          - media_player.kitchen
+          - media_player.soundbar
 
   ########## Stack 4 ###########
   # Temperature and humidity in house

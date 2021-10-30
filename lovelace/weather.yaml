@@ -1,11 +1,9 @@
 path: weather
-title: Weather
+title: Погода
 icon: mdi:weather-sunny
-panel: true
 cards:
-  - type: custom:layout-card
-    layout: vertical
-    max_collumns: 3
+  ########## Stack 1 ######################################################################
+  - type: vertical-stack
     cards:
       - type: vertical-stack
         cards:
@@ -70,9 +68,10 @@ cards:
                 color: "#d35400"
               - value: 90
                 color: "#c0392b"
-      #############################################################
-      - break
-      #############################################################
+  ########## Stack 2 ######################################################################
+  # Temperature and humidity in house
+  - type: vertical-stack
+    cards:
       - type: vertical-stack
         cards:
           - type: custom:weather-card
@@ -87,9 +86,10 @@ cards:
             line_width: 2
             lower_bound: 50
             hours_to_show: 280
-      #############################################################
-      - break
-      #############################################################
+  ########## Stack 3 ######################################################################
+  # Temperature and humidity in house
+  - type: vertical-stack
+    cards:
       - type: vertical-stack
         cards:
           - type: picture-glance
@@ -100,4 +100,3 @@ cards:
             entities: [ ]
             title: Ратуша
             camera_image: camera.liviv_ratusha
-
