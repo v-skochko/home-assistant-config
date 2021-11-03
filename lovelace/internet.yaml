@@ -22,9 +22,19 @@ cards:
           - entity: sensor.speedtest_upload
             name: Вивантаженя
             color: '#f57f17'
-          - entity: sensor.speedtest_ping
-            name: Пінг
-            color: '#2de5d1'
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.speedtest_ping
+            height: 20
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 0.3
+            show:
+              fill: true
+              graph: bar
       - type: custom:mini-graph-card
         name: Трафік
         value_factor: -9
@@ -70,6 +80,8 @@ cards:
         group_by: hour
         aggregate_func: delta
       - type: custom:mini-graph-card
+        name: DNS Queries
+        icon: mdi:ip
         entities:
           - sensor.adguard_dns_queries_blocked
         line_color: '#FF5733'
@@ -91,47 +103,12 @@ cards:
       ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.speedtest_ping
-            height: 20
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 0.3
-            show:
-              # extrema: true
-              fill: true
-              graph: bar
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.speedtest_download
-            height: 50
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 0.3
-            show:
-              extrema: true
-              fill: true
-            color_thresholds:
-              - value: 150
-                color: "#bf4040"
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.speedtest_upload
-            height: 50
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 0.3
-            show:
-              extrema: true
-              fill: true
-            color_thresholds:
-              - value: 13
-                color: "#bf4040"
+      - type: entities
+        title: Ad Guard
+        icon: mdi:home-assistant
+        entities:
+          - entity: switch.adguard_protection
+            name: Блокування реклами
+            icon: mdi:microsoft-internet-explorer
+          - entity: switch.adguard_parental_control
+            name: Батьківський контроль

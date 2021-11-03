@@ -1,6 +1,6 @@
 path: automation
 title: automation
-icon: mdi:harddisk
+icon: mdi:language-javascript
 cards:
   ########## Stack 1 ######################################################################
   - type: vertical-stack
