@@ -27,3 +27,8 @@ binary_sensor: !include_dir_merge_list binary-sensors
 cloud:
 script: !include_dir_merge_named script
 
+# Example configuration.yaml entry
+input_boolean:
+  notify_home:
+    name: Notify when someone arrives home
+    icon: mdi:car

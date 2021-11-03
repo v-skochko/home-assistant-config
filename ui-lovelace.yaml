@@ -5,3 +5,4 @@ views:
   - !include lovelace/lights.yaml
   - !include lovelace/internet.yaml
   - !include lovelace/system.yaml
+  - !include lovelace/automation.yaml

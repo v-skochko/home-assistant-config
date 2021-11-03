@@ -8,7 +8,6 @@ group_switches:
     - switch.wall_switch_left_158d00019f6738
     - switch.wall_switch_right_158d00019f6738
     - switch.broadlink_kitchen_fan_switch
-    - switch.broadlink_room_ambilight_switch
     - switch.christmas_tree_switch
 
 #Residence Radio:

@@ -1,8 +1,8 @@
-#kitchen_morning_airing
+##########################
 - alias: kitchen_morning_airing
   trigger:
     - platform: time
-      at: '10:00:00'
+      at: '09:00:00'
   action:
     - service: switch.turn_on
       data:
@@ -11,7 +11,7 @@
     - service: switch.turn_off
       data:
         entity_id: switch.broadlink_kitchen_fan_switch
-#kitchen_night_airing
+##########################
 - alias: kitchen_night_airing
   trigger:
     - platform: time
@@ -25,7 +25,7 @@
       data:
         entity_id: switch.broadlink_kitchen_fan_switch
 
-#kitchen_motion_airing
+##########################
 - alias: kitchen_motion_airing
   trigger:
     platform: state
@@ -36,7 +36,7 @@
       entity_id: switch.broadlink_kitchen_fan_switch
       state: 'off'
     - condition: time
-      after: '08:30:00'
+      after: '10:00:00'
     - condition: time
       before: '23:00:00'
   action:

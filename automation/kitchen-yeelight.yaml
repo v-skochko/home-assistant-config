@@ -1,4 +1,4 @@
-#Turn on kitchen light by motion
+##########################
 - alias: motion_led
   trigger:
     platform: state
@@ -8,7 +8,7 @@
     - condition: sun
       after: sunset
     - condition: time
-      before: '23:59:00'
+      before: '23:45:00'
     - condition: state
       entity_id: light.lights_kitchen
       state: 'off'
@@ -20,7 +20,7 @@
     - service: switch.turn_on
       data:
         entity_id: switch.christmas_tree_switch
-#Turn off kitchen light by motion
+##########################
 - alias: Motion Sensor Lights Off
   trigger:
     - platform: state
@@ -33,7 +33,7 @@
       data:
         entity_id: light.lights_kitchen
         transition: 10
-#Turning off kitchen light after midnight
+##########################
 - alias: led_off_on_midnight
   trigger:
     - platform: time

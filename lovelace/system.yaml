@@ -92,7 +92,6 @@ cards:
                 name: "Телефон Васі"
               - entity: sensor.oneplus_a6000_battery_level
                 name: "Телефон Віки"
-
   ########## Stack 2 ######################################################################
   - type: vertical-stack
     cards:
@@ -613,7 +612,6 @@ cards:
               label:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
-
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -1090,8 +1088,6 @@ cards:
               label:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
-
-
   ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:
@@ -1126,7 +1122,6 @@ cards:
           - entity: switch.broadlink_kitchen_fan_switch
             name: Кухня - вентиляція
             icon: mdi:fan
-
           - type: divider
           - entity: switch.broadlink_pc_switch
             name: Комп
@@ -1150,3 +1145,19 @@ cards:
               - switch.broadlink_pc_switch
               - switch.broadlink_room_ambilight_switch
             hours_to_show: 24
+  ########## Stack 4 ######################################################################
+  - type: vertical-stack
+    cards:
+      # Extra explanation
+#      - type: markdown
+#        title: Автоматизації
+#        content: |
+#          **Ik wil koken** -> voor als je gaat koken.
+      - type: entities
+        title: Автоматизації
+        entities:
+          - entity: automation.total_for_day
+            name: Відправляти статистику за день в Telegram
+          - entity: automation.startup_notification
+            name: Сповіщення про завантаження
+          - type: divider

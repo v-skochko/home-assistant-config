@@ -1,0 +1,48 @@
+##########################
+- alias: corridor_left_key_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001f4852b
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001f4852b
+##########################
+- alias: room_left_key_fix
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d0001dc2c2e
+    to: 'off'
+    from: 'on'
+  action:
+    - delay: 10
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+##########################
+- alias: room_moon_reboot_fix
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ping_yeelight_moon
+      to: 'off'
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+    - delay: 10
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d0001dc2c2e
+##########################
+- alias: pc_auto_off_fix
+  trigger:
+    platform: state
+    entity_id: switch.broadlink_pc_switch
+    to: 'on'
+    from: 'off'
+  action:
+    - delay: 1
+    - service: switch.turn_off
+      entity_id: switch.broadlink_pc_switch

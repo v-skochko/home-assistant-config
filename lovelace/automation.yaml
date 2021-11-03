@@ -1,0 +1,59 @@
+path: automation
+title: automation
+icon: mdi:harddisk
+cards:
+  ########## Stack 1 ######################################################################
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Telegram
+        entities:
+          - entity: automation.total_for_day
+            name: Відправляти статистику за день
+          - entity: automation.startup_notification
+            name: Сповіщення про завантаження
+  ########## Stack 2 ######################################################################
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Душова
+        entities:
+          - entity: automation.shower_morning_airing
+            name: Ранкове провітрення
+          - entity: automation.shower_night_airing
+            name: Вечірнє провітрення
+          - type: divider
+          - entity: automation.auto_turn_off_shower_airing
+            name: Автовимкнення через годину
+  ########## Stack 3 ######################################################################
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Кухня
+        entities:
+          - entity: automation.kitchen_morning_airing
+            name: Ранкове провітрення
+          - entity: automation.kitchen_night_airing
+            name: Вечірнє провітрення
+          - entity: automation.kitchen_motion_airing
+            name: Автоматично якщо є рух
+          - type: divider
+          - entity: automation.motion_led
+            name: Автоматична підсвітка
+          - entity: automation.led_off_on_midnight
+            name: Вимкнути підсвітку опівночі
+  ########## Stack 4 ######################################################################
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Fixes
+        entities:
+          - entity: automation.corridor_left_key_fix
+            name: corridor_left_key_fix
+          - entity: automation.room_left_key_fix
+            name: room_left_key_fix
+          - entity: automation.room_moon_reboot_fix
+            name: room_moon_reboot_fix
+          - type: divider
+          - entity: automation.pc_auto_off_fix
+            name: pc_auto_off_fix

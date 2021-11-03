@@ -1,5 +1,5 @@
-#Play random radio station
-- alias: left_key
+##########################
+- alias: сorridor_left_key
   trigger:
     platform: state
     entity_id: switch.wall_switch_left_158d0001f4852b
@@ -31,32 +31,3 @@
     - service: switch.toggle
       data:
         entity_id: switch.wall_switch_right_158d0001dc2c2e
-
-
-#Automaticaly switch off left key
-- alias: left_key_fix
-  trigger:
-    platform: state
-    entity_id: switch.wall_switch_left_158d0001f4852b
-    to: 'on'
-    from: 'off'
-  action:
-    - delay: 1
-    - service: switch.turn_off
-      entity_id: switch.wall_switch_left_158d0001f4852b
-
-# Update Last Motion variable
-#- alias: 'Update Last Motion'
-#  id: 'Update Last Motion'
-#  initial_state: 'on'
-#  trigger:
-#    platform: state
-#    entity_id:
-#      - binary_sensor.motion_sensor_158d0002b4745b
-#    to: 'on'
-#  action:
-#    - service: variable.set_variable
-#      data:
-#        variable: last_motion
-#        value: '{{ now().hour }}:{{ now().minute }} ( {{ now().day }}/{{ now().month }}/{{ now().year }})'
-
