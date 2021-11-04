@@ -1,14 +1,3 @@
-# Lun Misto
-- platform: rest
-  name: Misto Lun
-  resource: https://api.meteostation.online/chrome/addon/informer/
-  value_template: 'OK'
-  scan_interval: 120 # every 2 minutes
-  json_attributes:
-    - lunmisto_air
-    - tomtom_jams
-    - tomtom_temp
-
 # Lun Misto AQI
 - platform: rest
   name: lviv_shevchenka_aqi
@@ -42,7 +31,7 @@
         {% endif %}
       {% endif %}
     {% endfor %}
-  scan_interval: 120 # every 2 minutes
+  scan_interval: 1800 # every 2 minutes
   json_attributes_path: "$.[?(@.station.name=='161')].particles[2]"
   json_attributes:
     - pm25
@@ -52,12 +41,6 @@
 # Lun Misto Sensors
 - platform: template
   sensors:
-    sviatoshyn_pm2_5:
+    shevchenka_air_quality:
       value_template: >-
         {{ state_attr('sensor.lviv_shevchenka_aqi', 'pm25') | round() }}
-    kyiv_aqi:
-      value_template: >-
-        {{ states.sensor.misto_lun.attributes.lunmisto_air.aqi_scale_value | round() }}
-    kyiv_traffic_jams:
-      value_template: >-
-        {{ states.sensor.misto_lun.attributes.tomtom_jams.jams | round() }}

@@ -53,6 +53,11 @@ cards:
               - entity: sensor.illumination_7811dcfaf6437811dcfaf643
               - entity: sensor.illumination_158d0002b4745b
           - type: custom:mini-graph-card
+            animate: true
+            name: Якість повітря Семицвіт
+            entities:
+              - entity: sensor.shevchenka_air_quality
+          - type: custom:mini-graph-card
             name: Вода в чайнику
             entities:
               - sensor.ble_temperature_087cbe8bc9b9
