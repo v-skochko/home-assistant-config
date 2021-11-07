@@ -861,3 +861,11 @@ cards:
           **Kanaal X graag** (IFTTT) -> om TV van kanaal te veranderen.
           **Zet TV aan/uit** -> om de tv aan of uit te doen.
           **Ik pak me fiets en ga** -> om het huis af te sluiten.
+  - type: statistics-graph
+    title: 'My Graph'
+    days_to_show: 1
+    entities:
+      - sensor.ble_temperature_livingroom
+      - sensor.temperature_158d0002437932
+      - sensor.beok_temperature
+      - sensor.ble_temperature_e72e00d074d4

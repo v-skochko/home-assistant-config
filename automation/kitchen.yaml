@@ -24,7 +24,6 @@
     - service: switch.turn_off
       data:
         entity_id: switch.broadlink_kitchen_fan_switch
-
 ##########################
 - alias: kitchen_motion_airing
   trigger:
@@ -47,4 +46,3 @@
     - service: switch.turn_off
       data:
         entity_id: switch.broadlink_kitchen_fan_switch
-

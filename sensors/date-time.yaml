@@ -1,5 +1,3 @@
-
-
 - platform: template
   sensors:
     beok_temperature:

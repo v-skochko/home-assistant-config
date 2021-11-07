@@ -1,0 +1,9 @@
+input_datetime:
+  morning_airing:
+    name: Ранкове провітрювання
+    has_date: false
+    has_time: true
+  evening_airing:
+    name: Вечірнє провітрювання
+    has_date: false
+    has_time: true

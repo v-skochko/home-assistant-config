@@ -1088,6 +1088,46 @@ cards:
               label:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
+
+          - type: 'custom:button-card'
+            entity: binary_sensor.oneplus_a6000_interactive
+            icon: mdi:alert
+            show_label: true
+            label: >
+              [[[
+                var total = states['sensor.total_phone_vika'].attributes.value;
+                return 'Офлайн!! (' + total + ')';
+              ]]]
+            state:
+              - value: 'on'
+                color: rgb(255, 255, 255)
+                icon: mdi:robot-vacuum
+                styles:
+                  icon:
+                    - color: rgb(255, 255, 255)
+                  card:
+                    - background: rgb(56,142,60)
+                label: >
+                  [[[
+                    var total = states['sensor.total_phone_vika'].attributes.value;
+                    return 'Онлайн: ' + total;
+                  ]]]
+            tap_action:
+              action: more-info
+            name: Vacuum Cleaner
+            styles:
+              card:
+                - font-size: 12px
+                - height: 80px
+                - padding: 5px
+                - background: rgb(211, 47, 47)
+              icon:
+                - color: rgb(255, 255, 255)
+              name:
+                - color: rgb(255, 255, 255)
+              label:
+                - opaciti: 0.5
+                - color: rgb(255, 255, 255)
   ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:

@@ -42,6 +42,8 @@ cards:
             name: Автоматична підсвітка
           - entity: automation.led_off_on_midnight
             name: Вимкнути підсвітку опівночі
+          - entity: input_datetime.morning_airing
+            name: Вимкнути підсвітку опівночі
   ########## Stack 4 ######################################################################
   - type: vertical-stack
     cards:

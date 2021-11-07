@@ -1,204 +1,42 @@
-## total_time_xiaomi_hub
 - platform: history_stats
-  name: total_time_xiaomi_hub
-  entity_id: binary_sensor.ping_xiaomi_hub
-  state: 'on'
+  name: total_beok
+  entity_id: climate.beok
+  state: "heat"
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_nergal
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
+
 - platform: history_stats
-  name: total_time_nergal
-  entity_id: binary_sensor.ping_nergal
-  state: 'on'
+  name: total_beok
+  entity_id: climate.beok
+  state: "heat"
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_notebook
-- platform: history_stats
-  name: total_time_macbook
-  entity_id: binary_sensor.ping_macbook
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_ubiquiti_us_8
-- platform: history_stats
-  name: total_time_ubiquiti_us_8
-  entity_id: binary_sensor.ping_ubiquiti_us_8
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_tv
-- platform: history_stats
-  name: total_time_tv
-  entity_id: binary_sensor.ping_tv
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_broadlink_kitchen_fan
-- platform: history_stats
-  name: total_time_broadlink_kitchen_fan
-  entity_id: binary_sensor.ping_broadlink_kitchen_fan
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_broadlink_pax_light
-- platform: history_stats
-  name: total_time_broadlink_pax_light
-  entity_id: binary_sensor.ping_broadlink_pax_light
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_broadlink_christmass_tree
-- platform: history_stats
-  name: total_time_broadlink_christmass_tree
-  entity_id: binary_sensor.ping_broadlink_christmass_tree
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_broadlink_pc_switch
-- platform: history_stats
-  name: total_time_broadlink_pc_switch
-  entity_id: binary_sensor.ping_broadlink_pc_switch
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
+  start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+  end: "{{ now() }}"
 
 
-## total_time_phone_master
 - platform: history_stats
-  name: total_time_phone_master
-  entity_id: binary_sensor.ping_phone_master
-  state: 'on'
+  name: total_week_phone_vika
+  entity_id: binary_sensor.oneplus_a6000_interactive
+  state: "on"
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_phone_viktoriia
-- platform: history_stats
-  name: total_time_phone_viktoriia
-  entity_id: binary_sensor.ping_phone_viktoriia
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_chromecast_audio
-- platform: history_stats
-  name: total_time_chromecast_audio
-  entity_id: binary_sensor.ping_chromecast_audio
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_nest_room
-- platform: history_stats
-  name: total_time_nest_room
-  entity_id: binary_sensor.ping_nest_room
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_nest_hub
+  start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+  end: "{{ now() }}"
 
-## total_time_echo_dot_3
+
 - platform: history_stats
-  name: total_time_echo_dot_3
-  entity_id: binary_sensor.ping_echo_dot_3
-  state: 'on'
+  name: total_day_phone_vasyl
+  entity_id: binary_sensor.pixel_5_interactive
+  state: "on"
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_beok_thermostat
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
+
+
 - platform: history_stats
-  name: total_time_beok_thermostat
-  entity_id: binary_sensor.ping_beok_thermostat
-  state: 'on'
+  name: total_week_phone_vasyl
+  entity_id: binary_sensor.pixel_5_interactive
+  state: "on"
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_air_conditioner
-- platform: history_stats
-  name: total_time_air_conditioner
-  entity_id: binary_sensor.ping_air_conditioner
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_lg_fridge
-- platform: history_stats
-  name: total_time_lg_fridge
-  entity_id: binary_sensor.ping_lg_fridge
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_lg_fridge
-- platform: history_stats
-  name: total_time_vacuum_cleaner
-  entity_id: binary_sensor.ping_vacuum_cleaner
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_yeelight_master_lamp
-- platform: history_stats
-  name: total_time_yeelight_master_lamp
-  entity_id: binary_sensor.ping_yeelight_master_lamp
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_yeelight_viktoriia_lamp
-- platform: history_stats
-  name: total_time_yeelight_viktoriia_lamp
-  entity_id: binary_sensor.ping_yeelight_viktoriia_lamp
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_yeelight_moon
-- platform: history_stats
-  name: total_time_yeelight_moon
-  entity_id: binary_sensor.ping_yeelight_moon
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_yeelight_window
-- platform: history_stats
-  name: total_time_yeelight_window
-  entity_id: binary_sensor.ping_yeelight_window
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_yeelight_kitchen
-- platform: history_stats
-  name: total_time_yeelight_kitchen
-  entity_id: binary_sensor.ping_yeelight_kitchen
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_camera_front_door
-- platform: history_stats
-  name: total_time_camera_front_door
-  entity_id: binary_sensor.ping_camera_front_door
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-## total_time_camera_aqara_cam
-- platform: history_stats
-  name: total_time_camera_aqara_cam
-  entity_id: binary_sensor.ping_camera_aqara_cam
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
+  start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+  end: "{{ now() }}"
