@@ -865,7 +865,7 @@ cards:
     title: 'My Graph'
     days_to_show: 1
     entities:
-      - sensor.ble_temperature_livingroom
+      - sensor.ble_temperature_a4c138efbf1d
+      - sensor.ble_temperature_e72e00d074d4
       - sensor.temperature_158d0002437932
       - sensor.beok_temperature
-      - sensor.ble_temperature_e72e00d074d4

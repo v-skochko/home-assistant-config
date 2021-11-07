@@ -79,6 +79,11 @@ cards:
     cards:
       - type: vertical-stack
         cards:
+          - type: statistics-graph
+            title: 'Температура надворі'
+            days_to_show: 1
+            entities:
+              - sensor.dark_sky_temperature
           - type: custom:sun-card
             darkMode: true
             name: Львів

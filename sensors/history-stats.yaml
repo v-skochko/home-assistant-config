@@ -5,7 +5,6 @@
   type: time
   start: "{{ now().replace(hour=0, minute=0, second=0) }}"
   end: "{{ now() }}"
-
 - platform: history_stats
   name: total_beok
   entity_id: climate.beok
@@ -13,8 +12,21 @@
   type: time
   start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
   end: "{{ now() }}"
-
-
+##########################
+- platform: history_stats
+  name: total_lock_phone_vika
+  entity_id: binary_sensor.oneplus_a6000_interactive
+  state: "on"
+  type: count
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
+- platform: history_stats
+  name: total_day_phone_vika
+  entity_id: binary_sensor.oneplus_a6000_interactive
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
 - platform: history_stats
   name: total_week_phone_vika
   entity_id: binary_sensor.oneplus_a6000_interactive
@@ -22,8 +34,14 @@
   type: time
   start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
   end: "{{ now() }}"
-
-
+##########################
+- platform: history_stats
+  name: total_lock_phone_vasyl
+  entity_id: binary_sensor.pixel_5_interactive
+  state: "on"
+  type: count
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
 - platform: history_stats
   name: total_day_phone_vasyl
   entity_id: binary_sensor.pixel_5_interactive
@@ -31,8 +49,6 @@
   type: time
   start: "{{ now().replace(hour=0, minute=0, second=0) }}"
   end: "{{ now() }}"
-
-
 - platform: history_stats
   name: total_week_phone_vasyl
   entity_id: binary_sensor.pixel_5_interactive

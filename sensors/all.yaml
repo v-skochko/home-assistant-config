@@ -1,14 +1,14 @@
-  # Weather prediction
-  - platform: darksky
-    api_key: !secret darksky_token
-    forecast:
-      - 0
-    hourly_forecast:
-      - 0
-      - 1
-    monitored_conditions:
-      - summary
-      - icon
-      - temperature
+# Weather prediction
+- platform: darksky
+  api_key: !secret darksky_token
+  forecast:
+    - 0
+  hourly_forecast:
+    - 0
+    - 1
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
 
 

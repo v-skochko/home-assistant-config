@@ -28,7 +28,12 @@
       data:
         title: "Статистика використання:"
         message: "
-          🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }}
-          💻 Macbook - {{ state_attr('sensor.total_time_macbook', 'value') }}
-          📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }}"
+          \n
+          🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }} \n
+          📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }} \n \n
+          📱Телефони \n
+          Вася - {{ state_attr('sensor.total_day_phone_vasyl', 'value') }}, {{ state_attr('sensor.total_lock_phone_vasyl', 'value') }} розблокувань \n
+          Віка - {{ state_attr('sensor.total_day_phone_vika', 'value') }}, {{ state_attr('sensor.total_lock_phone_vika', 'value') }} розблокувань \n\n
+          🔥 Котел пропрацював - {{ state_attr('sensor.total_beok', 'value') }} \n
+          "
 

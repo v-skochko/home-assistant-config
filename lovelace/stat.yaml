@@ -1,0 +1,26 @@
+path: stat
+title: Погода
+icon: mdi:weather-sunny
+cards:
+  ########## Stack 3 ######################################################################
+  - type: vertical-stack
+    cards:
+      # Extra explanation
+      - type: markdown
+        title: Google Assistant 4
+        content: |
+          **Ik wil koken** -> voor als je gaat koken.
+          **Het is avond** -> voor gedimde lampen in de avond.
+          **Ik wil morgen vroeg op** -> wakker worden met wekker.
+          **Ik spreek je morgen weer** -> slapen gaan zonder wekker.
+          **Goedemorgen** -> zodat HA weet dat je wakker bent.
+          **Kanaal X graag** (IFTTT) -> om TV van kanaal te veranderen.
+          **Zet TV aan/uit** -> om de tv aan of uit te doen.
+          **Ik pak me fiets en ga** -> om het huis af te sluiten.
+      - type: history-graph
+#        title: 'My Graph'
+        entities:
+          - entity: binary_sensor.pixel_5_interactive
+            name: Телефон
+          - entity: sensor.total_day_phone_vasyl
+            name: Телефон

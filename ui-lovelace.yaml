@@ -6,3 +6,4 @@ views:
   - !include lovelace/internet.yaml
   - !include lovelace/system.yaml
   - !include lovelace/automation.yaml
+  - !include lovelace/stat.yaml
