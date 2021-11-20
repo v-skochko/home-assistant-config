@@ -44,6 +44,11 @@ cards:
             name: Вимкнути підсвітку опівночі
           - entity: input_datetime.morning_airing
             name: Вимкнути підсвітку опівночі
+ 
+          - entity: input_datetime.turn_off_all_light
+            name: Вимкнути все світло
+ 
+ 
   ########## Stack 4 ######################################################################
   - type: vertical-stack
     cards:

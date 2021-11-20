@@ -7,3 +7,7 @@ input_datetime:
     name: Вечірнє провітрювання
     has_date: false
     has_time: true
+  turn_off_all_light:
+    name: Вимкнути все світло
+    has_date: false
+    has_time: true

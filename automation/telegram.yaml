@@ -32,8 +32,18 @@
           🖥️ PC - {{ state_attr('sensor.total_time_nergal', 'value') }} \n
           📺 TV - {{ state_attr('sensor.total_time_tv', 'value') }} \n \n
           📱Телефони \n
-          Вася - {{ state_attr('sensor.total_day_phone_vasyl', 'value') }}, {{ state_attr('sensor.total_lock_phone_vasyl', 'value') }} розблокувань \n
-          Віка - {{ state_attr('sensor.total_day_phone_vika', 'value') }}, {{ state_attr('sensor.total_lock_phone_vika', 'value') }} розблокувань \n\n
+          Вася - {{ state_attr('sensor.total_day_phone_vasyl', 'value') }} \n
+          Віка - {{ state_attr('sensor.total_day_phone_vika', 'value') }} \n\n
           🔥 Котел пропрацював - {{ state_attr('sensor.total_beok', 'value') }} \n
           "
 
+- id: '1635612482137'
+  alias: Send a camera snapshot when motion is detected
+  description: ''
+  use_blueprint:
+    path: vorion/send-camera-snapshot-notification-on-motion.yaml
+    input:
+      notification_message: '{{ motion_sensor_name }} detected movement!'
+      motion_sensor: binary_sensor.motion_sensor_158d0002b4745b
+      camera: camera.generic_camera
+      notify_device: d80eb3195b5ba5979459ebfed8df727f

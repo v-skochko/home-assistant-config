@@ -366,7 +366,7 @@ cards:
           ####################
           - type: 'custom:button-card'
             entity: switch.wall_switch_right_158d0001dc2c2e
-            icon: mdi:spotlight-beam
+            icon: hue:ceiling-fugato-four
             color: auto
             color_type: card
             state:
@@ -382,26 +382,7 @@ cards:
               card:
                 - font-size: 12px
                 - height: 80px
-          ####################
-          - type: 'custom:button-card'
-            entity: switch.wall_switch_right_158d0001dc2c2e
-            icon: mdi:led-variant-outline
-            color: auto
-            color_type: card
-            state:
-              - value: 'on'
-                icon: mdi:led-variant-on
-                color: rgb(255, 99, 71)
-            tap_action:
-              action: call-service
-              service: switch.toggle
-              service_data:
-                entity_id: switch.wall_switch_right_158d0001dc2c2e
-            name: Підсвітка
-            styles:
-              card:
-                - font-size: 12px
-                - height: 80px
+
           ####################
           - type: 'custom:button-card'
             entity: light.yeelight_moon
@@ -450,7 +431,7 @@ cards:
           ####################
           - type: 'custom:button-card'
             entity: switch.wall_switch_left_158d00019f6738
-            icon: mdi:spotlight-beam
+            icon: hue:ceiling-fugato-two
             color: auto
             color_type: card
             state:
@@ -701,7 +682,7 @@ cards:
           ####################
           - type: 'custom:button-card'
             entity: switch.wall_switch_right_158d0001f4852b
-            icon: mdi:wall-sconce-flat
+            icon: hue:ceiling-flush-circular
             color: auto
             color_type: card
             state:
