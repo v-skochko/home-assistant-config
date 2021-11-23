@@ -335,45 +335,7 @@ cards:
                 - color: rgb(255, 255, 255)
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            entity: binary_sensor.ping_broadlink_pax_light
-            icon: mdi:alert
-            show_label: true
-            label: >
-              [[[
-                var total = states['sensor.total_time_broadlink_pax_light'].attributes.value;
-                return 'Офлайн!! (' + total + ')';
-              ]]]
-            state:
-              - value: 'on'
-                color: rgb(255, 255, 255)
-                icon: mdi:led-strip-variant
-                styles:
-                  icon:
-                    - color: rgb(255, 255, 255)
-                  card:
-                    - background: rgb(56,142,60)
-                label: >
-                  [[[
-                    var total = states['sensor.total_time_broadlink_pax_light'].attributes.value;
-                    return 'Онлайн: ' + total;
-                  ]]]
-            tap_action:
-              action: more-info
-            name: Broadlink SC1 Pax
-            styles:
-              card:
-                - font-size: 12px
-                - height: 80px
-                - padding: 5px
-                - background: rgb(211, 47, 47)
-              icon:
-                - color: rgb(255, 255, 255)
-              name:
-                - color: rgb(255, 255, 255)
-              label:
-                - opaciti: 0.5
-                - color: rgb(255, 255, 255)
+
           - type: 'custom:button-card'
             entity: binary_sensor.ping_broadlink_christmass_tree
             icon: mdi:alert
@@ -1089,45 +1051,7 @@ cards:
                 - opaciti: 0.5
                 - color: rgb(255, 255, 255)
 
-          - type: 'custom:button-card'
-            entity: binary_sensor.oneplus_a6000_interactive
-            icon: mdi:alert
-            show_label: true
-            label: >
-              [[[
-                var total = states['sensor.total_phone_vika'].attributes.value;
-                return 'Офлайн!! (' + total + ')';
-              ]]]
-            state:
-              - value: 'on'
-                color: rgb(255, 255, 255)
-                icon: mdi:robot-vacuum
-                styles:
-                  icon:
-                    - color: rgb(255, 255, 255)
-                  card:
-                    - background: rgb(56,142,60)
-                label: >
-                  [[[
-                    var total = states['sensor.total_phone_vika'].attributes.value;
-                    return 'Онлайн: ' + total;
-                  ]]]
-            tap_action:
-              action: more-info
-            name: Vacuum Cleaner
-            styles:
-              card:
-                - font-size: 12px
-                - height: 80px
-                - padding: 5px
-                - background: rgb(211, 47, 47)
-              icon:
-                - color: rgb(255, 255, 255)
-              name:
-                - color: rgb(255, 255, 255)
-              label:
-                - opaciti: 0.5
-                - color: rgb(255, 255, 255)
+
   ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:
@@ -1136,32 +1060,16 @@ cards:
         icon: mdi:home-assistant
         entities:
           - entity: switch.wall_switch_right_158d0001dc2c2e
-            name: Кімната - спот
-            icon: mdi:spotlight-beam
           - entity: switch.wall_switch_left_158d0001dc2c2e
-            name: Кімната - місяць
-            icon: mdi:brightness-1
           - type: divider
           - entity: switch.wall_switch_right_158d00016c31cf
-            name: Душова - світло
-            icon: mdi:lightbulb-on
           - entity: switch.wall_switch_left_158d00016c31cf
-            name: Душова - вентиляція
-            icon: mdi:fan
           - type: divider
           - entity: switch.wall_switch_right_158d0001f4852b
-            name: Коридор - споти
-            icon: mdi:spotlight-beam
           - type: divider
           - entity: switch.wall_switch_left_158d00019f6738
-            name: Кухня - споти
-            icon: mdi:spotlight-beam
           - entity: switch.wall_switch_right_158d00019f6738
-            name: Кухня - бра
-            icon: mdi:ceiling-lamp
           - entity: switch.broadlink_kitchen_fan_switch
-            name: Кухня - вентиляція
-            icon: mdi:fan
           - type: divider
           - entity: switch.broadlink_pc_switch
             name: Комп
@@ -1185,19 +1093,3 @@ cards:
               - switch.broadlink_pc_switch
               - switch.broadlink_room_ambilight_switch
             hours_to_show: 24
-  ########## Stack 4 ######################################################################
-  - type: vertical-stack
-    cards:
-      # Extra explanation
-#      - type: markdown
-#        title: Автоматизації
-#        content: |
-#          **Ik wil koken** -> voor als je gaat koken.
-      - type: entities
-        title: Автоматизації
-        entities:
-          - entity: automation.total_for_day
-            name: Відправляти статистику за день в Telegram
-          - entity: automation.startup_notification
-            name: Сповіщення про завантаження
-          - type: divider

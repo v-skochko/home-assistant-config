@@ -46,14 +46,7 @@
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
-## total_time_broadlink_pax_light
-- platform: history_stats
-  name: total_time_broadlink_pax_light
-  entity_id: binary_sensor.ping_broadlink_pax_light
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
+
 ## total_time_broadlink_christmass_tree
 - platform: history_stats
   name: total_time_broadlink_christmass_tree
