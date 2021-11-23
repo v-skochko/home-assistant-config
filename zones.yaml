@@ -1,12 +1,12 @@
 - name: home
   latitude: !secret latitude
   longitude: !secret longitude
-  radius: 200
+  radius: 100
   icon: mdi:home-outline
 - name: work
   latitude: !secret latitude_work
   longitude: !secret longitude_work
-  radius: 200
+  radius: 100
   icon: mdi:briefcase
 - name: lviv_center
   latitude: 49.841377
