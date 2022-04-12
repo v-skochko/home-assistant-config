@@ -1,7 +1,7 @@
 - alias: shower_morning_airing
   trigger:
     - platform: time
-      at: '09:00:00'
+      at: input_datetime.morning_airing
   action:
     - service: switch.turn_on
       data:
@@ -14,7 +14,7 @@
 - alias: shower_night_airing
   trigger:
     - platform: time
-      at: '22:00:00'
+      at: input_datetime.evening_airing
   action:
     - service: switch.turn_on
       data:
@@ -34,3 +34,31 @@
     - delay: '01:00:00'
     - service: switch.turn_off
       entity_id: switch.wall_switch_left_158d00016c31cf
+
+
+
+# ##########################
+# - alias: сorridor_left_key
+#   trigger:
+#     platform: state
+#     entity_id: switch.wall_switch_right_158d00016c31cf
+#     to: 'off'
+#     from: 'on'
+
+#   action:
+#     - service: media_player.media_play
+#       data:
+#         entity_id: media_player.alexa
+
+# ##########################
+# - alias: сorridor_left_key
+#   trigger:
+#     platform: state
+#     entity_id: switch.wall_switch_right_158d00016c31cf
+#     to: 'off'
+#     from: 'on'
+
+#   action:
+#     - service: media_player.media_pause
+#       data:
+#         entity_id: media_player.alexa

@@ -1,4 +1,4 @@
-# Parser for Govee BLE advertisements
+"""Parser for Govee BLE advertisements"""
 import logging
 from struct import unpack
 
@@ -14,7 +14,7 @@ def decode_temps(packet_value: int) -> float:
 
 
 def parse_govee(self, data, source_mac, rssi):
-    # check for adstruc length
+    """Parser for Govee sensors"""
     msg_length = len(data)
     firmware = "Govee"
     govee_mac = source_mac
@@ -41,7 +41,7 @@ def parse_govee(self, data, source_mac, rssi):
         (temp, humi, batt) = unpack("<hHB", data[5:10])
         result.update({"temperature": temp / 100, "humidity": humi / 100, "battery": batt})
     elif msg_length == 13 and device_id == 0xEC88:
-        device_type = "H5051"
+        device_type = "H5051/H5071"
         (temp, humi, batt) = unpack("<hHB", data[5:10])
         result.update({"temperature": temp / 100, "humidity": humi / 100, "battery": batt})
     elif msg_length == 13 and device_id == 0x0001:
@@ -76,6 +76,12 @@ def parse_govee(self, data, source_mac, rssi):
         device_type = "H5179"
         (temp, humi, batt) = unpack("<hHB", data[8:13])
         result.update({"temperature": temp / 100, "humidity": humi / 100, "battery": batt})
+    elif msg_length == 18:
+        device_type = "H5183"
+        (temp_probe, temp_alarm) = unpack(">hh", data[12:16])
+        temp_probe = 0 if temp_probe < 0 else temp_probe
+        temp_alarm = 0 if temp_alarm < 0 else temp_alarm
+        result.update({"temperature probe 1": temp_probe / 100, "temperature alarm": temp_alarm / 100})
     else:
         if self.report_unknown == "Govee":
             _LOGGER.info(
@@ -103,4 +109,5 @@ def parse_govee(self, data, source_mac, rssi):
 
 
 def to_mac(addr: int):
-    return ':'.join('{:02x}'.format(x) for x in addr).upper()
+    """Convert MAC address."""
+    return ':'.join(f'{i:02X}' for i in addr)

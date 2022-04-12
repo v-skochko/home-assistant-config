@@ -9,6 +9,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def parse_ruuvitag(self, data, source_mac, rssi):
+    """Ruuvitag parser"""
     ruuvitag_mac = source_mac
     device_type = "Ruuvitag"
     result = {
@@ -205,4 +206,5 @@ def parse_ruuvitag(self, data, source_mac, rssi):
 
 
 def to_mac(addr: int):
-    return ":".join("{:02x}".format(x) for x in addr).upper()
+    """Return formatted MAC address"""
+    return ':'.join(f'{i:02X}' for i in addr)

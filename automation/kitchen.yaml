@@ -2,12 +2,12 @@
 - alias: kitchen_morning_airing
   trigger:
     - platform: time
-      at: '09:00:00'
+      at: input_datetime.morning_airing
   action:
     - service: switch.turn_on
       data:
         entity_id: switch.broadlink_kitchen_fan_switch
-    - delay: '01:00:00'
+    - delay: "00:{{ states('input_select.minutes') | int }}:00"
     - service: switch.turn_off
       data:
         entity_id: switch.broadlink_kitchen_fan_switch
@@ -15,7 +15,7 @@
 - alias: kitchen_night_airing
   trigger:
     - platform: time
-      at: '18:00:00'
+      at: input_datetime.evening_airing
   action:
     - service: switch.turn_on
       data:

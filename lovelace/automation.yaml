@@ -6,12 +6,24 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
+        title: Таймінги
+        entities:
+          - entity: input_datetime.morning_airing
+            name: Ранкове провітрювання
+          - entity: input_datetime.evening_airing
+            name: Вечірнє провітрювання
+          - entity: input_datetime.turn_off_all_light
+            name: Вимкнути все світло
+
+      - type: entities
         title: Telegram
         entities:
           - entity: automation.total_for_day
             name: Відправляти статистику за день
+            icon: mdi:message-text-outline
           - entity: automation.startup_notification
             name: Сповіщення про завантаження
+            icon: mdi:message-text-outline
   ########## Stack 2 ######################################################################
   - type: vertical-stack
     cards:
@@ -42,16 +54,7 @@ cards:
             name: Автоматична підсвітка
           - entity: automation.led_off_on_midnight
             name: Вимкнути підсвітку опівночі
-          - entity: input_datetime.morning_airing
-            name: Вимкнути підсвітку опівночі
- 
-          - entity: input_datetime.turn_off_all_light
-            name: Вимкнути все світло
- 
- 
-  ########## Stack 4 ######################################################################
-  - type: vertical-stack
-    cards:
+
       - type: entities
         title: Fixes
         entities:
@@ -64,3 +67,8 @@ cards:
           - type: divider
           - entity: automation.pc_auto_off_fix
             name: pc_auto_off_fix
+
+
+  ########## Stack 4 ######################################################################
+#  - type: vertical-stack
+#    cards:

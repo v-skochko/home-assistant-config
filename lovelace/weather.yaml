@@ -52,15 +52,6 @@ cards:
             entities:
               - entity: sensor.illumination_7811dcfaf6437811dcfaf643
               - entity: sensor.illumination_158d0002b4745b
-          - type: custom:mini-graph-card
-            animate: true
-            name: Якість повітря Семицвіт
-            entities:
-              - entity: sensor.shevchenka_air_quality
-          - type: custom:mini-graph-card
-            name: Вода в чайнику
-            entities:
-              - sensor.ble_temperature_087cbe8bc9b9
             line_color: var(--accent-color)
             line_width: 1
             hours_to_show: 24
@@ -79,28 +70,12 @@ cards:
     cards:
       - type: vertical-stack
         cards:
-          - type: statistics-graph
-            title: 'Температура надворі'
-            days_to_show: 1
-            entities:
-              - sensor.dark_sky_temperature
-          - type: custom:sun-card
-            darkMode: true
-            name: Львів
           - type: custom:weather-card
             entity: weather.dark_sky
             name: Львів
-          - type: custom:mini-graph-card
-            name: Вага
-            animate: true
-            entities:
-              - entity: sensor.ble_non_stabilized_weight_880f108ad754
-            line_color: var(--accent-color)
-            line_width: 2
-            lower_bound: 50
-            hours_to_show: 280
+          - type: custom:sun-card
+            darkMode: true
   ########## Stack 3 ######################################################################
-  # Temperature and humidity in house
   - type: vertical-stack
     cards:
       - type: vertical-stack
@@ -113,3 +88,21 @@ cards:
             entities: [ ]
             title: Ратуша
             camera_image: camera.liviv_ratusha
+          - type: custom:mini-graph-card
+            animate: true
+            name: Якість повітря Семицвіт
+            entities:
+              - entity: sensor.shevchenka_air_quality
+#          - type: custom:mini-graph-card
+#            name: Вода в чайнику
+#            entities:
+#              - sensor.ble_temperature_087cbe8bc9b9
+#          - type: custom:mini-graph-card
+#            name: Вага
+#            animate: true
+#            entities:
+#              - entity: sensor.ble_non_stabilized_weight_880f108ad754
+#            line_color: var(--accent-color)
+#            line_width: 2
+#            lower_bound: 50
+#            hours_to_show: 280
