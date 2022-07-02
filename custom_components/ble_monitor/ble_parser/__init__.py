@@ -8,18 +8,19 @@ from .atc import parse_atc
 from .bluemaestro import parse_bluemaestro
 from .bparasite import parse_bparasite
 from .brifit import parse_brifit
-from .const import GATT_CHARACTERISTICS, TILT_TYPES
+from .const import TILT_TYPES
 from .govee import parse_govee
 from .ha_ble import parse_ha_ble
-from .ha_ble_legacy import parse_ha_ble_legacy
 from .hhcc import parse_hhcc
 from .ibeacon import parse_ibeacon
 from .inkbird import parse_inkbird
 from .inode import parse_inode
 from .jinou import parse_jinou
 from .kegtron import parse_kegtron
+from .kkm import parse_kkm
 from .laica import parse_laica
 from .miscale import parse_miscale
+from .mikrotik import parse_mikrotik
 from .moat import parse_moat
 from .oral_b import parse_oral_b
 from .qingping import parse_qingping
@@ -30,6 +31,7 @@ from .sensirion import parse_sensirion
 from .switchbot import parse_switchbot
 from .teltonika import parse_teltonika
 from .thermoplus import parse_thermoplus
+from .thermopro import parse_thermopro
 from .tilt import parse_tilt
 from .xiaomi import parse_xiaomi
 from .xiaogui import parse_xiaogui
@@ -170,16 +172,17 @@ class BleParser:
                         sensor_data = parse_xiaomi(self, service_data, mac, rssi)
                         break
                     elif uuid16 == 0xFEAA:
-                        # UUID16 = Google (used by Ruuvitag V2/V4)
-                        sensor_data = parse_ruuvitag(self, service_data, mac, rssi)
-                        break
+                        if len(service_data) == 19:
+                            # UUID16 = Google (used by KKM)
+                            sensor_data = parse_kkm(self, service_data, mac, rssi)
+                            break
+                        elif len(service_data) >= 23:
+                            # UUID16 = Google (used by Ruuvitag V2/V4)
+                            sensor_data = parse_ruuvitag(self, service_data, mac, rssi)
+                            break
                     elif uuid16 == 0xFFF9:
                         # UUID16 = FIDO (used by Cleargrass)
                         sensor_data = parse_qingping(self, service_data, mac, rssi)
-                        break
-                    elif uuid16 in GATT_CHARACTERISTICS and shortened_local_name == "HA_BLE":
-                        # HA BLE legacy (deprecated)
-                        sensor_data = parse_ha_ble_legacy(self, service_data_list, mac, rssi)
                         break
                     elif uuid16 == 0x2A6E or uuid16 == 0x2A6F:
                         # UUID16 = Temperature and Humidity (used by Teltonika)
@@ -213,6 +216,10 @@ class BleParser:
                     elif comp_id == 0x0499:
                         # Ruuvitag V3/V5
                         sensor_data = parse_ruuvitag(self, man_spec_data, mac, rssi)
+                        break
+                    elif comp_id == 0x094F and data_len == 0x15:
+                        # Mikrotik
+                        sensor_data = parse_mikrotik(self, man_spec_data, mac, rssi)
                         break
                     elif comp_id == 0x1000 and data_len == 0x15:
                         # Moat S2
@@ -272,8 +279,16 @@ class BleParser:
                         # Jinou BEC07-5
                         sensor_data = parse_jinou(self, man_spec_data, mac, rssi)
                         break
+                    elif service_class_uuid16 == 0x5182 and data_len == 0x14:
+                        # Govee H5182
+                        sensor_data = parse_govee(self, man_spec_data, mac, rssi)
+                        break
                     elif service_class_uuid16 == 0x5183 and data_len == 0x11:
                         # Govee H5183
+                        sensor_data = parse_govee(self, man_spec_data, mac, rssi)
+                        break
+                    elif service_class_uuid16 == 0x5185 and data_len == 0x17:
+                        # Govee H5185
                         sensor_data = parse_govee(self, man_spec_data, mac, rssi)
                         break
                     elif service_class_uuid16 == 0xF0FF:
@@ -302,6 +317,10 @@ class BleParser:
                     elif complete_local_name in ["sps", "tps"] and data_len == 0x0A:
                         # Inkbird IBS-TH
                         sensor_data = parse_inkbird(self, man_spec_data, complete_local_name, mac, rssi)
+                        break
+                    elif complete_local_name[0:5] == "TP359" and data_len == 0x07:
+                        # Thermopro
+                        sensor_data = parse_thermopro(self, man_spec_data, complete_local_name[0:5], mac, rssi)
                         break
 
                     # Filter on other parts of the manufacturer specific data

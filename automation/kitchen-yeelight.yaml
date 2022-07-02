@@ -5,19 +5,23 @@
     entity_id: binary_sensor.motion_sensor_158d0002b4745b
     to: 'on'
   condition:
-    - condition: sun
-      after: sunset
-      before_offset: '02:00:00'
-    - condition: time
-      before: '23:45:00'
-    - condition: state
-      entity_id: light.lights_kitchen
-      state: 'off'
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+
+#    - condition: time
+#      before: '23:45:00'
+#    - condition: state
+#      entity_id: light.lights_kitchen
+#      state: 'off'
   action:
     - service: light.turn_on
       data:
         entity_id: light.lights_kitchen
-        transition: 6
+        transition: 8
     - service: switch.turn_on
       data:
         entity_id: switch.christmas_tree_switch
@@ -28,7 +32,7 @@
       entity_id: binary_sensor.motion_sensor_158d0002b4745b
       to: 'off'
       for:
-        minutes: 30
+        minutes: 15
   action:
     - service: light.turn_off
       data:

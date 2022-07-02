@@ -260,7 +260,6 @@ cards:
         artwork: cover
         entity: media_player.alexa
         icon: mdi:speaker-wireless
- 
       - type: custom:mini-media-player
         name: Телевізор
         artwork: cover
@@ -686,23 +685,49 @@ cards:
   ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:
-      - type: custom:mini-graph-card
-        name: Температура в квартирі
+#      - type: custom:mini-graph-card
+#        name: Температура в квартирі
+#        entities:
+#          #          - entity: sensor.ble_temperature_livingroom
+#          - entity: sensor.temperature_158d0002437932
+#          - entity: sensor.ble_temperature_a4c138efbf1d
+#          - entity: sensor.beok_temperature
+#          - entity: sensor.ble_temperature_e72e00d074d4
+#        line_color: var(--accent-color)
+#        line_width: 2
+#        hours_to_show: 24
+#        color_thresholds:
+#          - value: 20
+#            color: "#2196f3"
+#          - value: 23
+#            color: "#2e7d32"
+#          - value: 24
+#            color: "#c62828"
+      - type: statistics-graph
+        title: 'Температура в квартирі'
+        days_to_show: 2
+        stat_types:
+          - mean
+        period: '5minute'
         entities:
-          #          - entity: sensor.ble_temperature_livingroom
-          - entity: sensor.temperature_158d0002437932
-          - entity: sensor.beok_temperature
-          - entity: sensor.ble_temperature_e72e00d074d4
-        line_color: var(--accent-color)
-        line_width: 2
-        hours_to_show: 24
-        color_thresholds:
-          - value: 20
-            color: "#2196f3"
-          - value: 23
-            color: "#2e7d32"
-          - value: 24
-            color: "#c62828"
+          - sensor.ble_temperature_a4c138efbf1d
+          - sensor.ble_temperature_e72e00d074d4
+          - sensor.temperature_158d0002437932
+          - sensor.beok_temperature
+          - sensor.openweathermap_forecast_temperature
+#          - sensor.living_room_outdoor_temperature
+      - type: grid
+        square: false
+        columns: 1
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.living_room_turbo_fan
+                name: Turbo Fan
+            title: "Кондиціонер"
+          - type: thermostat
+            entity: climate.living_room
+
       - type: 'custom:vacuum-card'
         entity: vacuum.xiaomi_vacuum
         show_name: false
@@ -747,8 +772,7 @@ cards:
             name: Радіо Срака 💩
           - url: https://cast108372.customer.uar.net/vgolos320
             name: Вголос 🙀
-          - url: http://radio.ukr.radio:8000/ur1-lv-mp3-m
-            name: UA Lviv 🦁
+
           - url: http://stream.radioskovoroda.com:8060/skovoroda_music
             name: Радіо Сковорода 📒
           - url: http://stream-uk1.radioparadise.com/aac-320
@@ -763,14 +787,12 @@ cards:
             name: ON Rock 🤟
           - url: http://bigrradio.cdnstream1.com/5186_128
             name: 80s Metal FM
-          - url: http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow
-            name: eskaGO.pl - Kraków
-          - url: http://stream.mjoy.ua:8000/rzk-aac
-            name: Mjoy
-          - url: http://bigrradio.cdnstream1.com/5104_128
-            name: 2000 FM - Hard Rock
-          - url: http://streaming.radionomy.com/JamendoLounge
-            name: Alternative Nation Radio
+          - url: http://ice-sov.musicradio.com/HeartLondonMP3
+            name: Hearth London
+          - url: https://funkyradio.streamingmedia.it/play.mp3
+            name: Hearth London
+
+            
         entities:
           - media_player.kitchen
           - media_player.alexa
@@ -790,11 +812,4 @@ cards:
           **Kanaal X graag** (IFTTT) -> om TV van kanaal te veranderen.
           **Zet TV aan/uit** -> om de tv aan of uit te doen.
           **Ik pak me fiets en ga** -> om het huis af te sluiten.
-  - type: statistics-graph
-    title: 'My Graph'
-    days_to_show: 1
-    entities:
-      - sensor.ble_temperature_a4c138efbf1d
-      - sensor.ble_temperature_e72e00d074d4
-      - sensor.temperature_158d0002437932
-      - sensor.beok_temperature
+

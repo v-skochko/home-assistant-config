@@ -38,14 +38,26 @@ binary_sensor.illumination_158d0002b4745b:
 binary_sensor.battery_158d0002b4745b:
   friendly_name: Детектор руху батарейка
 ########################## weather.v1 Коридор
-binary_sensor.temperature_158d0002437932:
+sensor.temperature_158d0002437932:
   friendly_name: Коридор°
-binary_sensor.humidity_158d0002437932:
+sensor.humidity_158d0002437932:
   friendly_name: Коридор вологість
-binary_sensor.pressure_158d0002437932:
+sensor.pressure_158d0002437932:
   friendly_name: Коридор тиск
-binary_sensor.battery_158d0002437932:
+sensor.battery_158d0002437932:
   friendly_name: Коридор° батарейка
 ########################## Beok
 sensor.beok_temperature:
   friendly_name: Котел°
+
+##########################  Кондиціонер
+sensor.living_room_outdoor_temperature:
+  friendly_name: Кондиціонер надворі°
+
+
+##########################  openweathermap
+sensor.openweathermap_forecast_temperature:
+  friendly_name: Надворі°
+
+sensor.openweathermap_humidity:
+  friendly_name: Надворі вологість

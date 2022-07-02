@@ -71,7 +71,7 @@ cards:
       - type: vertical-stack
         cards:
           - type: custom:weather-card
-            entity: weather.dark_sky
+            entity: weather.OpenWeatherMap
             name: Львів
           - type: custom:sun-card
             darkMode: true
