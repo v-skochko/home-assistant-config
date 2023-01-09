@@ -5,7 +5,7 @@ lovelace:
       type: module
     - url: /hacsfiles/light-entity-card/light-entity-card.js
       type: module
-    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js?v=0.11.0
       type: module
     - url: /hacsfiles/weather-card/weather-card.js
       type: module
@@ -26,4 +26,6 @@ lovelace:
     - url: /hacsfiles/hass-hue-icons/hass-hue-icons.js
       type: module
     - url: /hacsfiles/text-divider-row/text-divider-row.js
+      type: module
+    - url: /hacsfiles/better-thermostat-ui-card/better-thermostat-ui-card.js
       type: module

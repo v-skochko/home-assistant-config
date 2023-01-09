@@ -1,7 +1,4 @@
 camera:
-  - platform: generic
-    still_image_url: !secret camera_still_image_url
-    stream_source: !secret camera_stream_source
   - platform: ffmpeg
     name: liviv_ratusha
     input: https://vps.guru.ua/hls/ratusha2812.m3u8

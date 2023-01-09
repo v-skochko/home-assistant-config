@@ -16,7 +16,7 @@
 - name: lviv
   latitude: 49.841377
   longitude: 24.031108
-  radius: 12000
+  radius: 7000
   icon: mdi:home-modern
 - name: rivne
   latitude: 50.618757
@@ -31,7 +31,7 @@
 - name: mykhalcove
   latitude: 48.562833
   longitude: 27.294693
-  radius: 8000
+  radius: 2000
   icon: mdi:map-marker
 - name: sytne
   latitude: 50.186065

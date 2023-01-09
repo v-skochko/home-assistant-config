@@ -7,34 +7,30 @@ homeassistant:
   time_zone: Europe/Kiev
   packages: !include_dir_named packages
   customize: !include_dir_merge_named customize
+  country: UA
 default_config:
 
-#google_assistant:
-#  project_id: !secret google_project_id
-#  service_account: !include SERVICE_ACCOUNT.json
-#  report_state: true
-#  exposed_domains:
-#    - switch
-#    - light
+google_assistant:
+  project_id: !secret google_project_id
+  service_account: !include SERVICE_ACCOUNT.json
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
 
 ## Includes
 group: !include_dir_merge_named group
 zone: !include zones.yaml
-yeelight: !include yeelight.yaml
 automation: !include_dir_merge_list automation
 sensor: !include_dir_merge_list sensors
 binary_sensor: !include_dir_merge_list binary-sensors
 cloud:
 script: !include_dir_merge_named script
 
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24
 
-#http:
-#  ip_ban_enabled: true
-#  # ssl_certificate: /ssl/fullchain.pem
-#  # ssl_key: /ssl/privkey.pem
-#  login_attempts_threshold: 5
-#  use_x_forwarded_for: true
-#  trusted_proxies:
-#    - 127.0.0.1
-#    - ::1
-#    - 172.16.0.0/12
+mobile_app:
+my:

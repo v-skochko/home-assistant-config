@@ -50,7 +50,7 @@ cards:
           - entity: automation.kitchen_motion_airing
             name: Автоматично якщо є рух
           - type: divider
-          - entity: automation.motion_led
+          - entity: automation.yeelight_on_motion
             name: Автоматична підсвітка
           - entity: automation.led_off_on_midnight
             name: Вимкнути підсвітку опівночі

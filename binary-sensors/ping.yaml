@@ -1,91 +1,102 @@
-## Main (192.168.1.0 - 192.168.1.10)
+### Main (192.168.88.0 - 192.168.88.10)
+#- platform: ping
+#  host: 192.168.88.3
+#  name: 'ping_xiaomi_hub'
 - platform: ping
-  host: 192.168.1.3
-  name: 'ping_xiaomi_hub'
-- platform: ping
-  host: 192.168.1.4
+  host: 192.168.88.4
   name: 'ping_nergal'
   scan_interval: 60
+#
 - platform: ping
-  host: 192.168.1.6
-  name: 'ping_ubiquiti_us_8'
-- platform: ping
-  host: 192.168.1.7
+  host: 192.168.88.7
   name: 'ping_tv'
   scan_interval: 120
+#- platform: ping
+#  host: 192.168.88.8
+#  name: 'ping_macbook'
+#- platform: ping
+#  host: 192.168.88.9
+#  name: 'ping_reenbit_notebook'
+#
+### Broadlink  (192.168.88.20 - 192.168.88.29)
+#- platform: ping
+#  host: 192.168.88.20
+#  name: 'ping_broadlink_kitchen_fan'
+#- platform: ping
+#  host: 192.168.88.22
+#  name: 'ping_broadlink_christmass_tree'
+#  scan_interval: 60
+#- platform: ping
+#  host: 192.168.88.23
+#  name: 'ping_broadlink_pc_switch'
+#
+### Android Devices (192.168.88.30 - 192.168.88.39)
+#- platform: ping
+#  host: 192.168.88.30
+#  name: 'ping_phone_master'
+#- platform: ping
+#  host: 192.168.88.31
+#  name: 'ping_phone_viktoriia'
+#
+#
+### Smart Speakers (192.168.88.30 - 192.168.88.39)
+#- platform: ping
+#  host: 192.168.88.40
+#  name: 'ping_chromecast_audio'
+#- platform: ping
+#  host: 192.168.88.41
+#  name: 'ping_nest_room'
+#- platform: ping
+#  host: 192.168.88.42
+#  name: 'ping_nest_kitchen'
+#- platform: ping
+#  host: 192.168.88.44
+#  name: 'ping_echo_dot_3'
+### Climate (192.168.88.50 - 192.168.88.59)
+#- platform: ping
+#  host: 192.168.88.50
+#  name: 'ping_beok_thermostat'
+#- platform: ping
+#  host: 192.168.88.51
+#  name: 'ping_air_conditioner'
+#- platform: ping
+#  host: 192.168.88.52
+#  name: 'ping_ecoflow'
+#- platform: ping
+#  host: 192.168.88.53
+#  name: 'ping_vacuum_cleaner'
+######Yeelight
 - platform: ping
-  host: 192.168.1.8
-  name: 'ping_macbook'
-
-## Broadlink  (192.168.1.20 - 192.168.1.29)
-- platform: ping
-  host: 192.168.1.20
-  name: 'ping_broadlink_kitchen_fan'
-
-- platform: ping
-  host: 192.168.1.22
-  name: 'ping_broadlink_christmass_tree'
-  scan_interval: 60
-- platform: ping
-  host: 192.168.1.23
-  name: 'ping_broadlink_pc_switch'
-
-## Android Devices (192.168.1.30 - 192.168.1.39)
-- platform: ping
-  host: 192.168.1.32
-  name: 'ping_phone_master'
-- platform: ping
-  host: 192.168.1.31
-  name: 'ping_phone_viktoriia'
-## Smart Speakers (192.168.1.30 - 192.168.1.39)
-- platform: ping
-  host: 192.168.1.40
-  name: 'ping_chromecast_audio'
-- platform: ping
-  host: 192.168.1.41
-  name: 'ping_nest_room'
-
-- platform: ping
-  host: 192.168.1.43
-  name: 'ping_echo_dot_3'
-## Climate (192.168.1.50 - 192.168.1.59)
-- platform: ping
-  host: 192.168.1.50
-  name: 'ping_beok_thermostat'
-- platform: ping
-  host: 192.168.1.51
-  name: 'ping_air_conditioner'
-- platform: ping
-  host: 192.168.1.52
-  name: ' '
-- platform: ping
-  host: 192.168.1.53
-  name: 'ping_vacuum_cleaner'
-#####Yeelight
-- platform: ping
-  host: 192.168.1.100
+  host: 192.168.88.100
   name: 'ping_yeelight_master_lamp'
   scan_interval: 60
 - platform: ping
-  host: 192.168.1.101
+  host: 192.168.88.101
   name: 'ping_yeelight_viktoriia_lamp'
   scan_interval: 60
 - platform: ping
-  host: 192.168.1.102
+  host: 192.168.88.102
   name: 'ping_yeelight_moon'
   scan_interval: 60
 - platform: ping
-  host: 192.168.1.103
+  host: 192.168.88.103
   name: 'ping_yeelight_window'
   scan_interval: 60
 - platform: ping
-  host: 192.168.1.104
+  host: 192.168.88.104
   name: 'ping_yeelight_kitchen'
   scan_interval: 60
-##### Cameras
-- platform: ping
-  host: 192.168.1.110
-  name: 'ping_camera_front_door'
-- platform: ping
-  host: 192.168.1.111
-  name: 'ping_camera_aqara_cam'
+#
+#- platform: ping
+#  host: 192.168.88.107
+#  name: 'ping_vacuum_cleaner'
+#  scan_interval: 60
+#
+###### Cameras
+#- platform: ping
+#  host: 192.168.88.110
+#  name: 'ping_camera_front_door'
+#- platform: ping
+#  host: 192.168.88.111
+#  name: 'ping_camera_aqara_cam'
+#

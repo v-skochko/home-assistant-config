@@ -5,3 +5,53 @@
   action:
     - service: switch.turn_off
       entity_id: group.group_switches
+
+
+- id: '1671481290262'
+  alias: tag-master
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: e25cb059-40ea-4bec-ae0d-96bc855eeb02
+  condition: []
+  action:
+  - service: light.toggle
+    data:
+      transition: 7
+    target:
+      device_id: 705703222dd16231992610d573a666b8
+  mode: single
+
+- id: '1672861262598'
+  alias: Нова автоматизація
+  description: ''
+  trigger:
+    - platform: tag
+      tag_id: 7dc04b48-44eb-411d-8d6a-2bca9b01f951
+  condition: []
+  action:
+    - service: light.turn_off
+      data:
+        transition: 1
+      target:
+        entity_id:
+          - light.yeelight_kitchen
+          - light.yeelight_window
+          - light.yeelight_master_lamp
+          - light.yeelight_viktoriia_lamp
+          - light.gateway_light_7811dcfaf643
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id:
+          - switch.broadlink_kitchen_fan_switch
+          - switch.wall_switch_left_158d0001dc2c2e
+          - switch.wall_switch_right_158d00019f6738
+          - switch.wall_switch_left_158d00019f6738
+          - switch.wall_switch_right_158d00016c31cf
+          - switch.wall_switch_right_158d0001f4852b
+    - service: media_player.media_pause
+      data: {}
+      target:
+        entity_id: media_player.kitchen
+  mode: single

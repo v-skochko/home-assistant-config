@@ -5,6 +5,17 @@ cards:
   ########## Stack 1 ######################################################################
   - type: vertical-stack
     cards:
+      - type: grid
+        square: false
+        columns: 1
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.living_room_turbo_fan
+                name: Turbo Fan
+            title: "Кондиціонер"
+          - type: thermostat
+            entity: climate.living_room
       - type: vertical-stack
         cards:
           - type: thermostat
@@ -71,28 +82,33 @@ cards:
       - type: vertical-stack
         cards:
           - type: custom:weather-card
-            entity: weather.OpenWeatherMap
+            entity: weather.openweathermap
             name: Львів
           - type: custom:sun-card
             darkMode: true
-  ########## Stack 3 ######################################################################
-  - type: vertical-stack
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: picture-glance
-            entities: [ ]
-            title: Проспект Свободи
-            camera_image: camera.liviv_svobody_avenue
-          - type: picture-glance
-            entities: [ ]
-            title: Ратуша
-            camera_image: camera.liviv_ratusha
           - type: custom:mini-graph-card
             animate: true
             name: Якість повітря Семицвіт
             entities:
               - entity: sensor.shevchenka_air_quality
+  ########## Stack 3 ######################################################################
+#  - type: vertical-stack
+#    cards:
+#      - type: vertical-stack
+#        cards:
+#          - type: picture-glance
+#            entities: [ ]
+#            title: Проспект Свободи
+#            camera_image: camera.liviv_svobody_avenue
+#          - type: picture-glance
+#            entities: [ ]
+#            title: Ратуша
+#            camera_image: camera.liviv_ratusha
+#          - type: custom:mini-graph-card
+#            animate: true
+#            name: Якість повітря Семицвіт
+#            entities:
+#              - entity: sensor.shevchenka_air_quality
 #          - type: custom:mini-graph-card
 #            name: Вода в чайнику
 #            entities:

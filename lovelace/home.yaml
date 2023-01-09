@@ -15,174 +15,174 @@ cards:
             show_header_toggle: false
             entities:
               - sensor.viktoriia
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            entity: 'sensor.pixel_5_battery_level'
-            icon: 'mdi:cellphone'
-            name: Pixel 5
-            styles:
-              card:
-                - background-color: 'transparent'
-                - border-radius: 0%
-                - padding: 5px
-                - font-size: 12px
-                - text-shadow: 0px 0px 5px black
-                - height: 120px
-              grid:
-                - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
-                - grid-template-columns: 1fr 1fr
-                - grid-template-rows: 1fr min-content min-content min-content min-content
-              name:
-                - font-weight: bold
-                - font-size: 13px
-                - color: white
-                - align-self: middle
-                - justify-self: start
-                - padding-bottom: 4px
-              img_cell:
-                - justify-content: start
-                - align-items: start
-                - margin: none
-                - display: none
-              icon:
-                - color: >
-                    [[[
-                      if (entity.state < 60) return 'red';
-                      if (entity.state >= 60 && entity.state < 80) return 'orange';
-                      else return 'lime';
-                    ]]]
-                - width: 70%
-                - margin-top: -10%
-              custom_fields:
-                temp:
-                  - align-self: start
-                  - justify-self: end
-                location:
-                  - padding-bottom: 2px
-                  - align-self: middle
-                  - justify-self: start
-                wifi:
-                  - padding-bottom: 2px
-                  - align-self: middle
-                  - justify-self: start
-                battery_status:
-                  - padding-bottom: 2px
-                  - align-self: middle
-                  - justify-self: start
-            custom_fields:
-              temp: >
-                [[[
-                  return `<ha-icon
-                    icon="mdi:battery"
-                    style="width: 12px; height: 12px; color: yellow;">
-                    </ha-icon><span>${entity.state}%</span>`
-                ]]]
-              location: >
-                [[[
-                  return `<ha-icon
-                    icon="mdi:google-maps"
-                    style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
-                ]]]
-              wifi: >
-                [[[
-                return `<ha-icon
-                icon="mdi:wifi"
-                style="width: 20px; height: 30px; color: white;">
-                </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_wifi_connection'].state}</span></span>`
-                ]]]
-              battery_status: >
-                [[[
-                return `<ha-icon
-                icon="mdi:power-plug"
-                style="width: 20px; height: 30px; color: white;">
-                </ha-icon><span>Зарядка:
-                <span> ${states['sensor.pixel_5_battery_state'].state}</span></span>`
-                ]]]
-          - type: 'custom:button-card'
-            entity: 'sensor.oneplus_a6000_battery_level'
-            icon: 'mdi:cellphone'
-            name: OnePlus 6
-            styles:
-              card:
-                - background-color: 'transparent'
-                - border-radius: 0%
-                - padding: 5px
-                - font-size: 12px
-                - text-shadow: 0px 0px 5px black
-                - height: 120px
-              grid:
-                - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
-                - grid-template-columns: 1fr 1fr
-                - grid-template-rows: 1fr min-content min-content min-content min-content
-              name:
-                - font-weight: bold
-                - font-size: 13px
-                - color: white
-                - align-self: middle
-                - justify-self: start
-                - padding-bottom: 4px
-              img_cell:
-                - justify-content: start
-                - align-items: start
-                - margin: none
-                - display: none
-              icon:
-                - color: >
-                    [[[
-                      if (entity.state < 60) return 'red';
-                      if (entity.state >= 60 && entity.state < 80) return 'orange';
-                      else return 'lime';
-                    ]]]
-                - width: 70%
-                - margin-top: -10%
-              custom_fields:
-                temp:
-                  - align-self: start
-                  - justify-self: end
-                location:
-                  - padding-bottom: 2px
-                  - align-self: middle
-                  - justify-self: start
-                wifi:
-                  - padding-bottom: 2px
-                  - align-self: middle
-                  - justify-self: start
-                battery_status:
-                  - padding-bottom: 2px
-                  - align-self: middle
-                  - justify-self: start
-            custom_fields:
-              temp: >
-                [[[
-                  return `<ha-icon
-                    icon="mdi:battery"
-                    style="width: 12px; height: 12px; color: yellow;">
-                    </ha-icon><span>${entity.state}%</span>`
-                ]]]
-              location: >
-                [[[
-                  return `<ha-icon
-                    icon="mdi:google-maps"
-                    style="width: 20px; height: 30px; color: white;">
-                    </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
-                ]]]
-              wifi: >
-                [[[
-                return `<ha-icon
-                icon="mdi:wifi"
-                style="width: 20px; height: 30px; color: white;">
-                </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection'].state}</span></span>`
-                ]]]
-              battery_status: >
-                [[[
-                return `<ha-icon
-                icon="mdi:power-plug"
-                style="width: 20px; height: 30px; color: white;">
-                </ha-icon><span>Зарядка:
-                <span> ${states['sensor.oneplus_a6000_battery_state'].state}</span></span>`
-                ]]]
+      #      - type: horizontal-stack
+      #        cards:
+      #          - type: 'custom:button-card'
+      #            entity: 'sensor.pixel_5_battery_level'
+      #            icon: 'mdi:cellphone'
+      #            name: Pixel 5
+      #            styles:
+      #              card:
+      #                - background-color: 'transparent'
+      #                - border-radius: 0%
+      #                - padding: 5px
+      #                - font-size: 12px
+      #                - text-shadow: 0px 0px 5px black
+      #                - height: 120px
+      #              grid:
+      #                - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
+      #                - grid-template-columns: 1fr 1fr
+      #                - grid-template-rows: 1fr min-content min-content min-content min-content
+      #              name:
+      #                - font-weight: bold
+      #                - font-size: 13px
+      #                - color: white
+      #                - align-self: middle
+      #                - justify-self: start
+      #                - padding-bottom: 4px
+      #              img_cell:
+      #                - justify-content: start
+      #                - align-items: start
+      #                - margin: none
+      #                - display: none
+      #              icon:
+      #                - color: >
+      #                    [[[
+      #                      if (entity.state < 60) return 'red';
+      #                      if (entity.state >= 60 && entity.state < 80) return 'orange';
+      #                      else return 'lime';
+      #                    ]]]
+      #                - width: 70%
+      #                - margin-top: -10%
+      #              custom_fields:
+      #                temp:
+      #                  - align-self: start
+      #                  - justify-self: end
+      #                location:
+      #                  - padding-bottom: 2px
+      #                  - align-self: middle
+      #                  - justify-self: start
+      #                wifi:
+      #                  - padding-bottom: 2px
+      #                  - align-self: middle
+      #                  - justify-self: start
+      #                battery_status:
+      #                  - padding-bottom: 2px
+      #                  - align-self: middle
+      #                  - justify-self: start
+      #            custom_fields:
+      #              temp: >
+      #                [[[
+      #                  return `<ha-icon
+      #                    icon="mdi:battery"
+      #                    style="width: 12px; height: 12px; color: yellow;">
+      #                    </ha-icon><span>${entity.state}%</span>`
+      #                ]]]
+      #              location: >
+      #                [[[
+      #                  return `<ha-icon
+      #                    icon="mdi:google-maps"
+      #                    style="width: 20px; height: 30px; color: white;">
+      #                    </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.pixel_5_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
+      #                ]]]
+      #              wifi: >
+      #                [[[
+      #                return `<ha-icon
+      #                icon="mdi:wifi"
+      #                style="width: 20px; height: 30px; color: white;">
+      #                </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.pixel_5_wifi_connection'].state}</span></span>`
+      #                ]]]
+      #              battery_status: >
+      #                [[[
+      #                return `<ha-icon
+      #                icon="mdi:power-plug"
+      #                style="width: 20px; height: 30px; color: white;">
+      #                </ha-icon><span>Зарядка:
+      #                <span> ${states['sensor.pixel_5_battery_state'].state}</span></span>`
+      #                ]]]
+      #          - type: 'custom:button-card'
+      #            entity: 'sensor.oneplus_a6000_battery_level'
+      #            icon: 'mdi:cellphone'
+      #            name: OnePlus 6
+      #            styles:
+      #              card:
+      #                - background-color: 'transparent'
+      #                - border-radius: 0%
+      #                - padding: 5px
+      #                - font-size: 12px
+      #                - text-shadow: 0px 0px 5px black
+      #                - height: 120px
+      #              grid:
+      #                - grid-template-areas: '"i temp" "n n" "location location"  "wifi wifi" "battery_status battery_status"'
+      #                - grid-template-columns: 1fr 1fr
+      #                - grid-template-rows: 1fr min-content min-content min-content min-content
+      #              name:
+      #                - font-weight: bold
+      #                - font-size: 13px
+      #                - color: white
+      #                - align-self: middle
+      #                - justify-self: start
+      #                - padding-bottom: 4px
+      #              img_cell:
+      #                - justify-content: start
+      #                - align-items: start
+      #                - margin: none
+      #                - display: none
+      #              icon:
+      #                - color: >
+      #                    [[[
+      #                      if (entity.state < 60) return 'red';
+      #                      if (entity.state >= 60 && entity.state < 80) return 'orange';
+      #                      else return 'lime';
+      #                    ]]]
+      #                - width: 70%
+      #                - margin-top: -10%
+      #              custom_fields:
+      #                temp:
+      #                  - align-self: start
+      #                  - justify-self: end
+      #                location:
+      #                  - padding-bottom: 2px
+      #                  - align-self: middle
+      #                  - justify-self: start
+      #                wifi:
+      #                  - padding-bottom: 2px
+      #                  - align-self: middle
+      #                  - justify-self: start
+      #                battery_status:
+      #                  - padding-bottom: 2px
+      #                  - align-self: middle
+      #                  - justify-self: start
+      #            custom_fields:
+      #              temp: >
+      #                [[[
+      #                  return `<ha-icon
+      #                    icon="mdi:battery"
+      #                    style="width: 12px; height: 12px; color: yellow;">
+      #                    </ha-icon><span>${entity.state}%</span>`
+      #                ]]]
+      #              location: >
+      #                [[[
+      #                  return `<ha-icon
+      #                    icon="mdi:google-maps"
+      #                    style="width: 20px; height: 30px; color: white;">
+      #                    </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Thoroughfare' ]} ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Sub Thoroughfare' ]}, ${states['sensor.oneplus_a6000_geocoded_location'].attributes[ 'Locality' ]}</span></span>`
+      #                ]]]
+      #              wifi: >
+      #                [[[
+      #                return `<ha-icon
+      #                icon="mdi:wifi"
+      #                style="width: 20px; height: 30px; color: white;">
+      #                </ha-icon><span>  WIFI: <span style="color: var(--text-color-sensor);">${states['sensor.oneplus_a6000_wifi_connection'].state}</span></span>`
+      #                ]]]
+      #              battery_status: >
+      #                [[[
+      #                return `<ha-icon
+      #                icon="mdi:power-plug"
+      #                style="width: 20px; height: 30px; color: white;">
+      #                </ha-icon><span>Зарядка:
+      #                <span> ${states['sensor.oneplus_a6000_battery_state'].state}</span></span>`
+      #                ]]]
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -250,44 +250,68 @@ cards:
               name:
                 - color: rgb(255, 255, 255)
                 - font-size: 14px
-      - type: custom:mini-media-player
+      - type: "custom:jukebox-card"
+        links:
+          - url: https://rockradioua.online:8447/kuznya128
+            name: Гарта
+          - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
+            name: Промінь 🪐
+          - url: http://212.26.146.50:8000/sraka.mp3
+            name: Радіо Срака 💩
+          - url: https://cast108372.customer.uar.net/vgolos320
+            name: Вголос 🙀
+          - url: http://stream.radioskovoroda.com:8060/skovoroda_music
+            name: Радіо Сковорода 📒
+          - url: http://stream-uk1.radioparadise.com/aac-320
+            name: Paradise 🏝
+          - url: http://94.23.40.70:8010/
+            name: Metal Radio 👿
+          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
+            name: Jazz Radio Blues 🎷
+          - url: http://listen.shoutcast.com/Classic-RockFlorida
+            name: Classic-Rock Florida 🎼
+          - url: http://0n-rock.radionetz.de/0n-rock.mp3
+            name: ON Rock 🤟
+          - url: http://bigrradio.cdnstream1.com/5186_128
+            name: 80s Metal FM
+          - url: http://ice-sov.musicradio.com/HeartLondonMP3
+            name: Hearth London
+          - url: https://funkyradio.streamingmedia.it/play.mp3
+            name: Funkyradio
+          - url: https://kexp-mp3-128.streamguys1.com/kexp128.mp3
+            name: KEXP 90.3 Seattle
+        entities:
+          - media_player.kitchen
+          - media_player.alexa
+          - media_player.soundbar
+      - type: media-control
         name: Колонки на кухні
-        artwork: cover
         entity: media_player.kitchen
         icon: mdi:speaker-wireless
-      - type: custom:mini-media-player
-        name: Alexa
-        artwork: cover
-        entity: media_player.alexa
-        icon: mdi:speaker-wireless
-      - type: custom:mini-media-player
+      - type: media-control
         name: Телевізор
-        artwork: cover
         entity: media_player.tv
         icon: mdi:speaker-wireless
-      - type: custom:mini-media-player
+      - type: media-control
         name: Soundbar
-        artwork: cover
         entity: media_player.soundbar
         icon: mdi:speaker-wireless
-      - type: custom:mini-media-player
-        name: Google Nest
-        artwork: cover
-        entity: media_player.room
-        icon: mdi:speaker-wireless
-      - type: custom:mini-media-player
-        name: PLEX
-        artwork: cover
-        entity: media_player.plex_plex_for_android_tv_tpm171e
-        icon: mdi:speaker-wireless
-      - type: picture-glance
-        entities: [ ]
-        title: Вхідні двері
-        camera_image: camera.generic_camera
+#      - type: media-control
+#        name: Google Nest
+#        entity: media_player.room
+#        icon: mdi:speaker-wireless
+#      - type: media-control
+#        name: PLEX
+#        entity: media_player.plex_plex_for_android_tv_tpm171e
+#        icon: mdi:speaker-wireless
+
   ########## Stack 2 ######################################################################
   # Show the lights in house
   - type: vertical-stack
     cards:
+      - type: picture-entity
+        title: Вхідні двері
+        entity: camera.door_main
       - type: 'custom:text-divider-row'
         text: 'Кімната'
       ####################
@@ -371,33 +395,32 @@ cards:
               card:
                 - font-size: 12px
                 - height: 80px
-
           ####################
-          - type: 'custom:button-card'
-            entity: light.yeelight_moon
-            label: >
-              [[[
-                var bri = states['light.yeelight_moon'].attributes.brightness;
-                return  (bri ? 'Яскравість: ' + bri + '%' : 'Вимкнено') ;
-              ]]]
-            show_label: true
-            icon: hue:recessed-ceiling
-            color: auto
-            color_type: card
-            state:
-              - value: 'on'
-                icon: mdi:brightness-1
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.yeelight_moon
-                transition: 1
-            name: Місяць
-            styles:
-              card:
-                - font-size: 12px
-                - height: 80px
+#          - type: 'custom:button-card'
+#            entity: light.yeelight_moon
+#            label: >
+#              [[[
+#                var bri = states['light.yeelight_moon'].attributes.brightness;
+#                return  (bri ? 'Яскравість: ' + bri + '%' : 'Вимкнено') ;
+#              ]]]
+#            show_label: true
+#            icon: hue:recessed-ceiling
+#            color: auto
+#            color_type: card
+#            state:
+#              - value: 'on'
+#                icon: mdi:brightness-1
+#            tap_action:
+#              action: call-service
+#              service: light.toggle
+#              service_data:
+#                entity_id: light.yeelight_moon
+#                transition: 1
+#            name: Місяць
+#            styles:
+#              card:
+#                - font-size: 12px
+#                - height: 80px
       - type: 'custom:text-divider-row'
         text: 'Кухня'
       - type: horizontal-stack
@@ -530,31 +553,31 @@ cards:
                 - font-size: 12px
                 - height: 80px
           ####################
-          - type: 'custom:button-card'
-            entity: switch.christmas_tree_switch
-            icon: mdi:pine-tree
-            color: auto
-            color_type: card
-            state:
-              - value: 'on'
-                color: rgb(255, 99, 71)
-                styles:
-                  icon:
-                    - color: rgb(46,125,50)
-                  card:
-                    - background: rgb(255,255,255)
-                  name:
-                    - color: rgb(0, 0, 0)
-            tap_action:
-              action: call-service
-              service: switch.toggle
-              service_data:
-                entity_id: switch.christmas_tree_switch
-            name: Ялинка
-            styles:
-              card:
-                - font-size: 12px
-                - height: 80px
+      #          - type: 'custom:button-card'
+      #            entity: switch.christmas_tree_switch
+      #            icon: mdi:pine-tree
+      #            color: auto
+      #            color_type: card
+      #            state:
+      #              - value: 'on'
+      #                color: rgb(255, 99, 71)
+      #                styles:
+      #                  icon:
+      #                    - color: rgb(46,125,50)
+      #                  card:
+      #                    - background: rgb(255,255,255)
+      #                  name:
+      #                    - color: rgb(0, 0, 0)
+      #            tap_action:
+      #              action: call-service
+      #              service: switch.toggle
+      #              service_data:
+      #                entity_id: switch.christmas_tree_switch
+      #            name: Ялинка
+      #            styles:
+      #              card:
+      #                - font-size: 12px
+      #                - height: 80px
       - type: 'custom:text-divider-row'
         text: 'Душова'
       - type: horizontal-stack
@@ -685,131 +708,85 @@ cards:
   ########## Stack 3 ######################################################################
   - type: vertical-stack
     cards:
-#      - type: custom:mini-graph-card
-#        name: Температура в квартирі
-#        entities:
-#          #          - entity: sensor.ble_temperature_livingroom
-#          - entity: sensor.temperature_158d0002437932
-#          - entity: sensor.ble_temperature_a4c138efbf1d
-#          - entity: sensor.beok_temperature
-#          - entity: sensor.ble_temperature_e72e00d074d4
-#        line_color: var(--accent-color)
-#        line_width: 2
-#        hours_to_show: 24
-#        color_thresholds:
-#          - value: 20
-#            color: "#2196f3"
-#          - value: 23
-#            color: "#2e7d32"
-#          - value: 24
-#            color: "#c62828"
       - type: statistics-graph
         title: 'Температура в квартирі'
-        days_to_show: 2
+        days_to_show: 1
         stat_types:
           - mean
         period: '5minute'
         entities:
+          # кімната
           - sensor.ble_temperature_a4c138efbf1d
-          - sensor.ble_temperature_e72e00d074d4
+          # коридор
           - sensor.temperature_158d0002437932
-          - sensor.beok_temperature
-          - sensor.openweathermap_forecast_temperature
-#          - sensor.living_room_outdoor_temperature
-      - type: grid
-        square: false
-        columns: 1
-        cards:
-          - type: entities
-            entities:
-              - entity: switch.living_room_turbo_fan
-                name: Turbo Fan
-            title: "Кондиціонер"
-          - type: thermostat
-            entity: climate.living_room
+          # коридор
+          - sensor.ble_temperature_e72e00d074d4
 
       - type: 'custom:vacuum-card'
         entity: vacuum.xiaomi_vacuum
-        show_name: false
+        actions:
+          start:
+            service: xiaomi_miio.vacuum_clean_segment
+            service_data:
+              entity_id: vacuum.vacuum_cleaner
+              segments: [16, 20]
         stats:
           default:
-            - attribute: filter_left_time
+            - attribute: filter_left
               unit: hours
-              subtitle: Фільтр
-            - attribute: main_brush_time_left
+              subtitle: Filter
+            - attribute: side_brush_left
               unit: hours
-              subtitle: Основна щітка
-            - attribute: side_brush_time_left
+              subtitle: Side brush
+            - attribute: main_brush_left
               unit: hours
-              subtitle: Бокова щітка
-            - attribute: cleaning_time
-              unit: minutes
-              subtitle: Тривалість
+              subtitle: Main brush
+            - attribute: sensor_dirty_left
+              unit: hours
+              subtitle: Sensors
           cleaning:
-            - attribute: cleaned_area
-              unit: m2
-              subtitle: Cleaning area
+            - entity_id: sensor.vacuum_main_brush_left
+              value_template: '{{ (value | float(0) / 3600) | round(1) }}'
+              subtitle: Main brush
+              unit: hours
             - attribute: cleaning_time
               unit: minutes
               subtitle: Cleaning time
-        actions:
-          - name: Прибрати кухню
-            service: script.clean_living_room
-            icon: 'mdi:sofa'
-          - name: Прибрати душову
-            service: script.clean_bedroom
-            icon: 'mdi:shower-head'
-          - name: Прибрати кімнату
-            service: script.clean_kitchen
-            icon: 'mdi:silverware-fork-knife'
-      - type: "custom:jukebox-card"
-        links:
-          - url: https://rockradioua.online:8447/kuznya128
-            name: Гарта
-          - url: http://radio.nrcu.gov.ua:8000/ur2-mp3
-            name: Промінь 🪐
-          - url: http://212.26.146.50:8000/sraka.mp3
-            name: Радіо Срака 💩
-          - url: https://cast108372.customer.uar.net/vgolos320
-            name: Вголос 🙀
 
-          - url: http://stream.radioskovoroda.com:8060/skovoroda_music
-            name: Радіо Сковорода 📒
-          - url: http://stream-uk1.radioparadise.com/aac-320
-            name: Paradise 🏝
-          - url: http://94.23.40.70:8010/
-            name: Metal Radio 👿
-          - url: http://icepe5.infomaniak.ch/jazzblues-high.mp3
-            name: Jazz Radio Blues 🎷
-          - url: http://listen.shoutcast.com/Classic-RockFlorida
-            name: Classic-Rock Florida 🎼
-          - url: http://0n-rock.radionetz.de/0n-rock.mp3
-            name: ON Rock 🤟
-          - url: http://bigrradio.cdnstream1.com/5186_128
-            name: 80s Metal FM
-          - url: http://ice-sov.musicradio.com/HeartLondonMP3
-            name: Hearth London
-          - url: https://funkyradio.streamingmedia.it/play.mp3
-            name: Hearth London
 
-            
-        entities:
-          - media_player.kitchen
-          - media_player.alexa
-          - media_player.soundbar
-  ########## Stack 4 ######################################################################
-  - type: vertical-stack
-    cards:
-      # Extra explanation
-      - type: markdown
-        title: Google Assistant 4
-        content: |
-          **Ik wil koken** -> voor als je gaat koken.
-          **Het is avond** -> voor gedimde lampen in de avond.
-          **Ik wil morgen vroeg op** -> wakker worden met wekker.
-          **Ik spreek je morgen weer** -> slapen gaan zonder wekker.
-          **Goedemorgen** -> zodat HA weet dat je wakker bent.
-          **Kanaal X graag** (IFTTT) -> om TV van kanaal te veranderen.
-          **Zet TV aan/uit** -> om de tv aan of uit te doen.
-          **Ik pak me fiets en ga** -> om het huis af te sluiten.
 
+
+#      - type: 'custom:vacuum-card'
+#        entity: vacuum.xiaomi_vacuum
+#        show_name: false
+#        stats:
+#          default:
+#            - attribute: filter_left_time
+#              unit: hours
+#              subtitle: Фільтр
+#            - attribute: main_brush_time_left
+#              unit: hours
+#              subtitle: Основна щітка
+#            - attribute: side_brush_time_left
+#              unit: hours
+#              subtitle: Бокова щітка
+#            - attribute: cleaning_time
+#              unit: minutes
+#              subtitle: Тривалість
+#          cleaning:
+#            - attribute: cleaned_area
+#              unit: m2
+#              subtitle: Cleaning area
+#            - attribute: cleaning_time
+#              unit: minutes
+#              subtitle: Cleaning time
+#        actions:
+#          - name: Прибрати кухню
+#            service: script.clean_living_room
+#            icon: 'mdi:sofa'
+#          - name: Прибрати душову
+#            service: script.clean_bedroom
+#            icon: 'mdi:shower-head'
+#          - name: Прибрати кімнату
+#            service: script.clean_kitchen
+#            icon: 'mdi:silverware-fork-knife'

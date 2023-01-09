@@ -54,10 +54,8 @@ sensor.beok_temperature:
 sensor.living_room_outdoor_temperature:
   friendly_name: Кондиціонер надворі°
 
-
 ##########################  openweathermap
 sensor.openweathermap_forecast_temperature:
   friendly_name: Надворі°
-
 sensor.openweathermap_humidity:
   friendly_name: Надворі вологість

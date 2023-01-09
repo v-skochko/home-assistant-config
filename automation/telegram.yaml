@@ -17,7 +17,6 @@
       entity_id: media_player.room
       data:
         message: 'Домашній сервер завантажився!'
-
 - id: total_for_day
   alias: total_for_day
   trigger:
@@ -36,14 +35,3 @@
           Віка - {{ state_attr('sensor.total_day_phone_vika', 'value') }} \n\n
           🔥 Котел пропрацював - {{ state_attr('sensor.total_beok', 'value') }} \n
           "
-
-- id: '1635612482137'
-  alias: Send a camera snapshot when motion is detected
-  description: ''
-  use_blueprint:
-    path: vorion/send-camera-snapshot-notification-on-motion.yaml
-    input:
-      notification_message: '{{ motion_sensor_name }} detected movement!'
-      motion_sensor: binary_sensor.motion_sensor_158d0002b4745b
-      camera: camera.generic_camera
-      notify_device: d80eb3195b5ba5979459ebfed8df727f
