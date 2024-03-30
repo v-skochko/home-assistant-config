@@ -1,8 +1,0 @@
-# System Monitor
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /
-    - type: swap_use_percent
-    - type: processor_use
-    - type: memory_use_percent

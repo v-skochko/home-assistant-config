@@ -1,0 +1,366 @@
+daily_statistic:
+  alias: daily_statistic
+  sequence:
+  - service: notify.telegram_notifier
+    data:
+      title: daily_statistic
+  mode: single
+  icon: mdi:forum
+prepare_home:
+  alias: prepare_home
+  sequence:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.wall_switch_right_158d0001f4852b, switch.wall_switch_left_158d00016c31cf,
+        switch.wall_switch_right_158d00019f6738
+  - service: light.turn_on
+    data:
+      entity_id: light.yeelight_master_lamp, light.yeelight_viktoriia_lamp, light.yeelight_window
+  mode: single
+play_random_radio_radio:
+  alias: play_random_radio
+  sequence:
+  - service: media_player.media_stop
+    data:
+      entity_id: media_player.kitchen
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.kitchen
+      volume_level: '0.5'
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.kitchen
+      media_content_type: audio/mp3
+    data_template:
+      media_content_id: '{{ ["http://212.26.146.50:8000/sraka.mp3", "http://ua.uar.net:8000/vgolos",
+        "http://94.23.40.70:8010/",  "http://icepe5.infomaniak.ch/jazzblues-high.mp3",
+        "http://stream.radioskovoroda.com:8060/skovoroda_music", "http://listen.shoutcast.com/Classic-RockFlorida",
+        "http://stream-uk1.radioparadise.com/aac-320", "http://0n-rock.radionetz.de/0n-rock.mp3",
+        "http://bigrradio.cdnstream1.com/5186_128", "http://pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-krakow",
+        "http://radio.ukr.radio:8000/ur1-lv-mp3-m", "http://stream.mjoy.ua:8000/rzk-aac",
+        "http://radio.nrcu.gov.ua:8000/ur2-mp3", "http://bigrradio.cdnstream1.com/5104_128",
+        "http://streaming.radionomy.com/JamendoLounge", "http://bigrradio.cdnstream1.com/5104_128"]
+        | random}}
+
+        '
+  mode: single
+  icon: mdi:radio-tower
+play_white_noise:
+  alias: Грати білий шум
+  sequence:
+  - if:
+    - condition: state
+      entity_id: media_player.soundbar
+      state: playing
+    then:
+    - service: media_player.media_stop
+      data: {}
+      target:
+        entity_id: media_player.all_in_room
+    else:
+    - service: media_player.volume_set
+      data:
+        volume_level: 0
+      target:
+        entity_id: media_player.all_in_room
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.nest_room
+      data:
+        media_content_id: media-source://radio_browser/4dad0ae3-720a-434e-b350-7186e4c5ea6f
+        media_content_type: audio/mpeg
+      metadata:
+        title: MyNoise Pure Nature
+        thumbnail: https://mynoise.net/apple-touch-icon.png
+        media_class: music
+        children_media_class:
+        navigateIds:
+        - {}
+        - media_content_type: app
+          media_content_id: media-source://radio_browser
+        - media_content_type: music
+          media_content_id: media-source://radio_browser/country/BE
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.soundbar
+      data:
+        media_content_id: media-source://radio_browser/4dad0ae3-720a-434e-b350-7186e4c5ea6f
+        media_content_type: audio/mpeg
+      metadata:
+        title: MyNoise Pure Nature
+        thumbnail: https://mynoise.net/apple-touch-icon.png
+        media_class: music
+        children_media_class:
+        navigateIds:
+        - {}
+        - media_content_type: app
+          media_content_id: media-source://radio_browser
+        - media_content_type: music
+          media_content_id: media-source://radio_browser/country/BE
+    - service: media_player.volume_set
+      data:
+        volume_level: 0.5
+      target:
+        entity_id: media_player.soundbar
+    - service: media_player.volume_set
+      data:
+        volume_level: 0.5
+      target:
+        entity_id: media_player.nest_room
+  mode: single
+  icon: mdi:disc-player
+'1694327438844':
+  alias: Грати на кухні
+  sequence:
+  - data_template:
+      entity_id: media_player.kitchen
+      media_content_id: '{{ states(''input_text.active_radio'') }}'
+      media_content_type: audio/mp4
+    service: media_player.play_media
+  mode: single
+'1694807605491':
+  alias: Грати на саундбарі
+  sequence:
+  - data_template:
+      entity_id: media_player.soundbar
+      media_content_id: '{{ states(''input_text.active_radio'') }}'
+      media_content_type: audio/mp4
+    service: media_player.play_media
+  mode: single
+turn_off_all:
+  alias: Вимкнути все
+  sequence:
+  - if:
+    - condition: state
+      entity_id: light.all
+      state: 'on'
+    then:
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.all
+  - if:
+    - condition: state
+      entity_id: switch.all
+      state: 'on'
+    then:
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id: switch.all
+  - if:
+    - condition: state
+      entity_id: media_player.all
+      state: 'on'
+    then:
+    - service: media_player.media_pause
+      data: {}
+      target:
+        entity_id: media_player.all
+  mode: single
+  icon: mdi:power
+'1696100500220':
+  alias: Перемкнути звук
+  sequence:
+  - if:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: switch.pc_headphone
+        state: 'on'
+      - condition: state
+        entity_id: switch.pc_speaker
+        state: 'on'
+    then:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.pc_headphone
+      data: {}
+  - if:
+    - condition: state
+      entity_id: switch.pc_headphone
+      state: 'on'
+    then:
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id: switch.pc_speaker
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id: switch.pc_headphone
+  - if:
+    - condition: state
+      state: 'on'
+      entity_id: switch.pc_speaker
+    then:
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id: switch.pc_headphone
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id: switch.pc_speaker
+  mode: single
+  icon: mdi:all-inclusive
+alexa:
+  alias: 'Alexa: Play lofi'
+  icon: mdi:archive-music
+  sequence:
+  - if:
+    - condition: state
+      entity_id: media_player.everywhere
+      state: playing
+    then:
+    - service: media_player.media_pause
+      data: {}
+      target:
+        entity_id: media_player.everywhere
+    else:
+    - service: media_player.play_media
+      data:
+        media_content_id: Radio time
+        media_content_type: routine
+      target:
+        entity_id: media_player.left
+  mode: single
+alexa_start_day:
+  alias: 'Alexa: Start day'
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_type: routine
+      media_content_id: Start day
+    target:
+      entity_id: media_player.left
+  icon: mdi:tooth-outline
+  mode: single
+shower_light:
+  alias: Світло Душова
+  sequence:
+  - if:
+    - condition: time
+      after: 00:00:00
+      before: 08:00:00
+    then:
+    - service: light.turn_on
+      data:
+        color_temp: 153
+        brightness_pct: 20
+        transition: 1
+      target:
+        entity_id: light.shower_lamp
+  - if:
+    - condition: time
+      after: 08:00:00
+      before: '16:00:00'
+    then:
+    - service: light.turn_on
+      data:
+        color_temp: 422
+        brightness_pct: 100
+        transition: 1
+      target:
+        entity_id: light.shower_lamp
+  - if:
+    - condition: time
+      after: '16:00:00'
+      before: '22:00:00'
+    then:
+    - service: light.turn_on
+      data:
+        color_temp: 183
+        brightness_pct: 100
+        transition: 0
+      target:
+        entity_id: light.shower_lamp
+  - if:
+    - condition: time
+      after: '22:00:00'
+      before: 00:00:00
+    then:
+    - service: light.turn_on
+      data:
+        color_temp: 153
+        brightness_pct: 50
+        transition: 1
+      target:
+        entity_id: light.shower_lamp
+  mode: single
+  icon: mdi:globe-light-outline
+unknown:
+  alias: Лампочка душова
+  sequence:
+  - choose:
+    - conditions:
+      - condition: time
+        after: 00:00:00
+        before: 07:00:00
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness_pct: 70
+          kelvin: 2000
+        target:
+          entity_id: light.shower_lamp
+    - conditions:
+      - condition: time
+        after: 07:00:00
+        before: '16:00:00'
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness_pct: 100
+          kelvin: 4946
+        target:
+          entity_id: light.shower_lamp
+    - conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '23:59:59'
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness_pct: 100
+          kelvin: 2353
+        target:
+          entity_id: light.shower_lamp
+  mode: single
+  icon: hue:bulb-filament-hung
+soundbar:
+  alias: Саундбар
+  sequence:
+  - if:
+    - condition: state
+      entity_id: media_player.soundbar
+      state: paused
+    then:
+    - service: media_player.media_play_pause
+      metadata: {}
+      data: {}
+      target:
+        entity_id: media_player.soundbar
+  - if:
+    - condition: state
+      entity_id: media_player.soundbar
+      state: playing
+    then:
+    - service: media_player.media_play_pause
+      metadata: {}
+      data: {}
+      target:
+        entity_id: media_player.soundbar
+  - service: script.1694807605491
+    metadata: {}
+    data: {}
+  mode: single
+  icon: mdi:soundbar

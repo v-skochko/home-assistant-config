@@ -1,5 +1,0 @@
-- platform: template
-  sensors:
-    beok_temperature:
-      unit_of_measurement: 'degrees'
-      value_template: "{{ state_attr('climate.beok', 'current_temperature') }}"

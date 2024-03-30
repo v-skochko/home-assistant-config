@@ -1,5 +1,0 @@
-#- platform: lastfm
-#  api_key: !secret last_fm
-#  users:
-#    - lacrimasfm
-#    - ja_samota

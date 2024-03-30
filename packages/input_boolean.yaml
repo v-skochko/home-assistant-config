@@ -1,5 +1,0 @@
-input_boolean:
-  automation_motion_light:
-    initial: on
-  automation_motion_night_light:
-    initial: on

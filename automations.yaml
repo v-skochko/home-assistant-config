@@ -1,87 +1,948 @@
-- id: '1672336701665'
-  alias: Тег - Прихід додому
+- id: '1693511567294'
+  alias: '04 - #Душова# Aqara Кнопка '
+  description: ''
+  use_blueprint:
+    path: rhl2401/zigbee2mqtt_aqara_wireless_switch.yaml
+    input:
+      action_sensor: sensor.aqara_button_action
+      press_single:
+      - service: light.toggle
+        data: {}
+        target:
+          entity_id: light.shower
+      press_double:
+      - service: script.alexa
+        data: {}
+      press_hold:
+      - service: fan.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: fan.shower
+- id: '1678616670914'
+  alias: '03 - #Telegram# Завантаження'
   description: ''
   trigger:
-  - platform: tag
-    tag_id: e25cb059-40ea-4bec-ae0d-96bc855eeb02
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - delay: 30
+  - service: notify.telegram_notifier
+    data:
+      message: ⚡ Завантажився miniПісь
+  mode: single
+- id: '1678616774608'
+  alias: '03 - #Telegram# Статистика за день'
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:59:00'
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      title: 'Статистика використання:'
+      message: " \n \U0001F5A5️ PC - {{ state_attr('sensor.total_time_nergal', 'value')
+        }} \n \U0001F4FA TV - {{ state_attr('sensor.total_time_tv', 'value') }} \n
+        \n \U0001F4F1Телефони \n Вася - {{ state_attr('sensor.total_day_phone_vasyl',
+        'value') }} \n Віка - {{ state_attr('sensor.total_day_phone_vika', 'value')
+        }} \n\n \U0001F525 Котел пропрацював - {{ state_attr('sensor.total_beok',
+        'value') }} \n "
+  mode: single
+- id: '1678618877165'
+  alias: '04 - #Душова# Провітрення автовимкнення'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - fan.shower
+    to: 'on'
+    from: 'off'
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 30
+      seconds: 0
+      milliseconds: 0
+  - service: fan.turn_off
+    data: {}
+    target:
+      entity_id: fan.shower
+  mode: single
+- id: '1678618998697'
+  alias: '04 - #Душова# Провітрення ранкове'
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.airing_morning
+  condition:
+  - condition: state
+    entity_id: fan.shower
+    state: 'off'
+  action:
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.shower
+  mode: single
+- id: '1678619039113'
+  alias: '04 - #Душова# Провітрення вечірнє'
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.airing_evening
+  condition:
+  - condition: state
+    entity_id: fan.shower
+    state: 'off'
+  action:
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.shower
+  mode: single
+- id: '1678619393124'
+  alias: '05 - #Кухня# Провітрення ранкове'
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.airing_morning
+  condition: []
+  action:
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.kitchen
+  mode: single
+- id: '1678619455549'
+  alias: '05 - #Кухня# Провітрення вечірнє'
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.airing_evening
+  condition: []
+  action:
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.kitchen
+  mode: single
+- id: '1678619139445'
+  alias: '10 - #yeelight# Вимкнення опівночі'
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.kitchen_and_loggia
+  mode: single
+- id: '1678619178045'
+  alias: '10 - #yeelight# Вимкнення Без руху'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.presense_kitchen
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    from: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.yeelight_kitchen
+      state: 'on'
+    - condition: state
+      entity_id: light.yeelight_window
+      state: 'on'
+    - condition: state
+      entity_id: light.kitchen_work_area
+      state: 'on'
+  - condition: state
+    entity_id: switch.pc_child_lock
+    state: 'off'
+  - condition: time
+    after: 08:00:00
+    before: '23:59:00'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.kitchen_and_loggia
+  mode: single
+- id: '1678619196283'
+  alias: '10 - #yeelight# Увімкнення на рух'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.presense_kitchen
+    to: 'on'
+    from: 'off'
+  - platform: sun
+    event: sunset
+  condition:
+  - condition: time
+    before: '23:59:00'
+    after: '16:00:00'
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: state
+    entity_id: input_boolean.home_human_inside
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.presense_kitchen
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      transition: 5
+    target:
+      entity_id:
+      - light.yeelight_kitchen
+      - light.yeelight_window
+      - light.kitchen_work_area
+  mode: single
+- id: '1678605695250'
+  alias: '99 - #Повітряна тривога# відбій'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.lvivska_oblast_air
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data:
+      volume_level: '0.3'
+    target:
+      entity_id: media_player.nest_room
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.nest_room
+    data:
+      media_content_id: media-source://media_source/local/air_raid_off.mp3
+      media_content_type: audio/mpeg
+    metadata:
+      title: air_raid_off.mp3
+      thumbnail:
+      media_class: music
+      children_media_class:
+      navigateIds:
+      - media_content_type: app
+        media_content_id: media-source://media_source
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.gateway
+  mode: single
+- id: '1678605798836'
+  alias: '99 - #Повітряна тривога#'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.lvivska_oblast_air
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.nest_room
+      volume_level: '0.3'
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.nest_room
+    data:
+      media_content_id: media-source://media_source/local/air_raid_on.mp3
+      media_content_type: audio/mpeg
+    metadata:
+      title: air_raid_on.mp3
+      thumbnail:
+      media_class: music
+      children_media_class:
+      navigateIds:
+      - media_content_type: app
+        media_content_id: media-source://media_source
+  - service: light.turn_on
+    data:
+      color_name: red
+      brightness_pct: 100
+    target:
+      entity_id: light.gateway
+  mode: single
+- id: '1679076980295'
+  alias: '99 - #fixes# Коридор ліва клавіша автовимкнення'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.aqara_corridor_left
+    to: 'on'
+    from: 'off'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.aqara_corridor_left
+  mode: single
+- id: '1691332070979'
+  alias: '80 - #Комп# Увімкнути навушники'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.pc_child_lock
+    from: 'off'
+    to: 'on'
   condition: []
   action:
   - service: switch.turn_on
     data: {}
     target:
-      entity_id:
-      - switch.wall_switch_right_158d0001f4852b
-      - switch.wall_switch_right_158d00016c31cf
-      - switch.wall_switch_right_158d0001dc2c2e
-      - switch.wall_switch_right_158d00019f6738
-  - service: light.turn_on
+      entity_id: switch.pc_headphone
+  mode: single
+- id: '1691332150827'
+  alias: '80 - #Комп# Вимкнути навушники'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.pc_child_lock
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: switch.turn_off
     data: {}
     target:
-      entity_id:
-      - light.yeelight_kitchen
-      - light.yeelight_window
-      - light.yeelight_master_lamp
-      - light.yeelight_master_lamp
-  - service: media_player.play_media
+      entity_id: switch.pc_headphone
+  - service: switch.turn_off
+    data: {}
     target:
-      entity_id: media_player.kitchen
+      entity_id: switch.pc_speaker
+  mode: single
+- id: '1691471340110'
+  alias: '03 - #Telegram# Вася пішов з дому'
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.pixel_5
+    zone: zone.home
+    event: leave
+  condition: []
+  action:
+  - service: notify.telegram_notifier
     data:
-      media_content_id: media-source://tts/google_translate?message=%D0%92%D1%96%D1%82%D0%B0%D1%94%D0%BC%D0%BE+%D0%92%D0%B4%D0%BE%D0%BC%D0%B0
-      media_content_type: provider
-    metadata:
-      title: Вітаємо Вдома
-      thumbnail: https://brands.home-assistant.io/_/google_translate/logo.png
-      media_class: app
-      children_media_class:
-      navigateIds:
-      - {}
-      - media_content_type: app
-        media_content_id: media-source://tts
-      - media_content_type: provider
-        media_content_id: media-source://tts/google_translate?message=%D0%92%D1%96%D1%82%D0%B0%D1%94%D0%BC%D0%BE+%D0%92%D0%B4%D0%BE%D0%BC%D0%B0
-  - service: script.play_radio1
+      message: "\U0001F6B6‍♂️ Вася пішов з дому"
+  mode: single
+- id: '1691471380898'
+  alias: "03 - #Telegram# \U0001F3C3‍♀️ Віка пішла з дому"
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.iphone_viktoriia
+    zone: zone.home
+    event: leave
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      message: "\U0001F3C3‍♀️ Віка пішла з дому"
+  mode: single
+- id: '1691482924094'
+  alias: '03 - #Telegram# Робот закінчив прибирання'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - vacuum.robot
+    from: cleaning
+    to: docked
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      title: "\U0001F916"
+      message: Робот закінчив прибирання
+  mode: single
+- id: '1691727136948'
+  alias: '06 - #Кімната# Лівий вмикач фікс'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.aqara_room_left
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 2
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.aqara_room_left
+  mode: single
+- id: '1691728262124'
+  alias: '06 - #Кімната# лівий вмикач перезавантаження Місяця'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - light.yeelight_moon
+    to: unavailable
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.aqara_room_left
+  mode: single
+- id: '1691769082458'
+  alias: '07 - #Коридор# Ліва Клавіша'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.aqara_corridor_left
+    to: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.all
+      state: 'on'
+    - condition: state
+      entity_id: switch.all
+      state: 'on'
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.all
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.all
+  - service: media_player.media_pause
+    data: {}
+    target:
+      entity_id: media_player.all
+  mode: single
+- id: '1691845751360'
+  alias: '03 - #Telegram# Робот почав прибирання'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - vacuum.robot
+    to: cleaning
+    from: docked
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      title: "\U0001F916"
+      message: Робот почав прибирання
+  mode: single
+- id: '1693653998861'
+  alias: '04 - #Душова# Лампочка'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.shower_presence
+    to: 'on'
+    from: 'off'
+  - type: motion
+    platform: device
+    device_id: 80bdcdf21e4466437883b66aac9a0aa3
+    entity_id: 94e8452ff72cb0e2786b450e1f42cdc9
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.home_human_inside
+    state: 'on'
+  - condition: device
+    type: is_off
+    device_id: 2952a6c59f683490a793f7afc4d16c93
+    entity_id: 0e89c555231ee2222cdab042e816cefc
+    domain: light
+  action:
+  - service: script.unknown
+    metadata: {}
     data: {}
   - delay:
       hours: 0
-      minutes: 2
-      seconds: 0
+      minutes: 0
+      seconds: 20
       milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: binary_sensor.shower_presence
+      state: 'off'
+    then:
+    - service: light.turn_off
+      metadata: {}
+      data: {}
+      target:
+        entity_id: light.shower_lamp
+  mode: single
+- id: '1693662294874'
+  alias: '04 - #Душова# Світло вимкнути'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.shower_presence
+    to: 'off'
+    from: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.shower
+      state: 'on'
+    - condition: state
+      entity_id: light.shower_lamp
+      state: 'on'
+  action:
   - service: light.turn_off
-    data: {}
+    data:
+      transition: 5
     target:
       entity_id:
-      - light.yeelight_master_lamp
-      - light.yeelight_viktoriia_lamp
-- id: '1672861262598'
-  alias: Нова автоматизація
+      - light.shower
+      - light.shower_lamp
+  mode: single
+- id: '1696088857460'
+  alias: '01 - #Тег# - Тег Лоджія'
   description: ''
   trigger:
   - platform: tag
-    tag_id: 7dc04b48-44eb-411d-8d6a-2bca9b01f951
+    tag_id: loggia
+  condition:
+  - condition: state
+    entity_id: switch.pc_child_lock
+    state: 'on'
+  action:
+  - service: script.1696100500220
+    data: {}
+  mode: single
+- id: '1696102283284'
+  alias: '99 - #WebHooks# Переключити колонки'
+  description: ''
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - GET
+    local_only: false
+    webhook_id: -QC-Rj9fweKDn8-ByefBm3WVi
+  - platform: state
+    entity_id:
+    - sensor.button_remote_action
+    attribute: action
+    to: 1_single
   condition: []
   action:
+  - service: script.1696100500220
+    data: {}
+  mode: single
+- id: '1697262694015'
+  alias: '03 - #Telegram# Вася прийшов додому'
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.pixel_5
+    zone: zone.home
+    event: enter
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      message: "\U0001F57AВася прийшов додому"
+  mode: single
+- id: '1697264973140'
+  alias: "03 - #Telegram# \U0001F469‍\U0001F3A4 Віка прийшла додому"
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.iphone_viktoriia
+    zone: zone.home
+    event: enter
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      message: "\U0001F469‍\U0001F3A4 Віка прийшла додому"
+  mode: single
+- id: '1697902983797'
+  alias: '05 - #Кухня# Провітрення обід'
+  description: ''
+  trigger:
+  - platform: time
+    at: '14:00:00'
+  condition: []
+  action:
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.kitchen
+  mode: single
+- id: '1699101190107'
+  alias: '07 - #Коридор#  Двері відкрилися'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.door_main_contact
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - if:
+    - condition: state
+      entity_id: input_boolean.home_human_inside
+      state: 'off'
+    then:
+    - service: input_boolean.turn_on
+      data: {}
+      target:
+        entity_id: input_boolean.home_human_inside
+    - service: notify.telegram_notifier
+      data:
+        message: Ми вдома!
+  mode: single
+- id: '1699425023354'
+  alias: '04 - #Душова# Вася чистить зуби '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.brush_vasyl_state
+    to: running
+  condition:
+  - condition: state
+    entity_id: binary_sensor.door_shower_contact
+    state: 'off'
+  - condition: time
+    after: 08:00:00
+    before: '23:00:00'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.everywhere
+      state: playing
+  action:
+  - service: notify.telegram_notifier
+    data:
+      message: "\U0001F9B7 Вася чистить зуби  \U0001FAA5\U0001F50B {{ states('sensor.brush_vasyll_battery')
+        }} %"
+  - service: script.alexa
+    data: {}
+  mode: single
+- id: '1699597132438'
+  alias: '04 - #Душова#  Двері закрилися'
+  description: ''
+  trigger: []
+  condition:
+  - condition: time
+    after: '22:00:00'
+    before: 08:00:00
+  action:
+  - service: light.turn_on
+    data:
+      transition: 2
+      color_temp: 153
+      brightness_pct: 100
+    target:
+      entity_id: light.shower_lamp
+  mode: single
+- id: '1699735281099'
+  alias: '04 - #Душова# Віка чистить зуби'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.brush_viktoriia_state
+    to: running
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      message: "\U0001F9B7 Віка чистить зуби  \U0001FAA5\U0001F50B {{ states('sensor.brush_viktoriia_battery')
+        }} %"
+  mode: single
+- id: '1703444594571'
+  alias: '03 - #Telegram# Вхідні двері відкрилися'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.door_main_contact
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.telegram_notifier
+    data:
+      message: "\U0001F6AA Вхідні двері відкрилися"
+  mode: single
+- id: '1703971814236'
+  alias: '#Коридор# - Нічник'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.motion_corridor_occupancy
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: time
+    after: '23:00:00'
+    before: 08:00:00
+  - condition: state
+    entity_id: binary_sensor.lvivska_oblast_air
+    state: 'off'
+  action:
+  - service: light.turn_on
+    metadata: {}
+    data:
+      color_name: brown
+      color_temp: 500
+      brightness_pct: 40
+    target:
+      entity_id: light.gateway
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
   - service: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.gateway
+  mode: single
+- id: '1705145178530'
+  alias: '04 - #Душова# Споти'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.shower_presence
+    to: 'on'
+    from: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.home_human_inside
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.sleep_period
+    state: 'off'
+  action:
+  - service: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.shower
+  mode: single
+- id: '1705149379485'
+  alias: '70 - #Кнопка Васі# Ліва'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c3a355cc25203517ea8a63d4ffed3b7a
+    type: action
+    subtype: single_left
+    discovery_id: 0x00158d0004650116 action_single_left
+  condition: []
+  action:
+  - service: light.toggle
+    metadata: {}
+    data:
+      transition: 1
+    target:
+      entity_id: light.yeelight_vasyl
+  mode: single
+- id: '1705149528329'
+  alias: '70 - #Кнопка Васі# Права'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c3a355cc25203517ea8a63d4ffed3b7a
+    type: click
+    subtype: right
+    discovery_id: 0x00158d0004650116 click_right
+  condition: []
+  action:
+  - service: light.toggle
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.spots_room
+  mode: single
+- id: '1705149586764'
+  alias: '70 - #Кнопка Васі# Ліва два кліки'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c3a355cc25203517ea8a63d4ffed3b7a
+    type: click
+    subtype: left_double
+    discovery_id: 0x00158d0004650116 click_left_double
+  condition: []
+  action:
+  - service: light.toggle
+    metadata: {}
+    data:
+      transition: 1
+    target:
+      entity_id: light.yeelight_viktoriia
+  mode: single
+- id: '1705149687412'
+  alias: '70 - #Кнопка Васі# Ліва довгий клік'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c3a355cc25203517ea8a63d4ffed3b7a
+    type: click
+    subtype: left_long
+    discovery_id: 0x00158d0004650116 click_left_long
+  condition: []
+  action:
+  - service: light.toggle
+    metadata: {}
     data:
       transition: 1
     target:
       entity_id:
-      - light.yeelight_kitchen
-      - light.yeelight_window
-      - light.yeelight_master_lamp
-      - light.yeelight_viktoriia_lamp
-      - light.gateway_light_7811dcfaf643
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id:
-      - switch.broadlink_kitchen_fan_switch
-      - switch.wall_switch_left_158d0001dc2c2e
-      - switch.wall_switch_right_158d00019f6738
-      - switch.wall_switch_left_158d00019f6738
-      - switch.wall_switch_right_158d00016c31cf
-      - switch.wall_switch_right_158d0001f4852b
-  - service: media_player.media_pause
-    data: {}
-    target:
-      entity_id: media_player.kitchen
+      - light.yeelight_viktoriia
+      - light.yeelight_vasyl
   mode: single
+- id: '1705149844616'
+  alias: '70 - #Кнопка Васі# Права довгий клік'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c3a355cc25203517ea8a63d4ffed3b7a
+    type: click
+    subtype: right_long
+    discovery_id: 0x00158d0004650116 click_right_long
+  condition: []
+  action:
+  - service: script.soundbar
+    metadata: {}
+    data: {}
+  mode: single
+- id: '1705236927125'
+  alias: '71 - #Кнопка Віки# Ліва'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 2ad6a1837e112e33ee8fdd75fdcbb098
+    type: click
+    subtype: left
+    discovery_id: 0x00158d00027c0ef6 click_left
+  condition: []
+  action:
+  - service: light.toggle
+    metadata: {}
+    data:
+      transition: 1
+    target:
+      entity_id: light.yeelight_viktoriia
+  mode: single
+- id: '1705237202461'
+  alias: '72 - #Кнопка Васі# Дві разом'
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: c3a355cc25203517ea8a63d4ffed3b7a
+    type: click
+    subtype: both
+    discovery_id: 0x00158d0004650116 click_both
+  condition: []
+  action: []
+  mode: single
+- id: '1707578088878'
+  alias: Котел - Розклад
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - schedule.heater_schedule
+  condition: []
+  action:
+  - if:
+    - condition: state
+      entity_id: schedule.heater_schedule
+      state: 'on'
+    then:
+    - device_id: 8cd21a15285aa15d677dcd10425806da
+      domain: climate
+      entity_id: 3cc3e278f08689fe50cd75a819623340
+      type: set_hvac_mode
+      hvac_mode: heat
+    else:
+    - device_id: 8cd21a15285aa15d677dcd10425806da
+      domain: climate
+      entity_id: 3cc3e278f08689fe50cd75a819623340
+      type: set_hvac_mode
+      hvac_mode: 'off'
+  mode: single
+- id: '1709229404552'
+  alias: Пульт
+  description: ''
+  use_blueprint:
+    path: Stringer/zigbee2mqtt-tuya-4-button-scene-switch-ts0044.yaml
+    input:
+      switch: sensor.button_remote_action
+      button_four_short_press:
+      - if:
+        - condition: device
+          device_id: 33587448c55fe4d0a8ad3f55a96f26a8
+          domain: media_player
+          entity_id: f1d9e16b27a0cc805edfd45ac24525e9
+          type: is_playing
+        then:
+        - service: media_player.media_stop
+          metadata: {}
+          data: {}
+          target:
+            entity_id: media_player.kitchen
+        else:
+        - service: script.1694327438844
+          metadata: {}
+          data: {}

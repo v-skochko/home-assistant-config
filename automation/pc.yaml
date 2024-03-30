@@ -1,9 +1,0 @@
-- alias: turn_off_pc_on_night
-  trigger:
-    - platform: time
-      at: '02:00:00'
-  action:
-    - service: hassio.addon_stdin
-      data:
-        addon: core_rpc_shutdown
-        input: nergal
